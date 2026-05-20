@@ -2,6 +2,7 @@ type ArticleHeaderProps = {
   title: string;
   description: string;
   publishedAt: string;
+  tags?: string[];
 };
 
 function formatDate(iso: string): string {
@@ -17,6 +18,7 @@ export function ArticleHeader({
   title,
   description,
   publishedAt,
+  tags = [],
 }: ArticleHeaderProps) {
   return (
     <header className="border-b border-[#dbeafe] pb-8 sm:pb-10">
@@ -27,6 +29,20 @@ export function ArticleHeader({
       >
         公開日: {formatDate(publishedAt)}
       </time>
+      {tags.length > 0 && (
+        <ul
+          className="mt-3 flex flex-wrap gap-2"
+          aria-label="記事タグ"
+        >
+          {tags.map((tag) => (
+            <li key={tag}>
+              <span className="inline-block rounded-full border border-[#dbeafe] bg-[#f8fbff] px-3 py-1 text-xs font-medium text-slate-600">
+                {tag}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
       <h1 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-slate-900 sm:text-3xl sm:leading-snug">
         {title}
       </h1>
