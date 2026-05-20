@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import path from "path";
-import type { BlogPost, BlogPostSlug } from "./types";
-import { getPostMeta } from "./posts";
+import type { BlogPost } from "./types";
+import { getPostMeta, type BlogSlug } from "./posts";
 
 /** 先頭の `# タイトル` 行からタイトルを取得 */
 function extractTitle(raw: string): string {
@@ -30,7 +30,7 @@ function stripTitleHeading(content: string): string {
   return content.replace(/^#\s+.+\n+/, "").trim();
 }
 
-export async function loadPost(slug: BlogPostSlug): Promise<BlogPost> {
+export async function loadPost(slug: BlogSlug): Promise<BlogPost> {
   const meta = getPostMeta(slug);
   const filePath = path.join(process.cwd(), meta.markdownPath);
   const raw = await readFile(filePath, "utf-8");
