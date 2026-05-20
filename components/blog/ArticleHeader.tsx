@@ -5,7 +5,6 @@ type ArticleHeaderProps = {
 };
 
 function formatDate(iso: string): string {
-  // タイムゾーン差で SSR / クライアントの表示がずれないよう固定
   return new Intl.DateTimeFormat("ja-JP", {
     year: "numeric",
     month: "long",
@@ -20,17 +19,18 @@ export function ArticleHeader({
   publishedAt,
 }: ArticleHeaderProps) {
   return (
-    <header className="mb-10 border-b border-white/6 pb-10 sm:mb-12 sm:pb-12">
+    <header className="border-b border-[#dbeafe] pb-8 sm:pb-10">
+      <p className="text-sm font-medium text-[#2563eb]">ブログ記事</p>
       <time
         dateTime={publishedAt}
-        className="font-mono text-xs tracking-wide text-zinc-500"
+        className="mt-3 block text-sm text-slate-500"
       >
-        {formatDate(publishedAt)}
+        公開日: {formatDate(publishedAt)}
       </time>
-      <h1 className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-zinc-50 sm:text-3xl sm:leading-snug">
+      <h1 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-slate-900 sm:text-3xl sm:leading-snug">
         {title}
       </h1>
-      <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+      <p className="mt-4 text-base leading-8 text-slate-600 sm:text-lg">
         {description}
       </p>
     </header>

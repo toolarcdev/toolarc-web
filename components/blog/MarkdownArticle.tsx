@@ -82,8 +82,20 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
     tr: ({ children }) => <tr className="article-tr">{children}</tr>,
     th: ({ children }) => <th className="article-th">{children}</th>,
     td: ({ children }) => <td className="article-td">{children}</td>,
-    strong: ({ children }) => <strong className="font-semibold text-zinc-100">{children}</strong>,
-    em: ({ children }) => <em className="italic text-zinc-400">{children}</em>,
+    strong: ({ children }) => (
+      <strong className="font-semibold text-slate-900">{children}</strong>
+    ),
+    em: ({ children }) => (
+      <em className="italic text-slate-600">{children}</em>
+    ),
+    pre: ({ children }) => <pre className="article-pre">{children}</pre>,
+    code: ({ className, children }) => {
+      const isBlock = Boolean(className);
+      if (isBlock) {
+        return <code className={className}>{children}</code>;
+      }
+      return <code className="article-code-inline">{children}</code>;
+    },
     img: ({ src, alt }) => {
       const resolved = resolveImageSrc(typeof src === "string" ? src : undefined, imageBasePath);
       if (!resolved) return null;
