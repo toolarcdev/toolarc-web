@@ -164,7 +164,7 @@ export default function Home() {
       />
 
       {/* Header */}
-      <header className="animate-fade-up relative z-20 border-b border-white/[0.06] bg-[#030303]/60 backdrop-blur-xl">
+      <header className="animate-fade-up relative z-20 border-b border-white/6 bg-[#030303]/60 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
           <Link
             className="group flex items-center gap-2.5 text-zinc-100"
@@ -180,7 +180,7 @@ export default function Home() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium text-zinc-400 transition-all hover:border-white/[0.14] hover:bg-white/[0.06] hover:text-zinc-200"
+            className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/3 px-3.5 py-1.5 text-xs font-medium text-zinc-400 transition-all hover:border-white/[0.14] hover:bg-white/6 hover:text-zinc-200"
           >
             <GitHubIcon className="size-4" />
             GitHub
@@ -191,7 +191,7 @@ export default function Home() {
       {/* Hero */}
       <main className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col items-center justify-center px-6 py-20">
         <div className="flex w-full max-w-2xl flex-col items-center text-center">
-          <div className="animate-fade-up-delay-1 mb-8 inline-flex items-center gap-2.5 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-1.5">
+          <div className="animate-fade-up-delay-1 mb-8 inline-flex items-center gap-2.5 rounded-full border border-emerald-500/20 bg-emerald-500/6 px-4 py-1.5">
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400/40" />
               <span className="relative inline-flex size-2 animate-pulse-soft rounded-full bg-emerald-400" />
@@ -216,7 +216,7 @@ export default function Home() {
           <ul className="animate-fade-up-delay-3 mt-10 flex flex-wrap justify-center gap-2.5">
             {CAPABILITIES.map(({ label, icon: Icon }) => (
               <li key={label}>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.02] px-3.5 py-2 text-xs text-zinc-400">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/6 bg-white/2 px-3.5 py-2 text-xs text-zinc-400">
                   <Icon className="size-3.5 text-violet-400/80" />
                   {label}
                 </span>
@@ -245,11 +245,11 @@ export default function Home() {
         {/* Decorative card */}
         <div
           aria-hidden
-          className="animate-fade-up-delay-4 pointer-events-none absolute inset-x-6 top-1/2 -z-10 mx-auto h-72 max-w-3xl -translate-y-1/2 rounded-3xl border border-white/[0.04] bg-linear-to-b from-white/[0.03] to-transparent shadow-[0_0_80px_-20px_rgba(139,92,246,0.15)]"
+          className="animate-fade-up-delay-4 pointer-events-none absolute inset-x-6 top-1/2 -z-10 mx-auto h-72 max-w-3xl -translate-y-1/2 rounded-3xl border border-white/4 bg-linear-to-b from-white/3 to-transparent shadow-[0_0_80px_-20px_rgba(139,92,246,0.15)]"
         />
       </main>
 
-      <footer className="animate-fade-up-delay-4 relative z-10 border-t border-white/[0.04] py-6">
+      <footer className="animate-fade-up-delay-4 relative z-10 border-t border-white/4 py-6">
         <p className="text-center font-mono text-[11px] tracking-wide text-zinc-600">
           © {new Date().getFullYear()} ToolArc. All rights reserved.
         </p>
