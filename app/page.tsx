@@ -1,10 +1,47 @@
+import Link from "next/link";
+
 const GITHUB_URL = "https://github.com/toolarcdev/toolarc-web";
 
-function GitHubIcon() {
+const CAPABILITIES = [
+  { label: "AI Workflows", icon: SparklesIcon },
+  { label: "Gaming Utilities", icon: GamepadIcon },
+  { label: "Developer Tools", icon: TerminalIcon },
+] as const;
+
+function LogoMark({ className }: { className?: string }) {
   return (
     <svg
       aria-hidden
-      className="size-5"
+      className={className}
+      fill="none"
+      viewBox="0 0 32 32"
+    >
+      <rect
+        className="stroke-zinc-700"
+        height="28"
+        rx="8"
+        strokeWidth="1"
+        width="28"
+        x="2"
+        y="2"
+      />
+      <path
+        className="stroke-violet-400"
+        d="M9 22 L16 10 L23 22"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+      <circle className="fill-violet-400" cx="16" cy="10" r="2" />
+    </svg>
+  );
+}
+
+function GitHubIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
       fill="currentColor"
       viewBox="0 0 24 24"
     >
@@ -17,50 +54,206 @@ function GitHubIcon() {
   );
 }
 
+function SparklesIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.455 2.456Z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function GamepadIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M6 12h4m-2-2v4m7-1h.01M16 12h.01M18 10.5V9a3 3 0 0 0-3-3h-1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6 9H4.5A3 3 0 0 0 1.5 12v3a6 6 0 0 0 6 6h6a6 6 0 0 0 6-6v-3a3 3 0 0 0-3-3H18"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function TerminalIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="m6.75 7.5 3 3-3 3m4.5 0h6.75M4.5 6.75h15A1.5 1.5 0 0 1 21 8.25v7.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 15.75v-7.5A1.5 1.5 0 0 1 4.5 6.75Z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ExternalIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M13.5 6H18m0 0v4.5M18 6l-7.5 7.5M6 9.75v8.25A2.25 2.25 0 0 0 8.25 20.25h8.25A2.25 2.25 0 0 0 18.75 18V13.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-zinc-950 px-6 font-sans text-zinc-50">
+    <div className="relative min-h-screen overflow-hidden bg-[#030303] text-zinc-50">
+      {/* Ambient light */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(99,102,241,0.12),transparent)]"
+        className="pointer-events-none absolute -top-32 left-1/2 h-128 w-3xl -translate-x-1/2 rounded-full bg-violet-600/10 blur-[120px]"
       />
-
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(39,39,42,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(39,39,42,0.4)_1px,transparent_1px)] bg-size-[3.5rem_3.5rem] mask-[radial-gradient(ellipse_70%_60%_at_50%_0%,#000_50%,transparent_100%)]"
+        className="pointer-events-none absolute right-0 bottom-0 h-80 w-80 translate-x-1/3 translate-y-1/3 rounded-full bg-cyan-600/8 blur-[100px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(24,24,27,0.8),transparent)]"
       />
 
-      <div className="relative z-10 flex max-w-lg flex-col items-center gap-8 text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/80 px-4 py-1.5 text-xs font-medium tracking-widest text-zinc-400 uppercase backdrop-blur-sm">
-          <span className="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
-          Coming Soon
-        </div>
+      {/* Grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_75%_55%_at_50%_35%,#000_20%,transparent_75%)]"
+      />
 
-        <div className="space-y-4">
-          <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl">
-            ToolArc
-          </h1>
-          <p className="text-base leading-relaxed text-zinc-400 sm:text-lg">
-            AI workflows, gaming utilities, and developer-focused tools.
-          </p>
-        </div>
-
-        <a
-          href={GITHUB_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2.5 rounded-lg border border-zinc-800 bg-zinc-900/60 px-5 py-2.5 text-sm font-medium text-zinc-300 backdrop-blur-sm transition-colors hover:border-zinc-700 hover:bg-zinc-800/80 hover:text-zinc-50"
-        >
-          <GitHubIcon />
-          View on GitHub
-          <span
-            aria-hidden
-            className="text-zinc-500 transition-transform group-hover:translate-x-0.5 group-hover:text-zinc-400"
+      {/* Header */}
+      <header className="animate-fade-up relative z-20 border-b border-white/[0.06] bg-[#030303]/60 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
+          <Link
+            className="group flex items-center gap-2.5 text-zinc-100"
+            href="/"
           >
-            →
-          </span>
-        </a>
-      </div>
-    </main>
+            <LogoMark className="size-8 transition-transform duration-300 group-hover:scale-105" />
+            <span className="text-sm font-semibold tracking-tight">
+              ToolArc
+            </span>
+          </Link>
+
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium text-zinc-400 transition-all hover:border-white/[0.14] hover:bg-white/[0.06] hover:text-zinc-200"
+          >
+            <GitHubIcon className="size-4" />
+            GitHub
+          </a>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <main className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col items-center justify-center px-6 py-20">
+        <div className="flex w-full max-w-2xl flex-col items-center text-center">
+          <div className="animate-fade-up-delay-1 mb-8 inline-flex items-center gap-2.5 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-4 py-1.5">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400/40" />
+              <span className="relative inline-flex size-2 animate-pulse-soft rounded-full bg-emerald-400" />
+            </span>
+            <span className="font-mono text-[11px] font-medium tracking-[0.2em] text-emerald-300/90 uppercase">
+              Coming Soon
+            </span>
+          </div>
+
+          <h1 className="animate-fade-up-delay-2 text-5xl font-semibold tracking-[-0.04em] sm:text-7xl">
+            <span className="text-shimmer">ToolArc</span>
+          </h1>
+
+          <p className="animate-fade-up-delay-2 mt-6 max-w-md text-base leading-relaxed text-zinc-400 sm:text-lg">
+            A curated suite of{" "}
+            <span className="text-zinc-300">AI workflows</span>,{" "}
+            <span className="text-zinc-300">gaming utilities</span>, and{" "}
+            <span className="text-zinc-300">developer tools</span> — built for
+            people who ship.
+          </p>
+
+          <ul className="animate-fade-up-delay-3 mt-10 flex flex-wrap justify-center gap-2.5">
+            {CAPABILITIES.map(({ label, icon: Icon }) => (
+              <li key={label}>
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.02] px-3.5 py-2 text-xs text-zinc-400">
+                  <Icon className="size-3.5 text-violet-400/80" />
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="animate-fade-up-delay-4 mt-12 flex flex-col items-center gap-4 sm:flex-row">
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-xl bg-zinc-50 px-6 py-3 text-sm font-medium text-zinc-950 transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <GitHubIcon className="size-4" />
+              View on GitHub
+              <ExternalIcon className="size-3.5 opacity-40 transition-opacity group-hover:opacity-70" />
+            </a>
+
+            <p className="font-mono text-xs text-zinc-600">
+              toolarcdev / toolarc-web
+            </p>
+          </div>
+        </div>
+
+        {/* Decorative card */}
+        <div
+          aria-hidden
+          className="animate-fade-up-delay-4 pointer-events-none absolute inset-x-6 top-1/2 -z-10 mx-auto h-72 max-w-3xl -translate-y-1/2 rounded-3xl border border-white/[0.04] bg-linear-to-b from-white/[0.03] to-transparent shadow-[0_0_80px_-20px_rgba(139,92,246,0.15)]"
+        />
+      </main>
+
+      <footer className="animate-fade-up-delay-4 relative z-10 border-t border-white/[0.04] py-6">
+        <p className="text-center font-mono text-[11px] tracking-wide text-zinc-600">
+          © {new Date().getFullYear()} ToolArc. All rights reserved.
+        </p>
+      </footer>
+    </div>
   );
 }
