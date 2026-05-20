@@ -1,23 +1,34 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { ArticleHeader } from "@/components/blog/ArticleHeader";
 import { BlogShell } from "@/components/blog/BlogShell";
 import { MarkdownArticle } from "@/components/blog/MarkdownArticle";
+import { blogPostUrl, SITE_URL } from "@/lib/blog/constants";
 import { loadPost } from "@/lib/blog/load-post";
+import { blogSlugs, isBlogSlug } from "@/lib/blog/posts";
 
-const SLUG = "01-site-launch" as const;
-const SITE_URL = "https://www.toolarc.jp";
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
 
-export async function generateMetadata(): Promise<Metadata> {
-  const post = await loadPost(SLUG);
-  const url = `${SITE_URL}/blog/${SLUG}`;
-  const ogImage = `${post.imageBasePath}/01-success-webpage.png`;
+export function generateStaticParams() {
+  return blogSlugs.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  if (!isBlogSlug(slug)) {
+    return {};
+  }
+
+  const post = await loadPost(slug);
+  const url = blogPostUrl(slug);
+  const ogImage = `${post.imageBasePath}/${post.ogImage}`;
 
   return {
     title: post.title,
     description: post.description,
-    alternates: {
-      canonical: url,
-    },
+    alternates: { canonical: url },
     openGraph: {
       type: "article",
       locale: "ja_JP",
@@ -37,9 +48,15 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function SiteLaunchArticlePage() {
-  const post = await loadPost(SLUG);
-  const url = `${SITE_URL}/blog/${SLUG}`;
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params;
+  if (!isBlogSlug(slug)) {
+    notFound();
+  }
+
+  const post = await loadPost(slug);
+  const url = blogPostUrl(slug);
+  const ogImageUrl = `${SITE_URL}${post.imageBasePath}/${post.ogImage}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -47,19 +64,10 @@ export default async function SiteLaunchArticlePage() {
     headline: post.title,
     description: post.description,
     datePublished: post.publishedAt,
-    author: {
-      "@type": "Organization",
-      name: "ToolArc",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "ToolArc",
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": url,
-    },
-    image: `${SITE_URL}${post.imageBasePath}/01-success-webpage.png`,
+    author: { "@type": "Organization", name: "ToolArc" },
+    publisher: { "@type": "Organization", name: "ToolArc" },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: ogImageUrl,
   };
 
   return (
