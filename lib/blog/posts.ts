@@ -20,6 +20,13 @@ export const blogPosts = {
     publishedAt: "2026-05-20",
     ogImage: "01-success-webpage.png",
   },
+  "claude-obsidian-workflow": {
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "02-claude-obsidian-workflow-published.md",
+    imageBasePath: "/images/blog/claude-obsidian-workflow",
+    publishedAt: "2026-05-20",
+    ogImage: "08-cursor-create-webpage.png",
+  },
 } as const;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

@@ -18,6 +18,44 @@ function resolveImageSrc(src: string | undefined, imageBasePath: string): string
   return `${imageBasePath}/${src}`;
 }
 
+/** 本文幅いっぱいだと不自然に見えるスクリーンショット（ファイル名で判定） */
+const COMPACT_IMAGE_FILES = new Set(["02-example-source-claude.png"]);
+
+/** 画像ごとの alt / キャプション（読者向けの説明） */
+const IMAGE_META: Record<string, { alt: string; caption: string }> = {
+  "08-cursor-create-webpage.png": {
+    alt: "Cursorで実装したブログ記事ページのスクリーンショット",
+    caption:
+      "published.md を Cursor に渡して実装した、当該記事のブログページ（開発環境での表示）",
+  },
+};
+
+function getImageFileName(src: string | undefined): string {
+  if (!src) return "";
+  return src.split("/").pop() ?? src;
+}
+
+function getImageMeta(src: string | undefined) {
+  return IMAGE_META[getImageFileName(src)];
+}
+
+function isCompactImage(src: string | undefined): boolean {
+  if (!src) return false;
+  const name = src.split("/").pop() ?? src;
+  return COMPACT_IMAGE_FILES.has(name);
+}
+
+function getImageSrcFromParagraph(node: unknown): string | undefined {
+  if (!node || typeof node !== "object" || !("children" in node)) {
+    return undefined;
+  }
+  const children = (node as Element).children;
+  const img = children[0];
+  if (img?.type !== "element" || img.tagName !== "img") return undefined;
+  const src = img.properties?.src;
+  return typeof src === "string" ? src : undefined;
+}
+
 /** 段落が画像1枚だけかどうか（<p> の中に <figure> を入れないため） */
 function isImageOnlyParagraph(node: unknown): boolean {
   if (!node || typeof node !== "object" || !("children" in node)) {
@@ -41,7 +79,21 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
     ),
     p: ({ node, children }) => {
       if (isImageOnlyParagraph(node)) {
-        return <figure className="article-figure">{children}</figure>;
+        const src = getImageSrcFromParagraph(node);
+        const compact = isCompactImage(src);
+        const caption = getImageMeta(src)?.caption;
+        return (
+          <figure
+            className={
+              compact ? "article-figure article-figure--compact" : "article-figure"
+            }
+          >
+            {children}
+            {caption && (
+              <figcaption className="article-figcaption">{caption}</figcaption>
+            )}
+          </figure>
+        );
       }
       return <p className="article-p">{children}</p>;
     },
@@ -97,16 +149,24 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
       return <code className="article-code-inline">{children}</code>;
     },
     img: ({ src, alt }) => {
-      const resolved = resolveImageSrc(typeof src === "string" ? src : undefined, imageBasePath);
+      const rawSrc = typeof src === "string" ? src : undefined;
+      const resolved = resolveImageSrc(rawSrc, imageBasePath);
       if (!resolved) return null;
+      const compact = isCompactImage(rawSrc);
+      const meta = getImageMeta(rawSrc);
+      const imageAlt = alt?.trim() || meta?.alt || "";
       return (
         <Image
           src={resolved}
-          alt={alt ?? ""}
+          alt={imageAlt}
           width={1200}
           height={675}
-          className="article-img"
-          sizes="(max-width: 768px) 100vw, 720px"
+          className={compact ? "article-img article-img--compact" : "article-img"}
+          sizes={
+            compact
+              ? "(max-width: 768px) 92vw, 448px"
+              : "(max-width: 768px) 100vw, 720px"
+          }
         />
       );
     },

@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${post.title} | ToolArc`,
     description: post.description,
+    keywords: post.tags.length > 0 ? post.tags : undefined,
     alternates: { canonical: url },
     openGraph: {
       type: "article",
@@ -58,6 +59,16 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = await loadPost(slug);
   const url = blogPostUrl(slug);
   const ogImageUrl = `${SITE_URL}${post.imageBasePath}/${post.ogImage}`;
+  const relatedPosts = (
+    await Promise.all(
+      blogSlugs
+        .filter((s) => s !== slug)
+        .map(async (s) => {
+          const p = await loadPost(s);
+          return { slug: s, title: p.title, description: p.description };
+        }),
+    )
+  ).slice(0, 3);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -94,8 +105,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-slate-700" aria-current="page">
-                記事
+              <li className="max-w-48 truncate text-slate-700 sm:max-w-xs" aria-current="page">
+                {post.title}
               </li>
             </ol>
           </nav>
@@ -105,6 +116,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               title={post.title}
               description={post.description}
               publishedAt={post.publishedAt}
+              tags={post.tags}
             />
             <div className="article mt-10">
               <MarkdownArticle
@@ -115,6 +127,35 @@ export default async function BlogPostPage({ params }: PageProps) {
           </article>
 
           <footer className="mt-12 border-t border-[#dbeafe] pt-8">
+            {relatedPosts.length > 0 && (
+              <section aria-labelledby="related-heading" className="mb-8">
+                <h2
+                  id="related-heading"
+                  className="text-lg font-semibold text-slate-900"
+                >
+                  ほかの記事
+                </h2>
+                <ul className="mt-4 space-y-3" role="list">
+                  {relatedPosts.map((related) => (
+                    <li key={related.slug}>
+                      <Link
+                        href={`/blog/${related.slug}`}
+                        className="group block rounded-lg border border-[#dbeafe] bg-white p-4 hover:border-[#60a5fa]"
+                      >
+                        <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
+                          {related.title}
+                        </span>
+                        {related.description && (
+                          <p className="mt-1 text-sm leading-6 text-slate-600 line-clamp-2">
+                            {related.description}
+                          </p>
+                        )}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
             <Link
               href="/#articles"
               className="text-sm font-medium text-[#2563eb] hover:underline"
