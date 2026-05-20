@@ -208,7 +208,7 @@ export default function Home() {
           <p className="animate-fade-up-delay-2 mt-6 max-w-md text-base leading-relaxed text-zinc-400 sm:text-lg">
             A curated suite of{" "}
             <span className="text-zinc-300">AI workflows</span>,{" "}
-            <span className="text-zinc-300">gaming utilities</span>, and{" "}
+            <span className="text-zinc-300">gaming tools</span>, and{" "}
             <span className="text-zinc-300">developer tools</span> — built for
             people who ship.
           </p>
