@@ -3,10 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleHeader } from "@/components/blog/ArticleHeader";
 import { BlogShell } from "@/components/blog/BlogShell";
+import { Breadcrumbs, type BreadcrumbItem } from "@/components/blog/Breadcrumbs";
 import { MarkdownArticle } from "@/components/blog/MarkdownArticle";
 import { blogPostUrl, SITE_URL } from "@/lib/blog/constants";
 import { loadPost } from "@/lib/blog/load-post";
-import { blogSlugs, isBlogSlug } from "@/lib/blog/posts";
+import { blogSlugs, isBlogSlug, type BlogSlug } from "@/lib/blog/posts";
+import { getSeriesForPost, isSpokePost } from "@/lib/series/series";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -16,7 +18,9 @@ export function generateStaticParams() {
   return blogSlugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   if (!isBlogSlug(slug)) {
     return {};
@@ -59,16 +63,54 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = await loadPost(slug);
   const url = blogPostUrl(slug);
   const ogImageUrl = `${SITE_URL}${post.imageBasePath}/${post.ogImage}`;
-  const relatedPosts = (
-    await Promise.all(
+
+  // --- Series awareness ---
+  const series = getSeriesForPost(slug);
+  const isSpoke = isSpokePost(slug);
+
+  // Breadcrumbs: Home / Blog / [Series] / Article
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { label: "Home", href: "/" },
+    { label: "Blog", href: "/blog" },
+    ...(series && isSpoke
+      ? [{ label: series.title, href: `/series/${series.slug}` }]
+      : []),
+    { label: post.title },
+  ];
+
+  // Related: series siblings for series articles; otherwise 3 most-recent others
+  const relatedPosts = await (async () => {
+    if (series) {
+      const siblingCandidates = isSpoke
+        ? [series.hubSlug, ...(series.spokeSlugOrder ?? []).filter((s) => s !== slug)]
+        : (series.spokeSlugOrder ?? []);
+
+      return Promise.all(
+        siblingCandidates
+          .filter((s): s is BlogSlug => isBlogSlug(s))
+          .slice(0, 3)
+          .map(async (s) => {
+            const p = await loadPost(s);
+            return {
+              slug: s,
+              title: p.title,
+              description: p.description,
+              isSeries: true,
+            };
+          }),
+      );
+    }
+
+    return Promise.all(
       blogSlugs
         .filter((s) => s !== slug)
+        .slice(0, 3)
         .map(async (s) => {
           const p = await loadPost(s);
-          return { slug: s, title: p.title, description: p.description };
+          return { slug: s, title: p.title, description: p.description, isSeries: false };
         }),
-    )
-  ).slice(0, 3);
+    );
+  })();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -91,27 +133,34 @@ export default async function BlogPostPage({ params }: PageProps) {
       />
       <main className="px-4 py-10 sm:px-6 sm:py-14">
         <div className="mx-auto max-w-3xl">
-          <nav aria-label="パンくずリスト" className="mb-8 text-sm text-slate-500">
-            <ol className="flex flex-wrap items-center gap-2">
-              <li>
-                <Link href="/" className="hover:text-[#2563eb]">
-                  トップ
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li>
-                <Link href="/#articles" className="hover:text-[#2563eb]">
-                  記事一覧
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li className="max-w-48 truncate text-slate-700 sm:max-w-xs" aria-current="page">
-                {post.title}
-              </li>
-            </ol>
-          </nav>
+          <Breadcrumbs items={breadcrumbItems} />
 
-          <article itemScope itemType="https://schema.org/BlogPosting">
+          {/* Series badge for spoke articles */}
+          {series && isSpoke && (
+            <div className="mt-5">
+              <Link
+                href={`/series/${series.slug}`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-medium text-[#2563eb] hover:border-[#93c5fd]"
+              >
+                <span>Series:</span>
+                <span>{series.title}</span>
+              </Link>
+            </div>
+          )}
+          {/* Series badge for hub articles */}
+          {series && !isSpoke && (
+            <div className="mt-5">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-medium text-[#2563eb]">
+                Series Hub
+              </span>
+            </div>
+          )}
+
+          <article
+            className="mt-6"
+            itemScope
+            itemType="https://schema.org/BlogPosting"
+          >
             <ArticleHeader
               title={post.title}
               description={post.description}
@@ -126,27 +175,27 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </article>
 
-          <footer className="mt-12 border-t border-[#dbeafe] pt-8">
+          <footer className="mt-12 border-t border-slate-200 pt-8">
             {relatedPosts.length > 0 && (
               <section aria-labelledby="related-heading" className="mb-8">
                 <h2
                   id="related-heading"
-                  className="text-lg font-semibold text-slate-900"
+                  className="text-sm font-semibold uppercase tracking-wider text-slate-500"
                 >
-                  ほかの記事
+                  {series ? "このシリーズの記事" : "ほかの記事"}
                 </h2>
                 <ul className="mt-4 space-y-3" role="list">
                   {relatedPosts.map((related) => (
                     <li key={related.slug}>
                       <Link
                         href={`/blog/${related.slug}`}
-                        className="group block rounded-lg border border-[#dbeafe] bg-white p-4 hover:border-[#60a5fa]"
+                        className="group block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd]"
                       >
                         <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
                           {related.title}
                         </span>
                         {related.description && (
-                          <p className="mt-1 text-sm leading-6 text-slate-600 line-clamp-2">
+                          <p className="mt-1 text-sm leading-6 text-slate-500 line-clamp-2">
                             {related.description}
                           </p>
                         )}
@@ -156,11 +205,21 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </ul>
               </section>
             )}
+
+            {series && (
+              <Link
+                href={`/series/${series.slug}`}
+                className="mb-4 block text-sm font-medium text-[#2563eb] hover:underline"
+              >
+                ← {series.title} のシリーズ一覧へ
+              </Link>
+            )}
+
             <Link
-              href="/#articles"
-              className="text-sm font-medium text-[#2563eb] hover:underline"
+              href="/blog"
+              className="text-sm text-slate-500 hover:text-[#2563eb]"
             >
-              ← 記事一覧に戻る
+              ← 全記事一覧へ
             </Link>
           </footer>
         </div>
