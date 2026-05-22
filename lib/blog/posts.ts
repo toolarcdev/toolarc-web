@@ -27,6 +27,13 @@ export const blogPosts = {
     publishedAt: "2026-05-20",
     ogImage: "08-cursor-create-webpage.png",
   },
+  "ai-role-sharing-workflow": {
+    contentId: "01-site-launch",
+    markdownFile: "02-claude-ai-role-sharing-workflow-revised.md",
+    imageBasePath: "/images/blog/ai-role-sharing-workflow",
+    publishedAt: "2026-05-22",
+    ogImage: "og.png",
+  },
 } as const;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
