@@ -34,6 +34,13 @@ export const blogPosts = {
     publishedAt: "2026-05-22",
     ogImage: "og.png",
   },
+  "source-md-ai-writing": {
+    contentId: "01-site-launch",
+    markdownFile: "03-source-md-ai-writing-revised.md",
+    imageBasePath: "/images/blog/source-md-ai-writing",
+    publishedAt: "2026-05-22",
+    ogImage: "og.png",
+  },
 } as const;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
