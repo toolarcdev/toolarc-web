@@ -1,6 +1,8 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/
 
+# =========================
 # dependencies
+# =========================
 /node_modules
 /.pnp
 .pnp.*
@@ -10,32 +12,74 @@
 !.yarn/releases
 !.yarn/versions
 
+# =========================
 # testing
+# =========================
 /coverage
 
+# =========================
 # next.js
+# =========================
 /.next/
 /out/
 
+# =========================
 # production
+# =========================
 /build
+/dist
 
+# =========================
+# cache
+# =========================
+.cache
+.turbo
+
+# =========================
 # misc
+# =========================
 .DS_Store
+Thumbs.db
 *.pem
 
-# debug
+# =========================
+# logs
+# =========================
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
+*.log
 
-# env files (can opt-in for committing if needed)
+# =========================
+# env files
+# =========================
 .env*
+!.env.example
 
+# =========================
 # vercel
+# =========================
 .vercel
 
+# =========================
 # typescript
+# =========================
 *.tsbuildinfo
 next-env.d.ts
+
+# =========================
+# cursor / ai tools
+# =========================
+.cursor/
+.cursor-cache/
+
+# =========================
+# generated assets
+# =========================
+public/images/generated/
+
+# =========================
+# archives
+# =========================
+content/archive/
