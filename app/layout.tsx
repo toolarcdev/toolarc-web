@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
@@ -38,7 +39,8 @@ export default function RootLayout({
         <Header />
         <div className="flex flex-1 flex-col">{children}</div>
         <Footer />
-      </body>
+        <Analytics />
+        </body>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-HPRX9JM1VK"
         strategy="afterInteractive"
