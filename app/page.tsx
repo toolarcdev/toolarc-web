@@ -1,24 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { blogSlugs } from "@/lib/blog/posts";
+import { SeriesCard } from "@/components/blog/SeriesCard";
+import { allSeries } from "@/lib/series/series";
+import { blogSlugs, isBlogSlug } from "@/lib/blog/posts";
 import { loadPost } from "@/lib/blog/load-post";
 
-const GITHUB_URL = "https://github.com/toolarcdev/toolarc-web";
-
 export const metadata: Metadata = {
-  title: "ToolArc | 初心者向けの開発・AI学習ブログ",
+  title: "ToolArc | AI開発・ワークフロー・技術アーカイブ",
   description:
-    "Cursor、Claude、Next.js、GitHub、Vercelを使い始める初心者向けに、わかりやすい手順と実践記事をまとめています。",
+    "Cursor、Claude、Next.js、Vercel を活用した開発・AI ワークフローの実践記録。シリーズ型の技術知識アーカイブ。",
 };
-
-const TOPICS = [
-  "Cursor の使い方",
-  "Claude の活用",
-  "AI ワークフロー",
-  "Next.js 入門",
-  "GitHub / Vercel の設定",
-  "開発ツール・ゲーム関連ユーティリティ",
-] as const;
 
 function formatDate(iso: string): string {
   return new Intl.DateTimeFormat("ja-JP", {
@@ -30,189 +21,168 @@ function formatDate(iso: string): string {
 }
 
 export default async function Home() {
-  const articles = await Promise.all(
+  const allArticles = await Promise.all(
     blogSlugs.map(async (slug) => {
       const post = await loadPost(slug);
       return {
         slug,
         title: post.title,
-        description: post.description,
         publishedAt: post.publishedAt,
       };
     }),
   );
 
+  const latestArticles = [...allArticles]
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    )
+    .slice(0, 3);
+
+  const seriesWithCounts = allSeries.map((s) => ({
+    ...s,
+    articleCount:
+      1 + (s.spokeSlugOrder?.filter((sp) => isBlogSlug(sp)).length ?? 0),
+  }));
+
   return (
-    <div className="min-h-screen bg-white text-slate-800">
-      <header className="border-b border-[#dbeafe] bg-white">
-        <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4 sm:h-16 sm:px-6">
-          <Link
-            href="/"
-            className="text-base font-semibold tracking-tight text-slate-900"
+    <main>
+      {/* Hero */}
+      <section
+        aria-labelledby="hero-heading"
+        className="border-b border-slate-200 bg-slate-50 px-4 py-14 sm:px-6 sm:py-20"
+      >
+        <div className="mx-auto max-w-4xl">
+          <p className="text-xs font-medium uppercase tracking-widest text-[#2563eb]">
+            Technical Knowledge Archive
+          </p>
+          <h1
+            id="hero-heading"
+            className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
           >
-            ToolArc
-          </Link>
-          <nav aria-label="メインナビゲーション" className="flex items-center gap-4 sm:gap-6">
+            AI開発・ワークフロー・
+            <br className="hidden sm:block" />
+            トラブル解決の記録
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+            Cursor、Claude、Next.js、Vercel を使った実践的な開発記録。
+            単なるブログではなく、再利用できる知識システムとして整理しています。
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="#articles"
-              className="text-sm text-slate-600 hover:text-[#2563eb]"
+              href="/series"
+              className="inline-flex items-center rounded-lg bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#1d4ed8]"
             >
-              記事一覧
+              Series を見る
             </Link>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-slate-600 hover:text-[#2563eb]"
+            <Link
+              href="/blog"
+              className="inline-flex items-center rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 hover:border-slate-300 hover:text-slate-900"
             >
-              GitHub
-            </a>
-          </nav>
+              全記事一覧
+            </Link>
+          </div>
         </div>
-      </header>
+      </section>
 
-      <main>
-        <section
-          aria-labelledby="hero-heading"
-          className="border-b border-[#dbeafe] bg-[#f8fbff] px-4 py-14 sm:px-6 sm:py-20"
-        >
-          <div className="mx-auto max-w-3xl">
-            <p className="text-sm font-medium text-[#2563eb]">
-              初心者向け · 日本語ブログ
-            </p>
-            <h1
-              id="hero-heading"
-              className="mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl"
-            >
-              はじめての開発でも、
-              <br className="hidden sm:block" />
-              焦らず学べる場所
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              ToolArc は、Cursor や Claude、Next.js、GitHub、Vercel
-              などを使い始める方のためのブログです。専門用語はできるだけ噛み砕き、手順を追いながら読める記事を中心に公開しています。
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href="#articles"
-                className="inline-flex items-center justify-center rounded-lg bg-[#60a5fa] px-6 py-3 text-sm font-medium text-white hover:bg-[#3b82f6]"
-              >
-                記事を読む
-              </Link>
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg border border-[#dbeafe] bg-white px-6 py-3 text-sm font-medium text-slate-700 hover:border-[#60a5fa] hover:text-[#2563eb]"
-              >
-                GitHub を見る
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="articles"
-          aria-labelledby="articles-heading"
-          className="px-4 py-14 sm:px-6 sm:py-16"
-        >
-          <div className="mx-auto max-w-3xl">
+      {/* Series */}
+      <section
+        aria-labelledby="series-heading"
+        className="px-4 py-12 sm:px-6 sm:py-14"
+      >
+        <div className="mx-auto max-w-4xl">
+          <div className="flex items-baseline justify-between">
             <h2
-              id="articles-heading"
-              className="text-2xl font-bold text-slate-900"
+              id="series-heading"
+              className="text-lg font-semibold text-slate-900"
             >
-              記事一覧
+              Series
             </h2>
-            <p className="mt-3 text-base leading-7 text-slate-600">
-              公開中の記事です。気になるタイトルからお読みください。
-            </p>
-
-            <ul className="mt-8 space-y-4" role="list">
-              {articles.map((article) => (
-                <li key={article.slug}>
-                  <article className="rounded-xl border border-[#dbeafe] bg-white p-5 sm:p-6">
-                    <time
-                      dateTime={article.publishedAt}
-                      className="text-sm text-slate-500"
-                    >
-                      {formatDate(article.publishedAt)}
-                    </time>
-                    <h3 className="mt-2 text-lg font-semibold leading-snug text-slate-900">
-                      <Link
-                        href={`/blog/${article.slug}`}
-                        className="hover:text-[#2563eb]"
-                      >
-                        {article.title}
-                      </Link>
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-600 line-clamp-3">
-                      {article.description}
-                    </p>
-                    <Link
-                      href={`/blog/${article.slug}`}
-                      className="mt-4 inline-block text-sm font-medium text-[#2563eb] hover:underline"
-                    >
-                      記事を読む →
-                    </Link>
-                  </article>
-                </li>
-              ))}
-            </ul>
+            <Link
+              href="/series"
+              className="text-sm text-[#2563eb] hover:underline"
+            >
+              すべて見る →
+            </Link>
           </div>
-        </section>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {seriesWithCounts.map((s) => (
+              <SeriesCard
+                key={s.slug}
+                slug={s.slug}
+                title={s.title}
+                description={s.description}
+                articleCount={s.articleCount}
+                publishedAt={s.publishedAt}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <section
-          aria-labelledby="topics-heading"
-          className="border-t border-[#dbeafe] bg-[#f8fbff] px-4 py-14 sm:px-6 sm:py-16"
-        >
-          <div className="mx-auto max-w-3xl">
+      {/* Latest articles */}
+      <section
+        aria-labelledby="latest-heading"
+        className="border-t border-slate-200 bg-slate-50 px-4 py-12 sm:px-6 sm:py-14"
+      >
+        <div className="mx-auto max-w-4xl">
+          <div className="flex items-baseline justify-between">
             <h2
-              id="topics-heading"
-              className="text-2xl font-bold text-slate-900"
+              id="latest-heading"
+              className="text-lg font-semibold text-slate-900"
             >
-              扱っているテーマ
+              Latest Articles
             </h2>
-            <p className="mt-3 text-base leading-7 text-slate-600">
-              今後も、初心者の検索意図に合わせた実践記事を追加していく予定です。
-            </p>
-            <ul className="mt-6 grid gap-2 sm:grid-cols-2" role="list">
-              {TOPICS.map((topic) => (
-                <li
-                  key={topic}
-                  className="rounded-lg border border-[#dbeafe] bg-white px-4 py-3 text-sm text-slate-700"
+            <Link
+              href="/blog"
+              className="text-sm text-[#2563eb] hover:underline"
+            >
+              全記事一覧 →
+            </Link>
+          </div>
+          <ul className="mt-4 space-y-1" role="list">
+            {latestArticles.map((article) => (
+              <li key={article.slug}>
+                <Link
+                  href={`/blog/${article.slug}`}
+                  className="group flex items-center justify-between rounded-lg px-3 py-3 hover:bg-white"
                 >
-                  {topic}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+                  <span className="font-medium text-slate-800 group-hover:text-[#2563eb]">
+                    {article.title}
+                  </span>
+                  <time
+                    dateTime={article.publishedAt}
+                    className="ml-4 shrink-0 text-xs text-slate-400"
+                  >
+                    {formatDate(article.publishedAt)}
+                  </time>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-        <section
-          aria-labelledby="about-heading"
-          className="px-4 py-14 sm:px-6 sm:py-16"
-        >
-          <div className="mx-auto max-w-3xl">
-            <h2 id="about-heading" className="text-2xl font-bold text-slate-900">
-              このサイトについて
-            </h2>
-            <div className="mt-6 space-y-4 text-base leading-8 text-slate-600">
-              <p>
-                ToolArc は、個人開発や AI ツールの学習記録を共有するためのサイトです。完璧な知識がなくても、手順を追えば一歩ずつ進めることを大切にしています。
-              </p>
-              <p>
-                記事では、うまくいったことだけでなく、詰まった場面や試した解決策も正直に書いています。同じ段階で学んでいる方の参考になれば幸いです。
-              </p>
-            </div>
+      {/* About */}
+      <section
+        id="about"
+        aria-labelledby="about-heading"
+        className="px-4 py-12 sm:px-6 sm:py-14"
+      >
+        <div className="mx-auto max-w-4xl">
+          <h2 id="about-heading" className="text-lg font-semibold text-slate-900">
+            About
+          </h2>
+          <div className="mt-4 space-y-3 text-base leading-8 text-slate-600">
+            <p>
+              ToolArc は、個人開発・AI ツール活用の実践記録をシリーズ形式でまとめた技術アーカイブです。
+            </p>
+            <p>
+              うまくいった手順だけでなく、詰まった場面・試した解決策も正直に記録しています。
+            </p>
           </div>
-        </section>
-      </main>
-
-      <footer className="border-t border-[#dbeafe] bg-[#f8fbff] px-4 py-8 sm:px-6">
-        <p className="mx-auto max-w-3xl text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} ToolArc
-        </p>
-      </footer>
-    </div>
+        </div>
+      </section>
+    </main>
   );
 }

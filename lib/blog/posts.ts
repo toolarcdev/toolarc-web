@@ -41,6 +41,13 @@ export const blogPosts = {
     publishedAt: "2026-05-22",
     ogImage: "og.png",
   },
+  "vercel-domain-invalid-nameserver": {
+    contentId: "01-site-launch",
+    markdownFile: "01-vercel-domain-invalid-nameserver.md",
+    imageBasePath: "/images/blog/vercel-domain-invalid-nameserver",
+    publishedAt: "2026-05-22",
+    ogImage: "og.png",
+  },
 } as const;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
