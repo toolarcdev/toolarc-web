@@ -34,6 +34,5 @@ export function pushEvent<T extends keyof AnalyticsEventMap>(
   params: AnalyticsEventMap[T],
 ): void {
   if (typeof window === "undefined") return;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: eventName, ...params });
+  window.dataLayer?.push({ event: eventName, ...params });
 }
