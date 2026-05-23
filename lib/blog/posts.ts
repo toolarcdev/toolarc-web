@@ -61,6 +61,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "obsidian-daily-notes-workflow": {
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "26-obsidian-daily-notes-workflow-final.md",
+    imageBasePath: "/images/blog/obsidian-daily-notes-workflow",
+    publishedAt: "2026-05-24",
+    ogImage: "06-image1.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
