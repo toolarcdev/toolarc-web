@@ -10,6 +10,10 @@ import { BeforeAfterComparison } from "@/components/blog/source-md-ai-writing/Be
 import { SourceWorkflowDiagram } from "@/components/blog/source-md-ai-writing/SourceWorkflowDiagram";
 import { KeyPointsCards } from "@/components/blog/source-md-ai-writing/KeyPointsCards";
 import { SITE_URL, blogPostUrl } from "@/lib/blog/constants";
+import { loadPost } from "@/lib/blog/load-post";
+import { estimateReadingTime } from "@/lib/blog/reading-time";
+import { getSeriesForPost } from "@/lib/series/series";
+import { ScrollDepthTracker } from "@/components/analytics/ScrollDepthTracker";
 
 const SLUG = "source-md-ai-writing";
 const PAGE_URL = blogPostUrl(SLUG);
@@ -136,7 +140,11 @@ source.md で整理してから渡す
 # 読者に伝えたいこと
 AIより先に、入力素材の構造を見直したほうがいい`;
 
-export default function SourceMdAiWritingPage() {
+export default async function SourceMdAiWritingPage() {
+  const post = await loadPost(SLUG);
+  const series = getSeriesForPost(SLUG);
+  const readingTime = estimateReadingTime(post.content);
+
   return (
     <BlogShell>
       <script
@@ -146,6 +154,12 @@ export default function SourceMdAiWritingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <ScrollDepthTracker
+        slug={SLUG}
+        seriesSlug={series?.slug ?? null}
+        readingTime={readingTime}
+        category={post.category}
       />
 
       <main className="px-4 py-10 sm:px-6 sm:py-14">
