@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { pushEvent } from "@/lib/analytics/gtm";
+import { useRef } from "react";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
 type Props = {
   children: React.ReactNode;
@@ -9,21 +9,12 @@ type Props = {
 };
 
 export function CodeBlock({ children, className }: Props) {
-  const [copied, setCopied] = useState(false);
   const preRef = useRef<HTMLPreElement>(null);
-
   const language = className?.replace(/^language-/, "");
+  const { copied, copy } = useCopyToClipboard({ language });
 
-  const handleCopy = async () => {
-    const text = preRef.current?.textContent ?? "";
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      pushEvent("copy_code", { language });
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // clipboard API not available
-    }
+  const handleCopy = () => {
+    copy(preRef.current?.textContent ?? "");
   };
 
   return (
