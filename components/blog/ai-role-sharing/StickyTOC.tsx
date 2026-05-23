@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { pushEvent } from "@/lib/analytics/gtm";
 
 export type TocItem = {
   id: string;
@@ -45,6 +46,7 @@ export function StickyTOC({ items }: StickyTOCProps) {
           <li key={id}>
             <a
               href={`#${id}`}
+              onClick={() => pushEvent("toc_click", { toc_label: label, toc_id: id })}
               className={[
                 "block border-l-2 py-1 pl-3 pr-2 text-sm leading-snug transition-colors duration-150",
                 activeId === id

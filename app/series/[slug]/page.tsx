@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/blog/Breadcrumbs";
+import { SeriesArticleLink } from "@/components/blog/SeriesArticleLink";
 import { allSeries, seriesMap } from "@/lib/series/series";
 import { isBlogSlug, type BlogSlug } from "@/lib/blog/posts";
 import { loadPost } from "@/lib/blog/load-post";
@@ -89,8 +90,11 @@ export default async function SeriesDetailPage({ params }: PageProps) {
             <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-400">
               Series Overview
             </h2>
-            <Link
+            <SeriesArticleLink
               href={`/blog/${series.hubSlug}`}
+              seriesSlug={series.slug}
+              targetSlug={series.hubSlug}
+              linkType="hub"
               className="group mt-3 flex flex-col rounded-xl border-2 border-[#bfdbfe] bg-[#eff6ff] p-5 transition-colors hover:border-[#60a5fa] sm:p-6"
             >
               <p className="text-xs font-medium text-[#2563eb]">Hub Article</p>
@@ -108,7 +112,7 @@ export default async function SeriesDetailPage({ params }: PageProps) {
               >
                 {formatDate(hubPost.publishedAt)}
               </time>
-            </Link>
+            </SeriesArticleLink>
           </div>
         )}
 
@@ -121,8 +125,11 @@ export default async function SeriesDetailPage({ params }: PageProps) {
             <ul className="mt-3 space-y-3" role="list">
               {spokes.map((spoke, i) => (
                 <li key={spoke.slug}>
-                  <Link
+                  <SeriesArticleLink
                     href={`/blog/${spoke.slug}`}
+                    seriesSlug={series.slug}
+                    targetSlug={spoke.slug}
+                    linkType="spoke"
                     className="group flex items-start gap-4 rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd] sm:p-5"
                   >
                     <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] text-xs font-medium text-[#2563eb]">
@@ -144,7 +151,7 @@ export default async function SeriesDetailPage({ params }: PageProps) {
                         {formatDate(spoke.publishedAt)}
                       </time>
                     </div>
-                  </Link>
+                  </SeriesArticleLink>
                 </li>
               ))}
             </ul>

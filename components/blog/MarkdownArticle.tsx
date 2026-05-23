@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
 import type { Element } from "hast";
+import { CodeBlock } from "@/components/blog/CodeBlock";
+import { pushEvent } from "@/lib/analytics/gtm";
 
 type MarkdownArticleProps = {
   content: string;
@@ -107,12 +111,17 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
     a: ({ href, children }) => {
       const isExternal = href?.startsWith("http");
       if (isExternal) {
+        const linkText =
+          typeof children === "string" ? children : undefined;
         return (
           <a
             href={href}
             className="article-link"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              pushEvent("outbound_click", { url: href ?? "", link_text: linkText })
+            }
           >
             {children}
           </a>
@@ -140,7 +149,16 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
     em: ({ children }) => (
       <em className="italic text-slate-600">{children}</em>
     ),
-    pre: ({ children }) => <pre className="article-pre">{children}</pre>,
+    pre: ({ children, ...props }) => {
+      const codeChild = (props as { node?: Element }).node?.children?.[0];
+      const codeClassName =
+        codeChild?.type === "element"
+          ? (codeChild.properties?.className as string[] | undefined)?.[0]
+          : undefined;
+      return (
+        <CodeBlock className={codeClassName}>{children}</CodeBlock>
+      );
+    },
     code: ({ className, children }) => {
       const isBlock = Boolean(className);
       if (isBlock) {

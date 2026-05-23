@@ -5,8 +5,11 @@ import { ArticleHeader } from "@/components/blog/ArticleHeader";
 import { BlogShell } from "@/components/blog/BlogShell";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/blog/Breadcrumbs";
 import { MarkdownArticle } from "@/components/blog/MarkdownArticle";
+import { SeriesArticleLink } from "@/components/blog/SeriesArticleLink";
+import { ScrollDepthTracker } from "@/components/analytics/ScrollDepthTracker";
 import { blogPostUrl, SITE_URL } from "@/lib/blog/constants";
 import { loadPost } from "@/lib/blog/load-post";
+import { estimateReadingTime } from "@/lib/blog/reading-time";
 import { blogSlugs, isBlogSlug, type BlogSlug } from "@/lib/blog/posts";
 import { getSeriesForPost, isSpokePost } from "@/lib/series/series";
 
@@ -67,6 +70,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   // --- Series awareness ---
   const series = getSeriesForPost(slug);
   const isSpoke = isSpokePost(slug);
+  const readingTime = estimateReadingTime(post.content);
 
   // Breadcrumbs: Home / Blog / [Series] / Article
   const breadcrumbItems: BreadcrumbItem[] = [
@@ -131,6 +135,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <ScrollDepthTracker
+        slug={slug}
+        seriesSlug={series?.slug ?? null}
+        readingTime={readingTime}
+        category={post.category}
+      />
       <main className="px-4 py-10 sm:px-6 sm:py-14">
         <div className="mx-auto max-w-3xl">
           <Breadcrumbs items={breadcrumbItems} />
@@ -138,13 +148,16 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Series badge for spoke articles */}
           {series && isSpoke && (
             <div className="mt-5">
-              <Link
+              <SeriesArticleLink
                 href={`/series/${series.slug}`}
+                seriesSlug={series.slug}
+                targetSlug={series.hubSlug}
+                linkType="badge"
                 className="inline-flex items-center gap-1.5 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-medium text-[#2563eb] hover:border-[#93c5fd]"
               >
                 <span>Series:</span>
                 <span>{series.title}</span>
-              </Link>
+              </SeriesArticleLink>
             </div>
           )}
           {/* Series badge for hub articles */}
@@ -187,19 +200,38 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <ul className="mt-4 space-y-3" role="list">
                   {relatedPosts.map((related) => (
                     <li key={related.slug}>
-                      <Link
-                        href={`/blog/${related.slug}`}
-                        className="group block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd]"
-                      >
-                        <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
-                          {related.title}
-                        </span>
-                        {related.description && (
-                          <p className="mt-1 text-sm leading-6 text-slate-500 line-clamp-2">
-                            {related.description}
-                          </p>
-                        )}
-                      </Link>
+                      {series && related.isSeries ? (
+                        <SeriesArticleLink
+                          href={`/blog/${related.slug}`}
+                          seriesSlug={series.slug}
+                          targetSlug={related.slug}
+                          linkType={related.slug === series.hubSlug ? "hub" : "spoke"}
+                          className="group block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd]"
+                        >
+                          <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
+                            {related.title}
+                          </span>
+                          {related.description && (
+                            <p className="mt-1 text-sm leading-6 text-slate-500 line-clamp-2">
+                              {related.description}
+                            </p>
+                          )}
+                        </SeriesArticleLink>
+                      ) : (
+                        <Link
+                          href={`/blog/${related.slug}`}
+                          className="group block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd]"
+                        >
+                          <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
+                            {related.title}
+                          </span>
+                          {related.description && (
+                            <p className="mt-1 text-sm leading-6 text-slate-500 line-clamp-2">
+                              {related.description}
+                            </p>
+                          )}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -207,12 +239,15 @@ export default async function BlogPostPage({ params }: PageProps) {
             )}
 
             {series && (
-              <Link
+              <SeriesArticleLink
                 href={`/series/${series.slug}`}
+                seriesSlug={series.slug}
+                targetSlug={series.hubSlug}
+                linkType="hub"
                 className="mb-4 block text-sm font-medium text-[#2563eb] hover:underline"
               >
                 ← {series.title} のシリーズ一覧へ
-              </Link>
+              </SeriesArticleLink>
             )}
 
             <Link

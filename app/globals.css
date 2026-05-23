@@ -180,6 +180,15 @@ body {
   color: #1e40af;
 }
 
+.article-pre-wrapper {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.article-pre-wrapper .article-pre {
+  margin: 0;
+}
+
 .article-pre {
   margin: 1.5rem 0;
   overflow-x: auto;
@@ -192,6 +201,26 @@ body {
   line-height: 1.7;
   color: #334155;
   -webkit-overflow-scrolling: touch;
+}
+
+.article-copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  font-size: 0.75rem;
+  font-family: var(--font-geist-sans), sans-serif;
+  color: #2563eb;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.article-copy-btn:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
 }
 
 .article-pre code {
