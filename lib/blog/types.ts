@@ -1,3 +1,5 @@
+export type BlogCategory = "ai-workflow" | "devops" | "gaming" | "tool";
+
 /** 記事レジストリの1件分（管理用 ID と公開設定） */
 export type BlogPostConfig = {
   /** content/blog/ 配下の管理用フォルダ名（例: 01-site-launch） */
@@ -9,6 +11,7 @@ export type BlogPostConfig = {
   publishedAt: string;
   /** OGP 用の代表画像（imageBasePath からの相対ファイル名） */
   ogImage: string;
+  category: BlogCategory;
 };
 
 export type BlogPostMeta = BlogPostConfig & {

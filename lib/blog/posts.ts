@@ -19,6 +19,7 @@ export const blogPosts = {
     imageBasePath: "/images/blog/site-launch",
     publishedAt: "2026-05-20",
     ogImage: "01-success-webpage.png",
+    category: "devops",
   },
   "claude-obsidian-workflow": {
     contentId: "02-claude-obsidian-workflow",
@@ -26,6 +27,7 @@ export const blogPosts = {
     imageBasePath: "/images/blog/claude-obsidian-workflow",
     publishedAt: "2026-05-20",
     ogImage: "08-cursor-create-webpage.png",
+    category: "ai-workflow",
   },
   "ai-role-sharing-workflow": {
     contentId: "01-site-launch",
@@ -33,6 +35,7 @@ export const blogPosts = {
     imageBasePath: "/images/blog/ai-role-sharing-workflow",
     publishedAt: "2026-05-22",
     ogImage: "og.png",
+    category: "ai-workflow",
   },
   "source-md-ai-writing": {
     contentId: "01-site-launch",
@@ -40,6 +43,7 @@ export const blogPosts = {
     imageBasePath: "/images/blog/source-md-ai-writing",
     publishedAt: "2026-05-22",
     ogImage: "og.png",
+    category: "ai-workflow",
   },
   "vercel-domain-invalid-nameserver": {
     contentId: "01-site-launch",
@@ -47,8 +51,9 @@ export const blogPosts = {
     imageBasePath: "/images/blog/vercel-domain-invalid-nameserver",
     publishedAt: "2026-05-22",
     ogImage: "og.png",
+    category: "devops",
   },
-} as const;
+} as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
 export type BlogSlug = keyof typeof blogPosts;
