@@ -53,6 +53,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "captions-md-workflow": {
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "025-captions-md-workflow.md",
+    imageBasePath: "/images/blog/captions-md-workflow",
+    publishedAt: "2026-05-24",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
