@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
 type SourceMdBlockProps = {
   filename?: string;
@@ -13,13 +13,10 @@ export function SourceMdBlock({
   code,
   label,
 }: SourceMdBlockProps) {
-  const [copied, setCopied] = useState(false);
+  const { copied, copy } = useCopyToClipboard({ timeout: 1800 });
 
   function handleCopy() {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    });
+    copy(code);
   }
 
   return (
