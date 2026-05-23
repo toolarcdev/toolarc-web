@@ -8,6 +8,10 @@ import { QuoteHighlight } from "@/components/blog/ai-role-sharing/QuoteHighlight
 import { StickyTOC } from "@/components/blog/ai-role-sharing/StickyTOC";
 import { RelatedArticles } from "@/components/blog/ai-role-sharing/RelatedArticles";
 import { SITE_URL, blogPostUrl } from "@/lib/blog/constants";
+import { loadPost } from "@/lib/blog/load-post";
+import { estimateReadingTime } from "@/lib/blog/reading-time";
+import { getSeriesForPost } from "@/lib/series/series";
+import { ScrollDepthTracker } from "@/components/analytics/ScrollDepthTracker";
 
 const SLUG = "ai-role-sharing-workflow";
 const PAGE_URL = blogPostUrl(SLUG);
@@ -110,7 +114,11 @@ const breadcrumbJsonLd = {
   ],
 };
 
-export default function AIRoleSharingWorkflowPage() {
+export default async function AIRoleSharingWorkflowPage() {
+  const post = await loadPost(SLUG);
+  const series = getSeriesForPost(SLUG);
+  const readingTime = estimateReadingTime(post.content);
+
   return (
     <BlogShell>
       <script
@@ -120,6 +128,12 @@ export default function AIRoleSharingWorkflowPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <ScrollDepthTracker
+        slug={SLUG}
+        seriesSlug={series?.slug ?? null}
+        readingTime={readingTime}
+        category={post.category}
       />
 
       <main className="px-4 py-10 sm:px-6 sm:py-14">
