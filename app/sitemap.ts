@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl, lastModified: latestModified },
     { url: `${baseUrl}/blog`, lastModified: latestModified },
     { url: `${baseUrl}/series`, lastModified: latestModified },
+    { url: `${baseUrl}/tools/poe2-regex`, lastModified: latestModified },
   ]
 
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
