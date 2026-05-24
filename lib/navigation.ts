@@ -13,4 +13,5 @@ export type NavLink = {
 export const NAV_LINKS: readonly NavLink[] = [
   { href: "/blog", label: "Blog" },
   { href: "/series", label: "Series" },
+  { href: "/tools/poe2-regex", label: "PoE2 Regex" },
 ] as const;
