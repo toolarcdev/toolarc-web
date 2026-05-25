@@ -32,6 +32,26 @@ const IMAGE_META: Record<string, { alt: string; caption: string }> = {
     caption:
       "published.md を Cursor に渡して実装した、当該記事のブログページ（開発環境での表示）",
   },
+  "ss-01_plan-comparison.png": {
+    alt: "Cursorの無料プランと有料プランの機能比較画面",
+    caption:
+      "CursorのHobbyプラン（無料）とProプランの機能比較。プレミアムモデルの利用・プライバシーモード・優先サポートなどがProプランで解放される",
+  },
+  "ss-02_chat-history.png": {
+    alt: "CursorでWebサイト制作を依頼したチャット履歴の一覧",
+    caption:
+      "Cursorのチャット画面。左にプロジェクトのファイルツリー、右にエディタが表示され、AIとのやりとりが進む様子。design-system.md・project-overview.md などのdocsファイルも参照させながら作業していた",
+  },
+  "ss-03_usage-limit-screen.png": {
+    alt: "Cursor無料版の使用上限に達したときに表示されるメッセージ",
+    caption:
+      "使用上限に達すると表示される「You've hit your usage limit」メッセージ。チャット入力欄がグレーアウトし、「Upgrade to Pro」ボタンが表示される",
+  },
+  "ss-04_limit-no-reset-timeline.png": {
+    alt: "制限到達から21時間後に確認した画面の記録",
+    caption:
+      "制限到達から21時間後に確認した画面。依然として「You've hit your usage limit」が表示されたままで、解除は確認できなかった。画面右下のチャット入力欄も引き続き無効化されている",
+  },
 };
 
 function getImageFileName(src: string | undefined): string {

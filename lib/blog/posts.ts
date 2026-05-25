@@ -69,6 +69,14 @@ export const blogPosts = {
     ogImage: "06-image1.png",
     category: "ai-workflow",
   },
+  "cursor-free": {
+    contentId: "03-cursor-free",
+    markdownFile: "030-cursor-free-plan-review_20260525.md",
+    imageBasePath: "/images/blog/030-cursor-free",
+    publishedAt: "2026-05-25",
+    ogImage: "ss-01_plan-comparison.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
