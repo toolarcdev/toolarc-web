@@ -77,6 +77,14 @@ export const blogPosts = {
     ogImage: "ss-01_plan-comparison.png",
     category: "tool",
   },
+  "chatgpt-account-migration": {
+    contentId: "04-chatgpt_account_migration",
+    markdownFile: "chatgpt_account_migration.md",
+    imageBasePath: "/images/blog/040-chatgpt_account_migration",
+    publishedAt: "2026-05-25",
+    ogImage: "ss-01-chatgpt-export.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
