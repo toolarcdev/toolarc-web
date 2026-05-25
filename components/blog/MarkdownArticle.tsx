@@ -52,6 +52,31 @@ const IMAGE_META: Record<string, { alt: string; caption: string }> = {
     caption:
       "制限到達から21時間後に確認した画面。依然として「You've hit your usage limit」が表示されたままで、解除は確認できなかった。画面右下のチャット入力欄も引き続き無効化されている",
   },
+  "ss-01-chatgpt-export.png": {
+    alt: "ChatGPTのData ControlsにあるExport Data画面",
+    caption:
+      "ChatGPTでは会話履歴をZIP形式でExportできます。ただし、これは「会話ログの保存」であり、AIの記憶そのものを移行する機能ではありません。",
+  },
+  "ss-02-chatgpt-memory.png": {
+    alt: "ChatGPTのMemory設定画面",
+    caption:
+      "ChatGPTのMemoryは、会話内容の一部を保持する仕組みです。ただし、別アカウントへの移行機能は提供されていません。",
+  },
+  "ss-03-export-zip.png": {
+    alt: "ChatGPT Export ZIPファイル",
+    caption:
+      "Exportデータには会話ログが含まれていますが、そのまま新しいChatGPTへ学習データとして引き継げるわけではありません。",
+  },
+  "ss-04-obsidian-vault.png": {
+    alt: "Obsidianで整理されたAI知識管理フォルダ",
+    caption:
+      "AI運用では、会話ログよりも「再利用できるMarkdown資産」を整理しておく方が重要です。",
+  },
+  "ss-05-dailynote.png": {
+    alt: "AI運用ログとして活用しているDailyNote",
+    caption:
+      "DailyNoteを積み上げることで、AIとの試行錯誤や運用ノウハウを「知識資産」として蓄積できます。",
+  },
 };
 
 function getImageFileName(src: string | undefined): string {
