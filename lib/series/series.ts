@@ -43,6 +43,15 @@ export const allSeries: readonly SeriesConfig[] = [
     spokeSlugOrder: ["captions-md-workflow", "obsidian-daily-notes-workflow"],
     publishedAt: "2026-05-20",
   },
+  {
+    slug: "cursor-free-series",
+    title: "Cursor無料版シリーズ",
+    description:
+      "Cursor無料版の実測レビューと、枠を長持ちさせる実践Tips。",
+    hubSlug: "cursor-free",
+    spokeSlugOrder: ["cursor-free-plan-tips"],
+    publishedAt: "2026-05-25",
+  },
 ] as const;
 
 /** Keyed by series slug for O(1) lookup */
