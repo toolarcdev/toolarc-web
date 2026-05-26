@@ -49,7 +49,7 @@ export const allSeries: readonly SeriesConfig[] = [
     description:
       "Cursor無料版の実測レビューと、枠を長持ちさせる実践Tips。",
     hubSlug: "cursor-free",
-    spokeSlugOrder: ["cursor-free-plan-tips"],
+    spokeSlugOrder: ["cursor-token-heavy-tasks", "cursor-free-plan-tips"],
     publishedAt: "2026-05-25",
   },
 ] as const;

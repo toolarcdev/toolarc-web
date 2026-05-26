@@ -85,6 +85,14 @@ export const blogPosts = {
     ogImage: "ss-01_plan-comparison.png",
     category: "tool",
   },
+  "cursor-token-heavy-tasks": {
+    contentId: "03-cursor-free",
+    markdownFile: "032-cursor-token-heavy-tasks.md",
+    imageBasePath: "/images/blog/030-cursor-free",
+    publishedAt: "2026-05-27",
+    ogImage: "ss-01_plan-comparison.png",
+    category: "tool",
+  },
   "chatgpt-account-migration": {
     contentId: "04-chatgpt_account_migration",
     markdownFile: "chatgpt_account_migration.md",
