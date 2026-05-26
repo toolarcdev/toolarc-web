@@ -52,6 +52,15 @@ export const allSeries: readonly SeriesConfig[] = [
     spokeSlugOrder: ["cursor-token-heavy-tasks", "cursor-free-plan-tips"],
     publishedAt: "2026-05-25",
   },
+  {
+    slug: "chatgpt-account-migration-series",
+    title: "ChatGPTアカウント移行シリーズ",
+    description:
+      "ChatGPTやClaudeを長期運用している人向けに、会話履歴ではなく再利用可能な知識資産を移行する考え方と実践手順を解説します。",
+    hubSlug: "chatgpt-account-migration",
+    spokeSlugOrder: ["chatgpt-migration-md-checklist"],
+    publishedAt: "2026-05-25",
+  },
 ] as const;
 
 /** Keyed by series slug for O(1) lookup */
