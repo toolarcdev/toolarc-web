@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: `${TITLE} | ToolArc`,
   description:
     "Path of Exile 2 日本語クライアント向けのアイテム検索 regex を生成するツール。モッドを選んで OR / AND 検索用文字列をコピーできます。",
+  alternates: { canonical: "/tools/poe2-regex" },
 };
 
 export default function Poe2RegexPage() {
