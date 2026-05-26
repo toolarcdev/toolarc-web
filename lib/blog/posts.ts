@@ -95,9 +95,17 @@ export const blogPosts = {
   },
   "chatgpt-account-migration": {
     contentId: "04-chatgpt_account_migration",
-    markdownFile: "chatgpt_account_migration.md",
+    markdownFile: "040-chatgpt_account_migration.md",
     imageBasePath: "/images/blog/040-chatgpt_account_migration",
     publishedAt: "2026-05-25",
+    ogImage: "ss-01-chatgpt-export.png",
+    category: "ai-workflow",
+  },
+  "chatgpt-migration-md-checklist": {
+    contentId: "04-chatgpt_account_migration",
+    markdownFile: "041-chatgpt-migration-md-checklist.md",
+    imageBasePath: "/images/blog/040-chatgpt_account_migration",
+    publishedAt: "2026-05-28",
     ogImage: "ss-01-chatgpt-export.png",
     category: "ai-workflow",
   },
