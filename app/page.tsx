@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "ToolArc | AI開発・ワークフロー・技術アーカイブ",
   description:
     "Cursor、Claude、Next.js、Vercel を活用した開発・AI ワークフローの実践記録。シリーズ型の技術知識アーカイブ。",
+  alternates: { canonical: "/" },
 };
 
 function formatDate(iso: string): string {
