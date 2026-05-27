@@ -85,6 +85,14 @@ export const blogPosts = {
     ogImage: "og.svg",
     category: "ai-workflow",
   },
+  "obsidian-checkbox-shortcut-ctrl-l": {
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "026-obsidian-checkbox-shortcut-ctrl-l.md",
+    imageBasePath: "/images/blog/obsidian-checkbox-shortcut-ctrl-l",
+    publishedAt: "2026-05-27",
+    ogImage: "og.svg",
+    category: "ai-workflow",
+  },
   "cursor-free": {
     contentId: "03-cursor-free",
     markdownFile: "030-cursor-free-plan-review_20260525.md",
