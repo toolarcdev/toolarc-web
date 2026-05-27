@@ -40,7 +40,12 @@ export const allSeries: readonly SeriesConfig[] = [
     description:
       "Claude と Obsidian を組み合わせた AI 活用ワークフローを深掘りするシリーズ。記事制作の効率化から知識管理まで幅広く扱います。",
     hubSlug: "claude-obsidian-workflow",
-    spokeSlugOrder: ["captions-md-workflow", "obsidian-daily-notes-workflow"],
+    spokeSlugOrder: [
+      "captions-md-workflow",
+      "obsidian-daily-notes-workflow",
+      "obsidian-daily-notes-ai-log",
+      "ai-docs-duplication-tips",
+    ],
     publishedAt: "2026-05-20",
   },
   {
