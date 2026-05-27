@@ -26,4 +26,5 @@ export type BlogPost = BlogPostMeta & {
   description: string;
   content: string;
   tags: string[];
+  updatedAt?: string;
 };
