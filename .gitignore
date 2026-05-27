@@ -75,6 +75,12 @@ next-env.d.ts
 .cursor-cache/
 
 # =========================
+# private AI context (do not publish)
+# =========================
+/docs/ai-context/
+/AGENTS.md
+
+# =========================
 # generated assets
 # =========================
 public/images/generated/
