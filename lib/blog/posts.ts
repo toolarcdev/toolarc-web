@@ -133,6 +133,14 @@ export const blogPosts = {
     ogImage: "ss-01-chatgpt-export.png",
     category: "ai-workflow",
   },
+  "nextjs-image-replace-not-reflecting": {
+    contentId: "05-nextjs-image-cache",
+    markdownFile: "050-nextjs-image-replace-not-reflecting-tips.md",
+    imageBasePath: "/images/blog/05-nextjs-image-cache",
+    publishedAt: "2026-05-28",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
