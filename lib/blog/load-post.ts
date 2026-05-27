@@ -13,6 +13,15 @@ function stripFrontmatter(raw: string): string {
 }
 
 /** frontmatter 内の description / date を取得 */
+function normalizeDateValue(value: string): string {
+  const trimmed = value.trim();
+  const doubleQuoted = trimmed.match(/^"(.+)"$/);
+  if (doubleQuoted) return doubleQuoted[1].trim();
+  const singleQuoted = trimmed.match(/^'(.+)'$/);
+  if (singleQuoted) return singleQuoted[1].trim();
+  return trimmed;
+}
+
 function extractFrontmatterFields(raw: string): {
   description: string;
   date: string;
@@ -29,8 +38,10 @@ function extractFrontmatterFields(raw: string): {
   const block = raw.slice(3, end);
   const description =
     block.match(/^description:\s*(.+)$/m)?.[1]?.trim() ?? "";
-  const date = block.match(/^date:\s*(.+)$/m)?.[1]?.trim() ?? "";
-  const lastUpdate = block.match(/^last_update:\s*(.+)$/m)?.[1]?.trim() ?? "";
+  const date = normalizeDateValue(block.match(/^date:\s*(.+)$/m)?.[1] ?? "");
+  const lastUpdate = normalizeDateValue(
+    block.match(/^last_update:\s*(.+)$/m)?.[1] ?? "",
+  );
   const tags = [...block.matchAll(/^  - (.+)$/gm)].map((m) => m[1].trim());
   return { description, date, lastUpdate, tags };
 }
