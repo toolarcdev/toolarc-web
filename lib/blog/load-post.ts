@@ -13,24 +13,37 @@ function stripFrontmatter(raw: string): string {
 }
 
 /** frontmatter 内の description / date を取得 */
+function normalizeDateValue(value: string): string {
+  const trimmed = value.trim();
+  const doubleQuoted = trimmed.match(/^"(.+)"$/);
+  if (doubleQuoted) return doubleQuoted[1].trim();
+  const singleQuoted = trimmed.match(/^'(.+)'$/);
+  if (singleQuoted) return singleQuoted[1].trim();
+  return trimmed;
+}
+
 function extractFrontmatterFields(raw: string): {
   description: string;
   date: string;
+  lastUpdate: string;
   tags: string[];
 } {
   if (!raw.startsWith("---")) {
-    return { description: "", date: "", tags: [] };
+    return { description: "", date: "", lastUpdate: "", tags: [] };
   }
   const end = raw.indexOf("\n---", 3);
   if (end === -1) {
-    return { description: "", date: "", tags: [] };
+    return { description: "", date: "", lastUpdate: "", tags: [] };
   }
   const block = raw.slice(3, end);
   const description =
     block.match(/^description:\s*(.+)$/m)?.[1]?.trim() ?? "";
-  const date = block.match(/^date:\s*(.+)$/m)?.[1]?.trim() ?? "";
+  const date = normalizeDateValue(block.match(/^date:\s*(.+)$/m)?.[1] ?? "");
+  const lastUpdate = normalizeDateValue(
+    block.match(/^last_update:\s*(.+)$/m)?.[1] ?? "",
+  );
   const tags = [...block.matchAll(/^  - (.+)$/gm)].map((m) => m[1].trim());
-  return { description, date, tags };
+  return { description, date, lastUpdate, tags };
 }
 
 /** 先頭の `# タイトル` 行からタイトルを取得 */
@@ -84,8 +97,8 @@ export async function loadPost(slug: BlogSlug): Promise<BlogPost> {
     frontmatter.description ||
     fileMetadata?.description ||
     "";
-  const publishedAt =
-    fileMetadata?.date || frontmatter.date || meta.publishedAt;
+  const publishedAt = frontmatter.date || meta.publishedAt;
+  const updatedAt = frontmatter.lastUpdate || undefined;
   const tags =
     fileMetadata?.tags ??
     (frontmatter.tags.length > 0 ? frontmatter.tags : []);
@@ -96,6 +109,7 @@ export async function loadPost(slug: BlogSlug): Promise<BlogPost> {
   return {
     ...meta,
     publishedAt,
+    updatedAt,
     title,
     description,
     content,

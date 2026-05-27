@@ -122,6 +122,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     headline: post.title,
     description: post.description,
     datePublished: post.publishedAt,
+    dateModified: post.updatedAt ?? post.publishedAt,
     inLanguage: "ja",
     author: { "@type": "Organization", name: "ToolArc" },
     publisher: { "@type": "Organization", name: "ToolArc" },
@@ -178,6 +179,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               title={post.title}
               description={post.description}
               publishedAt={post.publishedAt}
+              updatedAt={post.updatedAt}
               tags={post.tags}
             />
             <div className="article mt-10">

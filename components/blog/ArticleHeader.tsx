@@ -2,6 +2,7 @@ type ArticleHeaderProps = {
   title: string;
   description: string;
   publishedAt: string;
+  updatedAt?: string;
   tags?: string[];
 };
 
@@ -18,6 +19,7 @@ export function ArticleHeader({
   title,
   description,
   publishedAt,
+  updatedAt,
   tags = [],
 }: ArticleHeaderProps) {
   return (
@@ -29,6 +31,11 @@ export function ArticleHeader({
       >
         公開日: {formatDate(publishedAt)}
       </time>
+      {updatedAt && (
+        <time dateTime={updatedAt} className="mt-1 block text-sm text-slate-500">
+          最終更新日: {formatDate(updatedAt)}
+        </time>
+      )}
       {tags.length > 0 && (
         <ul
           className="mt-3 flex flex-wrap gap-2"
