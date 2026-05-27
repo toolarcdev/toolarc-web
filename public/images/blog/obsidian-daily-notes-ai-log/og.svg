@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Obsidian Daily Notes AI Log</title>
+  <desc id="desc">ToolArc blog OG image for Obsidian Daily Notes AI log article.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#e0f2fe" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="#ffffff" stroke="#bae6fd" />
+  <text x="120" y="210" font-family="Inter, Noto Sans JP, sans-serif" font-size="42" font-weight="700" fill="#0f172a">
+    Obsidian Daily Notes
+  </text>
+  <text x="120" y="280" font-family="Inter, Noto Sans JP, sans-serif" font-size="42" font-weight="700" fill="#0369a1">
+    Minimum AI Log Workflow
+  </text>
+  <text x="120" y="360" font-family="Inter, Noto Sans JP, sans-serif" font-size="28" fill="#334155">
+    3 blocks x source.md / captions.md
+  </text>
+  <text x="120" y="500" font-family="Inter, Noto Sans JP, sans-serif" font-size="26" fill="#64748b">
+    toolarc.jp
+  </text>
+</svg>

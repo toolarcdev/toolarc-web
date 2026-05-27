@@ -1,5 +1,5 @@
 import path from "path";
-import type { BlogPostConfig, BlogPostMeta } from "./types";
+import type { BlogPostMeta } from "./types";
 
 /**
  * 公開記事レジストリ
@@ -23,7 +23,7 @@ export const blogPosts = {
   },
   "claude-obsidian-workflow": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "02-claude-obsidian-workflow-published.md",
+    markdownFile: "020-claude-obsidian-workflow-published.md",
     imageBasePath: "/images/blog/claude-obsidian-workflow",
     publishedAt: "2026-05-20",
     ogImage: "08-cursor-create-webpage.png",
@@ -55,7 +55,7 @@ export const blogPosts = {
   },
   "captions-md-workflow": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "025-captions-md-workflow.md",
+    markdownFile: "022-captions-md-workflow.md",
     imageBasePath: "/images/blog/captions-md-workflow",
     publishedAt: "2026-05-24",
     ogImage: "og.png",
@@ -63,10 +63,26 @@ export const blogPosts = {
   },
   "obsidian-daily-notes-workflow": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "26-obsidian-daily-notes-workflow-final.md",
+    markdownFile: "023-obsidian-daily-notes-workflow-final.md",
     imageBasePath: "/images/blog/obsidian-daily-notes-workflow",
     publishedAt: "2026-05-24",
     ogImage: "06-image1.png",
+    category: "ai-workflow",
+  },
+  "ai-docs-duplication-tips": {
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "024-ai-docs-duplication-tips.md",
+    imageBasePath: "/images/blog/claude-obsidian-workflow",
+    publishedAt: "2026-05-27",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "obsidian-daily-notes-ai-log": {
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "025-obsidian-daily-notes-ai-log.md",
+    imageBasePath: "/images/blog/obsidian-daily-notes-ai-log",
+    publishedAt: "2026-05-27",
+    ogImage: "og.svg",
     category: "ai-workflow",
   },
   "cursor-free": {

@@ -111,17 +111,11 @@ daily notesを書いていなかった期間は、「何を考えていたか」
 以前は「今日やったこと（大きめの作業）」しか書いていなかった。それを、
 
 - 小さい作業
-    
 - エラー内容と解決方法
-    
 - AIへ投げた質問
-    
 - 詰まった箇所
-    
 - 判断理由
-    
 - 感情・気づき
-    
 
 まで含めるようにした。
 
@@ -132,7 +126,7 @@ daily notesを書いていなかった期間は、「何を考えていたか」
 ## 実際のdaily notesの使用例
 
 ![Obsidian daily notesで記事構造やAI workflowを記録している実例](06-image1.png)
-*実際のdaily notes。「今日やること」のチェックリストから、GA4イベント実装・spoke記事制作まで、その日の作業と判断をまとめて記録している。*
+_実際のdaily notes。「今日やること」のチェックリストから、GA4イベント実装・spoke記事制作まで、その日の作業と判断をまとめて記録している。_
 
 たとえば「サイト改善（記事の分割など）」という項目では、
 
@@ -145,7 +139,7 @@ daily notesを書いていなかった期間は、「何を考えていたか」
 まで含めて記録している。
 
 ![親記事と子記事の内部リンク構造メモ](06-image2.png)
-*daily notes段階で、親記事とspoke記事の構造まで設計していた。「長文が悪いのではなく、派生記事がないことが問題」という気づきもこの時点でメモしている。*
+_daily notes段階で、親記事とspoke記事の構造まで設計していた。「長文が悪いのではなく、派生記事がないことが問題」という気づきもこの時点でメモしている。_
 
 実際には、記事構造の草案レベルからdaily notesへ残していた。「親記事は削らない」「長文が悪いのではなく、章分割と内部リンク不足が問題」といった設計思想までメモしていたため、後からsource.mdへ整理しやすかった。
 
@@ -156,30 +150,35 @@ daily notesを書いていなかった期間は、「何を考えていたか」
 ## 実際のdaily notesテンプレート
 
 ![daily notesテンプレートの実例](06-image3.png)
-*小さいエラーや感情まで含めてdaily notesへ残している。copy_codeイベントのデバッグ経緯や、解決に至るまでの思考がそのまま記録されている。*
+_小さいエラーや感情まで含めてdaily notesへ残している。copy_codeイベントのデバッグ経緯や、解決に至るまでの思考がそのまま記録されている。_
 
 現在は、だいたい以下のような粒度で記録している。
 
 ```md
 ## 今日やったこと
+
 - GTMイベント設定
 - article_share 実装
 - source.md 修正
 
 ## 詰まったこと
+
 - dataLayer が undefined
 - DebugView に出ない
 
 ## AIへの質問
+
 - GTMのevent命名規則
 - page_view設計
 - 記事分割のSEO影響
 
 ## 気づき
+
 - 小さいエラーほど後で記事ネタになる
 - 長文が悪いのではなく内部リンク不足が問題
 
 ## 感情
+
 - 半日溶けてかなり疲れた
 - でもworkflowはかなり整理できてきた
 ```
@@ -191,7 +190,7 @@ daily notesを書いていなかった期間は、「何を考えていたか」
 ## daily notes → source.md → 記事
 
 ![daily notesから記事制作へ繋がるworkflow](06-image4.png)
-*Vault内のフォルダ構成。daily notes・drafts・source・screenshotsが整理されており、daily notesが記事制作workflowの起点になっている。*
+_Vault内のフォルダ構成。daily notes・drafts・source・screenshotsが整理されており、daily notesが記事制作workflowの起点になっている。_
 
 今のworkflowでは、
 
@@ -220,20 +219,16 @@ daily notesには、その"完成前の思考"が残る。
 ## 運用を変えてから変わったこと
 
 ![daily notesを振り返ってworkflow改善を確認している様子](06-image5.png)
-*「split」で検索すると、記事分割に関する思考の変遷が日付をまたいで119件ヒットする。daily notesが残っていると、「いつ・なぜ改善したか」を後から追いやすい。*
+_「split」で検索すると、記事分割に関する思考の変遷が日付をまたいで119件ヒットする。daily notesが残っていると、「いつ・なぜ改善したか」を後から追いやすい。_
 
 daily notesを残すようになってから、Obsidian daily notes運用そのものがかなり変わった。
 
 単なる日記ではなく、
 
 - workflow改善ログ
-    
 - AI記事制作メモ
-    
 - SEO改善履歴
-    
 - 個人開発の思考ログ
-    
 
 として機能するようになった。
 
@@ -254,7 +249,7 @@ daily notesが残っていると、「先週はこうしていた」「今はこ
 ## AI時代でも「素材整理」は人間の仕事だった
 
 ![ObsidianとAIツールを使った記事制作workflow](06-image6.png)
-*Obsidian・Claude・Cursor・実装画面を同時に開いた作業環境。AIが記事を生成しても、その素材を残すのは人間側の役割だった。*
+_Obsidian・Claude・Cursor・実装画面を同時に開いた作業環境。AIが記事を生成しても、その素材を残すのは人間側の役割だった。_
 
 結局、実感したのはかなりシンプルなことだった。
 
@@ -282,4 +277,4 @@ daily notesは、“綺麗に残すこと”より、“思考を消さないこ
 
 ---
 
-*このdaily notes運用は、[Claude × Obsidian ワークフロー完全版](https://www.toolarc.jp/series/claude-obsidian-workflow-series) の一部として実践しています。他のspoke記事もあわせてご覧ください。*
+_このdaily notes運用は、[Claude × Obsidian ワークフロー完全版](https://www.toolarc.jp/series/claude-obsidian-workflow-series) の一部として実践しています。他のspoke記事もあわせてご覧ください。_

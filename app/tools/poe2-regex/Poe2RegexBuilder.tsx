@@ -57,8 +57,6 @@ export function Poe2RegexBuilder() {
 
   useEffect(() => {
     if (selectedMods.length === 0) {
-      setRegexOutput(null);
-      setRegexError(null);
       return;
     }
 
@@ -102,18 +100,32 @@ export function Poe2RegexBuilder() {
     setSelectedMods((prev) => {
       const exists = prev.some((item) => item.id === mod.id);
       if (exists) {
-        return prev.filter((item) => item.id !== mod.id);
+        const next = prev.filter((item) => item.id !== mod.id);
+        if (next.length === 0) {
+          setRegexOutput(null);
+          setRegexError(null);
+        }
+        return next;
       }
       return [...prev, mod];
     });
   }
 
   function removeMod(id: number) {
-    setSelectedMods((prev) => prev.filter((item) => item.id !== id));
+    setSelectedMods((prev) => {
+      const next = prev.filter((item) => item.id !== id);
+      if (next.length === 0) {
+        setRegexOutput(null);
+        setRegexError(null);
+      }
+      return next;
+    });
   }
 
   function clearSelection() {
     setSelectedMods([]);
+    setRegexOutput(null);
+    setRegexError(null);
   }
 
   const output = regexOutput?.regex ?? "";
