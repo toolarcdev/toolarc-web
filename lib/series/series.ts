@@ -42,6 +42,7 @@ export const allSeries: readonly SeriesConfig[] = [
     hubSlug: "claude-obsidian-workflow",
     spokeSlugOrder: [
       "captions-md-workflow",
+      "captions-md-tips",
       "obsidian-daily-notes-workflow",
       "obsidian-daily-notes-ai-log",
       "ai-docs-duplication-tips",
