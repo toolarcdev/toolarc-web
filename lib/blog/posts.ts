@@ -165,6 +165,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "chatgpt-context-upload-order": {
+    contentId: "06-chatgpt-how-to",
+    markdownFile: "061-chatgpt-context-order-tips.md",
+    imageBasePath: "/images/blog/06-chatgpt-how-to",
+    publishedAt: "2026-05-28",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
