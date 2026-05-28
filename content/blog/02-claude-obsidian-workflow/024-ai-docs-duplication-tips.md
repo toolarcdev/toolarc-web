@@ -91,7 +91,7 @@ AI向けdocsにおける「重複」は、情報の整理不足ではなく、AI
 **関連記事**
 
 - [ChatGPT移行系Hub記事](/blog/chatgpt-account-migration)
-- [source.mdの書き方ガイド](/blog/source-md-how-to)（準備中）
+- [source.md運用が記事生成AIと相性が良い理由【実運用Tips】](/blog/source-md-tips)
 - [Daily Notesから記事化するフロー](/blog/obsidian-daily-notes-to-article)（準備中）
 
 ---
