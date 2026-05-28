@@ -43,6 +43,7 @@ export const allSeries: readonly SeriesConfig[] = [
     spokeSlugOrder: [
       "captions-md-workflow",
       "captions-md-tips",
+      "ai-screenshot-caption-tips",
       "source-md-tips",
       "obsidian-daily-notes-workflow",
       "obsidian-daily-notes-ai-log",
