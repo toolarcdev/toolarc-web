@@ -1,8 +1,32 @@
-import { readFile } from "fs/promises";
+import { access, readFile } from "fs/promises";
 import path from "path";
 import { loadPostMetadata } from "./metadata";
 import type { BlogPost } from "./types";
 import { getPostMeta, type BlogSlug } from "./posts";
+
+const DEFAULT_OG_IMAGE_BASE_PATH = "/images/og";
+const DEFAULT_OG_IMAGE_FILE = "default-og.png";
+
+function toPublicImagePath(imageBasePath: string, imageFile: string): string {
+  return path.join(process.cwd(), "public", imageBasePath.replace(/^\/+/, ""), imageFile);
+}
+
+async function resolveOgImage(
+  imageBasePath: string,
+  ogImage: string,
+): Promise<{ imageBasePath: string; ogImage: string }> {
+  const articleOgPath = toPublicImagePath(imageBasePath, ogImage);
+
+  try {
+    await access(articleOgPath);
+    return { imageBasePath, ogImage };
+  } catch {
+    return {
+      imageBasePath: DEFAULT_OG_IMAGE_BASE_PATH,
+      ogImage: DEFAULT_OG_IMAGE_FILE,
+    };
+  }
+}
 
 /** YAML frontmatter（--- で囲まれた先頭ブロック）を除去 */
 function stripFrontmatter(raw: string): string {
@@ -88,6 +112,7 @@ export async function loadPost(slug: BlogSlug): Promise<BlogPost> {
   const filePath = path.join(process.cwd(), meta.markdownPath);
   const raw = await readFile(filePath, "utf-8");
   const fileMetadata = await loadPostMetadata(meta.contentId);
+  const resolvedOg = await resolveOgImage(meta.imageBasePath, meta.ogImage);
   const frontmatter = extractFrontmatterFields(raw);
 
   const body = stripFrontmatter(raw);
@@ -108,6 +133,8 @@ export async function loadPost(slug: BlogSlug): Promise<BlogPost> {
 
   return {
     ...meta,
+    imageBasePath: resolvedOg.imageBasePath,
+    ogImage: resolvedOg.ogImage,
     publishedAt,
     updatedAt,
     title,
