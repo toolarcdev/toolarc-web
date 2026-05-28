@@ -109,6 +109,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "ai-screenshot-caption-tips": {
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "029-screenshots-captions-tips.md",
+    imageBasePath: "/images/blog/claude-obsidian-workflow",
+    publishedAt: "2026-05-28",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
   "cursor-free": {
     contentId: "03-cursor-free",
     markdownFile: "030-cursor-free-plan-review_20260525.md",
