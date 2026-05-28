@@ -31,6 +31,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "ai-role-sharing-workflow",
       "source-md-ai-writing",
       "vercel-domain-invalid-nameserver",
+      "nextjs-canonical-settings-tips",
     ],
     publishedAt: "2026-05-20",
   },

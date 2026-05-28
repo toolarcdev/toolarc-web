@@ -165,6 +165,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "nextjs-canonical-settings-tips": {
+    contentId: "01-site-launch",
+    markdownFile: "04-canonical-settings-tips.md",
+    imageBasePath: "/images/blog/01-site-launch",
+    publishedAt: "2026-05-28",
+    ogImage: "og.png",
+    category: "devops",
+  },
   "chatgpt-context-upload-order": {
     contentId: "06-chatgpt-how-to",
     markdownFile: "061-chatgpt-context-order-tips.md",
