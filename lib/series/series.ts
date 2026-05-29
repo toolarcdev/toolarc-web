@@ -62,6 +62,7 @@ export const allSeries: readonly SeriesConfig[] = [
     hubSlug: "cursor-free",
     spokeSlugOrder: [
       "cursor-token-heavy-tasks",
+      "cursor-rules-file-tips",
       "cursor-free-plan-tips",
       "cursor-agent-pause-recovery-tips",
     ],
