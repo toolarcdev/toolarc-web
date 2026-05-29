@@ -33,6 +33,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "vercel-domain-invalid-nameserver",
       "nextjs-canonical-settings-tips",
       "nextjs-og-image-fallback-tips",
+      "nextjs-vercel-preview-check-tips",
     ],
     publishedAt: "2026-05-20",
   },
