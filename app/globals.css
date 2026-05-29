@@ -245,3 +245,41 @@ body {
 .animate-fade-in {
   animation: fadeIn 0.45s ease-out both;
 }
+
+.ai-output-scroll-figure {
+  margin: 1.5rem 0 2rem;
+}
+
+.ai-output-scroll-label {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.ai-output-scroll {
+  max-height: min(480px, 70vh);
+  overflow-y: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid #dbeafe;
+  background: #f8fafc;
+}
+
+.ai-output-scroll-inner > :first-child {
+  margin-top: 0;
+}
+
+.ai-output-scroll-inner .article-h2:first-child,
+.ai-output-scroll-inner .article-p:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .ai-output-scroll {
+    max-height: min(360px, 55vh);
+    padding: 0.875rem 1rem;
+  }
+}

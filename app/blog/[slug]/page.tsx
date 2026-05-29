@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArticleHeader } from "@/components/blog/ArticleHeader";
 import { BlogShell } from "@/components/blog/BlogShell";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/blog/Breadcrumbs";
-import { MarkdownArticle } from "@/components/blog/MarkdownArticle";
+import { ArticleBody } from "@/components/blog/ArticleBody";
 import { SeriesArticleLink } from "@/components/blog/SeriesArticleLink";
 import { ScrollDepthTracker } from "@/components/analytics/ScrollDepthTracker";
 import { blogPostUrl, SITE_URL } from "@/lib/blog/constants";
@@ -183,7 +183,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               tags={post.tags}
             />
             <div className="article mt-10">
-              <MarkdownArticle
+              <ArticleBody
                 content={post.content}
                 imageBasePath={post.imageBasePath}
               />
