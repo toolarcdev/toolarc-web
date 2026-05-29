@@ -173,6 +173,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "nextjs-og-image-fallback-tips": {
+    contentId: "01-site-launch",
+    markdownFile: "05-og-image-fallback-tips.md",
+    imageBasePath: "/images/blog/01-site-launch",
+    publishedAt: "2026-05-29",
+    ogImage: "og.png",
+    category: "devops",
+  },
   "chatgpt-context-upload-order": {
     contentId: "06-chatgpt-how-to",
     markdownFile: "061-chatgpt-context-order-tips.md",

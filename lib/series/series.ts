@@ -32,6 +32,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "source-md-ai-writing",
       "vercel-domain-invalid-nameserver",
       "nextjs-canonical-settings-tips",
+      "nextjs-og-image-fallback-tips",
     ],
     publishedAt: "2026-05-20",
   },
