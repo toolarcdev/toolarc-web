@@ -237,6 +237,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "context-repost-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "202-context-repost-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-05-30",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
