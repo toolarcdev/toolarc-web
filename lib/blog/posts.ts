@@ -141,6 +141,14 @@ export const blogPosts = {
     ogImage: "ss-01_plan-comparison.png",
     category: "tool",
   },
+  "cursor-agent-pause-recovery-tips": {
+    contentId: "03-cursor-free",
+    markdownFile: "033-cursor-agent-pause-recovery-tips.md",
+    imageBasePath: "/images/blog/030-cursor-free",
+    publishedAt: "2026-05-29",
+    ogImage: "ss-01_plan-comparison.png",
+    category: "tool",
+  },
   "chatgpt-account-migration": {
     contentId: "04-chatgpt_account_migration",
     markdownFile: "040-chatgpt_account_migration.md",
