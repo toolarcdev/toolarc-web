@@ -253,6 +253,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "obsidian-dashboard-focus-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "204-dashboard-focus-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-05-30",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
