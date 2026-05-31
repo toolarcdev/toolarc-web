@@ -51,6 +51,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "obsidian-daily-notes-workflow",
       "obsidian-daily-notes-ai-log",
       "dailynote-context-compression",
+      "dailynote-ai-log-source-reading-order",
       "ai-docs-duplication-tips",
       "obsidian-dashboard-focus-tips",
     ],
