@@ -269,6 +269,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "dailynote-context-compression": {
+    contentId: "07-daily-note-obsidian",
+    markdownFile: "071-dailynote-context-compression.md",
+    imageBasePath: "/images/blog/07-daily-note-obsidian",
+    publishedAt: "2026-05-31",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

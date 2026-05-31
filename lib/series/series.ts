@@ -50,6 +50,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "source-md-tips",
       "obsidian-daily-notes-workflow",
       "obsidian-daily-notes-ai-log",
+      "dailynote-context-compression",
       "ai-docs-duplication-tips",
       "obsidian-dashboard-focus-tips",
     ],
