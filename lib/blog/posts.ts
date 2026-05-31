@@ -285,6 +285,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "new-domain-seo-timeline-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "206-new-domain-seo-timeline.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-05-31",
+    ogImage: "og.png",
+    category: "devops",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
