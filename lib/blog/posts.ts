@@ -293,6 +293,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "cursor-reference-file-prompt-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "207-cursor-reference-file-prompt-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-01",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
