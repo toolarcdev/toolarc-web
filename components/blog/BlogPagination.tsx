@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getBlogPagePath } from "@/lib/blog/pagination";
+import { getBlogPaginatedHref } from "@/lib/blog/pagination";
 
 type BlogPaginationProps = {
   currentPage: number;
@@ -20,7 +20,8 @@ export function BlogPagination({ currentPage, totalPages }: BlogPaginationProps)
     >
       {currentPage > 1 ? (
         <Link
-          href={getBlogPagePath(currentPage - 1)}
+          href={getBlogPaginatedHref(currentPage - 1)}
+          scroll={false}
           className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600 transition-colors hover:border-[#93c5fd] hover:text-[#2563eb]"
         >
           前へ
@@ -50,7 +51,8 @@ export function BlogPagination({ currentPage, totalPages }: BlogPaginationProps)
           return (
             <Link
               key={page}
-              href={getBlogPagePath(page)}
+              href={getBlogPaginatedHref(page)}
+              scroll={false}
               className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600 transition-colors hover:border-[#93c5fd] hover:text-[#2563eb]"
             >
               {page}
@@ -61,7 +63,8 @@ export function BlogPagination({ currentPage, totalPages }: BlogPaginationProps)
 
       {currentPage < totalPages ? (
         <Link
-          href={getBlogPagePath(currentPage + 1)}
+          href={getBlogPaginatedHref(currentPage + 1)}
+          scroll={false}
           className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600 transition-colors hover:border-[#93c5fd] hover:text-[#2563eb]"
         >
           次へ
