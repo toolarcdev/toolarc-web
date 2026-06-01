@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { BlogPagination } from "@/components/blog/BlogPagination";
+import { BlogScrollToAllArticles } from "@/components/blog/BlogScrollToAllArticles";
 import { SeriesCard } from "@/components/blog/SeriesCard";
 import type { BlogIndexArticle } from "@/lib/blog/list-articles";
 import { isBlogSlug } from "@/lib/blog/posts";
+import { BLOG_ALL_ARTICLES_ID } from "@/lib/blog/pagination";
 import { allSeries } from "@/lib/series/series";
 
 type BlogIndexViewProps = {
@@ -77,7 +79,11 @@ export function BlogIndexView({
 
           <hr className="border-slate-100" />
 
-          <section aria-labelledby="all-articles-heading">
+          <section
+            id={BLOG_ALL_ARTICLES_ID}
+            aria-labelledby="all-articles-heading"
+            className="scroll-mt-14"
+          >
             <h2
               id="all-articles-heading"
               className="text-sm font-semibold uppercase tracking-wider text-slate-500"
@@ -119,6 +125,7 @@ export function BlogIndexView({
           </section>
         </div>
       </div>
+      <BlogScrollToAllArticles />
     </main>
   );
 }
