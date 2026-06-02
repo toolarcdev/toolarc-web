@@ -221,6 +221,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "chatgpt-new-chat-template": {
+    contentId: "06-chatgpt-how-to",
+    markdownFile: "063-chatgpt-new-chat-template.md",
+    imageBasePath: "/images/blog/06-chatgpt-how-to",
+    publishedAt: "2026-06-02",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
   "compare-ai-models-opus48-tips": {
     contentId: "20-investigate-something",
     markdownFile: "200-compare-ai-models-opus48-tips.md",
