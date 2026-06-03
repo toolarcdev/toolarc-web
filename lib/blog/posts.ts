@@ -357,6 +357,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "3layer-content-strategy-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "214-tips-3layer-content-strategy.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-03",
+    ogImage: "og.png",
+    category: "devops",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
