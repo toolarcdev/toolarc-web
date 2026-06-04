@@ -397,6 +397,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "gsc-og-image-404-fixed-verify": {
+    contentId: "20-investigate-something",
+    markdownFile: "219-gsc-og-image-404-fixed-verify.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-04",
+    ogImage: "og.png",
+    category: "devops",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
