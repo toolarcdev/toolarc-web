@@ -100,10 +100,11 @@ GSCで画像URLだけが404になっている場合、まず**記事ページの
 2. 記事URLを「URL検査」で個別に確認する
 3. HTMLソースで `og:image` / JSON-LD / `<img>` の参照先を突合する
 4. `imageBasePath` と実ファイルをローカル・本番で照合する
-5. 修正・デプロイ後にGSCで解消を確認する
+5. 修正・デプロイ後にGSCで解消を確認する（[OG画像404修正後のGSC確認手順](/blog/gsc-og-image-404-fixed-verify)）
 
 関連する内容として、OG画像のfallback設定や、imageBasePathと実ファイルのデプロイ前確認については別の記事で解説しています。
 
+- 関連: [OG画像404修正後のGSC確認手順](/blog/gsc-og-image-404-fixed-verify)
 - 関連: [Next.jsのOG画像fallback設定](/blog/nextjs-og-image-fallback-tips)
 - Hub: [新ドメインのSEOタイムライン](/blog/new-domain-seo-timeline-tips)
 
