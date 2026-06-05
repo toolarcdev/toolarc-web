@@ -88,6 +88,27 @@ export const allSeries: readonly SeriesConfig[] = [
     spokeSlugOrder: ["chatgpt-migration-md-checklist"],
     publishedAt: "2026-05-25",
   },
+  {
+    slug: "new-domain-seo-series",
+    title: "新規ドメインSEO・GSCシリーズ",
+    description:
+      "新規ドメインのSEOが進まない原因をGSCで4段階（発見→クロール→インデックス→順位）に切り分け、関連Tipsを順番に読めるシリーズ。",
+    hubSlug: "new-domain-seo-troubleshooting-4steps",
+    spokeSlugOrder: [
+      "gsc-index-count-new-domain",
+      "gsc-detected-not-indexed",
+      "sitemap-index-checklist-tips",
+      "gsc-image-url-404-tips",
+      "gsc-image-404-vs-default-og-fallback",
+      "deploy-check-image-basepath-og-file",
+      "gsc-og-image-404-fixed-verify",
+      "new-domain-seo-timeline-tips",
+      "new-domain-seo-trouble-keyword-strategy-tips",
+      "3layer-content-strategy-tips",
+      "hub-series-update-timing-tips",
+    ],
+    publishedAt: "2026-06-03",
+  },
 ] as const;
 
 /** Keyed by series slug for O(1) lookup */
