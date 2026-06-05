@@ -106,7 +106,7 @@ GSCで画像URLだけが404になっている場合、まず**記事ページの
 
 - 関連: [OG画像404修正後のGSC確認手順](/blog/gsc-og-image-404-fixed-verify)
 - 関連: [Next.jsのOG画像fallback設定](/blog/nextjs-og-image-fallback-tips)
-- Hub: [新ドメインのSEOタイムライン](/blog/new-domain-seo-timeline-tips)
+- Hub: [新規ドメインSEOの4段階（シリーズ入口）](/blog/new-domain-seo-troubleshooting-4steps)
 
 ---
 
