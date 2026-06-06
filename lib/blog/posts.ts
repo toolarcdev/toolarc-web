@@ -19,7 +19,7 @@ import type { BlogPostMeta } from "./types";
 export const blogPosts = {
   "site-launch": {
     contentId: "01-site-launch",
-    markdownFile: "site-launch-draft-v3.md",
+    markdownFile: "001-site-launch-draft-v3.md",
     imageBasePath: "/images/blog/site-launch",
     publishedAt: "2026-05-20",
     ogImage: "01-success-webpage.png",
@@ -27,7 +27,7 @@ export const blogPosts = {
   },
   "claude-obsidian-workflow": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "020-claude-obsidian-workflow-published.md",
+    markdownFile: "001-claude-obsidian-workflow-published.md",
     imageBasePath: "/images/blog/claude-obsidian-workflow",
     publishedAt: "2026-05-20",
     ogImage: "08-cursor-create-webpage.png",
@@ -35,7 +35,7 @@ export const blogPosts = {
   },
   "ai-role-sharing-workflow": {
     contentId: "01-site-launch",
-    markdownFile: "02-claude-ai-role-sharing-workflow-revised.md",
+    markdownFile: "002-claude-ai-role-sharing-workflow-revised.md",
     imageBasePath: "/images/blog/ai-role-sharing-workflow",
     publishedAt: "2026-05-22",
     ogImage: "og.png",
@@ -43,7 +43,7 @@ export const blogPosts = {
   },
   "source-md-ai-writing": {
     contentId: "01-site-launch",
-    markdownFile: "03-source-md-ai-writing-revised.md",
+    markdownFile: "003-source-md-ai-writing-revised.md",
     imageBasePath: "/images/blog/source-md-ai-writing",
     publishedAt: "2026-05-22",
     ogImage: "og.png",
@@ -51,7 +51,7 @@ export const blogPosts = {
   },
   "vercel-domain-invalid-nameserver": {
     contentId: "01-site-launch",
-    markdownFile: "01-vercel-domain-invalid-nameserver.md",
+    markdownFile: "004-vercel-domain-invalid-nameserver.md",
     imageBasePath: "/images/blog/vercel-domain-invalid-nameserver",
     publishedAt: "2026-05-22",
     ogImage: "og.png",
@@ -59,7 +59,7 @@ export const blogPosts = {
   },
   "captions-md-workflow": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "022-captions-md-workflow.md",
+    markdownFile: "002-captions-md-workflow.md",
     imageBasePath: "/images/blog/captions-md-workflow",
     publishedAt: "2026-05-24",
     ogImage: "og.png",
@@ -67,7 +67,7 @@ export const blogPosts = {
   },
   "obsidian-daily-notes-workflow": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "023-obsidian-daily-notes-workflow-final.md",
+    markdownFile: "006-obsidian-daily-notes-workflow-final.md",
     imageBasePath: "/images/blog/obsidian-daily-notes-workflow",
     publishedAt: "2026-05-24",
     ogImage: "06-image1.png",
@@ -75,7 +75,7 @@ export const blogPosts = {
   },
   "ai-docs-duplication-tips": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "024-ai-docs-duplication-tips.md",
+    markdownFile: "008-ai-docs-duplication-tips.md",
     imageBasePath: "/images/blog/claude-obsidian-workflow",
     publishedAt: "2026-05-27",
     ogImage: "og.png",
@@ -83,7 +83,7 @@ export const blogPosts = {
   },
   "obsidian-daily-notes-ai-log": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "025-obsidian-daily-notes-ai-log.md",
+    markdownFile: "007-obsidian-daily-notes-ai-log.md",
     imageBasePath: "/images/blog/obsidian-daily-notes-ai-log",
     publishedAt: "2026-05-27",
     ogImage: "og.svg",
@@ -91,7 +91,7 @@ export const blogPosts = {
   },
   "obsidian-checkbox-shortcut-ctrl-l": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "026-obsidian-checkbox-shortcut-ctrl-l.md",
+    markdownFile: "009-obsidian-checkbox-shortcut-ctrl-l.md",
     imageBasePath: "/images/blog/obsidian-checkbox-shortcut-ctrl-l",
     publishedAt: "2026-05-27",
     ogImage: "og.svg",
@@ -99,7 +99,7 @@ export const blogPosts = {
   },
   "captions-md-tips": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "027-captions-md-tips.md",
+    markdownFile: "003-captions-md-tips.md",
     imageBasePath: "/images/blog/claude-obsidian-workflow",
     publishedAt: "2026-05-28",
     ogImage: "og.png",
@@ -107,7 +107,7 @@ export const blogPosts = {
   },
   "source-md-tips": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "028-source-md-tips.md",
+    markdownFile: "005-source-md-tips.md",
     imageBasePath: "/images/blog/claude-obsidian-workflow",
     publishedAt: "2026-05-28",
     ogImage: "og.png",
@@ -115,7 +115,7 @@ export const blogPosts = {
   },
   "ai-screenshot-caption-tips": {
     contentId: "02-claude-obsidian-workflow",
-    markdownFile: "029-screenshots-captions-tips.md",
+    markdownFile: "004-screenshots-captions-tips.md",
     imageBasePath: "/images/blog/claude-obsidian-workflow",
     publishedAt: "2026-05-28",
     ogImage: "og.png",
@@ -123,7 +123,7 @@ export const blogPosts = {
   },
   "cursor-free": {
     contentId: "03-cursor-free",
-    markdownFile: "030-cursor-free-plan-review_20260525.md",
+    markdownFile: "001-cursor-free-plan-review_20260525.md",
     imageBasePath: "/images/blog/030-cursor-free",
     publishedAt: "2026-05-25",
     ogImage: "ss-01_plan-comparison.png",
@@ -131,7 +131,7 @@ export const blogPosts = {
   },
   "cursor-free-plan-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "031-cursor-free-plan-tips.md",
+    markdownFile: "004-cursor-free-plan-tips.md",
     imageBasePath: "/images/blog/030-cursor-free",
     publishedAt: "2026-05-26",
     ogImage: "ss-01_plan-comparison.png",
@@ -139,7 +139,7 @@ export const blogPosts = {
   },
   "cursor-token-heavy-tasks": {
     contentId: "03-cursor-free",
-    markdownFile: "032-cursor-token-heavy-tasks.md",
+    markdownFile: "002-cursor-token-heavy-tasks.md",
     imageBasePath: "/images/blog/030-cursor-free",
     publishedAt: "2026-05-27",
     ogImage: "ss-01_plan-comparison.png",
@@ -147,7 +147,7 @@ export const blogPosts = {
   },
   "cursor-agent-pause-recovery-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "033-cursor-agent-pause-recovery-tips.md",
+    markdownFile: "005-cursor-agent-pause-recovery-tips.md",
     imageBasePath: "/images/blog/030-cursor-free",
     publishedAt: "2026-05-29",
     ogImage: "ss-01_plan-comparison.png",
@@ -155,7 +155,7 @@ export const blogPosts = {
   },
   "cursor-rules-file-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "034-cursor-rules-file-tips.md",
+    markdownFile: "003-cursor-rules-file-tips.md",
     imageBasePath: "/images/blog/030-cursor-free",
     publishedAt: "2026-05-29",
     ogImage: "ss-01_plan-comparison.png",
@@ -163,7 +163,7 @@ export const blogPosts = {
   },
   "chatgpt-account-migration": {
     contentId: "04-chatgpt_account_migration",
-    markdownFile: "040-chatgpt_account_migration.md",
+    markdownFile: "001-chatgpt_account_migration.md",
     imageBasePath: "/images/blog/040-chatgpt_account_migration",
     publishedAt: "2026-05-25",
     ogImage: "ss-01-chatgpt-export.png",
@@ -171,7 +171,7 @@ export const blogPosts = {
   },
   "chatgpt-migration-md-checklist": {
     contentId: "04-chatgpt_account_migration",
-    markdownFile: "041-chatgpt-migration-md-checklist.md",
+    markdownFile: "002-chatgpt-migration-md-checklist.md",
     imageBasePath: "/images/blog/040-chatgpt_account_migration",
     publishedAt: "2026-05-28",
     ogImage: "ss-01-chatgpt-export.png",
@@ -179,7 +179,7 @@ export const blogPosts = {
   },
   "nextjs-image-replace-not-reflecting": {
     contentId: "05-nextjs-image-cache",
-    markdownFile: "050-nextjs-image-replace-not-reflecting-tips.md",
+    markdownFile: "001-nextjs-image-replace-not-reflecting-tips.md",
     imageBasePath: "/images/blog/05-nextjs-image-cache",
     publishedAt: "2026-05-28",
     ogImage: "og.png",
@@ -187,7 +187,7 @@ export const blogPosts = {
   },
   "nextjs-canonical-settings-tips": {
     contentId: "01-site-launch",
-    markdownFile: "04-canonical-settings-tips.md",
+    markdownFile: "005-canonical-settings-tips.md",
     imageBasePath: "/images/blog/01-site-launch",
     publishedAt: "2026-05-28",
     ogImage: "og.png",
@@ -195,7 +195,7 @@ export const blogPosts = {
   },
   "nextjs-og-image-fallback-tips": {
     contentId: "01-site-launch",
-    markdownFile: "05-og-image-fallback-tips.md",
+    markdownFile: "006-og-image-fallback-tips.md",
     imageBasePath: "/images/blog/01-site-launch",
     publishedAt: "2026-05-29",
     ogImage: "og.png",
@@ -203,7 +203,7 @@ export const blogPosts = {
   },
   "nextjs-vercel-preview-check-tips": {
     contentId: "01-site-launch",
-    markdownFile: "06-vercel-preview-check-tips.md",
+    markdownFile: "007-vercel-preview-check-tips.md",
     imageBasePath: "/images/blog/01-site-launch",
     publishedAt: "2026-05-29",
     ogImage: "og.png",
@@ -211,7 +211,7 @@ export const blogPosts = {
   },
   "chatgpt-context-upload-order": {
     contentId: "06-chatgpt-how-to",
-    markdownFile: "061-chatgpt-context-order-tips.md",
+    markdownFile: "001-chatgpt-context-order-tips.md",
     imageBasePath: "/images/blog/06-chatgpt-how-to",
     publishedAt: "2026-05-28",
     ogImage: "og.png",
@@ -219,7 +219,7 @@ export const blogPosts = {
   },
   "ai-chat-context-reset-tips": {
     contentId: "06-chatgpt-how-to",
-    markdownFile: "062-ai-chat-context-reset-tips.md",
+    markdownFile: "002-ai-chat-context-reset-tips.md",
     imageBasePath: "/images/blog/06-chatgpt-how-to",
     publishedAt: "2026-05-29",
     ogImage: "og.png",
@@ -227,7 +227,7 @@ export const blogPosts = {
   },
   "chatgpt-new-chat-template": {
     contentId: "06-chatgpt-how-to",
-    markdownFile: "063-chatgpt-new-chat-template.md",
+    markdownFile: "003-chatgpt-new-chat-template.md",
     imageBasePath: "/images/blog/06-chatgpt-how-to",
     publishedAt: "2026-06-02",
     ogImage: "og.png",
@@ -275,7 +275,7 @@ export const blogPosts = {
   },
   "hub-series-update-timing-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "091-hub-series-update-timing.md",
+    markdownFile: "012-hub-series-update-timing.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-05-31",
     ogImage: "og.png",
@@ -283,7 +283,7 @@ export const blogPosts = {
   },
   "dailynote-context-compression": {
     contentId: "07-daily-note-obsidian",
-    markdownFile: "071-dailynote-context-compression.md",
+    markdownFile: "001-dailynote-context-compression.md",
     imageBasePath: "/images/blog/07-daily-note-obsidian",
     publishedAt: "2026-05-31",
     ogImage: "og.png",
@@ -291,7 +291,7 @@ export const blogPosts = {
   },
   "dailynote-ai-log-source-reading-order": {
     contentId: "07-daily-note-obsidian",
-    markdownFile: "072-dailynote-ai-log-source-reading-order.md",
+    markdownFile: "002-dailynote-ai-log-source-reading-order.md",
     imageBasePath: "/images/blog/07-daily-note-obsidian",
     publishedAt: "2026-05-31",
     ogImage: "og.png",
@@ -299,7 +299,7 @@ export const blogPosts = {
   },
   "new-domain-seo-timeline-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "088-new-domain-seo-timeline.md",
+    markdownFile: "009-new-domain-seo-timeline.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-05-31",
     ogImage: "og.png",
@@ -331,7 +331,7 @@ export const blogPosts = {
   },
   "new-domain-seo-trouble-keyword-strategy-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "089-new-domain-seo-trouble-keyword-strategy-tips.md",
+    markdownFile: "010-new-domain-seo-trouble-keyword-strategy-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-01",
     ogImage: "og.png",
@@ -347,7 +347,7 @@ export const blogPosts = {
   },
   "gsc-index-count-new-domain": {
     contentId: "08-new-domain-seo",
-    markdownFile: "081-gsc-index-count-new-domain.md",
+    markdownFile: "002-gsc-index-count-new-domain.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-02",
     ogImage: "og.png",
@@ -355,7 +355,7 @@ export const blogPosts = {
   },
   "gsc-detected-not-indexed": {
     contentId: "08-new-domain-seo",
-    markdownFile: "082-gsc-detected-not-indexed.md",
+    markdownFile: "003-gsc-detected-not-indexed.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-02",
     ogImage: "og.png",
@@ -363,7 +363,7 @@ export const blogPosts = {
   },
   "3layer-content-strategy-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "090-tips-3layer-content-strategy.md",
+    markdownFile: "011-tips-3layer-content-strategy.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-03",
     ogImage: "og.png",
@@ -379,7 +379,7 @@ export const blogPosts = {
   },
   "new-domain-seo-troubleshooting-4steps": {
     contentId: "08-new-domain-seo",
-    markdownFile: "080-tips-new-domain-seo-4steps.md",
+    markdownFile: "001-tips-new-domain-seo-4steps.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-03",
     ogImage: "og.png",
@@ -387,7 +387,7 @@ export const blogPosts = {
   },
   "sitemap-index-checklist-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "083-tips-sitemap-index-checklist.md",
+    markdownFile: "004-tips-sitemap-index-checklist.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-03",
     ogImage: "og.png",
@@ -395,7 +395,7 @@ export const blogPosts = {
   },
   "gsc-image-url-404-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "084-gsc-image-url-404-tips.md",
+    markdownFile: "005-gsc-image-url-404-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
     ogImage: "og.png",
@@ -403,7 +403,7 @@ export const blogPosts = {
   },
   "gsc-og-image-404-fixed-verify": {
     contentId: "08-new-domain-seo",
-    markdownFile: "087-gsc-og-image-404-fixed-verify.md",
+    markdownFile: "008-gsc-og-image-404-fixed-verify.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
     ogImage: "og.png",
@@ -411,7 +411,7 @@ export const blogPosts = {
   },
   "deploy-check-image-basepath-og-file": {
     contentId: "08-new-domain-seo",
-    markdownFile: "086-deploy-check-image-basepath-og-file.md",
+    markdownFile: "007-deploy-check-image-basepath-og-file.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
     ogImage: "og.png",
@@ -419,7 +419,7 @@ export const blogPosts = {
   },
   "gsc-image-404-vs-default-og-fallback": {
     contentId: "08-new-domain-seo",
-    markdownFile: "085-gsc-image-404-vs-default-og-fallback.md",
+    markdownFile: "006-gsc-image-404-vs-default-og-fallback.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
     ogImage: "og.png",

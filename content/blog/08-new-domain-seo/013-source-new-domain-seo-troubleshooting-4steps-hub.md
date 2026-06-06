@@ -1,11 +1,11 @@
 # source.md — 第5シリーズ Hub 昇格
 
 > **用途**: ④ 記事初稿（Claude）への設計メモ  
-> **ファイル**: `225-source-new-domain-seo-troubleshooting-4steps-hub.md`  
+> **ファイル**: `013-source-new-domain-seo-troubleshooting-4steps-hub.md`  
 > **対象記事**: `new-domain-seo-troubleshooting-4steps`（既存 slug・新規登録なし）  
 > **作業種別**: 既存 Markdown の Hub 向け修正（新規執筆ではない）  
 > **作成日**: 2026-06-05  
-> **参照元 MD**: `216-tips-new-domain-seo-4steps.md`
+> **参照元 MD**: `001-tips-new-domain-seo-4steps.md`
 
 ---
 
@@ -113,7 +113,7 @@
 
 ## 8. 構成案（H2 中心・最大5前後）
 
-既存 `216-tips-new-domain-seo-4steps.md` をベースに **以下を維持・追記・修正** する。
+既存 `001-tips-new-domain-seo-4steps.md` をベースに **以下を維持・追記・修正** する。
 
 | # | H2（案） | 内容 |
 |---|----------|------|
@@ -167,7 +167,7 @@
 - `writing-rules.md` 準拠（です・ます、一人称「筆者」）
 - 内部リンクは `/blog/slug` 形式のみ
 - 断定表現を避け、実測と推定を分ける
-- 出力先ファイル名: `216-tips-new-domain-seo-4steps.md`（上書き用ドラフト）
+- 出力先ファイル名: `001-tips-new-domain-seo-4steps.md`（上書き用ドラフト）
 
 ---
 
@@ -218,7 +218,7 @@
 ```text
 添付 source.md をもとに、Hub 記事の修正ドラフトを作成してください。
 
-【対象】216-tips-new-domain-seo-4steps.md の改稿（slug: new-domain-seo-troubleshooting-4steps）
+【対象】001-tips-new-domain-seo-4steps.md の改稿（slug: new-domain-seo-troubleshooting-4steps）
 【種別】既存記事の Hub 昇格（新規 slug なし）
 【必須】§9 の削除・追加・新設セクションをすべて反映
 【必須】§5 実測ログを1〜2文として自然に織り込む（断定しない）
