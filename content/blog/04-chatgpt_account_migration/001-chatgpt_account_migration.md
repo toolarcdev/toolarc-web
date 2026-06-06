@@ -604,3 +604,5 @@ AI運用は、
 進み始めています。
 
 初日に作る .md 一覧とチェックリストは [ChatGPTアカウント移行で最初に作るべき.md一覧](/blog/chatgpt-migration-md-checklist) を参照してください。
+
+スマホでの機種変更・別アカウント移行の手順は [スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips) を参照してください。

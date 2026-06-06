@@ -177,6 +177,14 @@ export const blogPosts = {
     ogImage: "ss-01-chatgpt-export.png",
     category: "ai-workflow",
   },
+  "chatgpt-smartphone-account-migration-tips": {
+    contentId: "04-chatgpt_account_migration",
+    markdownFile: "003-chatgpt-smartphone-account-migration-tips.md",
+    imageBasePath: "/images/blog/040-chatgpt_account_migration",
+    publishedAt: "2026-06-07",
+    ogImage: "og-smartphone-migration-tips.png",
+    category: "ai-workflow",
+  },
   "nextjs-image-replace-not-reflecting": {
     contentId: "05-nextjs-image-cache",
     markdownFile: "001-nextjs-image-replace-not-reflecting-tips.md",

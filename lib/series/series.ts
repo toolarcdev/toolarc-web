@@ -85,7 +85,10 @@ export const allSeries: readonly SeriesConfig[] = [
     description:
       "ChatGPTやClaudeを長期運用している人向けに、会話履歴ではなく再利用可能な知識資産を移行する考え方と実践手順を解説します。",
     hubSlug: "chatgpt-account-migration",
-    spokeSlugOrder: ["chatgpt-migration-md-checklist"],
+    spokeSlugOrder: [
+      "chatgpt-migration-md-checklist",
+      "chatgpt-smartphone-account-migration-tips",
+    ],
     publishedAt: "2026-05-25",
   },
   {

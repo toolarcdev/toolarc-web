@@ -77,6 +77,21 @@ const IMAGE_META: Record<string, { alt: string; caption: string }> = {
     caption:
       "DailyNoteを積み上げることで、AIとの試行錯誤や運用ノウハウを「知識資産」として蓄積できます。",
   },
+  "pattern-comparison-both.png": {
+    alt: "パターン1（同アカウント・新スマホ）とパターン2（A→B移行）の違いを比較した図解",
+    caption:
+      "機種変更（同アカウント）と別アカウント移行（A→B）では手順が異なります。まずどちらのケースかを確認してください。",
+  },
+  "pattern1-same-account-new-smartphone.png": {
+    alt: "同じChatGPTアカウントで新スマホにログインすると履歴が同期される図解",
+    caption:
+      "会話履歴は端末ではなくアカウント側に保存されています。同じログイン方法・同じアカウントなら新スマホでも履歴は同期されます。",
+  },
+  "pattern2-account-a-to-b-same-phone.png": {
+    alt: "同じスマホでアカウントAからBへ移行する場合、公式の履歴移行は不可で手動引き継ぎが必要な図解",
+    caption:
+      "ChatGPTにはアカウント間の公式履歴移行機能はありません。重要な内容は手動で引継ぎ資料としてコピーする必要があります。",
+  },
 };
 
 function getImageFileName(src: string | undefined): string {
