@@ -89,6 +89,7 @@ export const allSeries: readonly SeriesConfig[] = [
     publishedAt: "2026-05-25",
   },
   {
+    // contentFolder: 08-new-domain-seo
     slug: "new-domain-seo-series",
     title: "新規ドメインSEO・GSCシリーズ",
     description:

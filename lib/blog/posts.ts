@@ -1,4 +1,4 @@
-import path from "path";
+﻿import path from "path";
 import type { BlogPostMeta } from "./types";
 
 /**
@@ -7,9 +7,13 @@ import type { BlogPostMeta } from "./types";
  * キー = 公開 URL の slug（/blog/[slug]）
  * contentId = 管理用フォルダ名（content/blog/[contentId]/）
  *
+ * フォルダ運用（3層）: docs/ai-context/content-folders.md
+ * - 新規1分Tips: contentId "20-investigate-something"（量産インボックス）
+ * - シリーズ確定: A層（01, 02, 03, 04, 08 等）へ昇格時は contentId のみ更新（slug 不変）
+ *
  * 新規記事の追加手順:
- * 1. content/blog/XX-my-post/ に Markdown を置く
- * 2. public/images/blog/my-post/ に画像を置く
+ * 1. content/blog/20-investigate-something/ に Markdown を置く（昇格済みシリーズは該当 A層）
+ * 2. public/images/blog/... に画像を置く（imageBasePath）
  * 3. 下記に1件追加
  */
 export const blogPosts = {
@@ -270,7 +274,7 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "hub-series-update-timing-tips": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "205-hub-series-update-timing.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-05-31",
@@ -294,7 +298,7 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "new-domain-seo-timeline-tips": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "206-new-domain-seo-timeline.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-05-31",
@@ -326,7 +330,7 @@ export const blogPosts = {
     category: "tool",
   },
   "new-domain-seo-trouble-keyword-strategy-tips": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "210-new-domain-seo-trouble-keyword-strategy-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-01",
@@ -342,7 +346,7 @@ export const blogPosts = {
     category: "devops",
   },
   "gsc-index-count-new-domain": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "212-gsc-index-count-new-domain.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-02",
@@ -350,7 +354,7 @@ export const blogPosts = {
     category: "devops",
   },
   "gsc-detected-not-indexed": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "213-gsc-detected-not-indexed.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-02",
@@ -358,7 +362,7 @@ export const blogPosts = {
     category: "devops",
   },
   "3layer-content-strategy-tips": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "214-tips-3layer-content-strategy.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-03",
@@ -374,7 +378,7 @@ export const blogPosts = {
     category: "devops",
   },
   "new-domain-seo-troubleshooting-4steps": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "216-tips-new-domain-seo-4steps.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-03",
@@ -382,7 +386,7 @@ export const blogPosts = {
     category: "devops",
   },
   "sitemap-index-checklist-tips": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "217-tips-sitemap-index-checklist.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-03",
@@ -390,7 +394,7 @@ export const blogPosts = {
     category: "devops",
   },
   "gsc-image-url-404-tips": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "218-gsc-image-url-404-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
@@ -398,7 +402,7 @@ export const blogPosts = {
     category: "devops",
   },
   "gsc-og-image-404-fixed-verify": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "219-gsc-og-image-404-fixed-verify.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
@@ -406,7 +410,7 @@ export const blogPosts = {
     category: "devops",
   },
   "deploy-check-image-basepath-og-file": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "220-deploy-check-image-basepath-og-file.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
@@ -414,7 +418,7 @@ export const blogPosts = {
     category: "devops",
   },
   "gsc-image-404-vs-default-og-fallback": {
-    contentId: "20-investigate-something",
+    contentId: "08-new-domain-seo",
     markdownFile: "221-gsc-image-404-vs-default-og-fallback.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
