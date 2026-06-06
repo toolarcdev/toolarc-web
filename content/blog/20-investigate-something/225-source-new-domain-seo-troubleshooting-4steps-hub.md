@@ -1,6 +1,7 @@
 # source.md — 第5シリーズ Hub 昇格
 
 > **用途**: ④ 記事初稿（Claude）への設計メモ  
+> **ファイル**: `225-source-new-domain-seo-troubleshooting-4steps-hub.md`  
 > **対象記事**: `new-domain-seo-troubleshooting-4steps`（既存 slug・新規登録なし）  
 > **作業種別**: 既存 Markdown の Hub 向け修正（新規執筆ではない）  
 > **作成日**: 2026-06-05  
