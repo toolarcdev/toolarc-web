@@ -7,7 +7,7 @@ import type { BlogPostMeta } from "./types";
  * キー = 公開 URL の slug（/blog/[slug]）
  * contentId = 管理用フォルダ名（content/blog/[contentId]/）
  *
- * フォルダ運用（3層）: docs/ai-context/content-folders.md
+ * フォルダ運用（3層）・markdownFile 命名: docs/ai-context/content-folders.md
  * - 新規1分Tips: contentId "20-investigate-something"（量産インボックス）
  * - シリーズ確定: A層（01, 02, 03, 04, 08 等）へ昇格時は contentId のみ更新（slug 不変）
  *
@@ -275,7 +275,7 @@ export const blogPosts = {
   },
   "hub-series-update-timing-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "205-hub-series-update-timing.md",
+    markdownFile: "091-hub-series-update-timing.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-05-31",
     ogImage: "og.png",
@@ -299,7 +299,7 @@ export const blogPosts = {
   },
   "new-domain-seo-timeline-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "206-new-domain-seo-timeline.md",
+    markdownFile: "088-new-domain-seo-timeline.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-05-31",
     ogImage: "og.png",
@@ -331,7 +331,7 @@ export const blogPosts = {
   },
   "new-domain-seo-trouble-keyword-strategy-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "210-new-domain-seo-trouble-keyword-strategy-tips.md",
+    markdownFile: "089-new-domain-seo-trouble-keyword-strategy-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-01",
     ogImage: "og.png",
@@ -347,7 +347,7 @@ export const blogPosts = {
   },
   "gsc-index-count-new-domain": {
     contentId: "08-new-domain-seo",
-    markdownFile: "212-gsc-index-count-new-domain.md",
+    markdownFile: "081-gsc-index-count-new-domain.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-02",
     ogImage: "og.png",
@@ -355,7 +355,7 @@ export const blogPosts = {
   },
   "gsc-detected-not-indexed": {
     contentId: "08-new-domain-seo",
-    markdownFile: "213-gsc-detected-not-indexed.md",
+    markdownFile: "082-gsc-detected-not-indexed.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-02",
     ogImage: "og.png",
@@ -363,7 +363,7 @@ export const blogPosts = {
   },
   "3layer-content-strategy-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "214-tips-3layer-content-strategy.md",
+    markdownFile: "090-tips-3layer-content-strategy.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-03",
     ogImage: "og.png",
@@ -379,7 +379,7 @@ export const blogPosts = {
   },
   "new-domain-seo-troubleshooting-4steps": {
     contentId: "08-new-domain-seo",
-    markdownFile: "216-tips-new-domain-seo-4steps.md",
+    markdownFile: "080-tips-new-domain-seo-4steps.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-03",
     ogImage: "og.png",
@@ -387,7 +387,7 @@ export const blogPosts = {
   },
   "sitemap-index-checklist-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "217-tips-sitemap-index-checklist.md",
+    markdownFile: "083-tips-sitemap-index-checklist.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-03",
     ogImage: "og.png",
@@ -395,7 +395,7 @@ export const blogPosts = {
   },
   "gsc-image-url-404-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "218-gsc-image-url-404-tips.md",
+    markdownFile: "084-gsc-image-url-404-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
     ogImage: "og.png",
@@ -403,7 +403,7 @@ export const blogPosts = {
   },
   "gsc-og-image-404-fixed-verify": {
     contentId: "08-new-domain-seo",
-    markdownFile: "219-gsc-og-image-404-fixed-verify.md",
+    markdownFile: "087-gsc-og-image-404-fixed-verify.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
     ogImage: "og.png",
@@ -411,7 +411,7 @@ export const blogPosts = {
   },
   "deploy-check-image-basepath-og-file": {
     contentId: "08-new-domain-seo",
-    markdownFile: "220-deploy-check-image-basepath-og-file.md",
+    markdownFile: "086-deploy-check-image-basepath-og-file.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
     ogImage: "og.png",
@@ -419,7 +419,7 @@ export const blogPosts = {
   },
   "gsc-image-404-vs-default-og-fallback": {
     contentId: "08-new-domain-seo",
-    markdownFile: "221-gsc-image-404-vs-default-og-fallback.md",
+    markdownFile: "085-gsc-image-404-vs-default-og-fallback.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-04",
     ogImage: "og.png",
