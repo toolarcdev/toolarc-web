@@ -106,6 +106,7 @@ npm run build
 
 ## 関連記事
 
+- [公開後に既存記事へ相互リンクを逆更新する手順（211↔215型）](/blog/cross-link-reverse-update-after-publish)
 - [GSC記事は表示文言の変更可能性を免責に明記する](/blog/gsc-article-ui-change-disclaimer)
 - [新ドメインの SEO タイムライン Tips](/blog/new-domain-seo-timeline-tips)
 - [GSC でインデックス数を確認する](/blog/gsc-index-count-new-domain)

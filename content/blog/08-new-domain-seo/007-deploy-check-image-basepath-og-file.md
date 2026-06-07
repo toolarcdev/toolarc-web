@@ -112,6 +112,7 @@ curl -o /dev/null -s -w "%{http_code}\n" https://example.com/images/blog/my-arti
 
 デプロイ後にGSCの404が解消されるまでの流れと確認方法は、関連記事で解説しています。
 
+- 関連: [npm run build後にHTTP200・sitemap.xml・OG fallbackを確認する](/blog/npm-run-build-http200-sitemap-og-fallback-check)
 - 関連: [OG画像の404を修正したあとGSCで確認すべきこと](/blog/gsc-og-image-404-fixed-verify)
 - 関連: [GSCで画像URLだけ404になる理由](/blog/gsc-image-url-404-tips)
 - 関連: [Next.jsのOG画像fallback設定](/blog/nextjs-og-image-fallback-tips)
