@@ -481,6 +481,38 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "posts-ts-auto-reflect-sitemap-blog-list": {
+    contentId: "20-investigate-something",
+    markdownFile: "229-posts-ts-auto-reflect-sitemap-blog-list.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-07",
+    ogImage: "og.png",
+    category: "devops",
+  },
+  "cross-link-reverse-update-after-publish": {
+    contentId: "20-investigate-something",
+    markdownFile: "230-cross-link-reverse-update-after-publish.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-07",
+    ogImage: "og.png",
+    category: "devops",
+  },
+  "spoke-article-internal-link-role-separation": {
+    contentId: "20-investigate-something",
+    markdownFile: "231-spoke-article-internal-link-role-separation.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-07",
+    ogImage: "og.png",
+    category: "devops",
+  },
+  "npm-run-build-http200-sitemap-og-fallback-check": {
+    contentId: "20-investigate-something",
+    markdownFile: "232-npm-run-build-http200-sitemap-og-fallback-check.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-07",
+    ogImage: "og.png",
+    category: "devops",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

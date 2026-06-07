@@ -104,6 +104,7 @@ Hub記事（シリーズ導線と収益導線を集約）
 まず今日できることは、最近つまずいたことを1分Tipsとして1本書いてみることです。その積み重ねが比較記事の土台になり、やがてHubとして結実します。
 
 関連記事:
+- [Spoke記事は詳細を書かず内部リンクで役割分担する](/blog/spoke-article-internal-link-role-separation)
 - [新規ドメインは「困りごと検索」から入る戦略](/blog/new-domain-seo-trouble-keyword-strategy-tips)
 - [AI SEO運用 Hub](/blog/ai-seo-hub)（準備中）
 
