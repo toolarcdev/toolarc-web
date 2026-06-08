@@ -106,6 +106,10 @@ export async function generateMetadata({ params }: Props) {
 - `siteConfig`などに共通fallbackパスを1か所まとめると、漏れを構造的に防げる
 - 公開前のSNSカード確認は手間が少ない割に効果が大きい
 
+実装のフォールバック挙動を build で確認する手順は、以下も参考になります。
+
+- [og.png未配置時はresolveOgImageがdefault-ogにフォールバックする](/blog/resolve-og-image-fallback-to-default)
+
 OGP設定を含むSEO運用の全体像は、以下のHub記事にまとめています。
 
 → [AI SEO運用 Hub（準備中）](/blog/ai-seo-hub)

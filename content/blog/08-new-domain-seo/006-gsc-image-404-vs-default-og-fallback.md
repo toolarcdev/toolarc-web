@@ -93,6 +93,7 @@ GSCに画像URL404が出ている
 
 2つを混同せず、URLのパターンで判断先を分けることが、最短で解決するコツです。
 
+- 関連: [og.png未配置時はresolveOgImageがdefault-ogにフォールバックする](/blog/resolve-og-image-fallback-to-default)
 - 関連: [GSCで画像URLだけ404になる理由](/blog/gsc-image-url-404-tips)
 - 関連: [OG画像の404を修正したあとGSCで確認すべきこと](/blog/gsc-og-image-404-fixed-verify)
 - 関連: [Next.jsのOG画像fallback設定](/blog/nextjs-og-image-fallback-tips)
