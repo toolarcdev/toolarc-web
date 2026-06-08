@@ -91,6 +91,7 @@ GSC の数字は「現状の診断ツール」として週1回程度チェック
 
 ### 次に読む
 
+- [GSCインデックスレポートの最終更新日が止まっても障害とは限らない](/blog/gsc-index-last-updated-not-a-failure)
 - [新規ドメインのSEOタイムラインと現実的な期待値](/blog/new-domain-seo-timeline-tips)
 - 新規ドメインSEOの4段階（発見・クロール・インデックス・順位）（準備中）
 - [「検出 - インデックス未登録」の意味と初動対策](/blog/gsc-detected-not-indexed)
