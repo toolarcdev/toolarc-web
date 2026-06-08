@@ -87,6 +87,7 @@ grep -n "](https://" content/blog/your-article/index.md
 
 ## 次に読む
 
+- [未公開記事への内部リンクはslug確定後に追記する【リンク切れ防止】](/blog/unpublished-link-after-slug-confirmed)
 - [CursorのPlanモードはbuild前にPlanを修正できる](/blog/cursor-plan-mode-modify-before-build-tips)
 - [ブログ一覧を15件ずつページ送りにする目安（Next.js）](/blog/blog-page-size-15-tips)
 - [AIとsource.mdで記事設計を構造化するTips](/blog/source-md-tips)

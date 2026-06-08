@@ -101,6 +101,8 @@ npm run build
 
 **関連記事**
 
+- [Hub記事をシリーズ複数本の参照軸に据える設計【内部リンク整理術】](/blog/hub-article-as-reference-axis-for-series)
+- [未公開記事への内部リンクはslug確定後に追記する【リンク切れ防止】](/blog/unpublished-link-after-slug-confirmed)
 - [npm run build後にHTTP200・sitemap.xml・OG fallbackを確認する](/blog/npm-run-build-http200-sitemap-og-fallback-check)
 - [Spoke記事は詳細を書かず内部リンクで役割分担する](/blog/spoke-article-internal-link-role-separation)
 - [posts.tsに1エントリ追加するだけでsitemapとブログ一覧に自動反映される](/blog/posts-ts-auto-reflect-sitemap-blog-list)
