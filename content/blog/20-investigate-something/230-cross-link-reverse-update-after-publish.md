@@ -108,6 +108,7 @@ npm run build
 - [posts.tsに1エントリ追加するだけでsitemapとブログ一覧に自動反映される](/blog/posts-ts-auto-reflect-sitemap-blog-list)
 - [curl で localhost を叩くときの Next.js CORS 対処](/blog/curl-nextjs-cors-tips)
 - [内部リンクの「準備中」は公開と同時に差し替える](/blog/internal-link-draft-label-update)
+- [Hub記事昇格後は既存SpokeのHubリンクを差し替える](/blog/hub-spoke-link-update-tips)
 - Hub: [新規ドメインSEOの4段階（シリーズ入口）](/blog/new-domain-seo-troubleshooting-4steps)
 
 ---
