@@ -77,6 +77,7 @@ npm run build
 - [公開後に既存記事へ相互リンクを逆更新する手順（211↔215型）](/blog/cross-link-reverse-update-after-publish)
 - [Spoke記事は詳細を書かず内部リンクで役割分担する](/blog/spoke-article-internal-link-role-separation)
 - [series.tsにspokeを追加してシリーズページを更新する方法](/blog/series-ts-spoke-add-tips)
+- [GSCのインデックス登録リクエストには1日の上限がある【新規ドメイン運用メモ】](/blog/gsc-index-request-daily-limit)
 
 ---
 

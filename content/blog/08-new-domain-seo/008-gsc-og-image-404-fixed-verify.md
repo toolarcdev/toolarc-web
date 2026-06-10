@@ -79,6 +79,7 @@ curl -o /dev/null -s -w "%{http_code}\n" https://example.com/images/blog/foo.png
 画像URLが404になる原因の切り分けについては、関連記事で解説しています。
 
 - 関連: [GSCで画像URLだけ404になる理由](/blog/gsc-image-url-404-tips)
+- 関連: [画像404のGSCエラーは記事URLでインデックスリクエストする](/blog/gsc-image-404-request-article-url)
 - Hub: [新規ドメインSEOの4段階（シリーズ入口）](/blog/new-domain-seo-troubleshooting-4steps)
 
 ---
