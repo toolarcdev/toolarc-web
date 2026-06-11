@@ -601,6 +601,30 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "cursor-agent-gh-pr-create-fill": {
+    contentId: "20-investigate-something",
+    markdownFile: "244-cursor-agent-gh-pr-create-fill.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-11",
+    ogImage: "og.png",
+    category: "tool",
+  },
+  "x-og-image-404-cache": {
+    contentId: "20-investigate-something",
+    markdownFile: "245-x-og-image-404-cache.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-11",
+    ogImage: "og.png",
+    category: "devops",
+  },
+  "gsc-redirect-domain-normalization": {
+    contentId: "20-investigate-something",
+    markdownFile: "246-gsc-redirect-domain-normalization.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-11",
+    ogImage: "og.png",
+    category: "devops",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
