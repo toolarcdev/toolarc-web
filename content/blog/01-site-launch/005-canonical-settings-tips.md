@@ -121,6 +121,7 @@ Next.js App Router での canonical 設定手順をまとめます。
 
 - [サイト公開チェックリスト](/blog/site-launch)
 - [Claude + Obsidian ワークフロー](/blog/claude-obsidian-workflow)
+- [GSCの「ページにリダイレクトがあります」はドメイン正規化なら放置でよい](/blog/gsc-redirect-domain-normalization)
 
 ---
 

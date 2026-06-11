@@ -73,6 +73,7 @@ Cursor には **Agent モード**と **Composer モード**があります。ど
 - [Cursor Agentが止まったときの再開と確認手順](/blog/cursor-agent-pause-recovery-tips)
 - [Cursor でトークンを消費しやすいタスクと対策](/blog/cursor-token-heavy-tasks)
 - [Cursor の Ask モードを使い分けるタイミング](/blog/cursor-ask-mode-tips)
+- [Cursor AgentにPR作成を依頼するなら--fillオプションが確実](/blog/cursor-agent-gh-pr-create-fill)
 
 ---
 

@@ -118,6 +118,7 @@ curl -o /dev/null -s -w "%{http_code}\n" https://example.com/images/blog/my-arti
 - 関連: [GSCで画像URLだけ404になる理由](/blog/gsc-image-url-404-tips)
 - 関連: [Next.jsのOG画像fallback設定](/blog/nextjs-og-image-fallback-tips)
 - 関連: [og:imageとJSON-LD imageをページソースで確認する方法](/blog/og-image-json-ld-pagesource-check)
+- 関連: [XでOG画像が出ないときは本番404とキャッシュを疑う](/blog/x-og-image-404-cache)
 
 ---
 
