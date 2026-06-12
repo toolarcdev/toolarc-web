@@ -6,7 +6,7 @@
 
 ## Operational KPIs (weekly)
 
-> 正本: `D:\ObsidianVault\Vault\00-dashboard\reader-theme-supply.md`
+> 供給（inbox・公開ペース）正本: `D:\ObsidianVault\Vault\00-dashboard\reader-theme-supply.md`
 
 | Metric | Target |
 |--------|--------|
@@ -15,6 +15,21 @@
 | Published articles (`reader`) | 2–3 per week |
 | Published articles (`operator`) | 1 per week max |
 | Reader runway (inbox reader A+B ÷ 2.5) | 2+ weeks |
+
+## Outcome KPIs (weekly, manual)
+
+> 成果（検索・インデックス）正本: `D:\ObsidianVault\Vault\00-dashboard\dashboard.md`（検索パフォーマンス・週次公開）
+> 履歴: `D:\ObsidianVault\Vault\00-dashboard\gsc-weekly-log.md`
+> 取得: ② SEO・GSC（GSC UI 手動・**過去7日**）→ 記録: ⑥ 水曜週次
+
+| Metric | Source | Notes |
+|--------|--------|-------|
+| Clicks / Impressions | GSC「検索の結果」 | 先週比。急落時は②で調査 |
+| Indexed page count | GSC「インデックス作成」 | 4カテゴリ + 404 |
+| Reader published (week) | `posts.ts` + `audience_axis` | 目標 2–3/week |
+| GSC queries (top 3) | GSC「検索の結果」 | ⑤柱C 外部シグナル |
+
+手順: https://www.toolarc.jp/blog/gsc-index-weekly-check-tips
 
 ## Discovery pillars
 
