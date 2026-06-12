@@ -122,6 +122,8 @@ Next.js App Router での canonical 設定手順をまとめます。
 - [サイト公開チェックリスト](/blog/site-launch)
 - [Claude + Obsidian ワークフロー](/blog/claude-obsidian-workflow)
 - [GSCの「ページにリダイレクトがあります」はドメイン正規化なら放置でよい](/blog/gsc-redirect-domain-normalization)
+- [GSCの「リダイレクトあり」はループとは限らない——見分け方と確認手順](/blog/gsc-redirect-loop-check-tips)
+- [新規ドメインでcanonicalとwww統一を確認する4ステップ](/blog/new-domain-canonical-www-check-tips)
 
 ---
 
