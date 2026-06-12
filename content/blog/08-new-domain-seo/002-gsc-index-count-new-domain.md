@@ -95,6 +95,7 @@ GSC の数字は「現状の診断ツール」として週1回程度チェック
 - [新規ドメインのSEOタイムラインと現実的な期待値](/blog/new-domain-seo-timeline-tips)
 - 新規ドメインSEOの4段階（発見・クロール・インデックス・順位）（準備中）
 - [「検出 - インデックス未登録」の意味と初動対策](/blog/gsc-detected-not-indexed)
+- [GSCのインデックス確認は週1回のサマリーで十分——新規ドメイン量産期の運用判断](/blog/gsc-index-weekly-check-tips)
 - AI SEO運用 Hub（準備中）
 
 ---
