@@ -73,6 +73,7 @@ GSCの404エラーを見てインデックスリクエストを送る前に、**
 - [GSCのインデックス登録リクエストには1日の上限がある【新規ドメイン運用メモ】](/blog/gsc-index-request-daily-limit)
 - [GSCの画像404とdefault-og.png fallbackは別問題として切り分ける](/blog/gsc-image-404-vs-default-og-fallback)
 - [og:imageとJSON-LD imageをページソースで確認する方法](/blog/og-image-json-ld-pagesource-check)
+- [GSCのインデックス登録リクエスト、どのURLから優先すべきか【1分Tips】](/blog/gsc-index-request-priority-url)
 
 ---
 

@@ -106,6 +106,7 @@ Hub記事（シリーズ導線と収益導線を集約）
 関連記事:
 - [Spoke記事は詳細を書かず内部リンクで役割分担する](/blog/spoke-article-internal-link-role-separation)
 - [新規ドメインは「困りごと検索」から入る戦略](/blog/new-domain-seo-trouble-keyword-strategy-tips)
+- [新規ドメインで避けた方がいいYMYLジャンルとは【1分Tips】](/blog/new-domain-ymyl-avoid)
 - [AI SEO運用 Hub](/blog/ai-seo-hub)（準備中）
 
 ---

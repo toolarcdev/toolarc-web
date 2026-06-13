@@ -119,6 +119,7 @@ curl -o /dev/null -s -w "%{http_code}\n" https://example.com/images/blog/my-arti
 - 関連: [Next.jsのOG画像fallback設定](/blog/nextjs-og-image-fallback-tips)
 - 関連: [og:imageとJSON-LD imageをページソースで確認する方法](/blog/og-image-json-ld-pagesource-check)
 - 関連: [XでOG画像が出ないときは本番404とキャッシュを疑う](/blog/x-og-image-404-cache)
+- 関連: [ChatGPTでOG画像を狙い通りに生成するプロンプト設計【1分Tips】](/blog/chatgpt-og-image-prompt-design)
 
 ---
 
