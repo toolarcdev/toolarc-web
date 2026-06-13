@@ -74,6 +74,7 @@ GSCのインデックス登録リクエストは、**使いすぎると肝心な
 - [Hub記事昇格後は既存SpokeのHubリンクを差し替える](/blog/hub-spoke-link-update-tips)
 - [画像404のGSCエラーは記事URLでインデックスリクエストする](/blog/gsc-image-404-request-article-url)
 - [GSCのインデックス確認は週1回のサマリーで十分——新規ドメイン量産期の運用判断](/blog/gsc-index-weekly-check-tips)
+- [GSCのインデックス登録リクエスト、どのURLから優先すべきか【1分Tips】](/blog/gsc-index-request-priority-url)
 
 ---
 
