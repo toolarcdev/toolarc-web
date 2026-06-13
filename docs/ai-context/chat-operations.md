@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-06-11 21:22  
+最終更新: 2026-06-13  
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`
@@ -38,7 +38,7 @@ DailyNote / AI-log
   → ⑥ Cursor: handoff 反映・候補マスター・inbox・Dashboard（Commit）
   → ④ Claude: source.md → 本文初稿
   → （任意）ChatGPT: SEO・Output Contract レビュー
-  → ① Cursor: content/blog + posts.ts + build（軽負債: series.ts / Hubリンク / promotion_status）
+  → ① Cursor: content/blog + posts.ts + build + 公開日Get-Date確定（軽負債: series.ts / Hubリンク / promotion_status）
   → ⑥: 公開反映を候補マスター・Dashboard・DailyNote に記録（debt カウンタ）
   → ⑥ 水曜: 重負債1単位（Hub更新 / 昇格PR / 逆リンク）→ ①へ依頼
 ```
@@ -90,6 +90,13 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - 記事間の内部リンク（/blog/slug 形式）
 - npm run build の成功確認
 - 同日複数本公開時は公開順にクロスリンク（218→221型）
+- 公開日の確定（実装時のみ。下記「公開日 — Get-Date 必須」）
+
+【公開日 — Get-Date 必須】
+- 実装開始時に `Get-Date -Format "yyyy-MM-dd"` を実行（JST。手入力・inbox の publishDate・初稿 frontmatter の date は使わない）
+- 対象記事の frontmatter `date:` と `lib/blog/posts.ts` の `publishedAt` を同じ日付に上書き
+- 免責の「執筆時点（YYYY-MM-DD）」がある場合も同じ実装日に揃える
+- inbox / Dashboard の `publishDate` は供給計画用。Web 表示日とのズレは許容
 
 【やらない】
 - 記事本文の初稿（④ Claude）
@@ -107,6 +114,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - build 成功
 - 新 slug が静的生成に含まれる
 - 関連記事へのリンクが有効な slug を指す
+- frontmatter `date` と `posts.ts` の `publishedAt` が実装日（Get-Date）で一致
 - 軽負債（docs/ai-context/debt-paydown-workflow.md）:
   - シリーズ確定なら lib/series/series.ts に spoke 追加
   - スポークなら Hub へのリンク1本（/blog/[hubSlug]）
@@ -114,6 +122,29 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
   - 同日複数本は公開順クロスリンク
 
 準備できたら「① 記事公開、準備完了」とだけ返答してください。
+```
+
+### ① 記事公開依頼テンプレ（毎回の依頼文）
+
+Cursor ① に記事実装を依頼するときは、次の形式を使う。プラン・inbox の予定日を公開日に流用しない。
+
+```text
+【記事公開】
+対象 slug: <slug1>, <slug2>, ...
+本文 MD: content/blog/<contentId>/<ファイル名>.md（パスを明示）
+
+【公開日 — 実装時に確定】
+実装開始時に Get-Date -Format "yyyy-MM-dd" を実行し、
+各記事の frontmatter date と posts.ts publishedAt の両方に同じ日付を設定する。
+inbox の publishDate や初稿 frontmatter の date は参照しない。
+
+【軽負債】
+docs/ai-context/debt-paydown-workflow.md の①チェックリストに従う
+
+【任意】
+- 逆リンク先 slug
+- 準備中 → 実 slug への差し替え箇所
+- 同日複数本の公開順（クロスリンク用）
 ```
 
 ### ② SEO・GSC（Cursor）
@@ -204,6 +235,10 @@ GSCクエリ3件: 「...」「...」「...」
 
 【添付の優先順位】
 source.md の「伝えたいこと」 > AGENTS.md > writing-rules.md > project-context.md
+
+【公開日（仮値）】
+- frontmatter の `date` は計画用の仮値でよい。Web の公開日表示は ① が実装日（Get-Date）で上書きする
+- inbox / 候補マスターの `publishDate` は執筆順・供給計画のみに使う（Web 公開日の正本ではない）
 
 【依頼例】
 「添付 source.md をもとに1分Tips記事本文を作成。ファイル名は slug に合わせて md で出力。」
