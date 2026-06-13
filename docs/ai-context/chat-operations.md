@@ -352,7 +352,7 @@ writing-rules.md と source.md を添付し、④ 記事初稿（Claude）と同
 
 【日次 — シリーズ負債追跡】
 - 分類ゲート: 当日公開分の content_folder を series:* / topic:* / standalone のいずれかに
-- debt カウンタ: Dashboard のシリーズ負債3行を更新
+- debt カウンタ: Dashboard のシリーズ負債4行を更新（黄≥35 / 赤≥40 / 週次純増≥+10。詳細は正本）
 - Hub stale: series.ts spoke 数と Hub リンク数の差分≥2 → hub_stale 記録
 - 詳細: docs/ai-context/debt-paydown-workflow.md
 
