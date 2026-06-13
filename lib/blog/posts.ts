@@ -250,8 +250,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "cursor-ask-mode-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "201-cursor-ask-mode-tips.md",
+    contentId: "03-cursor-free",
+    markdownFile: "006-cursor-ask-mode-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-05-30",
     ogImage: "og.png",
@@ -314,8 +314,8 @@ export const blogPosts = {
     category: "devops",
   },
   "cursor-reference-file-prompt-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "207-cursor-reference-file-prompt-tips.md",
+    contentId: "03-cursor-free",
+    markdownFile: "007-cursor-reference-file-prompt-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-01",
     ogImage: "og.png",
@@ -330,8 +330,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "cursor-refactor-judgment-before-apply-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "209-cursor-refactor-judgment-before-apply-tips.md",
+    contentId: "03-cursor-free",
+    markdownFile: "008-cursor-refactor-judgment-before-apply-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-01",
     ogImage: "og.png",
@@ -450,8 +450,8 @@ export const blogPosts = {
     category: "devops",
   },
   "cursor-plan-mode-modify-before-build-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "224-cursor-plan-mode-modify-before-build-tips.md",
+    contentId: "03-cursor-free",
+    markdownFile: "009-cursor-plan-mode-modify-before-build-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-05",
     ogImage: "og.png",
