@@ -1,6 +1,6 @@
 # debt-paydown-workflow.md — シリーズ負債払い運用
 
-最終更新: 2026-06-11（週次シリーズ化スキャン・ガードレール追加）  
+最終更新: 2026-06-13（①公開日Get-Dateチェック追加）  
 用途: `20-investigate-something` 先公開フローで溜まる「後払い負債」の払い方。①（公開）・⑥（日次/週次）が参照。
 
 関連: [`content-folders.md`](content-folders.md)、[`chat-operations.md`](chat-operations.md)、[`lib/series/series.ts`](../../lib/series/series.ts)
@@ -52,6 +52,7 @@ flowchart LR
 | 2 | **新スポーク本文に Hub リンク1本** | `/blog/[hubSlug]` 形式。Hub 自身の公開時は不要 |
 | 3 | **Vault 候補マスターに記録** | `content_folder` + `promotion_status: published_in_20`（⑥が日次で確認） |
 | 4 | **同日複数本のクロスリンク** | 既存ルール（公開順に相互リンク） |
+| 5 | **公開日を実装日で統一** | 実装開始時に `Get-Date -Format "yyyy-MM-dd"` を取得し、frontmatter `date` と `posts.ts` の `publishedAt` が同じ実装日で一致。inbox の `publishDate` は参照しない |
 
 **週次に回す（公開 PR ではやらない）**
 
