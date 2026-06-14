@@ -673,6 +673,30 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "vercel-domain-connection-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "253-vercel-domain-connection-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-14",
+    ogImage: "og.png",
+    category: "devops",
+  },
+  "chatgpt-cursor-claude-role-sharing-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "254-chatgpt-cursor-claude-role-sharing-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-14",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "git-branch-basic-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "255-git-branch-basic-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-06-14",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
