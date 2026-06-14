@@ -73,6 +73,7 @@ flowchart LR
 | **debt カウンタ** | Dashboard のシリーズ負債カウンタ4行を更新（定義は下記「debt カウンタ定義」節） |
 | **Hub stale 判定** | シリーズごとに `series.ts` の spoke 数 − Hub 本文のスポークリンク数 ≥ 2 → `hub_stale: true` |
 | **黄/赤判定** | `20` 総数と週次純増を閾値と照合し、Dashboard に段階を記録（詳細は「閾値トリガー」節） |
+| **明日フォーカス同期** | DailyNote reader 3本と inbox `publish_date`（翌日）を一致。Dashboard 明日フォーカスと連動。正本: maintenance_1min-Tips 必須タスク E |
 
 ---
 

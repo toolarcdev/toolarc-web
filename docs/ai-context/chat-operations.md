@@ -350,6 +350,12 @@ writing-rules.md と source.md を添付し、④ 記事初稿（Claude）と同
 - `slot-handoff-template.md` 形式を inbox + 候補マスターに反映
 - `_classify_title.mjs` で audience_axis 確定
 
+【日次 — 明日フォーカス同期】
+- DailyNote「明日やること」reader 3本を inbox から選定
+- 該当 inbox の publish_date を翌日（Get-Date+1）に設定
+- Dashboard「明日のフォーカス候補」と一致させる
+- 正本: maintenance_1min-Tips 必須タスク E
+
 【日次 — シリーズ負債追跡】
 - 分類ゲート: 当日公開分の content_folder を series:* / topic:* / standalone のいずれかに
 - debt カウンタ: Dashboard のシリーズ負債4行を更新（黄≥35 / 赤≥40 / 週次純増≥+10。詳細は正本）
