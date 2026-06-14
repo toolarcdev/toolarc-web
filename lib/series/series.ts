@@ -29,8 +29,10 @@ export const allSeries: readonly SeriesConfig[] = [
     hubSlug: "site-launch",
     spokeSlugOrder: [
       "ai-role-sharing-workflow",
+      "chatgpt-cursor-claude-role-sharing-tips",
       "source-md-ai-writing",
       "vercel-domain-invalid-nameserver",
+      "vercel-domain-connection-tips",
       "nextjs-canonical-settings-tips",
       "nextjs-og-image-fallback-tips",
       "nextjs-vercel-preview-check-tips",
@@ -76,6 +78,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-reference-file-prompt-tips",
       "cursor-refactor-judgment-before-apply-tips",
       "cursor-plan-mode-modify-before-build-tips",
+      "git-branch-basic-tips",
     ],
     publishedAt: "2026-05-25",
   },
