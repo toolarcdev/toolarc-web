@@ -53,6 +53,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "captions-md-tips",
       "ai-screenshot-caption-tips",
       "source-md-tips",
+      "claude-draft-review-before-publish",
       "obsidian-daily-notes-workflow",
       "obsidian-daily-notes-ai-log",
       "dailynote-context-compression",
@@ -91,6 +92,7 @@ export const allSeries: readonly SeriesConfig[] = [
     spokeSlugOrder: [
       "chatgpt-migration-md-checklist",
       "chatgpt-smartphone-account-migration-tips",
+      "chatgpt-share-link-ai-cannot-read-url",
     ],
     publishedAt: "2026-05-25",
   },
