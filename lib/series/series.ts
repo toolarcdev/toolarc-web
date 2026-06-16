@@ -56,6 +56,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "claude-draft-review-before-publish",
       "obsidian-daily-notes-workflow",
       "obsidian-daily-notes-ai-log",
+      "obsidian-mode-live-preview-source",
       "dailynote-context-compression",
       "dailynote-ai-log-source-reading-order",
       "ai-docs-duplication-tips",
