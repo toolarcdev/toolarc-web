@@ -274,8 +274,8 @@ export const blogPosts = {
     category: "tool",
   },
   "obsidian-dashboard-focus-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "204-dashboard-focus-tips.md",
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "012-obsidian-dashboard-focus-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-05-30",
     ogImage: "og.png",
@@ -698,8 +698,8 @@ export const blogPosts = {
     category: "tool",
   },
   "claude-draft-review-before-publish": {
-    contentId: "20-investigate-something",
-    markdownFile: "256-claude-draft-review-before-publish.md",
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "010-claude-draft-review-before-publish.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-15",
     ogImage: "og.png",
@@ -730,8 +730,8 @@ export const blogPosts = {
     category: "devops",
   },
   "obsidian-mode-live-preview-source": {
-    contentId: "20-investigate-something",
-    markdownFile: "260-obsidian-mode-live-preview-source.md",
+    contentId: "02-claude-obsidian-workflow",
+    markdownFile: "011-obsidian-mode-live-preview-source.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-16",
     ogImage: "og.png",
