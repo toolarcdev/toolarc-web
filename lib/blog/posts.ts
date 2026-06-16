@@ -690,8 +690,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "git-branch-basic-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "255-git-branch-basic-tips.md",
+    contentId: "03-cursor-free",
+    markdownFile: "011-git-branch-basic-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-14",
     ogImage: "og.png",
@@ -706,8 +706,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "cursor-slow-troubleshoot-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "257-cursor-slow-troubleshoot-tips.md",
+    contentId: "03-cursor-free",
+    markdownFile: "012-cursor-slow-troubleshoot-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-15",
     ogImage: "og.png",
