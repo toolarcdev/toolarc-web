@@ -226,6 +226,7 @@ Agentモードは便利ですが、「全体最適」系の依頼は大量消費
 | 7 | モード・運用 | [外部AIの記事をCursorでリファクタする前に判断する](/blog/cursor-refactor-judgment-before-apply-tips) |
 | 8 | モード・運用 | [CursorのPlanモードはbuild前にPlanを修正できる](/blog/cursor-plan-mode-modify-before-build-tips) |
 | 9 | Git・運用 | [Gitブランチを安全に切る基本手順｜記事1本＝1ブランチ運用のすすめ](/blog/git-branch-basic-tips) |
+| 10 | トラブル | [Cursorが急に重くなった時に確認したいこと](/blog/cursor-slow-troubleshoot-tips) |
 
 ---
 
