@@ -714,8 +714,8 @@ export const blogPosts = {
     category: "tool",
   },
   "chatgpt-share-link-ai-cannot-read-url": {
-    contentId: "20-investigate-something",
-    markdownFile: "258-chatgpt-share-link-ai-cannot-read-url.md",
+    contentId: "04-chatgpt_account_migration",
+    markdownFile: "004-chatgpt-share-link-ai-cannot-read-url.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-15",
     ogImage: "og.png",
