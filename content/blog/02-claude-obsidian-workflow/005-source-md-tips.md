@@ -93,6 +93,8 @@ source.md 運用のポイントをまとめます。
 - [captions.mdを作るとAI記事生成の精度が上がる](/blog/captions-md-tips)
 - [source.md を使った AI 記事生成ワークフロー（詳細版）](/blog/source-md-ai-writing)
 - [AI ドキュメント整理のコツ](/blog/ai-docs-duplication-tips)
+- [Claude初稿の誤記は④で目視確認してから①で公開する](/blog/claude-draft-review-before-publish)
+- [Obsidianの3モード使い分け｜Live PreviewとSourceを切り替える基本](/blog/obsidian-mode-live-preview-source)
 
 ---
 
