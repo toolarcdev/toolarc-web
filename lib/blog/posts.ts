@@ -602,8 +602,8 @@ export const blogPosts = {
     category: "devops",
   },
   "cursor-agent-gh-pr-create-fill": {
-    contentId: "20-investigate-something",
-    markdownFile: "244-cursor-agent-gh-pr-create-fill.md",
+    contentId: "03-cursor-free",
+    markdownFile: "010-cursor-agent-gh-pr-create-fill.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-11",
     ogImage: "og.png",
