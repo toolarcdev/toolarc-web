@@ -171,7 +171,7 @@ Cloudflareの設定はしていたが、ドメインレジストラ（Xserver Do
 ![Vercelがvalidになった画面](/images/blog/site-launch/06-solved-vercel-dns.png)
 *▲ toolarc.jpもwww.toolarc.jpも無事にValid Configuration＋SSL証明書の生成へ。半日以上ずっと見ていたエラーが消えた瞬間は、本当に安心した。*
 
-あれだけ悩んでいた問題が、原因が分かってしまえば数分で解決した。ただ、「設定ミスなのか反映待ちなのか」が判断できない状態で待ち続けた時間は、今も鮮明に覚えている。
+あれだけ悩んでいた問題が、原因が分かってしまえば数分で解決した。ただ、「設定ミスなのか反映待ちなのか」が判断できない状態で待ち続けた時間は、今も鮮明に覚えている。同じような DNS トラブルは、[Vercelでdomain invalidが直らず苦戦した話](/blog/vercel-domain-invalid-nameserver)や[Vercel独自ドメイン接続で詰まりやすいポイント5選【DNS設定完全チェック】](/blog/vercel-domain-connection-tips)でも手順を整理している。
 
 ### 補足：開発PCのDNS設定について
 
@@ -198,7 +198,7 @@ AIを使えば何でも解決するかというと、そうではなかった。
 
 **AIの説明が理解できない時がある。** 用語が分からないまま回答が来ることがある。そういうときは、分からない部分だけを切り取って「これはどういう意味？」と聞き直すと解決できることが多かった。
 
-**AIごとに得意分野が違う。** 最初はどのAIに何を聞けばいいか分からず、全部ChatGPTに投げていた。使い込んでいくうちに「コードはCursor」「長文整理はClaude」「SEOや構成相談はChatGPT」という役割が自然と決まってきた。
+**AIごとに得意分野が違う。** 最初はどのAIに何を聞けばいいか分からず、全部ChatGPTに投げていた。使い込んでいくうちに「コードはCursor」「長文整理はClaude」「SEOや構成相談はChatGPT」という役割が自然と決まってきた。分担ルールを文章にまとめたのが[ChatGPT・Cursor・Claudeの役割分担｜AIツールを使い分けるだけで品質が安定する](/blog/chatgpt-cursor-claude-role-sharing-tips)だ。
 
 **指示が曖昧だと欲しい答えが返ってこない。** 「これ直して」より「〇〇が原因でエラーが出ているので、△△を修正してほしい」のほうが精度が上がる。AIに聞く力、つまり「質問力」は、使いながら少しずつ身についていくものだと感じた。
 
@@ -212,7 +212,27 @@ AIを使えば何でも解決するかというと、そうではなかった。
 
 AIに大量の雑然としたログを渡すと、回答の精度が落ちることがある。逆に、整理された情報を渡すと、的確な回答が返ってくる確率が上がる。ログ管理は「AIをうまく使う」ための土台でもあった。
 
-今は、daily notesで記録したものをarticle-sourceとして整理し、Claudeで記事構成を作って、ChatGPTでSEO調整するというフローが定着しつつある。
+今は、daily notesで記録したものをarticle-sourceとして整理し、Claudeで記事構成を作って、ChatGPTでSEO調整するというフローが定着しつつある。source.md を起点にした記事生成の考え方は[Claude記事生成は「source.md」で精度が変わった](/blog/source-md-ai-writing)にまとめている。
+
+---
+
+## このシリーズで読む順番
+
+本記事はサイト公開シリーズの入口（Hub）です。全体像を把握したあとは、下記の Spoke 記事を順に読むと迷いにくくなります。
+
+| 読む順 | テーマ | 記事 |
+|--------|--------|------|
+| 1 | AI | [Cursor・Claude・ChatGPTはどう使い分ける？ 実際に試して分かったAI役割分担の話](/blog/ai-role-sharing-workflow) |
+| 2 | AI | [ChatGPT・Cursor・Claudeの役割分担｜AIツールを使い分けるだけで品質が安定する](/blog/chatgpt-cursor-claude-role-sharing-tips) |
+| 3 | AI | [Claude記事生成は「source.md」で精度が変わった](/blog/source-md-ai-writing) |
+| 4 | DNS | [Vercelでdomain invalidが直らず苦戦した話](/blog/vercel-domain-invalid-nameserver) |
+| 5 | DNS | [Vercel独自ドメイン接続で詰まりやすいポイント5選【DNS設定完全チェック】](/blog/vercel-domain-connection-tips) |
+| 6 | SEO | [Next.js canonical設定の基本とインデックス未登録対策【実運用Tips】](/blog/nextjs-canonical-settings-tips) |
+| 7 | OG | [OG画像が404になる前に——fallback設計で公開品質を守る](/blog/nextjs-og-image-fallback-tips) |
+| 8 | Vercel | [Vercel Previewを本番前に確認する理由——PR単位でミスを防ぐ手順](/blog/nextjs-vercel-preview-check-tips) |
+| 9 | 画像 | [Next.jsで画像差し替えしても反映されない時の対処法｜1分Tips](/blog/nextjs-image-replace-not-reflecting) |
+| 10 | UX | [ブログ一覧を15件ずつページ送りにする目安（Next.js）](/blog/blog-page-size-15-tips) |
+| 11 | リンク | [MarkdownのhttpリンクはNext.jsで外部リンク扱いになる](/blog/markdown-internal-link-relative-path-tips) |
 
 ---
 
