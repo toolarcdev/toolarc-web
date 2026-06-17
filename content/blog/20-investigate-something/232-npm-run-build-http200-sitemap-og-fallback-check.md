@@ -100,6 +100,7 @@ contentId フォルダに `og.png` がない場合は `default-og.png` にフォ
 
 **関連記事**
 
+- [push前にnpm run buildを実行すべき理由【Vercelのビルド失敗を防ぐ】](/blog/push-before-npm-run-build)
 - [og.png未配置時はresolveOgImageがdefault-ogにフォールバックする](/blog/resolve-og-image-fallback-to-default)
 - [posts.tsに1エントリ追加するだけでsitemapとブログ一覧に自動反映される](/blog/posts-ts-auto-reflect-sitemap-blog-list)
 - [デプロイ前にimageBasePathとOG画像ファイルを突合して404を防ぐ](/blog/deploy-check-image-basepath-og-file)
