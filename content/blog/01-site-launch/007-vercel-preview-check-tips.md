@@ -115,6 +115,7 @@ git push origin feature/add-article
 Cursor からのデプロイ〜公開フローの全体像は、以下の記事もあわせてどうぞ。
 
 → [Cursor無料版はどこまで使える？](/blog/cursor-free)  
+→ [push前にnpm run buildを実行すべき理由【Vercelのビルド失敗を防ぐ】](/blog/push-before-npm-run-build)  
 → [Vercelのドメイン設定でネームサーバーエラーが出たときの対処法](/blog/vercel-domain-invalid-nameserver)
 
 ---

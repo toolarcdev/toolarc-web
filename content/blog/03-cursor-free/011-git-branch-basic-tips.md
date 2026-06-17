@@ -133,6 +133,8 @@ error: The branch 'feature/...' is not fully merged.
 
 ブランチ名を後から変更したいケースの手順は別記事で解説予定です（準備中）。
 
+push 前の確認手順（`git status`・ビルド・ブランチ名など）は「[GitHub push前の確認ポイント5つ](/blog/github-push-checklist)」でまとめています。
+
 Cursor無料版でのGit運用全般については、シリーズHub「[Cursor無料版の使い方](/blog/cursor-free)」もあわせてご覧ください。
 
 ---
