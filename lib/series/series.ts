@@ -67,9 +67,9 @@ export const allSeries: readonly SeriesConfig[] = [
   },
   {
     slug: "cursor-free-series",
-    title: "Cursor無料版シリーズ",
+    title: "Cursor初心者トラブル解決シリーズ",
     description:
-      "Cursor無料版の実測レビューと、枠を長持ちさせる実践Tips。",
+      "Cursorを使い始めた人向けに、無料枠・Ask/Plan/Rules・Agent停止・Git操作など、実務で詰まりやすいポイントを切り分けるシリーズ。",
     hubSlug: "cursor-free",
     spokeSlugOrder: [
       "cursor-token-heavy-tasks",
