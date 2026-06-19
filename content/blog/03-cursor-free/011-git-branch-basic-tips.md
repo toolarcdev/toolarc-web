@@ -135,7 +135,7 @@ error: The branch 'feature/...' is not fully merged.
 
 push 前の確認手順（`git status`・ビルド・ブランチ名など）は「[GitHub push前の確認ポイント5つ](/blog/github-push-checklist)」でまとめています。
 
-Cursor無料版でのGit運用全般については、シリーズHub「[Cursor無料版の使い方](/blog/cursor-free)」もあわせてご覧ください。
+Cursor初心者向けのGit運用全般については、シリーズHub「[Cursor初心者トラブル解決シリーズ](/blog/cursor-free)」もあわせてご覧ください。
 
 ---
 
