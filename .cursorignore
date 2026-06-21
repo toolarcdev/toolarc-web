@@ -88,3 +88,19 @@ Thumbs.db
 # Cursor internal generated rules
 # =========================================
 .cursor/rules/generated
+# =========================================
+# Local usage / token analysis
+# =========================================
+usage-events-*.csv
+tmp_usage_analysis.py
+tmp_usage_*.py
+usage-analysis
+usage-analysis-output
+cursor-usage-output
+
+# =========================================
+# Local scratch files
+# =========================================
+*.tmp
+*.bak
+*.orig
