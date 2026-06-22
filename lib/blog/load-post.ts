@@ -109,7 +109,13 @@ function normalizeObsidianImages(raw: string): string {
 
 export async function loadPost(slug: BlogSlug): Promise<BlogPost> {
   const meta = getPostMeta(slug);
-  const filePath = path.join(process.cwd(), meta.markdownPath);
+  const filePath = path.join(
+    process.cwd(),
+    "content",
+    "blog",
+    meta.contentId,
+    meta.markdownFile,
+  );
   const raw = await readFile(filePath, "utf-8");
   const fileMetadata = await loadPostMetadata(meta.contentId);
   const resolvedOg = await resolveOgImage(meta.imageBasePath, meta.ogImage);
