@@ -100,7 +100,7 @@ const pageSlugs = sortedSlugs.slice(start, start + BLOG_PAGE_SIZE);
 - [MarkdownのhttpリンクはNext.jsで外部リンク扱いになる](/blog/markdown-internal-link-relative-path-tips)
 
 ページ送りを実装したあと「ページを送ったのに画面が上に戻らない」ことがあります。  
-→ [App Routerでページ送り後に`#all-articles`へスクロールする（準備中）]()
+→ [App Routerでページ送り後に`#all-articles`へスクロールする](/blog/app-router-scroll-to-all-articles)
 
 ---
 
