@@ -37,7 +37,9 @@ export const allSeries: readonly SeriesConfig[] = [
       "nextjs-og-image-fallback-tips",
       "nextjs-vercel-preview-check-tips",
       "nextjs-image-replace-not-reflecting",
+      "reuse-same-image-alt-text",
       "blog-page-size-15-tips",
+      "app-router-scroll-to-all-articles",
       "markdown-internal-link-relative-path-tips",
     ],
     publishedAt: "2026-05-20",
@@ -79,6 +81,7 @@ export const allSeries: readonly SeriesConfig[] = [
     hubSlug: "cursor-free",
     spokeSlugOrder: [
       "cursor-token-heavy-tasks",
+      "cursor-pro-total-usage-limit-reached",
       "cursor-rules-file-tips",
       "cursor-free-plan-tips",
       "cursor-agent-pause-recovery-tips",
