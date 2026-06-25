@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-06-22 20:57
+最終更新: 2026-06-25 17:40
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`
@@ -325,6 +325,7 @@ writing-rules.md と source.md を添付し、④ 記事初稿（Claude）と同
 - 日次は1日1チャットで実行し、完了後に閉じる
 - 対象ファイル以外は読まない。広範囲探索が必要なら実行前に確認する
 - Inboxフォルダ全体、reader backlog、読者軸定義、debt/HUB判定は毎回読まない
+- ただし、publish_date/status確認と公開済みinboxの `04-Tips/published` への移動は日次の必須処理として実行する
 - AI-log は丸読みせず、当日の問題・解決・再利用手順に関係する箇所だけ読む
 
 【やらない】
@@ -367,6 +368,12 @@ writing-rules.md と source.md を添付し、④ 記事初稿（Claude）と同
 - 該当 inbox の publish_date を翌日（Get-Date+1）に設定
 - Dashboard「明日のフォーカス候補」と一致させる
 - 正本: maintenance_1min-Tips 必須タスク E
+
+【日次 — inbox必須処理】
+- `04-Tips/inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboardの今日明日フォーカスに載るものは必ず確認する
+- 公開済み inbox は frontmatter の status / published_at / slug / promotion_status を必要に応じて更新し、`D:\ObsidianVault\Vault\04-Tips\published` へ移動する
+- 移動した場合は、候補マスター・Dashboard・DailyNote の参照やログへ反映する
+- 対象外の inbox 全体は読まない
 
 【日次 — シリーズ負債追跡】
 - 分類ゲート: 当日公開分の content_folder を series:* / topic:* / standalone のいずれかに
@@ -630,6 +637,7 @@ flowchart TD
 - このチャットは今日の日次メンテ専用です。完了後に閉じます。
 - 対象ファイル以外は読まないでください。
 - 広範囲探索、Inbox全体読み込み、reader backlog参照、debt/HUB判定が必要なら実行前に確認してください。
+- ただし、publish_date/status確認と公開済みinboxの `04-Tips/published` への移動は必ず実行してください。
 
 【DailyNote（今日）】
 PasteDailyNotePath
@@ -642,14 +650,21 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
 1. Get-Date -Format "yyyy-MM-dd HH:mm" を実行し、編集したファイルの Last Updated に取得値を書く（手入力禁止）
 2. DailyNote、候補マスター、Dashboard、必要なinbox最大20件だけ確認
 3. DailyNote / AI-log / ⑤handoff から新規候補を最大10件まで追加
-4. 明日フォーカス reader 3件を選び、DailyNote・Dashboard・該当inbox publish_date（翌日）を同期
-5. debt/HUB広範囲判定は水曜週次に寄せ、当日公開分の補完だけ行う
-6. 実施サマリ、変更ファイル、主要変更点、実行後チェック、明日の推奨アクションを短く報告
+4. inbox必須処理を実行する（publish_date/status確認、公開済みファイルの published への移動）
+5. 明日フォーカス reader 3件を選び、DailyNote・Dashboard・該当inbox publish_date（翌日）を同期
+6. debt/HUB広範囲判定は水曜週次に寄せ、当日公開分の補完だけ行う
+7. 実施サマリ、変更ファイル、主要変更点、実行後チェック、明日の推奨アクションを短く報告
 
 【固定パス】
 - 候補マスター: d:\ObsidianVault\Vault\00-dashboard\toolarc_1min_tips_article_candidates.md
 - Dashboard: d:\ObsidianVault\Vault\00-dashboard\dashboard.md
 - Inbox: d:\ObsidianVault\Vault\04-Tips\inbox（全体読み込みは禁止。候補マスター・Dashboard・DailyNoteで必要になったファイルだけ）
+
+【inbox必須処理】
+- `D:\ObsidianVault\Vault\04-Tips\inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboardの今日明日フォーカスに載るものは必ず確認する
+- 公開済み inbox は frontmatter の status / published_at / slug / promotion_status を必要に応じて更新し、`D:\ObsidianVault\Vault\04-Tips\published` へ移動する
+- 移動した場合は、候補マスター・Dashboard・DailyNote の参照やログへ反映する
+- 対象外の inbox 全体は読まない
 ```
 
 Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`maintenance_1min-Tips.md` は迷ったときの詳細正本として該当節だけ読む。
