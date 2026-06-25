@@ -810,8 +810,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "chatgpt-search-history-account-migration": {
-    contentId: "20-investigate-something",
-    markdownFile: "270-chatgpt-search-history-account-migration.md",
+    contentId: "04-chatgpt_account_migration",
+    markdownFile: "005-chatgpt-search-history-account-migration.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-19",
     ogImage: "og.png",
@@ -938,8 +938,8 @@ export const blogPosts = {
     category: "devops",
   },
   "chatgpt-custom-instructions-for-beginners": {
-    contentId: "20-investigate-something",
-    markdownFile: "286-chatgpt-custom-instructions-for-beginners.md",
+    contentId: "04-chatgpt_account_migration",
+    markdownFile: "006-chatgpt-custom-instructions-for-beginners.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-24",
     ogImage: "og.png",
