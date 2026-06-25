@@ -15,7 +15,7 @@ tags:
   - Claude Projects
 site: "toolarc.jp"
 target: "ChatGPTやClaudeを長期間活用し、AIとの会話を知識資産として整理・運用したい人"
-last_update: "2026-05-25"
+last_update: "2026-06-25"
 ---
 
 # ChatGPTを新アカウントへ移行したい人へ｜履歴より重要な「知識資産」の考え方
@@ -608,3 +608,5 @@ AI運用は、
 スマホでの機種変更・別アカウント移行の手順は [スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips) を参照してください。
 
 検索履歴や会話履歴を別アカウントに引き継げるかを先に切り分けたい場合は、[ChatGPTの検索履歴は別アカウントに引き継げる？今できる代替](/blog/chatgpt-search-history-account-migration)も参考になります。
+
+移行後に回答の出方を整えるなら、[ChatGPTのカスタム指示、初心者向けの書き方テンプレ](/blog/chatgpt-custom-instructions-for-beginners)で最初の設定を固めておくと進めやすいです。
