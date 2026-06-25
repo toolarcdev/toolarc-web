@@ -635,7 +635,7 @@ export const blogPosts = {
   },
   "gsc-index-weekly-check-tips": {
     contentId: "08-new-domain-seo",
-    markdownFile: "018-gsc-index-weekly-check-tips.md",
+    markdownFile: "019-gsc-index-weekly-check-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-12",
     ogImage: "og.png",
@@ -659,7 +659,7 @@ export const blogPosts = {
   },
   "new-domain-ymyl-avoid": {
     contentId: "08-new-domain-seo",
-    markdownFile: "019-new-domain-ymyl-avoid.md",
+    markdownFile: "020-new-domain-ymyl-avoid.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-13",
     ogImage: "og.png",
@@ -667,7 +667,7 @@ export const blogPosts = {
   },
   "gsc-index-request-priority-url": {
     contentId: "08-new-domain-seo",
-    markdownFile: "017-gsc-index-request-priority-url.md",
+    markdownFile: "018-gsc-index-request-priority-url.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-13",
     ogImage: "og.png",
@@ -874,8 +874,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "gsc-smartphone-googlebot-not-error": {
-    contentId: "20-investigate-something",
-    markdownFile: "278-gsc-smartphone-googlebot-not-error.md",
+    contentId: "08-new-domain-seo",
+    markdownFile: "021-gsc-smartphone-googlebot-not-error.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-22",
     ogImage: "og.png",
@@ -962,8 +962,8 @@ export const blogPosts = {
     category: "tool",
   },
   "canonical-tag-setup-location": {
-    contentId: "20-investigate-something",
-    markdownFile: "289-canonical-tag-setup-location.md",
+    contentId: "08-new-domain-seo",
+    markdownFile: "017-canonical-tag-setup-location.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-25",
     ogImage: "og.png",
