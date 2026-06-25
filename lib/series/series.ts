@@ -110,6 +110,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "chatgpt-migration-md-checklist",
       "chatgpt-smartphone-account-migration-tips",
       "chatgpt-share-link-ai-cannot-read-url",
+      "chatgpt-search-history-account-migration",
       "chatgpt-custom-instructions-for-beginners",
     ],
     publishedAt: "2026-05-25",
