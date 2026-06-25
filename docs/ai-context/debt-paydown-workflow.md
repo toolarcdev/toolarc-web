@@ -1,6 +1,6 @@
 # debt-paydown-workflow.md — シリーズ負債払い運用
 
-最終更新: 2026-06-13（閾値二段階化・debtカウンタ4行）  
+最終更新: 2026-06-25 15:02（日次+3本公開時のカウンタ算出順を追記）  
 用途: `20-investigate-something` 先公開フローで溜まる「後払い負債」の払い方。①（公開）・⑥（日次/週次）が参照。
 
 関連: [`content-folders.md`](content-folders.md)、[`chat-operations.md`](chat-operations.md)、[`lib/series/series.ts`](../../lib/series/series.ts)
@@ -74,6 +74,14 @@ flowchart LR
 | **Hub stale 判定** | シリーズごとに `series.ts` の spoke 数 − Hub 本文のスポークリンク数 ≥ 2 → `hub_stale: true` |
 | **黄/赤判定** | `20` 総数と週次純増を閾値と照合し、Dashboard に段階を記録（詳細は「閾値トリガー」節） |
 | **明日フォーカス同期** | DailyNote reader 3本と inbox `publish_date`（翌日）を一致。Dashboard 明日フォーカスと連動。正本: maintenance_1min-Tips 必須タスク E |
+
+### 日次 +3本公開時の最小手順
+
+1. `posts.ts` で当日 `publishedAt` の3件と `contentId: "20-investigate-something"` 総数を確認する
+2. 候補マスターの該当3件だけ `status: published` / `published_date` / `公開` / `promotion_status` を補完する
+3. `content_folder: series:*` の記事だけ、昇格アクション待ち（`published_in_20` または `hub_updated`）へ加算する
+4. Dashboard のシリーズ負債カウンタ4行を更新する
+5. Hub stale は日次では広範囲再判定しない。`series.ts` 追加やHub差分が明らかな場合だけ該当シリーズを補正する
 
 ---
 
