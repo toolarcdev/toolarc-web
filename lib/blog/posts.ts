@@ -1,4 +1,4 @@
-﻿import path from "path";
+import path from "path";
 import type { BlogPostMeta } from "./types";
 
 /**
@@ -131,7 +131,7 @@ export const blogPosts = {
   },
   "cursor-free-plan-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "004-cursor-free-plan-tips.md",
+    markdownFile: "005-cursor-free-plan-tips.md",
     imageBasePath: "/images/blog/030-cursor-free",
     publishedAt: "2026-05-26",
     ogImage: "ss-01_plan-comparison.png",
@@ -147,7 +147,7 @@ export const blogPosts = {
   },
   "cursor-agent-pause-recovery-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "005-cursor-agent-pause-recovery-tips.md",
+    markdownFile: "006-cursor-agent-pause-recovery-tips.md",
     imageBasePath: "/images/blog/030-cursor-free",
     publishedAt: "2026-05-29",
     ogImage: "ss-01_plan-comparison.png",
@@ -155,7 +155,7 @@ export const blogPosts = {
   },
   "cursor-rules-file-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "003-cursor-rules-file-tips.md",
+    markdownFile: "004-cursor-rules-file-tips.md",
     imageBasePath: "/images/blog/030-cursor-free",
     publishedAt: "2026-05-29",
     ogImage: "ss-01_plan-comparison.png",
@@ -251,7 +251,7 @@ export const blogPosts = {
   },
   "cursor-ask-mode-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "006-cursor-ask-mode-tips.md",
+    markdownFile: "007-cursor-ask-mode-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-05-30",
     ogImage: "og.png",
@@ -315,7 +315,7 @@ export const blogPosts = {
   },
   "cursor-reference-file-prompt-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "007-cursor-reference-file-prompt-tips.md",
+    markdownFile: "008-cursor-reference-file-prompt-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-01",
     ogImage: "og.png",
@@ -331,7 +331,7 @@ export const blogPosts = {
   },
   "cursor-refactor-judgment-before-apply-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "008-cursor-refactor-judgment-before-apply-tips.md",
+    markdownFile: "009-cursor-refactor-judgment-before-apply-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-01",
     ogImage: "og.png",
@@ -451,7 +451,7 @@ export const blogPosts = {
   },
   "cursor-plan-mode-modify-before-build-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "009-cursor-plan-mode-modify-before-build-tips.md",
+    markdownFile: "010-cursor-plan-mode-modify-before-build-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-05",
     ogImage: "og.png",
@@ -603,7 +603,7 @@ export const blogPosts = {
   },
   "cursor-agent-gh-pr-create-fill": {
     contentId: "03-cursor-free",
-    markdownFile: "010-cursor-agent-gh-pr-create-fill.md",
+    markdownFile: "018-cursor-agent-gh-pr-create-fill.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-11",
     ogImage: "og.png",
@@ -707,7 +707,7 @@ export const blogPosts = {
   },
   "cursor-slow-troubleshoot-tips": {
     contentId: "03-cursor-free",
-    markdownFile: "012-cursor-slow-troubleshoot-tips.md",
+    markdownFile: "019-cursor-slow-troubleshoot-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-15",
     ogImage: "og.png",
@@ -819,7 +819,7 @@ export const blogPosts = {
   },
   "cursor-cursorignore-token-context": {
     contentId: "03-cursor-free",
-    markdownFile: "013-cursor-cursorignore-token-context.md",
+    markdownFile: "012-cursor-cursorignore-token-context.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-20",
     ogImage: "og.png",
@@ -835,7 +835,7 @@ export const blogPosts = {
   },
   "cursor-implementation-plan-file-request": {
     contentId: "03-cursor-free",
-    markdownFile: "014-cursor-implementation-plan-file-request.md",
+    markdownFile: "013-cursor-implementation-plan-file-request.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-20",
     ogImage: "og.png",
@@ -859,7 +859,7 @@ export const blogPosts = {
   },
   "ai-debug-keep-raw-error-info": {
     contentId: "03-cursor-free",
-    markdownFile: "015-ai-debug-keep-raw-error-info.md",
+    markdownFile: "014-ai-debug-keep-raw-error-info.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-21",
     ogImage: "og.png",
@@ -867,7 +867,7 @@ export const blogPosts = {
   },
   "ai-prompt-beginner-friendly": {
     contentId: "03-cursor-free",
-    markdownFile: "016-ai-prompt-beginner-friendly.md",
+    markdownFile: "015-ai-prompt-beginner-friendly.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-21",
     ogImage: "og.png",
@@ -898,8 +898,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "cursor-pro-total-usage-limit-reached": {
-    contentId: "20-investigate-something",
-    markdownFile: "281-cursor-pro-total-usage-limit-reached.md",
+    contentId: "03-cursor-free",
+    markdownFile: "003-cursor-pro-total-usage-limit-reached.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-23",
     ogImage: "og.png",
@@ -946,16 +946,16 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "cursor-pre-dev-checklist": {
-    contentId: "20-investigate-something",
-    markdownFile: "287-cursor-pre-dev-checklist.md",
+    contentId: "03-cursor-free",
+    markdownFile: "016-cursor-pre-dev-checklist.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-25",
     ogImage: "og.png",
     category: "tool",
   },
   "cursor-error-triage-checklist": {
-    contentId: "20-investigate-something",
-    markdownFile: "288-cursor-error-triage-checklist.md",
+    contentId: "03-cursor-free",
+    markdownFile: "017-cursor-error-triage-checklist.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-06-25",
     ogImage: "og.png",
