@@ -63,7 +63,7 @@ last_update: 2026-06-19
 端末の移行手順そのものについては、以下のHub記事も参考にしてください。
 
 - Hub記事: [ChatGPTアカウント移行ワークフロー](/blog/chatgpt-account-migration)
-- スマホでの具体手順: [スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)
+- スマホでの具体手順: [ChatGPT機種変更の引き継ぎ方法](/blog/chatgpt-smartphone-account-migration-tips)
 
 ---
 
