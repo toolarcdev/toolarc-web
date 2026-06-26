@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-06-25 17:40
+最終更新: 2026-06-26 12:51
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`
@@ -11,10 +11,10 @@
 
 | #   | チャット名      | 主ツール                   | Cursor セッションID（参照用）          | 含めない作業                            | 新規チャット目安                                |
 | --- | --------------- | -------------------------- | -------------------------------------- | --------------------------------------- | ----------------------------------------------- |
-| ①   | 記事公開        | **Cursor**                 | `702003bf-15e9-4ed8-b351-52fa7aa0c79e` | GSC調査、大規模リファクタ、記事ドラフト | 記事1本 or 公開バッチ完了ごと                   |
-| ②   | SEO・GSC        | **Cursor**                 | `97a2a139-7f80-4ed2-bb72-b4a0609afb94` | 記事本文ドラフト、Next.js新機能全般     | 調査1件 / GSC週次ごと                           |
+| ①   | 記事公開        | **Cursor**                 | `702003bf-15e9-4ed8-b351-52fa7aa0c79e` | GSC調査、大規模リファクタ、記事ドラフト・リライト案 | 記事1本 or 公開バッチ完了ごと                   |
+| ②   | SEO・GSC        | **Cursor**                 | `97a2a139-7f80-4ed2-bb72-b4a0609afb94` | 記事本文ドラフト・リライト案、Next.js新機能全般     | 調査1件 / GSC週次ごと                           |
 | ③   | サイト基盤      | **Cursor**                 | `26f9bebd-c54e-48b5-bcad-dd2d86c8cd43` | 記事1本ごとの文言、日次メンテ           | 実装修正1件 / 大型機能ごと                      |
-| ④   | 記事初稿        | **Claude**（Cursorは予備） | `823fe614-90ef-46e9-a065-358ba223c5ff` | `posts.ts` 登録、実装                   | 四半期 / 柱が変わるとき                         |
+| ④   | 記事初稿・既存リライト | **Claude**（Cursorは予備） | `823fe614-90ef-46e9-a065-358ba223c5ff` | `posts.ts` 登録、実装                   | 四半期 / 柱が変わるとき                         |
 | ⑤   | Tips・素材      | **Claude**（Cursorは予備） | `667ecb48-b2bc-4210-8470-97769c38221f` | 本番デプロイ、GSC                       | 半年                                            |
 | ⑥   | KPI＋日次メンテ | **Cursor**                 | `0d9add01-720b-4594-a2ca-3acb2adfc059` | 記事実装、大規模コード変更              | 日次は1日1チャット / 週次は週ごと / KPIは月ごと |
 
@@ -32,7 +32,7 @@ PoE2 用スロットは設けない。
 DailyNote / AI-log
   → ⑤ Claude（任意）: readerタイトル・inbox骨子 / 柱C表 → handoff（Vault `slot-handoff-template.md`）
   → ⑥ Cursor: handoff 反映・候補マスター・inbox・Dashboard（Commit）
-  → ④ Claude: source.md → 本文初稿
+  → ④ Claude: source.md / SEO・GSCメモ → 本文初稿・既存記事リライト案
   → （任意）ChatGPT: SEO・Output Contract レビュー
   → ① Cursor: content/blog + posts.ts + build + 公開日Get-Date確定（軽負債: series.ts / Hubリンク / promotion_status）
   → ⑥: 公開反映を候補マスター・Dashboard・DailyNote に記録（debt カウンタ）
@@ -50,7 +50,7 @@ DailyNote / AI-log
 - 1チャット = 1タスク。記事1本、GSC調査1件、実装修正1件、日次メンテ1日分で閉じる。
 - チャット履歴を記憶装置にしない。継続情報は repo / Vault の正本ファイルに残し、次回は短い再開文だけ渡す。
 - 依頼時は対象ファイルを1〜3件に絞る。対象外ファイルの探索が必要な場合は、実行前に確認する。
-- 長文の本文初稿・SEO案・タイトル大量生成は Cursor 外（Claude / ChatGPT）で Produce し、Cursor は Commit と差分確認に寄せる。
+- 長文の本文初稿・既存記事リライト案・SEO案・タイトル大量生成は Cursor 外（Claude / ChatGPT）で Produce し、Cursor は Commit と差分確認に寄せる。
 - Opus / API 高コストモデルは最終レビュー・難バグ・設計判断のみ。日常の探索や日次メンテでは使わない。
 - 10〜15往復、複数回の横断探索、フェーズ変更、タスク完了のいずれかで新規チャットに切り替える。
 
@@ -102,7 +102,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - inbox / Dashboard の `publishDate` は供給計画用。Web 表示日とのズレは許容
 
 【やらない】
-- 記事本文の初稿（④ Claude）
+- 記事本文の初稿・既存記事リライト案（④ Claude）
 - GSC・404 の調査（②）
 - Next.js 基盤の横断改修（③）
 - PoE2 / toolarc-api
@@ -162,7 +162,7 @@ docs/ai-context/debt-paydown-workflow.md の①チェックリストに従う
 - インデックス・CTR 改善の手順提案（実測ベース）
 
 【やらない】
-- 記事本文ドラフト（④）
+- 記事本文ドラフト・既存記事リライト案（④）
 - posts.ts への新規記事登録（①）
 - 一覧ページ送りなど基盤機能の実装（③）
 
@@ -219,25 +219,27 @@ GSCクエリ3件: 「...」「...」「...」
 準備できたら「③ サイト基盤、準備完了」とだけ返答してください。
 ```
 
-### ④ 記事初稿（Claude — 主。Cursor は予備）
+### ④ 記事初稿・既存記事リライト（Claude — 主。Cursor は予備）
 
 **Claude チャットに貼る:**
 
 ```text
-あなたは ToolArc（toolarc.jp）の「記事初稿」専用アシスタントです。
+あなたは ToolArc（toolarc.jp）の「記事初稿・既存記事リライト」専用アシスタントです。
 
 【担当】
 - source.md をもとに構成案・1分Tips/実務Tips 本文初稿
+- GSC/GA4/SEOメモをもとにした既存記事の title・description・導入・見出し・FAQ・内部リンク文言の改善案
+- 既存記事リライト時は、検索クエリ・CTR・平均順位などの実測根拠を明記
 - writing-rules.md の文体（です・ます、一人称「筆者」）
 - AGENTS.md の Output Contract（記事案時は8項目）
 - 未公開記事へのリンクは slug 確定まで控え／「準備中」扱い
 
 【やらない】
-- posts.ts 登録・ビルド（① Cursor）
+- posts.ts / series.ts / 実ファイル反映・ビルド（① または ③ に渡す）
 - daily notes の丸投げ記事化
 
 【添付の優先順位】
-source.md の「伝えたいこと」 > AGENTS.md > writing-rules.md > project-context.md
+source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.md > writing-rules.md > project-context.md
 
 【公開日（仮値）】
 - frontmatter の `date` は計画用の仮値でよい。Web の公開日表示は ① が実装日（Get-Date）で上書きする
@@ -245,8 +247,9 @@ source.md の「伝えたいこと」 > AGENTS.md > writing-rules.md > project-c
 
 【依頼例】
 「添付 source.md をもとに1分Tips記事本文を作成。ファイル名は slug に合わせて md で出力。」
+「添付GSCメモをもとに既存記事の title / description / 導入 / 内部リンク文言の改善案を作成。実ファイル反映はしない。」
 
-準備できたら「④ 記事初稿、準備完了」とだけ返答してください。
+準備できたら「④ 記事初稿・既存リライト、準備完了」とだけ返答してください。
 ```
 
 **④ 新シリーズ Hub 初稿（Claude — 週次 #5 推奨後・月1本以内）:**
@@ -273,8 +276,8 @@ source.md の「伝えたいこと」 > AGENTS.md > writing-rules.md > project-c
 **Cursor ④（予備・Claude から Cursor に切り替えるとき）:**
 
 ```text
-通常は Claude ④ で初稿を作成します。Cursor で初稿するときだけこのチャットを使います。
-writing-rules.md と source.md を添付し、④ 記事初稿（Claude）と同じルールで本文を作成してください。
+通常は Claude ④ で初稿・既存記事リライト案を作成します。Cursor で初稿・リライト案を作るときだけこのチャットを使います。
+writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記事初稿・既存記事リライト（Claude）と同じルールで本文案を作成してください。
 ```
 
 ### ⑤ Tips・素材（Claude — 主。Cursor は予備）
@@ -295,7 +298,7 @@ writing-rules.md と source.md を添付し、④ 記事初稿（Claude）と同
 【やらない】
 - 本番への posts.ts 登録（①）
 - Vault / 候補マスター / Dashboard の書き込み（⑥が Commit）
-- 記事本文の初稿（④）
+- 記事本文の初稿・既存記事リライト案（④）
 
 【柱C（水曜・週次ブロック内）】
 - `reader-theme-batch-prompt.md` を貼り、外部シグナル3件 + Hub でタイトル表を生成
@@ -694,7 +697,7 @@ Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`mainte
 | ① 記事公開        | 記事1本 / 同日公開バッチ / 10〜15往復                                                |
 | ② SEO・GSC        | 調査1件 / GSC週次1回 / 方針変更時                                                    |
 | ③ サイト基盤      | 実装修正1件 / 大型機能ごと                                                           |
-| ④ 記事初稿        | 四半期 / コンテンツ柱が変わるとき                                                    |
+| ④ 記事初稿・既存リライト | 四半期 / コンテンツ柱が変わるとき                                                    |
 | ⑤ Tips・素材      | 半年                                                                                 |
 | ⑥ KPI＋日次メンテ | 日次は1日1チャットで実行後に閉じる / 週次は週ごと / 月次KPI要約は月ごと              |
 | ⑦ 個人R&D         | explore 保存後にチャットを閉じる（推奨）/ テーマが大きく変わる / 3か月以上空いたとき |
