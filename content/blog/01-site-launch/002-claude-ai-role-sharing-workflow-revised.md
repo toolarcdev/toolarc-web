@@ -1,7 +1,7 @@
 ---
 title: "Cursor・Claude・ChatGPTはどう使い分ける？ 実際に試して分かったAI役割分担の話"
 slug: ai-role-sharing-workflow
-date: 2025-01-01
+date: 2026-05-22
 description: "Cursor・Claude・ChatGPTを実際に使い続けて気づいた「AI役割分担」の話。コード生成はCursor、長文整理はClaude、SEO相談はChatGPT——そう決まるまでの手探りと試行錯誤を、初心者目線でそのまま書きました。"
 tags:
   - cursor
