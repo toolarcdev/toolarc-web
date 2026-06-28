@@ -67,6 +67,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "obsidian-checkbox-shortcut-ctrl-l",
       "windows-emoji-panel-shortcut",
       "obsidian-advanced-tables-source-mode",
+      "obsidian-table-center-align",
       "obsidian-nested-codeblock-backticks",
       "claude-long-text-split-tips",
       "obsidian-internal-link-candidate-missing",
