@@ -1041,6 +1041,38 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "ai-tools-comparison": {
+    contentId: "09-ai-tools-comparison",
+    markdownFile: "001-ai-tools-comparison.md",
+    imageBasePath: "/images/blog/09-ai-tools-comparison",
+    publishedAt: "2026-06-28",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "cursor-chatgpt-usecase-comparison": {
+    contentId: "09-ai-tools-comparison",
+    markdownFile: "002-cursor-chatgpt-usecase-comparison.md",
+    imageBasePath: "/images/blog/09-ai-tools-comparison",
+    publishedAt: "2026-06-28",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "cursor-claude-usecase-comparison": {
+    contentId: "09-ai-tools-comparison",
+    markdownFile: "003-cursor-claude-usecase-comparison.md",
+    imageBasePath: "/images/blog/09-ai-tools-comparison",
+    publishedAt: "2026-06-28",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "chatgpt-claude-comparison": {
+    contentId: "09-ai-tools-comparison",
+    markdownFile: "004-chatgpt-claude-comparison.md",
+    imageBasePath: "/images/blog/09-ai-tools-comparison",
+    publishedAt: "2026-06-28",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
