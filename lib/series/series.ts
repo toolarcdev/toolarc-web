@@ -153,6 +153,20 @@ export const allSeries: readonly SeriesConfig[] = [
     ],
     publishedAt: "2026-06-03",
   },
+  {
+    // contentFolder: 09-ai-tools-comparison
+    slug: "ai-tools-comparison-series",
+    title: "AIツール比較シリーズ",
+    description:
+      "ChatGPT・Claude・Cursorの違いと使い分けを、初心者が目的別に選べるように整理する比較シリーズ。",
+    hubSlug: "ai-tools-comparison",
+    spokeSlugOrder: [
+      "cursor-chatgpt-usecase-comparison",
+      "cursor-claude-usecase-comparison",
+      "chatgpt-claude-comparison",
+    ],
+    publishedAt: "2026-06-28",
+  },
 ] as const;
 
 /** Keyed by series slug for O(1) lookup */
