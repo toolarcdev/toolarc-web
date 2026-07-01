@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-06-28 16:24
+最終更新: 2026-07-01 15:07
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`
@@ -136,11 +136,26 @@ Cursor ① に記事実装を依頼するときは、次の形式を使う。プ
 ```text
 【記事公開】
 対象 slug: <slug1>, <slug2>, ...
-本文 MD: content/blog/<contentId>/<ファイル名>.md（パスを明示）
+本文 MD:
+- content/blog/<contentId>/<ファイル名1>.md
+- content/blog/<contentId>/<ファイル名2>.md
+
+【記事作成時メモ読み込み】
+D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
+- # Claudeで記事作成：<記事タイトル1>
+- # Claudeで記事作成：<記事タイトル2>
+
+【やること】
+- メモ内容の対応可否判断（内部リンク slug 存在確認・仕様記述の妥当性）
+- 記事本文の修正（必要な場合のみ）
+- content/blog/ への反映確認
+- lib/blog/posts.ts への slug 登録（Hub/シリーズなら lib/series/series.ts も）
+- npm run build の成功確認
 
 【公開日 — 実装時に確定】
 実装開始時に Get-Date -Format "yyyy-MM-dd" を実行し、
-各記事の frontmatter date と posts.ts publishedAt の両方に同じ日付を設定する。
+各記事の frontmatter date / last_update と posts.ts publishedAt の両方に同じ日付を設定する。
+免責の「執筆時点（YYYY-MM-DD）」も同じ実装日に揃える。
 inbox の publishDate や初稿 frontmatter の date は参照しない。
 
 【軽負債】
@@ -149,7 +164,10 @@ docs/ai-context/debt-paydown-workflow.md の①チェックリストに従う
 【任意】
 - 逆リンク先 slug
 - 準備中 → 実 slug への差し替え箇所
-- 同日複数本の公開順（クロスリンク用）
+- 同日複数本の公開順（クロスリンク用）: <slug1> → <slug2> → <slug3>
+- シリーズ確定時: lib/series/series.ts への spoke 追加
+- Hub リンク先: /blog/<hubSlug>
+- 候補マスター promotion_status: published_in_20 は⑥へ引き継ぎ
 ```
 
 ### ② SEO・GSC（Cursor）
