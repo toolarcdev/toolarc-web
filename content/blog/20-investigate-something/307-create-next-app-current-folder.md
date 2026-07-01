@@ -61,5 +61,6 @@ Next.jsで新しいプロジェクトを始めるとき、`npx create-next-app@l
 - Hub記事：[AI初心者がゼロからWebサイトを公開するまでにやったこと・詰まったこと全部まとめ](/blog/site-launch)
 - 同日公開：[npm run buildを毎回実行する理由｜本番ビルド落ちを防ぐ](/blog/npm-run-build-reason)
 - 同日公開：[Obsidianで✅を入力する方法｜絵文字パネルで簡単入力](/blog/obsidian-checkmark-input)
+- 同日公開：[AIブログ記事の作り方｜source.md→Claude初稿→Cursor公開](/blog/ai-blog-writing-workflow-source-to-publish)
 
 Next.jsやcreate-next-appの仕様・挙動はバージョンによって変わることがあります。本記事は執筆時点（2026-07-01）の情報に基づいています。重要な判断をする際は、Next.js公式ドキュメントもあわせてご確認ください。

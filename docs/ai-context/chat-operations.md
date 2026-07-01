@@ -169,6 +169,7 @@ docs/ai-context/debt-paydown-workflow.md の①チェックリストに従う
 - Hub リンク先: /blog/<hubSlug>
 - 候補マスター promotion_status: published_in_20 は⑥へ引き継ぎ
 - アフィリエイトリンクは④文案どおり実装（ASP成果条件・単価の転載はしない）
+- アフィリエイト URL の正本: `docs/ai-context/affiliate-registry.md` / `lib/affiliate/programs/`
 ```
 
 ### ① 導線リライトバッチ依頼テンプレ（既存記事・弱リンク差し替え）
@@ -237,15 +238,19 @@ CTR（%）: __（任意）
 404: 変化なし / 増（代表URL: ...）
 判断1行: ...
 GSCクエリ3件: 「...」「...」「...」
-```
+````
 
 【週次サマリー時 — ⑤柱Cへ渡すメモ】
+
 - 上記 `GSCクエリ3件` を⑤の reader-theme-batch-prompt `PasteExternalSignalsHere` にも流用
 - 形式例: `- GSC: 「クエリA」「クエリB」「クエリC」`
 - 水曜週次で ⑤ → ⑥ handoff 登録（同一ブロック内）
 
 準備できたら「② SEO・GSC、準備完了」とだけ返答してください。
+
 ````
+
+
 
 ### ③ サイト基盤（Cursor）
 
@@ -267,7 +272,7 @@ GSCクエリ3件: 「...」「...」「...」
 - 変更後は npm run build で確認
 
 準備できたら「③ サイト基盤、準備完了」とだけ返答してください。
-```
+````
 
 ### ④ 記事初稿・既存記事リライト（Claude — 主。Cursor は予備）
 

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:affiliate": "npx tsx scripts/validate-affiliate.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -24,6 +25,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
+    "tsx": "^4.19.4",
     "typescript": "^5"
   }
 }
