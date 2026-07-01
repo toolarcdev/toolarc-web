@@ -2,17 +2,28 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
 import type { Element } from "hast";
 import { CodeBlock } from "@/components/blog/CodeBlock";
 import { pushEvent } from "@/lib/analytics/gtm";
+import {
+  buildAffiliateAnchorProps,
+  parseAffiliateHref,
+  resolveAffiliateLink,
+} from "@/lib/affiliate";
 
 type MarkdownArticleProps = {
   content: string;
   imageBasePath: string;
 };
+
+/** react-markdown の defaultUrlTransform は affiliate: スキームを空文字にするため通過させる */
+function urlTransform(url: string): string {
+  if (url.startsWith("affiliate:")) return url;
+  return defaultUrlTransform(url);
+}
 
 function resolveImageSrc(src: string | undefined, imageBasePath: string): string {
   if (!src) return "";
@@ -169,6 +180,34 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
     ),
     hr: () => <hr className="article-hr" />,
     a: ({ href, children }) => {
+      const affiliateRef = parseAffiliateHref(href);
+      if (affiliateRef) {
+        const resolved = resolveAffiliateLink(
+          affiliateRef.programId,
+          affiliateRef.creativeId,
+        );
+        if (resolved) {
+          const linkText =
+            typeof children === "string" ? children : undefined;
+          const anchorProps = buildAffiliateAnchorProps(resolved);
+          return (
+            <a
+              {...anchorProps}
+              className="article-link"
+              onClick={() =>
+                pushEvent("outbound_click", {
+                  url: resolved.href,
+                  link_text: linkText,
+                })
+              }
+            >
+              {children}
+            </a>
+          );
+        }
+        return <span className="article-link">{children}</span>;
+      }
+
       const isExternal = href?.startsWith("http");
       if (isExternal) {
         const linkText =
@@ -251,7 +290,11 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
   };
 
   return (
-    <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      urlTransform={urlTransform}
+      components={components}
+    >
       {content}
     </ReactMarkdown>
   );
