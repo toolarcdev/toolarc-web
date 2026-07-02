@@ -1,5 +1,7 @@
 export type BlogCategory = "ai-workflow" | "devops" | "gaming" | "tool";
 
+export type ArticleLayout = "default" | "rich-toc";
+
 /** 記事レジストリの1件分（管理用 ID と公開設定） */
 export type BlogPostConfig = {
   /** content/blog/ 配下の管理用フォルダ名（例: 01-site-launch） */
@@ -12,6 +14,8 @@ export type BlogPostConfig = {
   /** OGP 用の代表画像（imageBasePath からの相対ファイル名） */
   ogImage: string;
   category: BlogCategory;
+  /** 記事ページのレイアウト（省略時 default） */
+  layout?: ArticleLayout;
 };
 
 export type BlogPostMeta = BlogPostConfig & {

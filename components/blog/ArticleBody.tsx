@@ -1,16 +1,20 @@
 "use client";
 
 import { AiOutputScroll } from "@/components/blog/AiOutputScroll";
+import { EmbedRenderer } from "@/components/blog/EmbedRenderer";
 import { MarkdownArticle } from "@/components/blog/MarkdownArticle";
 import { AffiliateBanner } from "@/components/affiliate/AffiliateBanner";
 import { AffiliateImpression } from "@/components/affiliate/AffiliateImpression";
 import { collectAffiliateImpressions } from "@/lib/affiliate";
 import { splitAffiliateSections } from "@/lib/affiliate/split-affiliate-sections";
+import { splitEmbedSections } from "@/lib/blog/split-embed-sections";
 import { splitScrollSections } from "@/lib/blog/split-scroll-sections";
+import type { BlogSlug } from "@/lib/blog/posts";
 
 type ArticleBodyProps = {
   content: string;
   imageBasePath: string;
+  slug?: BlogSlug;
 };
 
 function renderAffiliateSegments(
@@ -41,44 +45,87 @@ function renderAffiliateSegments(
   });
 }
 
-export function ArticleBody({ content, imageBasePath }: ArticleBodyProps) {
+function renderMarkdownWithEmbeds(
+  content: string,
+  imageBasePath: string,
+  keyPrefix: string,
+  slug?: BlogSlug,
+) {
+  const embedSegments = splitEmbedSections(content);
+
+  return embedSegments.map((segment, index) => {
+    if (segment.type === "embed") {
+      if (!slug) return null;
+      return (
+        <EmbedRenderer
+          key={`${keyPrefix}-embed-${index}`}
+          slug={slug}
+          componentName={segment.componentName}
+        />
+      );
+    }
+
+    return (
+      <div key={`${keyPrefix}-embed-md-${index}`}>
+        {renderAffiliateSegments(
+          segment.content,
+          imageBasePath,
+          `${keyPrefix}-${index}`,
+        )}
+      </div>
+    );
+  });
+}
+
+function renderScrollAwareContent(
+  content: string,
+  imageBasePath: string,
+  keyPrefix: string,
+  slug?: BlogSlug,
+) {
+  const segments = splitScrollSections(content);
+
+  if (segments.length === 1 && segments[0].type === "markdown") {
+    return renderMarkdownWithEmbeds(
+      segments[0].content,
+      imageBasePath,
+      keyPrefix,
+      slug,
+    );
+  }
+
+  return segments.map((segment, index) => {
+    if (segment.type === "markdown") {
+      return (
+        <div key={`scroll-md-wrap-${index}`}>
+          {renderMarkdownWithEmbeds(
+            segment.content,
+            imageBasePath,
+            `seg-${index}`,
+            slug,
+          )}
+        </div>
+      );
+    }
+    return (
+      <AiOutputScroll key={`scroll-${index}`} label={segment.label}>
+        <MarkdownArticle
+          content={segment.content}
+          imageBasePath={imageBasePath}
+        />
+      </AiOutputScroll>
+    );
+  });
+}
+
+export function ArticleBody({ content, imageBasePath, slug }: ArticleBodyProps) {
   const textImpressions = collectAffiliateImpressions(content).filter(
     (ref) => ref.creativeId === "text",
   );
-  const segments = splitScrollSections(content);
-
-  const body =
-    segments.length === 1 && segments[0].type === "markdown" ? (
-      renderAffiliateSegments(segments[0].content, imageBasePath, "root")
-    ) : (
-      <>
-        {segments.map((segment, index) => {
-          if (segment.type === "markdown") {
-            return (
-              <div key={`scroll-md-wrap-${index}`}>
-                {renderAffiliateSegments(
-                  segment.content,
-                  imageBasePath,
-                  `seg-${index}`,
-                )}
-              </div>
-            );
-          }
-          return (
-            <AiOutputScroll key={`scroll-${index}`} label={segment.label}>
-              <MarkdownArticle
-                content={segment.content}
-                imageBasePath={imageBasePath}
-              />
-            </AiOutputScroll>
-          );
-        })}
-      </>
-    );
 
   return (
     <>
-      {body}
+      {renderScrollAwareContent(content, imageBasePath, "root", slug)}
       {textImpressions.map((ref) => (
         <AffiliateImpression key={`${ref.programId}:${ref.creativeId}`} src={ref.impressionUrl} />
       ))}

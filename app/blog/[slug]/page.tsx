@@ -2,14 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleHeader } from "@/components/blog/ArticleHeader";
+import { ArticleBody } from "@/components/blog/ArticleBody";
 import { BlogShell } from "@/components/blog/BlogShell";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/blog/Breadcrumbs";
-import { ArticleBody } from "@/components/blog/ArticleBody";
+import { NextReadArticles } from "@/components/blog/NextReadArticles";
+import { RichArticleLayout } from "@/components/blog/RichArticleLayout";
 import { SeriesArticleLink } from "@/components/blog/SeriesArticleLink";
 import { ScrollDepthTracker } from "@/components/analytics/ScrollDepthTracker";
 import { blogPostUrl, SITE_URL } from "@/lib/blog/constants";
+import { getArticleLayout } from "@/lib/blog/article-layout";
+import { extractTocHeadings } from "@/lib/blog/heading-id";
 import { loadPost } from "@/lib/blog/load-post";
 import { estimateReadingTime } from "@/lib/blog/reading-time";
+import {
+  resolveNextReadArticles,
+} from "@/lib/blog/resolve-next-read";
+import { splitNextReadSection } from "@/lib/blog/split-next-read-section";
 import { blogSlugs, isBlogSlug, type BlogSlug } from "@/lib/blog/posts";
 import { getSeriesForPost, isSpokePost } from "@/lib/series/series";
 
@@ -66,6 +74,13 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = await loadPost(slug);
   const url = blogPostUrl(slug);
   const ogImageUrl = `${SITE_URL}${post.imageBasePath}/${post.ogImage}`;
+  const layout = getArticleLayout(slug);
+  const isRichToc = layout === "rich-toc";
+  const nextReadSplit = isRichToc ? splitNextReadSection(post.content) : null;
+  const nextReadArticles = nextReadSplit
+    ? await resolveNextReadArticles(nextReadSplit.links)
+    : [];
+  const tocItems = isRichToc ? extractTocHeadings(post.content) : [];
 
   // --- Series awareness ---
   const series = getSeriesForPost(slug);
@@ -143,7 +158,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         category={post.category}
       />
       <main className="px-4 py-10 sm:px-6 sm:py-14">
-        <div className="mx-auto max-w-3xl">
+        <div className={isRichToc ? "mx-auto max-w-5xl" : "mx-auto max-w-3xl"}>
           <Breadcrumbs items={breadcrumbItems} />
 
           {/* Series badge for spoke articles */}
@@ -170,25 +185,67 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           )}
 
-          <article
-            className="mt-6"
-            itemScope
-            itemType="https://schema.org/BlogPosting"
-          >
-            <ArticleHeader
-              title={post.title}
-              description={post.description}
-              publishedAt={post.publishedAt}
-              updatedAt={post.updatedAt}
-              tags={post.tags}
-            />
-            <div className="article mt-10">
-              <ArticleBody
-                content={post.content}
-                imageBasePath={post.imageBasePath}
+          {isRichToc ? (
+            <RichArticleLayout tocItems={tocItems}>
+              <article
+                className="mt-6"
+                itemScope
+                itemType="https://schema.org/BlogPosting"
+              >
+                <ArticleHeader
+                  title={post.title}
+                  description={post.description}
+                  publishedAt={post.publishedAt}
+                  updatedAt={post.updatedAt}
+                  tags={post.tags}
+                />
+                <div className="article mt-10">
+                  {nextReadSplit ? (
+                    <>
+                      <ArticleBody
+                        content={nextReadSplit.before}
+                        imageBasePath={post.imageBasePath}
+                        slug={slug}
+                      />
+                      <NextReadArticles articles={nextReadArticles} />
+                      <ArticleBody
+                        content={nextReadSplit.after}
+                        imageBasePath={post.imageBasePath}
+                        slug={slug}
+                      />
+                    </>
+                  ) : (
+                    <ArticleBody
+                      content={post.content}
+                      imageBasePath={post.imageBasePath}
+                      slug={slug}
+                    />
+                  )}
+                </div>
+              </article>
+            </RichArticleLayout>
+          ) : (
+            <article
+              className="mt-6"
+              itemScope
+              itemType="https://schema.org/BlogPosting"
+            >
+              <ArticleHeader
+                title={post.title}
+                description={post.description}
+                publishedAt={post.publishedAt}
+                updatedAt={post.updatedAt}
+                tags={post.tags}
               />
-            </div>
-          </article>
+              <div className="article mt-10">
+                <ArticleBody
+                  content={post.content}
+                  imageBasePath={post.imageBasePath}
+                  slug={slug}
+                />
+              </div>
+            </article>
+          )}
 
           <footer className="mt-12 border-t border-slate-200 pt-8">
             {relatedPosts.length > 0 && (
