@@ -14,16 +14,16 @@ function toPublicImagePath(imageBasePath: string, imageFile: string): string {
 async function resolveOgImage(
   imageBasePath: string,
   ogImage: string,
-): Promise<{ imageBasePath: string; ogImage: string }> {
+): Promise<{ ogImage: string; ogImageBasePath: string }> {
   const articleOgPath = toPublicImagePath(imageBasePath, ogImage);
 
   try {
     await access(articleOgPath);
-    return { imageBasePath, ogImage };
+    return { ogImage, ogImageBasePath: imageBasePath };
   } catch {
     return {
-      imageBasePath: DEFAULT_OG_IMAGE_BASE_PATH,
       ogImage: DEFAULT_OG_IMAGE_FILE,
+      ogImageBasePath: DEFAULT_OG_IMAGE_BASE_PATH,
     };
   }
 }
@@ -139,8 +139,8 @@ export async function loadPost(slug: BlogSlug): Promise<BlogPost> {
 
   return {
     ...meta,
-    imageBasePath: resolvedOg.imageBasePath,
     ogImage: resolvedOg.ogImage,
+    ogImageBasePath: resolvedOg.ogImageBasePath,
     publishedAt,
     updatedAt,
     title,

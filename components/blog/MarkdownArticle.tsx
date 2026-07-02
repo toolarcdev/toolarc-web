@@ -105,6 +105,26 @@ const IMAGE_META: Record<string, { alt: string; caption: string }> = {
     caption:
       "ChatGPTにはアカウント間の公式履歴移行機能はありません。重要な内容は手動で引継ぎ資料としてコピーする必要があります。",
   },
+  "01-vercel-invalid.png": {
+    alt: "Vercelダッシュボードに「Invalid Configuration」と表示されている画面",
+    caption:
+      "「Invalid Configuration」の表示が消えない。設定は合っているはずなのに、なぜ？",
+  },
+  "02-dns-probe-finished-nxdomain.png": {
+    alt: "ChromeブラウザにDNS_PROBE_FINISHED_NXDOMAINエラーが表示されている画面",
+    caption:
+      "DNS_PROBE_FINISHED_NXDOMAIN — ドメインのDNSが解決できない状態。設定の問題であり、サイトが壊れているわけではない。",
+  },
+  "04-nameserver-setting.png": {
+    alt: "Xserver Domainのネームサーバー設定画面。デフォルトのネームサーバーが設定されたままになっている",
+    caption:
+      "Xserver Domainのネームサーバー設定。ここがデフォルト（Xserver）のまま変更されていなかった",
+  },
+  "05-vercel-valid.png": {
+    alt: "Vercelダッシュボードでドメインが「Valid Configuration」になり、青いチェックマークが表示されている",
+    caption:
+      "「Invalid Configuration」が消えた。両方のドメインに青いチェックマークがついた状態",
+  },
 };
 
 function getImageFileName(src: string | undefined): string {
