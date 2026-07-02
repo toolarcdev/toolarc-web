@@ -6,8 +6,10 @@ import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
 import type { Element } from "hast";
+import type { ReactNode } from "react";
 import { CodeBlock } from "@/components/blog/CodeBlock";
 import { pushEvent } from "@/lib/analytics/gtm";
+import { headingToId } from "@/lib/blog/heading-id";
 import {
   buildAffiliateAnchorProps,
   parseAffiliateHref,
@@ -144,11 +146,27 @@ function isImageOnlyParagraph(node: unknown): boolean {
   );
 }
 
+function flattenText(node: ReactNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(flattenText).join("");
+  if (node && typeof node === "object" && "props" in node) {
+    const element = node as { props: { children?: ReactNode } };
+    return flattenText(element.props.children);
+  }
+  return "";
+}
+
 export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps) {
   const components: Components = {
-    h2: ({ children }) => (
-      <h2 className="article-h2">{children}</h2>
-    ),
+    h2: ({ children }) => {
+      const id = headingToId(flattenText(children));
+      return (
+        <h2 id={id} className="article-h2">
+          {children}
+        </h2>
+      );
+    },
     h3: ({ children }) => (
       <h3 className="article-h3">{children}</h3>
     ),

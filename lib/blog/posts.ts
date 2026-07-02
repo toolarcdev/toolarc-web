@@ -48,6 +48,7 @@ export const blogPosts = {
     publishedAt: "2026-05-22",
     ogImage: "og.png",
     category: "ai-workflow",
+    layout: "rich-toc",
   },
   "vercel-domain-invalid-nameserver": {
     contentId: "01-site-launch",
