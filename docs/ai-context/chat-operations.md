@@ -296,6 +296,11 @@ GSCクエリ3件: 「...」「...」「...」
 【添付の優先順位】
 source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.md > writing-rules.md > project-context.md
 
+【slug 取り扱い（必須）】
+- 依頼文・source.md・frontmatter に `slug` が明示されている場合、その値を正本として扱い、別slugへ置換・提案・採用しない
+- 例外は「ユーザーがslug変更を明示した場合」のみ。変更時は「旧slug → 新slug」を1回確認してから進める
+- 出力前に「ファイル名のslug / 本文・frontmatter内のslug記載 / 依頼で指定されたslug」の3点一致を確認し、不一致なら出力前に確認する
+
 【公開日（仮値）】
 - frontmatter の `date` は計画用の仮値でよい。Web の公開日表示は ① が実装日（Get-Date）で上書きする
 - inbox / 候補マスターの `publishDate` は執筆順・供給計画のみに使う（Web 公開日の正本ではない）
