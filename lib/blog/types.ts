@@ -31,4 +31,6 @@ export type BlogPost = BlogPostMeta & {
   content: string;
   tags: string[];
   updatedAt?: string;
+  /** OGP 画像のベースパス（og.png 未配置時は /images/og にフォールバック） */
+  ogImageBasePath: string;
 };

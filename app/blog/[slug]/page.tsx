@@ -39,7 +39,7 @@ export async function generateMetadata({
 
   const post = await loadPost(slug);
   const url = blogPostUrl(slug);
-  const ogImage = `${post.imageBasePath}/${post.ogImage}`;
+  const ogImage = `${post.ogImageBasePath}/${post.ogImage}`;
 
   return {
     title: `${post.title} | ToolArc`,
@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const post = await loadPost(slug);
   const url = blogPostUrl(slug);
-  const ogImageUrl = `${SITE_URL}${post.imageBasePath}/${post.ogImage}`;
+  const ogImageUrl = `${SITE_URL}${post.ogImageBasePath}/${post.ogImage}`;
   const layout = getArticleLayout(slug);
   const isRichToc = layout === "rich-toc";
   const nextReadSplit = isRichToc ? splitNextReadSection(post.content) : null;

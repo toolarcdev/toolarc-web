@@ -56,8 +56,9 @@ export const blogPosts = {
     markdownFile: "004-vercel-domain-invalid-nameserver.md",
     imageBasePath: "/images/blog/vercel-domain-invalid-nameserver",
     publishedAt: "2026-05-22",
-    ogImage: "og.png",
+    ogImage: "01-vercel-invalid.png",
     category: "devops",
+    layout: "rich-toc",
   },
   "captions-md-workflow": {
     contentId: "02-claude-obsidian-workflow",
