@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-07-01 19:43
+最終更新: 2026-07-02 23:53
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`
@@ -96,6 +96,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - npm run build の成功確認
 - 同日複数本公開時は公開順にクロスリンク（218→221型）
 - 公開日の確定（実装時のみ。下記「公開日 — Get-Date 必須」）
+- rich-toc 記事のリライト（MD の prose のみ。下記「① rich-toc 記事」参照）
 
 【公開日 — Get-Date 必須】
 - 実装開始時に `Get-Date -Format "yyyy-MM-dd"` を実行（JST。手入力・inbox の publishDate・初稿 frontmatter の date は使わない）
@@ -201,6 +202,53 @@ docs/ai-context/debt-paydown-workflow.md の①チェックリストに従う
 リライトのみの場合も Get-Date で last_update / 免責の執筆時点を実装日に揃える（新規公開がなければ posts.ts publishedAt は変えない）
 ```
 
+### ① rich-toc 記事（リライト・リッチ化）
+
+**rich-toc とは**
+
+- 記事本文の正本は **Markdown のみ**（専用 `page.tsx` は使わない）
+- `lib/blog/posts.ts` で `layout: "rich-toc"` を指定した slug が対象（現状・将来ともに grep で確認）
+- リッチ UI は MD 内の `<!-- embed:ComponentName -->` で差し込む（許可一覧は `lib/blog/embed-registry.tsx`）
+- 表示は 2 カラム + サイドの StickyTOC（H2 から自動生成）。`## 次に読む` はカード表示
+
+**④ / ① で触らないもの（リライト時）**
+
+- `<!-- embed:* -->` の削除・移動・改名
+- `posts.ts` の `layout: "rich-toc"` や `embed-registry.tsx` の変更
+- `components/blog/` 配下のコンポーネント追加・改修（③ に依頼）
+
+**スロット分担**
+
+| 作業                                                          | 担当                                |
+| ------------------------------------------------------------- | ----------------------------------- |
+| 既存 rich-toc 記事の prose・内部リンクのリライト              | ④ Produce → **①** Commit（MD のみ） |
+| 新規の rich-toc 化（embed 追加・layout 付与・専用 page 削除） | **③**                               |
+
+**① rich-toc リライト依頼テンプレ**
+
+④ で差分文案を受け取ったあと、rich-toc 対象 slug を ① に渡すとき用。対象 slug は `posts.ts` の `layout: "rich-toc"` を正本とする。
+
+```text
+【rich-toc 記事リライト】
+対象 slug: <slug>
+正本 MD: content/blog/<contentId>/<markdownFile>（posts.ts の markdownFile を参照）
+④差分文案: （添付 or 貼り付け）
+
+【ルール】
+- prose・内部リンクのみ変更。<!-- embed:* --> は維持
+- posts.ts の layout / embed-registry / components/blog は変更しない
+- ④の差分文案どおり最小変更。全文書き換えしない
+
+【やること】
+- content/blog の該当 MD を更新
+- 内部リンク slug 存在確認
+- npm run build 成功確認
+- /blog/<slug> で目次・embed・次に読む・画像を確認
+
+【公開日】
+リライトのみの場合も Get-Date で last_update / 免責の執筆時点を実装日に揃える（新規公開がなければ posts.ts publishedAt は変えない）
+```
+
 ### ② SEO・GSC（Cursor）
 
 ````text
@@ -238,7 +286,7 @@ CTR（%）: __（任意）
 404: 変化なし / 増（代表URL: ...）
 判断1行: ...
 GSCクエリ3件: 「...」「...」「...」
-````
+```
 
 【週次サマリー時 — ⑤柱Cへ渡すメモ】
 
@@ -247,10 +295,7 @@ GSCクエリ3件: 「...」「...」「...」
 - 水曜週次で ⑤ → ⑥ handoff 登録（同一ブロック内）
 
 準備できたら「② SEO・GSC、準備完了」とだけ返答してください。
-
 ````
-
-
 
 ### ③ サイト基盤（Cursor）
 
@@ -272,7 +317,7 @@ GSCクエリ3件: 「...」「...」「...」
 - 変更後は npm run build で確認
 
 準備できたら「③ サイト基盤、準備完了」とだけ返答してください。
-````
+```
 
 ### ④ 記事初稿・既存記事リライト（Claude — 主。Cursor は予備）
 
@@ -292,6 +337,7 @@ GSCクエリ3件: 「...」「...」「...」
 【やらない】
 - posts.ts / series.ts / 実ファイル反映・ビルド（① または ③ に渡す）
 - daily notes の丸投げ記事化
+- rich-toc 記事のリライト案に `<!-- embed:* -->` を含める（既存 MD のマーカーは維持。prose の差分のみ出力）
 
 【添付の優先順位】
 source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.md > writing-rules.md > project-context.md
