@@ -1,4 +1,8 @@
 import type { ComponentType } from "react";
+import { AIRoleCards } from "@/components/blog/ai-role-sharing/AIRoleCards";
+import { RoleSharingBeforeAfter } from "@/components/blog/ai-role-sharing/RoleSharingBeforeAfter";
+import { RoleSharingQuoteHighlight } from "@/components/blog/ai-role-sharing/RoleSharingQuoteHighlight";
+import { WorkflowDiagram } from "@/components/blog/ai-role-sharing/WorkflowDiagram";
 import { BeforeAfterComparison } from "@/components/blog/source-md-ai-writing/BeforeAfterComparison";
 import { KeyPointsCards } from "@/components/blog/source-md-ai-writing/KeyPointsCards";
 import { SourceMdBlockEmbed } from "@/components/blog/source-md-ai-writing/SourceMdBlockEmbed";
@@ -12,6 +16,10 @@ export const EMBED_COMPONENTS: Record<string, ComponentType> = {
   SourceMdBlock: SourceMdBlockEmbed,
   SourceWorkflowDiagram,
   QuoteHighlight: SourceMdQuoteHighlight,
+  WorkflowDiagram,
+  AIRoleCards,
+  RoleSharingBeforeAfter,
+  RoleSharingQuoteHighlight,
 };
 
 export type EmbedComponentName = keyof typeof EMBED_COMPONENTS;
@@ -22,6 +30,12 @@ const SLUG_EMBEDS: Partial<Record<BlogSlug, EmbedComponentName[]>> = {
     "SourceMdBlock",
     "SourceWorkflowDiagram",
     "QuoteHighlight",
+  ],
+  "ai-role-sharing-workflow": [
+    "WorkflowDiagram",
+    "AIRoleCards",
+    "RoleSharingBeforeAfter",
+    "RoleSharingQuoteHighlight",
   ],
 };
 

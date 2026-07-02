@@ -24,6 +24,8 @@ author: ToolArc編集部
 
 ---
 
+<!-- embed:WorkflowDiagram -->
+
 ## 最初は全部ChatGPTに投げていた
 
 最初は全部ChatGPTに投げていた。
@@ -47,25 +49,11 @@ author: ToolArc編集部
 
 ## AI役割分担を意識してから、作業がかなり安定した
 
-今のワークフローは大体こんな感じ。
-
-```text
-アイデア整理・壁打ち
-        ↓
-     ChatGPT
-
-記事構成・長文整理
-        ↓
-      Claude
-
-実装・コード修正
-        ↓
-      Cursor
-```
-
 もちろん完全固定ではない。
 
 ただ、「どのAIに何を任せるか」を整理しただけで、かなり作業効率が変わった。
+
+<!-- embed:AIRoleCards -->
 
 ---
 
@@ -226,23 +214,9 @@ ChatGPTは壁打ち的に使うことが多い。
 
 ## Before / Afterで見ると、かなり変わった
 
-### Before
+<!-- embed:RoleSharingBeforeAfter -->
 
-- 全部ChatGPT
-- プロンプト迷子
-- AIの返答がズレる
-- 毎回説明し直す
-- 作業フローが不安定
-
----
-
-### After
-
-- ChatGPT → 壁打ち
-- Claude → 構成整理
-- Cursor → 実装
-- AIごとの得意分野を使う
-- workflowがかなり安定
+<!-- embed:RoleSharingQuoteHighlight -->
 
 ---
 
@@ -343,20 +317,12 @@ AIは万能じゃない。
 
 そしてその整理力は、そのまま自分のアウトプットの質につながっている気がする。
 
-**関連記事**
+---
+
+## 次に読む
 
 - [ChatGPT・Cursor・Claudeの役割分担｜AIツールを使い分けるだけで品質が安定する](/blog/chatgpt-cursor-claude-role-sharing-tips)
 
 ---
-
-%%
-
-## 関連記事（予定）
-
-- CursorでNext.jsを高速実装するworkflow
-- Claudeにsource.mdを渡して記事生成する方法
-- ToolArc流AI workflow設計
-- AIに「伝わる」指示の整理方法
-  %%
 
 ToolArcでは、こういう「AI個人開発 workflow」を今後も整理していく予定です。
