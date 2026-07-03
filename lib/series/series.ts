@@ -110,9 +110,9 @@ export const allSeries: readonly SeriesConfig[] = [
   {
     slug: "chatgpt-account-migration-series",
     title:
-      "ChatGPTアカウント移行・機種変更ガイド｜引き継ぎ方法と注意点まとめ",
+      "ChatGPT機種変更・引き継ぎ｜移行シリーズ全体ガイドと読む順番",
     description:
-      "ChatGPTのアカウント移行・機種変更・引き継ぎ方法を解説。同じアカウントでのスマホ変更時の注意点や、別アカウント移行の可否もまとめています。",
+      "機種変更やアカウント移行でChatGPTの引き継ぎ方法を知りたい方向けのシリーズ入口です。同じアカウントのスマホ変更から別アカウント移行まで、手順と注意点を読む順番つきでまとめています。",
     hubSlug: "chatgpt-account-migration",
     spokeSlugOrder: [
       "chatgpt-migration-md-checklist",
