@@ -1212,6 +1212,30 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "obsidian-checkbox-uncheck-3steps": {
+    contentId: "20-investigate-something",
+    markdownFile: "316-obsidian-checkbox-uncheck-3steps.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-04",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "comparison-article-weak-link-funnel": {
+    contentId: "20-investigate-something",
+    markdownFile: "317-comparison-article-weak-link-funnel.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-04",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "react-markdown-affiliate-link-empty-fix": {
+    contentId: "20-investigate-something",
+    markdownFile: "318-react-markdown-affiliate-link-empty-fix.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-04",
+    ogImage: "og.png",
+    category: "devops",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
