@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes } from "react";
 import { buildA8AnchorProps } from "./asp/a8";
+import { buildAccessTradeAnchorProps } from "./asp/accesstrade";
 import { buildGenericAnchorProps } from "./asp/generic";
 import { buildMoshimoAnchorProps } from "./asp/moshimo";
 import { getCreative, getProgram } from "./registry";
@@ -50,6 +51,9 @@ export function buildAffiliateAnchorProps(
 ): AnchorHTMLAttributes<HTMLAnchorElement> {
   if (resolved.asp === "a8") {
     return buildA8AnchorProps(resolved.href);
+  }
+  if (resolved.asp === "accesstrade") {
+    return buildAccessTradeAnchorProps(resolved.href);
   }
   if (resolved.asp === "moshimo") {
     return buildMoshimoAnchorProps(resolved.href);
