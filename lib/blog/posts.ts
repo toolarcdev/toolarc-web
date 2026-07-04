@@ -1245,6 +1245,30 @@ export const blogPosts = {
     category: "ai-workflow",
     layout: "rich-toc",
   },
+  "nextjs-301-redirect-legacy-url-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "320-nextjs-301-redirect-legacy-url-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-05",
+    ogImage: "og.png",
+    category: "devops",
+  },
+  "chatgpt-migration-2fa-authenticator-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "321-chatgpt-migration-2fa-authenticator-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-05",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "chatgpt-plus-ios-android-transfer-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "322-chatgpt-plus-ios-android-transfer-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-05",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
