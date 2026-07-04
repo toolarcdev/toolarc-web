@@ -1241,8 +1241,9 @@ export const blogPosts = {
     markdownFile: "319-multi-generative-ai-comparison-business.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-07-04",
-    ogImage: "og.png",
+    ogImage: "319-og.png",
     category: "ai-workflow",
+    layout: "rich-toc",
   },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
