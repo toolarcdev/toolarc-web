@@ -5,7 +5,7 @@ import { EmbedRenderer } from "@/components/blog/EmbedRenderer";
 import { MarkdownArticle } from "@/components/blog/MarkdownArticle";
 import { AffiliateBanner } from "@/components/affiliate/AffiliateBanner";
 import { AffiliateImpression } from "@/components/affiliate/AffiliateImpression";
-import { collectAffiliateImpressions } from "@/lib/affiliate";
+import { collectAffiliateImpressions, getCreative } from "@/lib/affiliate";
 import { splitAffiliateSections } from "@/lib/affiliate/split-affiliate-sections";
 import { splitEmbedSections } from "@/lib/blog/split-embed-sections";
 import { splitScrollSections } from "@/lib/blog/split-scroll-sections";
@@ -120,7 +120,7 @@ function renderScrollAwareContent(
 
 export function ArticleBody({ content, imageBasePath, slug }: ArticleBodyProps) {
   const textImpressions = collectAffiliateImpressions(content).filter(
-    (ref) => ref.creativeId === "text",
+    (ref) => !getCreative(ref.programId, ref.creativeId)?.bannerImageUrl,
   );
 
   return (

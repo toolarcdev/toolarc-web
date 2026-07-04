@@ -1,12 +1,8 @@
 export type AffiliateProgramId = "rakurin" | "tenbin-ai";
 
-export type AffiliateCreativeId =
-  | "text"
-  | "banner-120x60"
-  | "banner-300x250"
-  | "banner-336x280";
+export type AffiliateCreativeId = string;
 
-export type AffiliateAsp = "moshimo" | "generic";
+export type AffiliateAsp = "moshimo" | "a8" | "generic";
 
 export type AffiliatePlacement = "direct" | "peripheral-only" | "disabled";
 

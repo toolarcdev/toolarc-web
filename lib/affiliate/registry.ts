@@ -1,4 +1,5 @@
 import { rakurinProgram } from "./programs/rakurin";
+import { tenbinAiProgram } from "./programs/tenbin-ai";
 import type {
   AffiliateCreative,
   AffiliateCreativeId,
@@ -8,13 +9,7 @@ import type {
 
 const programs: Record<AffiliateProgramId, AffiliateProgram> = {
   rakurin: rakurinProgram,
-  "tenbin-ai": {
-    id: "tenbin-ai",
-    displayName: "天秤AI Biz",
-    asp: "generic",
-    placement: "peripheral-only",
-    creatives: {},
-  },
+  "tenbin-ai": tenbinAiProgram,
 };
 
 export function getProgram(programId: string): AffiliateProgram | undefined {

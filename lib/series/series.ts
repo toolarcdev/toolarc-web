@@ -171,6 +171,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-chatgpt-usecase-comparison",
       "cursor-claude-usecase-comparison",
       "chatgpt-claude-comparison",
+      "multi-generative-ai-comparison-business",
       "chatgpt-plus-free-comparison",
       "claude-pro-free-comparison",
       "cursor-strengths-weaknesses",
