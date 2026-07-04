@@ -60,6 +60,7 @@ SMSやWhatsAppでMFAを設定している場合は、機種変更後も同じ電
 
 - [ChatGPTアカウント移行ガイド（Hub）](/blog/chatgpt-account-migration)
 - [スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)
+- [ChatGPT機種変更で認証アプリ（2FA）を移行する手順](/blog/chatgpt-migration-2fa-authenticator-tips)（認証アプリ引き継ぎ詳細）
 - 同日公開の関連記事: [ChatGPT移行でメモリは引き継げる？3点確認](/blog/chatgpt-migration-memory-check)
 
 ## 免責
