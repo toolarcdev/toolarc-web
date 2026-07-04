@@ -14,6 +14,8 @@ const RAW_AFFILIATE_URL_PATTERNS = [
   /af\.moshimo\.com/i,
   /i\.moshimo\.com\/af\/i\/impression/i,
   /image\.moshimo\.com\/af-img/i,
+  /px\.a8\.net/i,
+  /www\d*\.a8\.net/i,
   /rakurin\.net/i,
 ];
 
