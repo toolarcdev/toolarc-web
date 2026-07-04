@@ -74,6 +74,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "obsidian-dataview-dot-filename-fix",
       "obsidian-table-broken-live-preview-fix",
       "obsidian-checkmark-to-checkbox",
+      "obsidian-checkbox-uncheck-3steps",
     ],
     publishedAt: "2026-05-20",
   },
