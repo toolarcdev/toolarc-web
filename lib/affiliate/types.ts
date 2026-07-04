@@ -1,8 +1,12 @@
-export type AffiliateProgramId = "rakurin" | "tenbin-ai";
+export type AffiliateProgramId =
+  | "rakurin"
+  | "tenbin-ai"
+  | "doraverse"
+  | "ai-skill-academy";
 
 export type AffiliateCreativeId = string;
 
-export type AffiliateAsp = "moshimo" | "a8" | "generic";
+export type AffiliateAsp = "moshimo" | "a8" | "accesstrade" | "generic";
 
 export type AffiliatePlacement = "direct" | "peripheral-only" | "disabled";
 
