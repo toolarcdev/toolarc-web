@@ -1269,6 +1269,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "ai-basics-before-chatgpt-claude-checklist": {
+    contentId: "20-investigate-something",
+    markdownFile: "323-ai-basics-before-chatgpt-claude-checklist.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-05",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
