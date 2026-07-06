@@ -94,6 +94,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-reference-file-prompt-tips",
       "cursor-refactor-judgment-before-apply-tips",
       "cursor-plan-mode-modify-before-build-tips",
+      "cursor-plan-mode-md-save-tips",
       "git-branch-basic-tips",
       "cursor-cursorignore-token-context",
       "cursor-implementation-plan-file-request",
@@ -117,6 +118,7 @@ export const allSeries: readonly SeriesConfig[] = [
     hubSlug: "chatgpt-account-migration",
     spokeSlugOrder: [
       "chatgpt-migration-md-checklist",
+      "chatgpt-long-text-h1-h2-format-tips",
       "chatgpt-smartphone-account-migration-tips",
       "chatgpt-share-link-ai-cannot-read-url",
       "chatgpt-search-history-account-migration",
