@@ -180,6 +180,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "claude-pro-free-comparison",
       "cursor-strengths-weaknesses",
       "ai-basics-before-chatgpt-claude-checklist",
+      "ai-prompt-engineering-beginner-roadmap",
     ],
     publishedAt: "2026-06-28",
   },
