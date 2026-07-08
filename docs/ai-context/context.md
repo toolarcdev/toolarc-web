@@ -1,11 +1,13 @@
 # context.md — ToolArc AI 共通コンテキスト
 
-最終更新: 2026-06-05  
+最終更新: 2026-07-08 18:42  
 用途: 新規チャットの冒頭で毎回添付する（Cursor / Claude / ChatGPT 共通）。文体の詳細は `writing-rules.md`、サイト固有情報は `project-context.md`、事業・収益の原則は `AGENTS.md` を参照。
+
+**現行フェーズ**: カレンダー **Phase1** ＋ **Phase2-0 先行**（収益信号確認）。量産維持・負債は水曜原則2単位。詳細: [`docs/plan/phase-now.md`](../plan/phase-now.md)
 
 **固定チャット運用**: 6スロットの役割分担・初回プロンプト・日次メンテは [`chat-operations.md`](chat-operations.md) を参照。
 
-**事業目標**: [toolarc.jp](https://www.toolarc.jp/) は3年以内に月収100万円を目指す。主戦略はオーガニック流入（SEO）の最大化。収益源はアフィリエイト・広告・デジタル商品（note/教材/テンプレ）。
+**事業目標**: [toolarc.jp](https://www.toolarc.jp/) は3年以内に月収100万円を目指す。主戦略はオーガニック流入（SEO）の最大化。収益源はアフィリエイト・広告・デジタル商品（note/教材/テンプレ）。Phase2-0 卒業条件（ASPクリック累計10）までは売上よりクリック信号を優先する。
 
 ---
 
@@ -39,6 +41,7 @@
 | `writing-rules.md`   | 文体・Markdown・SEO・収益導線の本文表現（記事出力時は必ず遵守）       |
 | `project-context.md` | サイト概要・読者・技術スタック・リポ構成・収益戦略                    |
 | `chat-operations.md` | **6スロット固定チャット**の役割・初回プロンプト・日次メンテ手順      |
+| `docs/plan/phase-now.md` | **現行フェーズ**（Phase1＋2-0、収益細分化、方針B） |
 | `source.md`          | **記事1本ごと**の設計メモ（テーマ・読者・問題・改善・伝えたいこと）   |
 | `captions.md`        | 画像の内容・感情・配置・役割（画像付き記事のみ）                      |
 

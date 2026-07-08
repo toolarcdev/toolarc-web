@@ -1,6 +1,6 @@
 # project-context.md — ToolArc プロジェクト文脈
 
-最終更新: 2026-06-05  
+最終更新: 2026-07-08 18:42  
 サイト: https://toolarc.jp
 
 ---
@@ -15,14 +15,29 @@
 
 ---
 
+## 現行フェーズ（2026-07 時点）
+
+正本: [`docs/plan/phase-now.md`](../plan/phase-now.md)
+
+| 項目 | 値 |
+|------|-----|
+| カレンダー | **Phase1**（勝ちカテゴリ／導線検証・〜9月末レビュー） |
+| 運用 | **Phase2-0 先行**（ASPクリック信号）。卒業後にカレンダー Phase2 |
+| 2-0卒業 | ASP管理画面クリック **累計 ≥10**（主条件） |
+| 量産 | **方針B**: 公開ペース維持、負債は水曜原則2単位＋赤域時の整理①追加 |
+| 資産目安 | 記事150本超、索引〜139、アフィリエイト設置開始済み |
+
+---
+
 ## North Star / 収益戦略
 
 - **事業目標**: 3年以内に月収100万円到達
 - **主戦略**: オーガニック流入最大化（SEO）
 - **収益源**: アフィリエイト、広告、デジタル商品（note/教材/テンプレ）
 - **記事の役割**: 検索流入 → 信頼構築（実測・再現性）→ 自然な収益導線
+- **比較記事**: ChatGPT / Claude / Cursor は現金ASPが無い前提で **直収益にしない**。比較 → 周辺収益記事 → アフィの2段導線
 
-運用ルールの詳細はルートの [`AGENTS.md`](../../AGENTS.md) を参照。
+運用ルールの詳細はルートの [`AGENTS.md`](../../AGENTS.md) を参照。フェーズ詳細は [`phase-now.md`](../plan/phase-now.md)。
 
 ---
 
@@ -103,7 +118,7 @@ lib/blog/posts.ts に slug 登録（Hub/シリーズなら lib/series/series.ts 
     ↓
 GitHub PR → Vercel 公開（軽負債: Hubリンク / promotion_status）
     ↓
-⑥ 水曜: シリーズ昇格・Hub改稿・逆リンク（重負債1単位 / debt-paydown-workflow.md）
+⑥ 水曜: シリーズ昇格・Hub改稿・逆リンク（重負債原則2単位 / debt-paydown-workflow.md・方針B）
 ```
 
 - **Claude**: 長文初稿・構成展開の主担当
@@ -123,7 +138,7 @@ GitHub PR → Vercel 公開（軽負債: Hubリンク / promotion_status）
 
 - 新規公開時は `contentId: "20-investigate-something"`（従来どおり）
 - 公開時は軽負債を払う（`series.ts` / Hubリンク / `promotion_status`）— [`debt-paydown-workflow.md`](debt-paydown-workflow.md)
-- シリーズ昇格は水曜週1単位。MD 移動 + `posts.ts` の `contentId` のみ更新（**slug は変えない**）
+- シリーズ昇格は水曜原則2単位（方針B）。MD 移動 + `posts.ts` の `contentId` のみ更新（**slug は変えない**）
 
 ---
 
@@ -159,7 +174,7 @@ GitHub PR → Vercel 公開（軽負債: Hubリンク / promotion_status）
 | 記事タイプ          | 主な収益導線                   | 備考                                     |
 | ------------------- | ------------------------------ | ---------------------------------------- |
 | How-to              | デジタル商品 CTA               | 手順・チェックリストで無料価値を先に提供 |
-| 比較・選定          | アフィリエイト                 | 向く人/向かない人・注意点を併記          |
+| 比較・選定          | 周辺収益記事経由のアフィリエイト（2段） | 比較本文に直アフィを置かない。向く人/向かない人・注意点を併記 |
 | チェックリスト      | デジタル商品 or アフィリエイト | テーマに合う方を1本に絞る                |
 | Hub（シリーズ入口） | 内部リンク + 必要に応じて CTA  | スポーク記事への導線を優先               |
 
@@ -174,7 +189,8 @@ GitHub PR → Vercel 公開（軽負債: Hubリンク / promotion_status）
 - `docs/ai-context/` — `context.md`、`writing-rules.md`、`chat-operations.md`、`content-folders.md`、`debt-paydown-workflow.md`、本ファイル
 - `docs/project-overview.md` — 概要・読者・執筆スタイル
 - `docs/design-system.md` — 色・レイアウト
-- `docs/seo-goals.md` — SEO の方向性
+- `docs/seo-goals.md` — 週次オペ／Outcome KPI（フェーズ連動）
+- `docs/plan/phase-now.md` — 現行フェーズ・Phase2-x・方針B
 - `docs/vercel-poe2-deployment.md` — PoE2 本番デプロイ
 - `lib/blog/posts.ts` — 公開 URL の slug 一覧（新規記事はここに追加）
 - `lib/series/series.ts` — Hub / スポークのシリーズ定義
