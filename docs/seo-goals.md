@@ -21,6 +21,7 @@
 > 成果（検索・インデックス）正本: `D:\ObsidianVault\Vault\00-dashboard\dashboard.md`（検索パフォーマンス・週次公開）
 > 履歴: `D:\ObsidianVault\Vault\00-dashboard\gsc-weekly-log.md`
 > 取得: ② SEO・GSC（GSC UI 手動・**過去7日**）→ 記録: ⑥ 水曜週次
+> 取得手順正本: `D:\ObsidianVault\Vault\00-dashboard\gsc-weekly-acquisition-checklist.md`
 
 | Metric | Source | Notes |
 |--------|--------|-------|
@@ -29,7 +30,8 @@
 | Reader published (week) | `posts.ts` + `audience_axis` | 目標 2–3/week |
 | GSC queries (top 3) | GSC「検索の結果」 | ⑤柱C 外部シグナル |
 
-手順: https://www.toolarc.jp/blog/gsc-index-weekly-check-tips
+手順（②オペレーション）: `D:\ObsidianVault\Vault\00-dashboard\gsc-weekly-acquisition-checklist.md`  
+背景（公開記事）: https://www.toolarc.jp/blog/gsc-index-weekly-check-tips
 
 ## Discovery pillars
 
