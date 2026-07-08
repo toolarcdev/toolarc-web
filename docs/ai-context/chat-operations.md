@@ -271,7 +271,7 @@ docs/ai-context/debt-paydown-workflow.md の①チェックリストに従う
 - 未確認仕様は断定しない
 
 【週次サマリー時 — ⑥ Dashboard 用（水曜・過去7日固定）】
-GSC UI を開き、以下のブロックを埋めて⑥に渡す（手順正本: /blog/gsc-index-weekly-check-tips、記録先: Vault dashboard.md）。
+GSC UI を開き、[[gsc-weekly-acquisition-checklist]]（Vault `00-dashboard/gsc-weekly-acquisition-checklist.md`）に従って取得し、以下のブロックを埋めて⑥に渡す。背景: /blog/gsc-index-weekly-check-tips。記録先: Vault dashboard.md / gsc-weekly-log.md。
 
 ```text
 【GSC週次サマリー — YYYY-MM-DD】
@@ -890,6 +890,7 @@ Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`mainte
 | `00-dashboard/weekly-maintenance-prompt.md`            | 週次コピペ用（毎週水曜）                       |
 | `00-dashboard/toolarc_1min_tips_article_candidates.md` | 候補マスター                                   |
 | `00-dashboard/dashboard.md`                            | 1分Tips Dashboard（GSC週次・週次公開の正本）   |
+| `00-dashboard/gsc-weekly-acquisition-checklist.md`       | GSC 週次取得手順（②オペレーション正本）        |
 | `00-dashboard/gsc-weekly-log.md`                       | GSC / 週次アーカイブ（水曜1行追記）            |
 | `00-dashboard/audience-axis-labels.md`                 | 読者軸定義                                     |
 | `00-dashboard/content-audience-matrix.md`              | 読者軸一覧（週次再生成）                       |
