@@ -1309,6 +1309,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "chatgpt-claude-prompt-writing-comparison": {
+    contentId: "20-investigate-something",
+    markdownFile: "331-chatgpt-claude-prompt-writing-comparison.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-08",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
   "affiliate-marker-only-no-raw-url": {
     contentId: "20-investigate-something",
     markdownFile: "330-affiliate-marker-only-no-raw-url.md",
