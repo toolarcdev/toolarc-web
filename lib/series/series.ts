@@ -69,6 +69,8 @@ export const allSeries: readonly SeriesConfig[] = [
       "obsidian-advanced-tables-source-mode",
       "obsidian-table-center-align",
       "obsidian-nested-codeblock-backticks",
+      "obsidian-ai-log-codeblock-fix",
+      "obsidian-wikilink-file-heading-syntax",
       "claude-long-text-split-tips",
       "obsidian-internal-link-candidate-missing",
       "obsidian-dataview-dot-filename-fix",
