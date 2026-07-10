@@ -16,8 +16,8 @@
 |--------|--------|
 | Inbox additions (`reader`) | 2+ per week |
 | Inbox additions (`operator`) | 5 or fewer per week |
-| Published articles (`reader`) | Maintain cadence (guide 7–21/week). Floor 2+/week. If runway <2 weeks, prioritize supply over volume |
-| Published articles (`operator`) | 1 per week max |
+| Published articles (`reader`) | Maintain cadence (guide 7–21/week). Floor 2+/week. **Weekly published ≥50% reader**. If runway <2 weeks, prioritize supply over volume |
+| Published articles (`operator`) | No weekly cap. Daily: slot 3 only, max 1/day. Track in [[dashboard]] weekly publish table |
 | Reader runway (inbox reader A+B ÷ 2.5) | 2+ weeks |
 | Series debt `#6` (Wed) | **2 units** (P0 Hub / P1 promote). See `debt-paydown-workflow.md` |
 | `20` backlog / promote queue | Track yellow/red; on dual red, next business day add one cleanup ① slot (do **not** stop publishing) |
