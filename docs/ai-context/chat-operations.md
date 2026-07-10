@@ -3,7 +3,7 @@
 最終更新: 2026-07-08 18:42
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
-関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)
+関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`
 
 ---
 
@@ -39,7 +39,7 @@ DailyNote / AI-log
   → ⑥ 水曜: 重負債原則2単位（Hub更新 / 昇格PR / 逆リンク）→ ①へ依頼
 ```
 
-**Produce / Commit**: 文案・表は ②⑤④（Produce）、Vault/repo 書き込みは ⑥①（Commit）。負債払い詳細: `[debt-paydown-workflow.md](debt-paydown-workflow.md)`（方針B: 量産維持）。フェーズ: [`phase-now.md`](../plan/phase-now.md)
+**Produce / Commit**: 文案・表は ②⑤④（Produce）、Vault/repo 書き込みは ⑥①（Commit）。負債払い詳細: `[debt-paydown-workflow.md](debt-paydown-workflow.md)`（方針B: 量産維持）。フェーズ: `[phase-now.md](../plan/phase-now.md)`
 
 公開前の Output Contract レビューは **任意の ChatGPT セッション**（旧⑦レビュー）。番号は ⑦個人R&D とは別用途。
 
@@ -286,7 +286,7 @@ CTR（%）: __（任意）
 404: 変化なし / 増（代表URL: ...）
 判断1行: ...
 GSCクエリ3件: 「...」「...」「...」
-```
+````
 
 【週次サマリー時 — ⑤柱Cへ渡すメモ】
 
@@ -295,7 +295,10 @@ GSCクエリ3件: 「...」「...」「...」
 - 水曜週次で ⑤ → ⑥ handoff 登録（同一ブロック内）
 
 準備できたら「② SEO・GSC、準備完了」とだけ返答してください。
+
 ````
+
+
 
 ### ③ サイト基盤（Cursor）
 
@@ -317,7 +320,7 @@ GSCクエリ3件: 「...」「...」「...」
 - 変更後は npm run build で確認
 
 準備できたら「③ サイト基盤、準備完了」とだけ返答してください。
-```
+````
 
 ### ④ 記事初稿・既存記事リライト（Claude — 主。Cursor は予備）
 
@@ -329,6 +332,7 @@ GSCクエリ3件: 「...」「...」「...」
 【担当】
 - source.md をもとに構成案・1分Tips/実務Tips 本文初稿
 - GSC/GA4/SEOメモをもとにした既存記事の title・description・導入・見出し・FAQ・内部リンク文言の改善案
+- 本文(MDファイル)リライト
 - 既存記事リライト時は、検索クエリ・CTR・平均順位などの実測根拠を明記
 - writing-rules.md の文体（です・ます、一人称「筆者」）
 - AGENTS.md の Output Contract（記事案時は8項目）
@@ -898,7 +902,7 @@ Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`mainte
 | `00-dashboard/weekly-maintenance-prompt.md`            | 週次コピペ用（毎週水曜）                       |
 | `00-dashboard/toolarc_1min_tips_article_candidates.md` | 候補マスター                                   |
 | `00-dashboard/dashboard.md`                            | 1分Tips Dashboard（GSC週次・週次公開の正本）   |
-| `00-dashboard/gsc-weekly-acquisition-checklist.md`       | GSC 週次取得手順（②オペレーション正本）        |
+| `00-dashboard/gsc-weekly-acquisition-checklist.md`     | GSC 週次取得手順（②オペレーション正本）        |
 | `00-dashboard/gsc-weekly-log.md`                       | GSC / 週次アーカイブ（水曜1行追記）            |
 | `00-dashboard/audience-axis-labels.md`                 | 読者軸定義                                     |
 | `00-dashboard/content-audience-matrix.md`              | 読者軸一覧（週次再生成）                       |
