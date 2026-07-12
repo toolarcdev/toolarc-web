@@ -81,6 +81,7 @@ CursorのAI編集は便利な一方で、変更範囲が広がりやすい面も
 - 関連Tips: [Gitブランチを安全に切る基本手順｜記事1本＝1ブランチ運用のすすめ](https://www.toolarc.jp/blog/git-branch-basic-tips)
 - 関連Tips: [git stash popで元に戻せる理由と使い方](/blog/git-stash-pop-tips)
 - 関連Tips: [CursorでAgent failedが出たときの切り分け手順](/blog/cursor-agent-failed-tips)
+- 関連Tips: [Cursorの配色（テーマ）を変更する方法｜起動後に見づらくなったときの直し方](/blog/cursor-theme-color-change-tips)
 
 ## 免責
 

@@ -75,5 +75,7 @@ dist/
 - [Cursorが急に重くなった時に確認したいこと](/blog/cursor-slow-troubleshoot-tips)
 - Hub: [Cursor無料版はどこまで使える？実際に上限到達まで使った記録と制限](/blog/cursor-free)
 - 関連Tips: [ChatGPTにPDFを渡す順番とサイズの注意点](/blog/chatgpt-pdf-attachment-order-tips)
+- 関連Tips: [Cursorの配色（テーマ）を変更する方法｜起動後に見づらくなったときの直し方](/blog/cursor-theme-color-change-tips)
+- 関連Tips: [CursorのAuto/手動モデル切替で出力品質が落ちたときの対処法](/blog/cursor-auto-manual-model-quality-tips)
 
 *本記事の内容はCursorおよび各セキュリティソフトの執筆時点（2026-07-12）の挙動をもとにしています。ソフトウェアの仕様は変更される可能性があるため、重要な設定変更は公式ドキュメントもあわせて確認してください。*

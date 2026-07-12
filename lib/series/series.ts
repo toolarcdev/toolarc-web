@@ -118,6 +118,8 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-repeated-error-tips",
       "cursor-usage-limit-reached-3-steps",
       "cursor-windows-slow-check-tips",
+      "cursor-theme-color-change-tips",
+      "cursor-auto-manual-model-quality-tips",
     ],
     publishedAt: "2026-05-25",
   },
