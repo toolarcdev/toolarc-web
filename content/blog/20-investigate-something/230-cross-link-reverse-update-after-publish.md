@@ -110,6 +110,7 @@ npm run build
 - [内部リンクの「準備中」は公開と同時に差し替える](/blog/internal-link-draft-label-update)
 - [Hub記事昇格後は既存SpokeのHubリンクを差し替える](/blog/hub-spoke-link-update-tips)
 - Hub: [新規ドメインSEOの4段階（シリーズ入口）](/blog/new-domain-seo-troubleshooting-4steps)
+- [Tips新規公開時は関連記事へ逆リンクを最低2本追記する](/blog/tips-publish-backlink-checklist)
 
 ---
 
