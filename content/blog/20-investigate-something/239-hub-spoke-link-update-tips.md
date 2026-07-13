@@ -1,4 +1,4 @@
----
+﻿---
 title: "Hub記事昇格後は既存SpokeのHubリンクを差し替える"
 description: "Tips記事をHubに昇格したとき、既存Spokeが参照していた旧Hubリンクの差し替えを忘れると回遊導線が弱まります。series.ts登録からbuild確認までの手順をまとめました。"
 date: 2026-06-09
@@ -74,7 +74,7 @@ npm run build
 - [新規ドメインSEOのトラブルシューティング4ステップ](/blog/new-domain-seo-troubleshooting-4steps)
 - [GSC画像URL 404の確認と対処](/blog/gsc-image-url-404-tips)
 - [Hub記事をシリーズ複数本の参照軸に据える設計【内部リンク整理術】](/blog/hub-article-as-reference-axis-for-series)
-- [公開後に既存記事へ相互リンクを逆更新する手順（211↔215型）](/blog/cross-link-reverse-update-after-publish)
+- [公開後に既存記事へ相互リンクを逆更新する手順](/blog/cross-link-reverse-update-after-publish)
 - [Spoke記事は詳細を書かず内部リンクで役割分担する](/blog/spoke-article-internal-link-role-separation)
 - [series.tsにspokeを追加してシリーズページを更新する方法](/blog/series-ts-spoke-add-tips)
 - [GSCのインデックス登録リクエストには1日の上限がある【新規ドメイン運用メモ】](/blog/gsc-index-request-daily-limit)

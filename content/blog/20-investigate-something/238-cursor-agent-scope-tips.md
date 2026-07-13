@@ -1,4 +1,4 @@
----
+﻿---
 title: "Cursor Agentは記事一括公開と基盤横断変更に絞って使う"
 description: "Agent はトークン消費が大きいため毎タスクで使う必要はありません。量産フェーズで①一括公開と③基盤変更に限定することで効率と品質のバランスを取る方法を解説します。"
 date: 2026-06-09
@@ -69,7 +69,7 @@ Cursor には **Agent モード**と **Composer モード**があります。ど
 ## 次に読む
 
 - [AIチャット6スロット固定でToolArcの役割混線を防ぐ方法](/blog/ai-chat-slot-separation-tips)
-- [公開後に既存記事へ相互リンクを逆更新する手順（211↔215型）](/blog/cross-link-reverse-update-after-publish)
+- [公開後に既存記事へ相互リンクを逆更新する手順](/blog/cross-link-reverse-update-after-publish)
 - [Cursor Agentが止まったときの再開と確認手順](/blog/cursor-agent-pause-recovery-tips)
 - [Cursor でトークンを消費しやすいタスクと対策](/blog/cursor-token-heavy-tasks)
 - [Cursor の Ask モードを使い分けるタイミング](/blog/cursor-ask-mode-tips)

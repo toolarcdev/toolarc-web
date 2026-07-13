@@ -105,6 +105,7 @@ AIの初稿ができたら、公開前に必ず人間の目でレビューしま
 ### 次に読む記事
 
 - [source.mdの書き方を詳しく知りたい方](/blog/source-md-ai-writing)
+- [Claude→ChatGPT→Claude→人間 の4段階リライト運用](/blog/ai-rewrite-4stage-claude-chatgpt-tips)（初稿後の推敲専用フロー）
 - [Obsidianでsource.mdを管理したい方](/blog/claude-obsidian-workflow)
 - [AIツールの使い分けを比較したい方](/blog/ai-tools-comparison)
 - [実装・公開をCursorで進めたい方](/blog/cursor-free)

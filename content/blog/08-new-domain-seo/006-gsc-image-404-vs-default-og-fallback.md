@@ -97,6 +97,7 @@ GSCに画像URL404が出ている
 - 関連: [GSCで画像URLだけ404になる理由](/blog/gsc-image-url-404-tips)
 - 関連: [OG画像の404を修正したあとGSCで確認すべきこと](/blog/gsc-og-image-404-fixed-verify)
 - 関連: [Next.jsのOG画像fallback設定](/blog/nextjs-og-image-fallback-tips)
+- 関連: [同日4本公開時のクロスリンク追記手順](/blog/gsc-same-day-publish-cross-link-tips)
 
 ---
 

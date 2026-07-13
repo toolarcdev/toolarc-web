@@ -95,6 +95,7 @@ context.md → project-context.md → source.md → 依頼文
 - [ChatGPT アカウント移行ガイド（Hub）](/blog/chatgpt-account-migration)
 - [ChatGPT 移行チェックリスト](/blog/chatgpt-migration-md-checklist)
 - [スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)
+- [chat-operations.mdをスロット初回プロンプトの正本にする](/blog/chat-slot-initial-prompt-tips)（複数スロットの起動プロンプト管理）
 
 ---
 

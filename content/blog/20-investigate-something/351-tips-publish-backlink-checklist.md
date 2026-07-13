@@ -1,4 +1,4 @@
----
+﻿---
 title: "Tips新規公開時は関連記事へ逆リンクを最低2本追記する"
 description: "ブログで1分Tips記事を新規公開したとき、本文内のリンクだけでなく既存の関連記事側にも逆リンクを追記すると回遊導線が強くなります。逆リンク先の選び方と追加手順を運営者向けに整理しました。"
 date: 2026-07-13
@@ -58,7 +58,7 @@ last_update: 2026-07-13
 | Hub/Spokeの関係 | 同じシリーズのHub記事、または近いテーマのSpoke記事 |
 | 公開時期の近さ | 同日・近い時期に公開した記事同士（読者の関心が重なりやすい） |
 
-全ての関連記事に逆リンクを追加する必要はありません。まずは「最低2本」を目安に、上記の基準で優先度が高いものから対応するとよいでしょう。具体的な手順例は、[公開後に既存記事へ相互リンクを逆更新する手順（211↔215型）](/blog/cross-link-reverse-update-after-publish)や[未公開記事への内部リンクはslug確定後に追記する【リンク切れ防止】](/blog/unpublished-link-after-slug-confirmed)も参考にしてください。
+全ての関連記事に逆リンクを追加する必要はありません。まずは「最低2本」を目安に、上記の基準で優先度が高いものから対応するとよいでしょう。具体的な手順例は、[公開後に既存記事へ相互リンクを逆更新する手順](/blog/cross-link-reverse-update-after-publish)や[未公開記事への内部リンクはslug確定後に追記する【リンク切れ防止】](/blog/unpublished-link-after-slug-confirmed)も参考にしてください。
 
 ## 確認チェックリスト
 
@@ -76,6 +76,7 @@ last_update: 2026-07-13
 ## 関連記事
 
 - Hub: [新規ドメインSEOの4段階【GSCで切り分ける手順】シリーズ入口](/blog/new-domain-seo-troubleshooting-4steps)
-- 関連: [公開後に既存記事へ相互リンクを逆更新する手順（211↔215型）](/blog/cross-link-reverse-update-after-publish)
+- 関連: [公開後に既存記事へ相互リンクを逆更新する手順](/blog/cross-link-reverse-update-after-publish)
+- 関連: [同日4本公開時のクロスリンク追記手順](/blog/gsc-same-day-publish-cross-link-tips)
 - 関連: [未公開記事への内部リンクはslug確定後に追記する【リンク切れ防止】](/blog/unpublished-link-after-slug-confirmed)
 - 関連: [Hub記事をシリーズ複数本の参照軸に据える設計【内部リンク整理術】](/blog/hub-article-as-reference-axis-for-series)

@@ -85,6 +85,7 @@ ToolArc 業務外の ⑦ 個人R&D スロットも別途設けており、心理
 
 - [Cursor 無料プランのToken消費を実測して分かったこと](/blog/cursor-free-plan-tips)
 - [AIチャットのコンテキストリセットが必要なタイミングと方法](/blog/ai-chat-context-reset-tips)
+- [chat-operations.mdをスロット初回プロンプトの正本にする](/blog/chat-slot-initial-prompt-tips)（起動プロンプトの正本化）
 - [DailyNoteをcontext圧縮装置として使う理由【AI運用Tips】](/blog/dailynote-context-compression)
 - [posts.tsに1エントリ追加するだけでsitemapとブログ一覧に自動反映される](/blog/posts-ts-auto-reflect-sitemap-blog-list)
 - [Cursor Agentは記事一括公開と基盤横断変更に絞って使う](/blog/cursor-agent-scope-tips)

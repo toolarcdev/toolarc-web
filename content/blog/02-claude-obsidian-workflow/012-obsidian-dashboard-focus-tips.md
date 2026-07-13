@@ -115,4 +115,10 @@ Obsidian を使った AI ログ・知識管理の全体像は、AI 知識管理 
 
 ---
 
+### 次に読む
+
+- [chat-operations.mdをスロット初回プロンプトの正本にする](/blog/chat-slot-initial-prompt-tips)（固定チャットの起動プロンプト正本化）
+
+---
+
 *本記事は執筆時点（2026-05-30）の情報に基づいています。Obsidian の仕様は変更される場合があります。最新情報は [Obsidian 公式ドキュメント](https://help.obsidian.md) でご確認ください。*
