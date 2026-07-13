@@ -1525,6 +1525,46 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "free-ai-seminar-checklist-before-booking-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "355-free-ai-seminar-checklist-before-booking-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-14",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "chatgpt-claude-same-prompt-comparison-template-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "356-chatgpt-claude-same-prompt-comparison-template-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-14",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "chatgpt-projects-vs-claude-longtext-start-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "357-chatgpt-projects-vs-claude-longtext-start-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-14",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "claude-longtext-3line-summary-before-paste-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "358-claude-longtext-3line-summary-before-paste-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-14",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "doraverse-trial-btob-checklist-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "359-doraverse-trial-btob-checklist-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-14",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
