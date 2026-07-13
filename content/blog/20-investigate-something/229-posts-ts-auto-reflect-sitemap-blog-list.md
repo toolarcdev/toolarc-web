@@ -1,4 +1,4 @@
----
+﻿---
 title: "posts.tsに1エントリ追加するだけでsitemapとブログ一覧に自動反映される"
 description: "toolarc-webでは posts.ts に1エントリ追加するだけで /blog/{slug}・ブログ一覧・sitemap.xml に自動反映されます。最小公開パスの手順を実測ベースで解説します。"
 date: 2026-06-07
@@ -85,7 +85,7 @@ Series UI が必要なときだけ `series.ts` を追加更新する、という
 
 **関連記事**
 
-- [公開後に既存記事へ相互リンクを逆更新する手順（211↔215型）](/blog/cross-link-reverse-update-after-publish)
+- [公開後に既存記事へ相互リンクを逆更新する手順](/blog/cross-link-reverse-update-after-publish)
 - [npm run build後にHTTP200・sitemap.xml・OG fallbackを確認する](/blog/npm-run-build-http200-sitemap-og-fallback-check)
 - [series.tsにspokeを追加してシリーズページを更新する方法](/blog/series-ts-spoke-add-tips)
 

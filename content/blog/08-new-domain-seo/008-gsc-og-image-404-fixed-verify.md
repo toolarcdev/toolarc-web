@@ -80,6 +80,7 @@ curl -o /dev/null -s -w "%{http_code}\n" https://example.com/images/blog/foo.png
 
 - 関連: [GSCで画像URLだけ404になる理由](/blog/gsc-image-url-404-tips)
 - 関連: [画像404のGSCエラーは記事URLでインデックスリクエストする](/blog/gsc-image-404-request-article-url)
+- 関連: [同日4本公開時のクロスリンク追記手順](/blog/gsc-same-day-publish-cross-link-tips)
 - Hub: [新規ドメインSEOの4段階（シリーズ入口）](/blog/new-domain-seo-troubleshooting-4steps)
 
 ---
