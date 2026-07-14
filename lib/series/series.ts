@@ -95,6 +95,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-token-heavy-tasks",
       "cursor-pro-total-usage-limit-reached",
       "cursor-rules-file-tips",
+      "cursor-recommended-settings-tips",
       "cursor-free-plan-tips",
       "cursor-agent-pause-recovery-tips",
       "cursor-ask-mode-tips",

@@ -160,7 +160,7 @@ export const blogPosts = {
     contentId: "03-cursor-free",
     markdownFile: "004-cursor-rules-file-tips.md",
     imageBasePath: "/images/blog/030-cursor-free",
-    publishedAt: "2026-05-29",
+    publishedAt: "2026-07-14",
     ogImage: "ss-01_plan-comparison.png",
     category: "tool",
   },
@@ -1564,6 +1564,14 @@ export const blogPosts = {
     publishedAt: "2026-07-14",
     ogImage: "og.png",
     category: "ai-workflow",
+  },
+  "cursor-recommended-settings-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "360-cursor-recommended-settings-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-14",
+    ogImage: "og.png",
+    category: "tool",
   },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
