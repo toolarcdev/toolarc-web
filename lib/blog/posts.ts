@@ -1621,6 +1621,22 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "claude-code-guide": {
+    contentId: "10-claude-developer",
+    markdownFile: "001-claude-code-guide.md",
+    imageBasePath: "/images/blog/10-claude-developer",
+    publishedAt: "2026-07-16",
+    ogImage: "og.png",
+    category: "tool",
+  },
+  "mcp-guide": {
+    contentId: "11-mcp",
+    markdownFile: "001-mcp-guide.md",
+    imageBasePath: "/images/blog/11-mcp",
+    publishedAt: "2026-07-16",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
