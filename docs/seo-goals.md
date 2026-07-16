@@ -36,7 +36,7 @@
 | Indexed page count | GSC「インデックス作成」 | 4カテゴリ + 404 |
 | Reader published (week) | `posts.ts` + `audience_axis` | Volume is capacity, not the primary success metric |
 | GSC queries (top 3) | GSC「検索の結果」 | ⑤柱C 外部シグナル |
-| CTR fix URLs (declared) | GSC + PR | Up to 3 URLs/month; record before/after |
+| CTR fix URLs (declared) | GSC + PR | **Two-tier cap** (2026-07-16〜): meta (title/description/intro) **2–3 URLs/week** (≈8–12/month); body/Hub/CTA **2–3 URLs/month**. Caps count separately. Record before/after. Detail: Vault `ctr-rewrite-queue.md` |
 | ASP clicks (cumulative) | ASP admin | **Phase2-0 exit = cumulative ≥10** (primary) |
 | Approved revenue (monthly) | ASP admin | Phase2-1+ gate; ¥0 OK while in 2-0 |
 
