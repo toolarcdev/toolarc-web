@@ -1,6 +1,6 @@
 # content-folders.md — content/blog フォルダ運用
 
-最終更新: 2026-06-11（series:candidate 追加）  
+最終更新: 2026-07-16（A層: `10-claude-developer` / `11-mcp` 追記）  
 用途: `contentId`（`content/blog/[contentId]/`）の選び方・昇格ルール。記事公開（①）・日次メンテ（⑥）で参照。
 
 関連: [`project-context.md`](project-context.md)、[`chat-operations.md`](chat-operations.md)、[`lib/series/series.ts`](../../lib/series/series.ts)
@@ -16,6 +16,8 @@
 | **A** | シリーズ確定 | `03-cursor-free` | cursor-free-series | 移行のみ |
 | **A** | シリーズ確定 | `04-chatgpt_account_migration` | chatgpt-account-migration-series | 移行のみ |
 | **A** | シリーズ確定 | `08-new-domain-seo` | new-domain-seo-series | 移行のみ |
+| **A** | シリーズ確定 | `10-claude-developer` | claude-developer-series | 移行のみ |
+| **A** | シリーズ確定 | `11-mcp` | mcp-series | 移行のみ |
 | **B** | 非シリーズ・トピック束 | `05-nextjs-image-cache` | （site-launch スポーク） | 同テーマのみ |
 | **B** | 非シリーズ・トピック束 | `06-chatgpt-how-to` | なし | 同テーマのみ |
 | **B** | 非シリーズ・トピック束 | `07-daily-note-obsidian` | claude-obsidian（DailyNote系） | DailyNote系のみ |
