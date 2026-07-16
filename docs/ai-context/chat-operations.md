@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-07-08 18:42
+最終更新: 2026-07-17 06:54（① 公開日ルール: 新規公開とリライトを区別）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`
@@ -100,8 +100,9 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 
 【公開日 — Get-Date 必須】
 - 実装開始時に `Get-Date -Format "yyyy-MM-dd"` を実行（JST。手入力・inbox の publishDate・初稿 frontmatter の date は使わない）
-- 対象記事の frontmatter `date:` と `lib/blog/posts.ts` の `publishedAt` を同じ日付に上書き
-- 免責の「執筆時点（YYYY-MM-DD）」がある場合も同じ実装日に揃える
+- **新規公開**: 対象記事の frontmatter `date:` と `lib/blog/posts.ts` の `publishedAt` を同じ実装日で上書き
+- **既存記事リライト**（rich-toc・統合リライト・Hub差し替え等）: `date:` / `publishedAt` は既存公開日のまま据え置き。`last_update:` のみ実装日に更新
+- 免責の「執筆時点（YYYY-MM-DD）」がある場合は、新規・リライトとも同じ実装日に揃える
 - inbox / Dashboard の `publishDate` は供給計画用。Web 表示日とのズレは許容
 
 【やらない】
@@ -120,7 +121,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - build 成功
 - 新 slug が静的生成に含まれる
 - 関連記事へのリンクが有効な slug を指す
-- frontmatter `date` と `posts.ts` の `publishedAt` が実装日（Get-Date）で一致
+- 新規公開: frontmatter `date` と `posts.ts` の `publishedAt` が実装日（Get-Date）で一致／リライト: 両方据え置きで `last_update`・免責日が実装日
 - 軽負債（docs/ai-context/debt-paydown-workflow.md）:
   - シリーズ確定なら lib/series/series.ts に spoke 追加
   - スポークなら Hub へのリンク1本（/blog/[hubSlug]）
