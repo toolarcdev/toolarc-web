@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../toolarc-api"
+		},
+		{
+			"path": "../seo-data-collector"
 		}
 	],
 	"settings": {}
