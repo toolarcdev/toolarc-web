@@ -12,7 +12,7 @@ tags:
   - AI記事作成
 site: toolarc.jp
 target: "ChatGPTやClaudeでブログ記事を書き始めたいが、素材の渡し方から公開までの流れが分からない初心者ブロガー"
-last_update: 2026-07-01
+last_update: 2026-07-18
 ---
 
 # AIブログ記事の作り方｜source.md→Claude初稿→Cursor公開
@@ -105,6 +105,7 @@ AIの初稿ができたら、公開前に必ず人間の目でレビューしま
 ### 次に読む記事
 
 - [source.mdの書き方を詳しく知りたい方](/blog/source-md-ai-writing)
+- [ChatGPTとClaudeでブログ記事を書く方法](/blog/chatgpt-claude-blog-writing-howto)（本記事はsource.md→公開の手順フロー。用途別の書き分け・比較はこちら）
 - [Claude→ChatGPT→Claude→人間 の4段階リライト運用](/blog/ai-rewrite-4stage-claude-chatgpt-tips)（初稿後の推敲専用フロー）
 - [Obsidianでsource.mdを管理したい方](/blog/claude-obsidian-workflow)
 - [AIツールの使い分けを比較したい方](/blog/ai-tools-comparison)
@@ -140,4 +141,4 @@ AIの初稿ができたら、公開前に必ず人間の目でレビューしま
 
 ---
 
-本記事の内容は執筆時点（2026-07-01）の運用フローに基づく一次情報です。ChatGPT・Claude・Cursorなど各AIツールの仕様・料金・機能は変更される場合があります。外部サービスの料金・プラン内容も変更されることがあるため、利用前に必ず公式サイトでご確認ください。
+本記事の内容は執筆時点（2026-07-18更新。初出2026-07-01）の運用フローに基づく一次情報です。ChatGPT・Claude・Cursorなど各AIツールの仕様・料金・機能は変更される場合があります。外部サービスの料金・プラン内容も変更されることがあるため、利用前に必ず公式サイトでご確認ください。
