@@ -13,6 +13,7 @@ tags:
   - 内部リンク
 site: toolarc.jp
 target: "SEOで記事資産を積みたいブログ運営者・AI活用ライター"
+last_update: 2026-07-18
 ---
 
 # 1分Tips→比較→Hubの3層で記事資産を積む方法
@@ -104,6 +105,7 @@ Hub記事（シリーズ導線と収益導線を集約）
 まず今日できることは、最近つまずいたことを1分Tipsとして1本書いてみることです。その積み重ねが比較記事の土台になり、やがてHubとして結実します。
 
 関連記事:
+- [1分Tips記事がAI SEOと相性がいい理由｜量産の型5ステップ](/blog/1min-tips-ai-seo-fit-tips)
 - [Spoke記事は詳細を書かず内部リンクで役割分担する](/blog/spoke-article-internal-link-role-separation)
 - [新規ドメインは「困りごと検索」から入る戦略](/blog/new-domain-seo-trouble-keyword-strategy-tips)
 - [新規ドメインで避けた方がいいYMYLジャンルとは【1分Tips】](/blog/new-domain-ymyl-avoid)

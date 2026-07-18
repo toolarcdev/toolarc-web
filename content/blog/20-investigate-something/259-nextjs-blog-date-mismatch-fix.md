@@ -12,7 +12,7 @@ tags:
   - 1分Tips
 site: toolarc.jp
 target: "Next.jsでブログを運営していて、記事の公開日表示がズレて困っている初心者"
-last_update:
+last_update: 2026-07-18
 ---
 
 # Next.jsブログの公開日がズレたら直す2箇所【frontmatter + posts.ts】
@@ -95,6 +95,7 @@ Next.jsブログの公開日ズレは、**frontmatter の `date`** と **`posts.
 
 **関連記事**
 
+- [ブログのリライトで公開日を書き換えない運用ルール](/blog/blog-rewrite-published-date-rule-tips)
 - `lib/blog/posts.ts` 登録の最小チェックリスト（準備中）
 - [MarkdownブログをNext.jsで管理するメリット](/blog/nextjs-blog-markdown-management)
 

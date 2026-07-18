@@ -13,7 +13,7 @@ tags:
   - 初心者向け
 site: toolarc.jp
 target: "ClaudeとCursorを組み合わせて記事やコンテンツを継続的に公開したい人"
-last_update: 2026-07-12
+last_update: 2026-07-18
 ---
 
 # Claudeで構成→Cursorで実装の1分Tips公開フロー
@@ -75,6 +75,7 @@ last_update: 2026-07-12
 - Hub記事：[Obsidianで素材整理 → Claudeで記事生成 → Cursorで公開するブログ制作ワークフロー](/blog/claude-obsidian-workflow)
 - 関連記事：[DailyNote→AI-log→source.mdの読み込み順を固定する理由【AI運用Tips】](/blog/dailynote-ai-log-source-reading-order)
 - 関連記事：[AIブログ記事の作り方｜source.md→Claude初稿→Cursor公開](/blog/ai-blog-writing-workflow-source-to-publish)
+- 関連記事：[Cursor下書き→ChatGPTレビューが驚くほど相性良かった手順](/blog/cursor-chatgpt-review-tips)
 - 関連Tips: [ChatGPTにPDFを渡す順番とサイズの注意点](/blog/chatgpt-pdf-attachment-order-tips)
 
 *本記事は執筆時点（2026-07-12）のAIツールを使った記事制作フローの一例です。使用するツールやサイトの構成によって、最適な進め方は変わる可能性があります。*
