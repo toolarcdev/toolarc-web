@@ -10,7 +10,7 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "機種変更後にChatGPTの履歴が空になって不安な人で、まず「別ログイン」の可能性から確認したい人"
-last_update: 2026-07-16
+last_update: 2026-07-18
 ---
 
 # ChatGPTの新スマホで履歴が空に見えるとき｜まず疑うべき「別ログイン」
@@ -84,7 +84,7 @@ last_update: 2026-07-16
 - □ 一致していない場合、正しいアカウントでサインアウト→再ログインした
 - □ 一致しているのに空の場合、同期待ちの切り分け記事に進んだ
 
-機種変更全体の確認手順は、[ChatGPT機種変更の引き継ぎ｜スマホで確認する3手順](/blog/chatgpt-device-change-handover-tips)で解説しています。移行全体の考え方を確認したい場合は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)を参照してください。同日公開の関連記事: [ChatGPTの引き継ぎ｜機種変更とアカウント移行の切り分け3点](/blog/chatgpt-device-change-account-migration-3-points)、[ChatGPTでWebとアプリのログイン先が違うときの揃え方](/blog/chatgpt-web-app-login-mismatch-fix)
+機種変更全体の確認手順は、[ChatGPT機種変更の引き継ぎ｜スマホで確認する3手順](/blog/chatgpt-device-change-handover-tips)で解説しています。移行全体の考え方を確認したい場合は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)を参照してください。Googleログインを使っている場合の新端末での開き方は、[GoogleログインのChatGPTを新端末で開く手順｜別アカウントに注意](/blog/chatgpt-device-change-google-login-tips)で解説しています。同日公開の関連記事: [ChatGPTの引き継ぎ｜機種変更とアカウント移行の切り分け3点](/blog/chatgpt-device-change-account-migration-3-points)、[ChatGPTでWebとアプリのログイン先が違うときの揃え方](/blog/chatgpt-web-app-login-mismatch-fix)
 
 ---
 
