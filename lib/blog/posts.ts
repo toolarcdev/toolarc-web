@@ -975,9 +975,9 @@ export const blogPosts = {
   "chatgpt-account-deletion-checklist": {
     contentId: "04-chatgpt_account_migration",
     markdownFile: "015-chatgpt-account-deletion-checklist.md",
-    imageBasePath: "/images/blog/20-investigate-something",
+    imageBasePath: "/images/blog/chatgpt-account-deletion-checklist",
     publishedAt: "2026-06-26",
-    ogImage: "og.png",
+    ogImage: "eyecatch.png",
     category: "ai-workflow",
   },
   "cursor-file-check-before-edit": {
