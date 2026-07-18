@@ -11,6 +11,10 @@
 このファイルは `toolarc.jp` の記事制作と改善における共通運用ルールです。  
 目標は「3年以内に月収100万円」を最短で達成すること。SEOを主軸に、収益導線を壊さず伸ばす出力を最優先にします。
 
+## Repo boundaries（触るな）
+
+- 公開repo（本リポ）へ PoE2 / ゲーム JSON をコピー・生成・commit しない。正本は `toolarc-data`、API 用コピーは `toolarc-api`
+
 ## North Star / KPI
 
 - 事業目標: 3年以内に月収100万円到達
