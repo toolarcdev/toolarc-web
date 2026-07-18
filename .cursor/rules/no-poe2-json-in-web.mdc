@@ -1,0 +1,12 @@
+---
+description: 公開repo（toolarc-web）への PoE2 / ゲーム JSON 配置を禁止する
+globs: **/*.{json,md,ts,tsx,js,mjs}
+alwaysApply: true
+---
+
+# PoE2 / ゲーム JSON を toolarc-web に置かない
+
+- `toolarc-web` は公開リポジトリ。PoE2 のモッド JSON・regex・ソース Markdown をここにコピー・生成・commit しない
+- 正本は非公開の `toolarc-data`。API が読むコピーは非公開の `toolarc-api/data/poe2/`
+- Agent が「web に JSON を置く」「public/ や content/ にゲームデータを追加する」提案をした場合は拒否し、api/data 側の手順へ誘導する
+- 例外なし（サンプル・一時ファイル・ドキュメント埋め込みも不可）
