@@ -1278,8 +1278,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "cursor-chatgpt-review-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "324-cursor-chatgpt-review-tips.md",
+    contentId: "03-cursor-free",
+    markdownFile: "036-cursor-chatgpt-review-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-07-06",
     ogImage: "og.png",
@@ -1430,8 +1430,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "git-stash-pop-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "343-git-stash-pop-tips.md",
+    contentId: "03-cursor-free",
+    markdownFile: "035-git-stash-pop-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-07-11",
     ogImage: "og.png",
@@ -1478,8 +1478,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "cursor-theme-color-change-tips": {
-    contentId: "20-investigate-something",
-    markdownFile: "349-cursor-theme-color-change-tips.md",
+    contentId: "03-cursor-free",
+    markdownFile: "037-cursor-theme-color-change-tips.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-07-13",
     ogImage: "og.png",
