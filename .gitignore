@@ -74,6 +74,8 @@ next-env.d.ts
 .cursor/*
 !.cursor/rules/
 !.cursor/rules/**
+!.cursor/skills/
+!.cursor/skills/**
 .cursor-cache/
 
 # =========================
