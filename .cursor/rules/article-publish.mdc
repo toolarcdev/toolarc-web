@@ -1,0 +1,51 @@
+---
+description: ToolArc 記事公開（posts.ts 登録・MD反映・build確認・公開日 Get-Date）
+globs: lib/blog/posts.ts,content/blog/**/*.md
+alwaysApply: false
+---
+
+# 記事公開（スロット ①）
+
+依頼は **① 記事公開** チャット想定。GSC 調査・基盤改修は別スロット。
+
+## 公開日 — Get-Date 必須
+
+- 実装開始時に `Get-Date -Format "yyyy-MM-dd"` を実行する（JST。手入力・inbox の publishDate・初稿 frontmatter の date は使わない）
+- **新規公開**: frontmatter `date:` と `lib/blog/posts.ts` の `publishedAt` を同じ実装日で上書きする
+- **既存記事リライト**（rich-toc・統合リライト・Hub差し替え等）: `date:` / `publishedAt` は既存公開日のまま据え置き。`last_update:` のみ実装日に更新する
+- 免責の「執筆時点（YYYY-MM-DD）」がある場合は、新規・リライトとも同じ実装日に揃える
+- inbox / Dashboard の `publishDate` は供給計画用。Web 表示日とのズレは許容する
+
+## 新規配置（量産）
+
+- 新規1分Tips: `content/blog/20-investigate-something/NNN-slug.md`
+- `posts.ts` の `contentId` は `"20-investigate-something"`
+- ディレクトリ昇格・フォルダ一覧: `docs/ai-context/content-folders.md`
+
+## 追加手順
+
+1. `content/blog/[contentId]/` に Markdown を配置（または既存を更新）
+2. `lib/blog/posts.ts` に slug エントリを1件追加
+   - キー = 公開 URL の slug（`/blog/[slug]`）
+   - `markdownFile` / `imageBasePath` / `publishedAt` / `category` を既存記事に合わせる
+3. Hub/シリーズなら `lib/series/series.ts` も更新
+4. `npm run build` が成功すること
+5. 新 slug が静的生成に含まれること
+
+## 内部リンク
+
+- 形式: `/blog/slug`（未公開は「準備中」と明記、slug 未確定ならリンクしない）
+- 同日複数本: 公開順にクロスリンク（例: 218→219→220→221）
+
+## OG 画像
+
+- 記事フォルダに `og.png` が無い場合は `default-og.png` にフォールバック（`resolveOgImage`）
+- GSC の画像 URL 404 と fallback 未配置は別問題として切り分ける
+
+## 完了報告に含めること
+
+- 公開 URL（`/blog/[slug]`）
+- 変更ファイル一覧
+- build 結果
+- 追加した相互リンク先
+- 新規公開: `date` / `publishedAt` が Get-Date 実装日で一致したこと／リライト: 据え置きと `last_update` 更新

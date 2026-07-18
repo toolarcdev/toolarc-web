@@ -71,7 +71,9 @@ next-env.d.ts
 # =========================
 # cursor / ai tools
 # =========================
-.cursor/
+.cursor/*
+!.cursor/rules/
+!.cursor/rules/**
 .cursor-cache/
 
 # =========================
