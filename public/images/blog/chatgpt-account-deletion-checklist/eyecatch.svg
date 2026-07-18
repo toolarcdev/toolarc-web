@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Three checks before deleting an account</title>
+  <desc id="desc">Three cards represent data backup, subscription review, and careful account deletion.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#1e3a5f" flood-opacity="0.09"/>
+    </filter>
+    <linearGradient id="blueSoft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dbeafe"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <circle cx="86" cy="82" r="118" fill="#eff6ff"/>
+  <circle cx="1130" cy="558" r="155" fill="#f5f9ff"/>
+  <path d="M136 315H1064" stroke="#bfdbfe" stroke-width="10" stroke-linecap="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="92" y="142" width="296" height="350" rx="34" fill="#ffffff" stroke="#dbeafe" stroke-width="3"/>
+    <rect x="452" y="142" width="296" height="350" rx="34" fill="#ffffff" stroke="#dbeafe" stroke-width="3"/>
+    <rect x="812" y="142" width="296" height="350" rx="34" fill="#ffffff" stroke="#dbeafe" stroke-width="3"/>
+  </g>
+
+  <circle cx="240" cy="315" r="118" fill="url(#blueSoft)"/>
+  <circle cx="600" cy="315" r="118" fill="url(#blueSoft)"/>
+  <circle cx="960" cy="315" r="118" fill="url(#blueSoft)"/>
+
+  <!-- Backup: chat records safely entering an archive box -->
+  <g stroke="#2563eb" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M172 226h116a20 20 0 0 1 20 20v48a20 20 0 0 1-20 20h-55l-28 26v-26h-33a20 20 0 0 1-20-20v-48a20 20 0 0 1 20-20z" fill="#ffffff"/>
+    <path d="M240 335v50"/>
+    <path d="M218 365l22 22 22-22"/>
+    <path d="M173 404h134l16 48H157z" fill="#93c5fd"/>
+    <path d="M157 452h166"/>
+  </g>
+  <circle cx="188" cy="270" r="7" fill="#60a5fa"/>
+  <circle cx="218" cy="270" r="7" fill="#60a5fa"/>
+  <circle cx="248" cy="270" r="7" fill="#60a5fa"/>
+
+  <!-- Subscription: payment method with a confirmed check -->
+  <g stroke="#2563eb" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="505" y="245" width="168" height="118" rx="20" fill="#ffffff"/>
+    <path d="M505 282h168" fill="none"/>
+    <path d="M536 324h45" fill="none"/>
+    <circle cx="657" cy="389" r="48" fill="#60a5fa" stroke="#ffffff" stroke-width="8"/>
+    <path d="M635 389l15 16 30-35" fill="none" stroke="#ffffff" stroke-width="11"/>
+  </g>
+  <circle cx="536" cy="264" r="7" fill="#60a5fa"/>
+
+  <!-- Delete carefully: protection, caution, and a restrained bin icon -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M910 234l50-22 50 22v58c0 55-32 92-50 103-18-11-50-48-50-103z" fill="#ffffff" stroke="#2563eb" stroke-width="10"/>
+    <path d="M960 254v58" stroke="#f59e0b" stroke-width="12"/>
+    <circle cx="960" cy="337" r="8" fill="#f59e0b"/>
+    <path d="M1015 357h62" stroke="#2563eb" stroke-width="10"/>
+    <path d="M1026 357l6 83h30l5-83" fill="#bfdbfe" stroke="#2563eb" stroke-width="8"/>
+    <path d="M1036 340h23" stroke="#2563eb" stroke-width="9"/>
+  </g>
+
+  <g fill="#60a5fa" stroke="#ffffff" stroke-width="7">
+    <circle cx="420" cy="315" r="18"/>
+    <circle cx="780" cy="315" r="18"/>
+  </g>
+</svg>
