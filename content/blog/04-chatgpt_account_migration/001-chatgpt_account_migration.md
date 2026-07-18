@@ -15,7 +15,7 @@ tags:
   - Claude Projects
 site: "toolarc.jp"
 target: "ChatGPTやClaudeを長期間活用し、AIとの会話を知識資産として整理・運用したい人"
-last_update: "2026-06-25"
+last_update: "2026-07-18"
 ---
 
 # ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方
@@ -573,6 +573,39 @@ Obsidianは、
 AI長期運用ではかなり相性が良いです。
 
 ![Obsidianで整理されたAI知識管理フォルダ](ss-04-obsidian-vault.png)
+
+---
+
+## シリーズ記事一覧（読む順）
+
+このシリーズの記事を、読む順にまとめました。まず「移行と機種変更の違い・準備」を押さえ、次に「引き継ぎの手順」、最後に「履歴・ログイン・認証まわりのトラブル対応」の順で読むと迷いにくいです。気になる項目だけ拾い読みしても問題ありません。
+
+| # | 分類 | 記事（誰向け・何が分かるか） |
+|---|------|------------------------------|
+| 1 | 準備 | [移行初日に作るべき.md一覧](/blog/chatgpt-migration-md-checklist)｜新アカウント初日に用意する知識資産を整理したい人向け |
+| 2 | 準備 | [移行で確認するチェックリスト](/blog/chatgpt-account-migration-checklist)｜移行前に抜け漏れを一覧で確認したい人向け |
+| 3 | 違い | [機種変更とアカウント移行の切り分け3点](/blog/chatgpt-device-change-account-migration-3-points)｜自分がどちらのケースか先に判断したい人向け |
+| 4 | 違い | [先に見る3項目](/blog/chatgpt-account-migration-3-checkpoints)｜移行前にまず確認すべき要点を知りたい人向け |
+| 5 | 手順 | [スマホでアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)｜機種変更・別アカウント移行の違いを手順で知りたい人向け |
+| 6 | 手順 | [機種変更の引き継ぎ3手順](/blog/chatgpt-device-change-handover-tips)｜スマホの機種変更時にやることを順番に知りたい人向け |
+| 7 | 手順 | [最初に見る3画面](/blog/chatgpt-device-change-3-screens-tips)｜移行後にログイン・履歴・プランをどこで確認するか知りたい人向け |
+| 8 | Plus | [Plus引き継ぎで切れたときの確認3点](/blog/chatgpt-migration-plus-check)｜機種変更後にPlusが使えない人向け |
+| 9 | Plus | [iOSとAndroidで引き継ぐ手順](/blog/chatgpt-plus-ios-android-transfer-tips)｜OSをまたいでPlusを移したい人向け |
+| 10 | 認証 | [移行前に2段階認証を確認する手順](/blog/chatgpt-migration-2fa-check)｜ログインで詰まらないよう2FAを事前確認したい人向け |
+| 11 | 認証 | [認証アプリ（2FA）を移行する手順](/blog/chatgpt-migration-2fa-authenticator-tips)｜認証アプリごと新端末へ移したい人向け |
+| 12 | 可否 | [検索履歴は別アカウントに引き継げる？](/blog/chatgpt-search-history-account-migration)｜検索・会話履歴の引き継ぎ可否を先に切り分けたい人向け |
+| 13 | 可否 | [メモリは引き継げる？3点確認](/blog/chatgpt-migration-memory-check)｜Memoryが移行できるか知りたい人向け |
+| 14 | トラブル | [履歴が消えた？空に見える3確認](/blog/chatgpt-history-missing-device-change)｜機種変更後に履歴が見当たらない人向け |
+| 15 | トラブル | [履歴が空に見えるとき疑う「別ログイン」](/blog/chatgpt-device-change-wrong-login-history-empty)｜新スマホで履歴が出ない原因を絞りたい人向け |
+| 16 | トラブル | [Webとアプリのログイン先が違うときの揃え方](/blog/chatgpt-web-app-login-mismatch-fix)｜端末やブラウザで表示が食い違う人向け |
+| 17 | トラブル | [Googleログインを新端末で開く手順](/blog/chatgpt-device-change-google-login-tips)｜Googleログイン利用者で別アカウントに注意したい人向け |
+| 18 | 設定 | [カスタム指示の初心者向けテンプレ](/blog/chatgpt-custom-instructions-for-beginners)｜移行後に回答の出方を整えたい人向け |
+| 19 | 運用 | [共有リンクはURL渡しだけでは読み込まれない](/blog/chatgpt-share-link-ai-cannot-read-url)｜共有リンクをAIに渡す際の落とし穴を避けたい人向け |
+| 20 | 運用 | [長文出力はh1/h2単位で整形依頼する](/blog/chatgpt-long-text-h1-h2-format-tips)｜長い出力を扱いやすく整えたい人向け |
+| 21 | 運用 | [PDFを渡す順番とサイズの注意点](/blog/chatgpt-pdf-attachment-order-tips)｜資料をPDFで読ませたい人向け |
+| 22 | 整理 | [アカウント削除前に確認すべきこと](/blog/chatgpt-account-deletion-checklist)｜旧アカウントを整理・削除する前に確認したい人向け |
+
+※ 各記事は執筆時点の情報に基づきます。ChatGPTの仕様や画面は変更される可能性があるため、重要な操作は公式ヘルプもあわせて確認してください。
 
 ---
 
