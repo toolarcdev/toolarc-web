@@ -1237,8 +1237,8 @@ export const blogPosts = {
     category: "devops",
   },
   "multi-generative-ai-comparison-business": {
-    contentId: "20-investigate-something",
-    markdownFile: "319-multi-generative-ai-comparison-business.md",
+    contentId: "09-ai-tools-comparison",
+    markdownFile: "008-multi-generative-ai-comparison-business.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-07-04",
     ogImage: "319-og.png",
@@ -1270,8 +1270,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "ai-basics-before-chatgpt-claude-checklist": {
-    contentId: "20-investigate-something",
-    markdownFile: "323-ai-basics-before-chatgpt-claude-checklist.md",
+    contentId: "09-ai-tools-comparison",
+    markdownFile: "009-ai-basics-before-chatgpt-claude-checklist.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-07-05",
     ogImage: "og.png",
@@ -1310,8 +1310,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "chatgpt-claude-prompt-writing-comparison": {
-    contentId: "20-investigate-something",
-    markdownFile: "331-chatgpt-claude-prompt-writing-comparison.md",
+    contentId: "09-ai-tools-comparison",
+    markdownFile: "010-chatgpt-claude-prompt-writing-comparison.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-07-08",
     ogImage: "og.png",
@@ -1390,8 +1390,8 @@ export const blogPosts = {
     category: "ai-workflow",
   },
   "chatgpt-claude-business-writing-comparison": {
-    contentId: "20-investigate-something",
-    markdownFile: "338-chatgpt-claude-business-writing-comparison.md",
+    contentId: "09-ai-tools-comparison",
+    markdownFile: "011-chatgpt-claude-business-writing-comparison.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-07-09",
     ogImage: "og.png",
