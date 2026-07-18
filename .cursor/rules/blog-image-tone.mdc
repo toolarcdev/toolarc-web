@@ -1,0 +1,18 @@
+---
+description: ToolArc記事画像のトーン・配置・alt・品質制約
+globs: content/blog/**/*.md,lib/blog/posts.ts,public/images/blog/**/*
+alwaysApply: false
+---
+
+# ブログ画像の品質制約
+
+- トーン: 白背景、ソフトブルー `#60a5fa`、角丸、余白多め、初心者向け
+- ダークSaaS、サイバーパンク、photoreal を使わない
+- 実画面の手順は生成せず、実測スクリーンショット＋注釈を使う
+- データ量の多い図表は生成せず、表・Canvas・コード描画を使う
+- 生成画像へ日本語文字を焼き込まない。必要な文字は後編集する
+- 配置先は `public/images/blog/<imageBasePath>/`
+- Markdown画像には、内容を説明する空でない alt を付ける。キーワード羅列・誇大表現は禁止
+- OGは16:9（1200×630優先）、本文図は4:3を基本とする
+- 誤情報、機密、利用条件不明の素材、巨大・未圧縮画像をコミットしない
+- 画像用途・caption・alt は同フォルダの `caption.md` に記録する
