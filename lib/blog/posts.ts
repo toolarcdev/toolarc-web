@@ -1456,9 +1456,9 @@ export const blogPosts = {
   "cursor-windows-slow-check-tips": {
     contentId: "03-cursor-free",
     markdownFile: "029-cursor-windows-slow-check-tips.md",
-    imageBasePath: "/images/blog/20-investigate-something",
+    imageBasePath: "/images/blog/cursor-windows-slow-check-tips",
     publishedAt: "2026-07-12",
-    ogImage: "og.png",
+    ogImage: "eyecatch.png",
     category: "tool",
   },
   "chatgpt-pdf-attachment-order-tips": {
