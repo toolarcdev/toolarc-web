@@ -11,7 +11,7 @@ tags:
   - チームAI
 site: toolarc.jp
 target: "チームでのAI導入を検討しており、Doraverseの無料トライアル前に確認事項を整理したいBtoB担当者"
-last_update: 2026-07-14
+last_update: 2026-07-19
 ---
 
 # Doraverse無料トライアル前のBtoB確認3点
@@ -80,7 +80,9 @@ last_update: 2026-07-14
 - モデル選定・業務比較は → [ChatGPT・Claude・Geminiを業務で比較する方法｜チーム向け生成AIの選び方](/blog/multi-generative-ai-comparison-business)
 
 > **免責**
-> 本記事は執筆時点（2026-07-14）の筆者の運用・確認観点の整理です。Doraverseや関連サービスの機能・トライアル条件・料金は変更され得ます。有料プランの具体額は断定せず、重要な判断は各公式情報で確認してください。
+> 本記事は執筆時点（2026-07-19）の筆者の運用・確認観点の整理です。Doraverseや関連サービスの機能・トライアル条件・料金は変更され得ます。有料プランの具体額は断定せず、重要な判断は各公式情報で確認してください。
+
+<!-- affiliate:banner:doraverse:banner-300x250-main -->
 
 ## 関連記事
 
