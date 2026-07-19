@@ -1,9 +1,9 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-07-17 06:54（① 公開日ルール: 新規公開とリライトを区別）
+最終更新: 2026-07-19 23:33（④ L1観点・記事品質改善境界）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
-関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`
+関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`、`[writing-rules.md](writing-rules.md)`、`[llm-forbidden-phrases.md](llm-forbidden-phrases.md)`
 
 ---
 
@@ -323,6 +323,26 @@ GSCクエリ3件: 「...」「...」「...」
 
 ### ④ 記事初稿・既存記事リライト（Claude — 主。Cursor は予備）
 
+**L1観点（要約・公開前）**
+
+Cursor の `l1-review-article` Skill で実施する。判定基準の正本は Vault 改善施策ノート §4.3.1。要点のみ:
+
+- リズム: 同一文末（です／ます）3連続禁止／ある程度の長さで体言止めゼロ回避／段落の文数均質を崩す
+- 空句: [`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)（「最後に」「まさに」は禁止しない）
+- 一次情報: 実測数値＋取得日／環境／失敗談のいずれか、または「確認範囲」の明示
+- 詳細文体: [`writing-rules.md`](writing-rules.md)
+
+**作業境界（記事品質改善 2026-07）**
+
+| 作業 | スロット | 備考 |
+|------|----------|------|
+| writing-rules／空句リスト／L1 SKILL 等のルール変更 | **④** | 本計画 P0 |
+| 収益記事テンプレ改修・L1 | **④ → ①** | L1後に公開反映は① |
+| GSC／GA4／ASP の計測転記 | **②** | 実行ログ／revenue-signals |
+| バナー実装 | 実装用チャット（web） | ①の公開手順は変えない |
+
+計画・ログ: Vault `06_toolarc-business/記事品質改善/記事品質改善_実行計画_2026-07.md` ／ `記事品質改善_実行ログ_2026-07.md`
+
 **Claude チャットに貼る:**
 
 ```text
@@ -333,7 +353,8 @@ GSCクエリ3件: 「...」「...」「...」
 - GSC/GA4/SEOメモをもとにした既存記事の title・description・導入・見出し・FAQ・内部リンク文言の改善案
 - 本文(MDファイル)リライト
 - 既存記事リライト時は、検索クエリ・CTR・平均順位などの実測根拠を明記
-- writing-rules.md の文体（です・ます、一人称「筆者」）
+- writing-rules.md の文体（敬体ベース＋文末多様化、一人称「筆者」、一次情報マーカー）
+- llm-forbidden-phrases.md の空句禁止（「最後に」「まさに」は禁止しない）
 - AGENTS.md の Output Contract（記事案時は8項目）
 - 未公開記事へのリンクは slug 確定まで控え／「準備中」扱い
 
@@ -343,7 +364,7 @@ GSCクエリ3件: 「...」「...」「...」
 - rich-toc 記事のリライト案に `<!-- embed:* -->` を含める（既存 MD のマーカーは維持。prose の差分のみ出力）
 
 【添付の優先順位】
-source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.md > writing-rules.md > project-context.md
+source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.md > writing-rules.md > llm-forbidden-phrases.md > project-context.md
 
 【slug 取り扱い（必須）】
 - 依頼文・source.md・frontmatter に `slug` が明示されている場合、その値を正本として扱い、別slugへ置換・提案・採用しない
@@ -363,6 +384,7 @@ source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.
 - 2段導線: 比較 → 周辺収益 → アフィリエイト
 - 比較Series4本（ai-tools-comparison 含む）: 天秤・Rakurinとも**直アフィ禁止**。周辺収益記事への弱リンクのみ
 - CTA前後に向く人/向かない人・注意点・代替案（AGENTS.md Monetization / writing-rules.md）
+- 収益記事は CTA 3点（リード直後／本文中／まとめ前）・無料オファー型・バナーは記事末等の面のみ
 - ASP管理画面の成果条件・単価・否認条件は**記事に転載しない**
 - 天秤AI Biz: 本人NG。周辺収益記事のみ中CTA
 - Rakurin: 本人OK。読者価値優先。手順説明後・末尾CTA
