@@ -28,6 +28,7 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 6. **内部リンク**: `/blog/slug` のみ。未公開は「準備中」。同日複数本は公開順クロスリンク
 7. **build**: `npm run build` 成功。新 slug が静的生成に含まれること
 8. **軽負債**（`docs/ai-context/debt-paydown-workflow.md`）: Hubリンク1本、series spoke、`promotion_status: published_in_20` は⑥へメモ可
+9. **PRマージ後の締め**: 別branch作成 → PR作成 → マージ → `main` 更新 → マージ済 branch 削除 の後、**Cursor の Review を Keep All で確定**する（Review の基準はチャットに紐づかず、確定するまで前へ進まないため、次バッチに旧 diff が残らないようにする）
 
 ## 完了報告
 
@@ -36,6 +37,7 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 - build 結果
 - 相互リンク先
 - 日付: 新規=一致確認 / リライト=据え置き+`last_update`
+- PRマージ後: Review を Keep All で確定済み
 
 ## 参照（必要時のみ）
 
