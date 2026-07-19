@@ -192,6 +192,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "chatgpt-device-change-wrong-login-history-empty",
       "chatgpt-web-app-login-mismatch-fix",
       "chatgpt-device-change-google-login-tips",
+      "chatgpt-projects-device-change-restore-tips",
     ],
     publishedAt: "2026-05-25",
   },
