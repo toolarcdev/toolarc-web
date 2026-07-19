@@ -127,6 +127,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
   - スポークなら Hub へのリンク1本（/blog/[hubSlug]）
   - 候補マスターへ promotion_status: published_in_20 の記録（または⑥へ引き継ぎメモ）
   - 同日複数本は公開順クロスリンク
+- PRマージ後の締め: main 更新・マージ済 branch 削除の後、Cursor の Review を Keep All で確定（次バッチに旧 diff を残さない）
 
 準備できたら「① 記事公開、準備完了」とだけ返答してください。
 ```
