@@ -2,6 +2,7 @@
 title: Claude記事生成は「source.md」で精度が変わった
 slug: source-md-ai-writing
 status: draft
+last_update: 2026-07-20
 tags:
   - claude
   - obsidian
@@ -127,6 +128,8 @@ AIは渡されたものを素材にして記事を組み立てる。だから、
 source.md を作る工程が増えたぶん、総作業時間が減ったかというと正直わからない。でも、「AIが出してきたものを直す」という後工程のストレスはかなり減った。
 
 ---
+
+source.mdを先に書く効果が分かったら、次に気になるのは「実際に直し方がどう変わったか」です。[丸投げからsource.md先行へ変えた体験談](/blog/source-md-first-ai-draft-experience-tips)では、構成の作り直しが事実確認へ変わった経緯をまとめています。
 
 ## 次に読む
 
