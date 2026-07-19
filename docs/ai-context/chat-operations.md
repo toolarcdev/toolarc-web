@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-07-19 23:33（④ L1観点・記事品質改善境界）
+最終更新: 2026-07-20 02:12（記事テーマ捕捉＋P3初稿基準の同期）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`、`[writing-rules.md](writing-rules.md)`、`[llm-forbidden-phrases.md](llm-forbidden-phrases.md)`
@@ -38,6 +38,18 @@ DailyNote / AI-log
   → ⑥: 公開反映を候補マスター・Dashboard・DailyNote に記録（debt カウンタ）
   → ⑥ 水曜: 重負債原則2単位（Hub更新 / 昇格PR / 逆リンク）→ ①へ依頼
 ```
+
+上図は「DailyNote / AI-log に候補がある」ことを起点にする。その手前の**記事テーマの捕捉**は下記で行う（捕捉しないと⑥が拾えず、テーマ化が漏れる）。
+
+#### 記事テーマの捕捉（全スロット共通・抜け防止）
+
+作業中に記事化できる事象（実測値・失敗と回避策・ルール化した判断・before/after・調査結果）が出たら、**どのスロットの作業チャットでも**その場で次を行う。
+
+1. **記録（必須）**: 当日 AI-log（無ければ DailyNote）へ1行で残す。形式 `記事化候補: <タイトル案> — 悩み1行 / 差別化1行`。`audience_axis` は付けない（⑥が分類）
+2. **クローズ条件**: 1チャット=1タスクで閉じる前に「記事化候補を AI-log / DailyNote に残したか」を確認する（残す事象が無ければ記載不要）
+3. **件数が多い・確度が高いとき（任意）**: 候補マスター `00-dashboard/toolarc_1min_tips_article_candidates.md` に `## 追加候補（日付・出典）` ブロックで直接転記してよい（`audience_axis` 仮・悩み/差別化1行付き・重複除外）。正規の集約は⑥
+4. **集約（⑥）**: ⑥日次が AI-log / DailyNote / ⑤handoff / 直接転記分を候補マスターへ集約 → `_classify_title.mjs` で `audience_axis` 確定 → reader/hybrid 優先で inbox 化
+5. **reader 変換**: operator 寄りの事象は⑤（柱B）で reader タイトルへ言い換えて供給できる（`reader-theme-supply.md`）
 
 **Produce / Commit**: 文案・表は ②⑤④（Produce）、Vault/repo 書き込みは ⑥①（Commit）。負債払い詳細: `[debt-paydown-workflow.md](debt-paydown-workflow.md)`（方針B: 量産維持）。フェーズ: `[phase-now.md](../plan/phase-now.md)`
 
@@ -329,7 +341,7 @@ Cursor の `l1-review-article` Skill で実施する。判定基準の正本は 
 
 - リズム: 同一文末（です／ます）3連続禁止／ある程度の長さで体言止めゼロ回避／段落の文数均質を崩す
 - 空句: [`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)（「最後に」「まさに」は禁止しない）
-- 一次情報: 実測数値＋取得日／環境／失敗談のいずれか、または「確認範囲」の明示
+- 一次情報: 実測数値＋取得日／環境／失敗談のいずれか。無ければ確認日・参照元・未検証範囲を具体化
 - 詳細文体: [`writing-rules.md`](writing-rules.md)
 
 **作業境界（記事品質改善 2026-07）**
@@ -353,8 +365,11 @@ Cursor の `l1-review-article` Skill で実施する。判定基準の正本は 
 - GSC/GA4/SEOメモをもとにした既存記事の title・description・導入・見出し・FAQ・内部リンク文言の改善案
 - 本文(MDファイル)リライト
 - 既存記事リライト時は、検索クエリ・CTR・平均順位などの実測根拠を明記
-- writing-rules.md の文体（敬体ベース＋文末多様化、一人称「筆者」、一次情報マーカー）
+- writing-rules.md の文体（敬体ベース＋文末多様化。一人称は通常省略し、実測・失敗談・確認範囲・未検証の境界を示す必要がある文だけ「筆者」）
 - llm-forbidden-phrases.md の空句禁止（「最後に」「まさに」は禁止しない）
+- 記事ごとに実在感マーカーを最低1つ（実測数値＋取得日／使用環境／失敗談）。無ければ捏造せず、確認日・参照元・未検証範囲を書く
+- 結論を先延ばしせず、「今日の結論」を冒頭側に維持する
+- 体言止めはゼロ回避・山場限定。文比率や60%目標を設けない
 - AGENTS.md の Output Contract（記事案時は8項目）
 - 未公開記事へのリンクは slug 確定まで控え／「準備中」扱い
 
