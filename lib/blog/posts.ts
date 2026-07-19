@@ -1709,6 +1709,30 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "source-md-first-ai-draft-experience-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "376-source-md-first-ai-draft-experience-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-20",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "chatgpt-business-vs-claude-team-small-team-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "377-chatgpt-business-vs-claude-team-small-team-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-20",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "doraverse-free-trial-restrictions-check-tips": {
+    contentId: "20-investigate-something",
+    markdownFile: "378-doraverse-free-trial-restrictions-check-tips.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-20",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
