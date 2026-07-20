@@ -4,8 +4,9 @@ description: >-
   Runs ToolArc lightweight daily maintenance (slot ⑥): update DailyNote,
   candidate master, Dashboard focus, inbox publish sync, and CTR rewrite
   transfer with minimal file reads. Use when the user asks for 日次メンテ,
-  ⑥, daily maintenance, or daily-maintenance-prompt execution. Not for Wednesday
-  weekly maintenance.
+  ⑥, daily maintenance, or daily-maintenance-prompt execution. Not for
+  Wednesday weekly work — use weekly-intake (Skill A) then weekly-maintenance
+  (Skill B) instead of this skill.
 ---
 
 # daily-maintenance-lite（⑥ 日次・軽量）
@@ -19,7 +20,9 @@ description: >-
 | 詳細（迷ったとき） | Vault `maintenance_1min-Tips` の該当節のみ | 全文は読まない |
 | リポ補足 | `docs/ai-context/chat-operations.md` | スロット境界 |
 
-**水曜**: 本 Skill を使わない。`weekly-maintenance-prompt` を使う。
+**水曜**: 本 Skill を使わない。  
+短プロンプト: `週次メンテナンス実行`（A）→ ⑤ → `週次メンテナンス続き`（B）。  
+詳細は `.cursor/skills/weekly-intake/` / `weekly-maintenance/`。フォールバックのみ Vault `weekly-maintenance-prompt.md`。
 
 ## token節約（必須）
 
