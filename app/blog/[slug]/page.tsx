@@ -148,13 +148,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         readingTime={readingTime}
         category={post.category}
       />
-      <main className="px-4 py-10 sm:px-6 sm:py-14">
+      <main className="px-4 pb-10 pt-5 sm:px-6 sm:pb-14 sm:pt-6">
         <div className={showToc ? "mx-auto max-w-5xl" : "mx-auto max-w-3xl"}>
-          <Breadcrumbs items={breadcrumbItems} />
-
-          {/* Series badge for spoke articles */}
-          {series && isSpoke && (
-            <div className="mt-5">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <Breadcrumbs items={breadcrumbItems} />
+            {/* Series badge: パンくずと同列に寄せる（D） */}
+            {series && isSpoke && (
               <SeriesArticleLink
                 href={`/series/${series.slug}`}
                 seriesSlug={series.slug}
@@ -165,21 +164,18 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <span>Series:</span>
                 <span>{series.title}</span>
               </SeriesArticleLink>
-            </div>
-          )}
-          {/* Series badge for hub articles */}
-          {series && !isSpoke && (
-            <div className="mt-5">
+            )}
+            {series && !isSpoke && (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-medium text-[#2563eb]">
                 Series Hub
               </span>
-            </div>
-          )}
+            )}
+          </div>
 
           {showToc ? (
             <RichArticleLayout tocItems={tocItems}>
               <article
-                className="mt-6"
+                className="mt-3"
                 itemScope
                 itemType="https://schema.org/BlogPosting"
               >
@@ -201,7 +197,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </RichArticleLayout>
           ) : (
             <article
-              className="mt-6"
+              className="mt-3"
               itemScope
               itemType="https://schema.org/BlogPosting"
             >
