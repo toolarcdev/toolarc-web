@@ -3,21 +3,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleHeader } from "@/components/blog/ArticleHeader";
 import { ArticleBody } from "@/components/blog/ArticleBody";
+import { ArticleEndNav } from "@/components/blog/ArticleEndNav";
 import { AuthorBox } from "@/components/blog/AuthorBox";
 import { BlogShell } from "@/components/blog/BlogShell";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/blog/Breadcrumbs";
-import { NextReadArticles } from "@/components/blog/NextReadArticles";
 import { RichArticleLayout } from "@/components/blog/RichArticleLayout";
 import { SeriesArticleLink } from "@/components/blog/SeriesArticleLink";
 import { ScrollDepthTracker } from "@/components/analytics/ScrollDepthTracker";
 import { blogPostUrl, SITE_URL } from "@/lib/blog/constants";
-import { getArticleLayout } from "@/lib/blog/article-layout";
 import { extractTocHeadings } from "@/lib/blog/heading-id";
 import { loadPost } from "@/lib/blog/load-post";
 import { estimateReadingTime } from "@/lib/blog/reading-time";
-import {
-  resolveNextReadArticles,
-} from "@/lib/blog/resolve-next-read";
+import { resolveArticleEndNav } from "@/lib/blog/resolve-article-end-nav";
+import { shouldShowStickyToc } from "@/lib/blog/should-show-toc";
 import { splitNextReadSection } from "@/lib/blog/split-next-read-section";
 import { blogSlugs, isBlogSlug, type BlogSlug } from "@/lib/blog/posts";
 import { getSeriesForPost, isSpokePost } from "@/lib/series/series";
@@ -75,13 +73,16 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = await loadPost(slug);
   const url = blogPostUrl(slug);
   const ogImageUrl = `${SITE_URL}${post.ogImageBasePath}/${post.ogImage}`;
-  const layout = getArticleLayout(slug);
-  const isRichToc = layout === "rich-toc";
-  const nextReadSplit = isRichToc ? splitNextReadSection(post.content) : null;
-  const nextReadArticles = nextReadSplit
-    ? await resolveNextReadArticles(nextReadSplit.links)
-    : [];
-  const tocItems = isRichToc ? extractTocHeadings(post.content) : [];
+  const nextReadSplit = splitNextReadSection(post.content);
+  const articleContent = nextReadSplit
+    ? `${nextReadSplit.before}\n\n${nextReadSplit.after}`.trim()
+    : post.content;
+  const showToc = shouldShowStickyToc(slug, articleContent);
+  const tocItems = showToc ? extractTocHeadings(articleContent) : [];
+  const endNav = await resolveArticleEndNav(
+    slug,
+    nextReadSplit?.links ?? [],
+  );
 
   // --- Series awareness ---
   const series = getSeriesForPost(slug);
@@ -98,15 +99,16 @@ export default async function BlogPostPage({ params }: PageProps) {
     { label: post.title },
   ];
 
-  // Related: series siblings for series articles; otherwise 3 most-recent others
-  const relatedPosts = await (async () => {
-    if (series) {
-      const siblingCandidates = isSpoke
-        ? [series.hubSlug, ...(series.spokeSlugOrder ?? []).filter((s) => s !== slug)]
-        : (series.spokeSlugOrder ?? []);
-
-      return Promise.all(
-        siblingCandidates
+  // Series siblings only（サイト全体の最新／人気は ArticleEndNav）
+  const seriesRelatedPosts = series
+    ? await Promise.all(
+        (isSpoke
+          ? [
+              series.hubSlug,
+              ...(series.spokeSlugOrder ?? []).filter((s) => s !== slug),
+            ]
+          : (series.spokeSlugOrder ?? [])
+        )
           .filter((s): s is BlogSlug => isBlogSlug(s))
           .slice(0, 3)
           .map(async (s) => {
@@ -115,22 +117,10 @@ export default async function BlogPostPage({ params }: PageProps) {
               slug: s,
               title: p.title,
               description: p.description,
-              isSeries: true,
             };
           }),
-      );
-    }
-
-    return Promise.all(
-      blogSlugs
-        .filter((s) => s !== slug)
-        .slice(0, 3)
-        .map(async (s) => {
-          const p = await loadPost(s);
-          return { slug: s, title: p.title, description: p.description, isSeries: false };
-        }),
-    );
-  })();
+      )
+    : [];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -159,7 +149,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         category={post.category}
       />
       <main className="px-4 py-10 sm:px-6 sm:py-14">
-        <div className={isRichToc ? "mx-auto max-w-5xl" : "mx-auto max-w-3xl"}>
+        <div className={showToc ? "mx-auto max-w-5xl" : "mx-auto max-w-3xl"}>
           <Breadcrumbs items={breadcrumbItems} />
 
           {/* Series badge for spoke articles */}
@@ -186,7 +176,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           )}
 
-          {isRichToc ? (
+          {showToc ? (
             <RichArticleLayout tocItems={tocItems}>
               <article
                 className="mt-6"
@@ -201,27 +191,11 @@ export default async function BlogPostPage({ params }: PageProps) {
                   tags={post.tags}
                 />
                 <div className="article mt-10">
-                  {nextReadSplit ? (
-                    <>
-                      <ArticleBody
-                        content={nextReadSplit.before}
-                        imageBasePath={post.imageBasePath}
-                        slug={slug}
-                      />
-                      <NextReadArticles articles={nextReadArticles} />
-                      <ArticleBody
-                        content={nextReadSplit.after}
-                        imageBasePath={post.imageBasePath}
-                        slug={slug}
-                      />
-                    </>
-                  ) : (
-                    <ArticleBody
-                      content={post.content}
-                      imageBasePath={post.imageBasePath}
-                      slug={slug}
-                    />
-                  )}
+                  <ArticleBody
+                    content={articleContent}
+                    imageBasePath={post.imageBasePath}
+                    slug={slug}
+                  />
                 </div>
               </article>
             </RichArticleLayout>
@@ -240,7 +214,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               />
               <div className="article mt-10">
                 <ArticleBody
-                  content={post.content}
+                  content={articleContent}
                   imageBasePath={post.imageBasePath}
                   slug={slug}
                 />
@@ -248,52 +222,39 @@ export default async function BlogPostPage({ params }: PageProps) {
             </article>
           )}
 
+          <ArticleEndNav data={endNav} />
           <AuthorBox />
 
           <footer className="mt-12 border-t border-slate-200 pt-8">
-            {relatedPosts.length > 0 && (
+            {seriesRelatedPosts.length > 0 && series && (
               <section aria-labelledby="related-heading" className="mb-8">
                 <h2
                   id="related-heading"
                   className="text-sm font-semibold uppercase tracking-wider text-slate-500"
                 >
-                  {series ? "このシリーズの記事" : "ほかの記事"}
+                  このシリーズの記事
                 </h2>
                 <ul className="mt-4 space-y-3" role="list">
-                  {relatedPosts.map((related) => (
+                  {seriesRelatedPosts.map((related) => (
                     <li key={related.slug}>
-                      {series && related.isSeries ? (
-                        <SeriesArticleLink
-                          href={`/blog/${related.slug}`}
-                          seriesSlug={series.slug}
-                          targetSlug={related.slug}
-                          linkType={related.slug === series.hubSlug ? "hub" : "spoke"}
-                          className="group block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd]"
-                        >
-                          <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
-                            {related.title}
-                          </span>
-                          {related.description && (
-                            <p className="mt-1 text-sm leading-6 text-slate-500 line-clamp-2">
-                              {related.description}
-                            </p>
-                          )}
-                        </SeriesArticleLink>
-                      ) : (
-                        <Link
-                          href={`/blog/${related.slug}`}
-                          className="group block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd]"
-                        >
-                          <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
-                            {related.title}
-                          </span>
-                          {related.description && (
-                            <p className="mt-1 text-sm leading-6 text-slate-500 line-clamp-2">
-                              {related.description}
-                            </p>
-                          )}
-                        </Link>
-                      )}
+                      <SeriesArticleLink
+                        href={`/blog/${related.slug}`}
+                        seriesSlug={series.slug}
+                        targetSlug={related.slug}
+                        linkType={
+                          related.slug === series.hubSlug ? "hub" : "spoke"
+                        }
+                        className="group block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd]"
+                      >
+                        <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
+                          {related.title}
+                        </span>
+                        {related.description && (
+                          <p className="mt-1 text-sm leading-6 text-slate-500 line-clamp-2">
+                            {related.description}
+                          </p>
+                        )}
+                      </SeriesArticleLink>
                     </li>
                   ))}
                 </ul>
