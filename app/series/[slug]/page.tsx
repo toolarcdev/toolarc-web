@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/blog/Breadcrumbs";
@@ -82,6 +83,19 @@ export default async function SeriesDetailPage({ params }: PageProps) {
           <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
             {series.description}
           </p>
+          {series.heroImage && (
+            <figure className="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white">
+              <Image
+                src={series.heroImage}
+                alt={series.heroImageAlt ?? series.title}
+                width={1536}
+                height={1024}
+                className="h-auto w-full"
+                sizes="(max-width: 896px) 100vw, 896px"
+                priority
+              />
+            </figure>
+          )}
         </div>
 
         {/* Hub article */}

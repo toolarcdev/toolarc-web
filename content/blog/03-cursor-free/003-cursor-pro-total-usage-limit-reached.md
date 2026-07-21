@@ -11,6 +11,7 @@ tags:
   - AIコーディングツール
 site: toolarc.jp
 target: "Cursor Proを使っていて使用量上限の表示に困っている初心者"
+last_update: 2026-07-21
 ---
 
 # Cursor Proの「Total usage limit reached」対処法
@@ -29,6 +30,8 @@ Cursor Proで作業をしていたら、急に「Total usage limit reached」と
 ## 「Total usage limit reached」が出る原因
 
 この表示が出るのは、Cursor Pro に設定されている**今月分の使用量上限に達した**ためです。新しい不具合や一時的な障害ではなく、利用量が一定のラインを超えたときに表示される仕様だと考えられます。
+
+![Cursor Proで Total usage limit reached と表示された画面例](ss-03_usage-limit-screen.png)
 
 そのため、まず確認したいのは「いつまで使えなくなるのか」「課金が必要なのか」という2点です。これは次の見出しで整理します。
 
