@@ -903,9 +903,9 @@ export const blogPosts = {
   "cursor-pro-total-usage-limit-reached": {
     contentId: "03-cursor-free",
     markdownFile: "003-cursor-pro-total-usage-limit-reached.md",
-    imageBasePath: "/images/blog/20-investigate-something",
+    imageBasePath: "/images/blog/030-cursor-free",
     publishedAt: "2026-06-23",
-    ogImage: "og.png",
+    ogImage: "ss-03_usage-limit-screen.png",
     category: "tool",
   },
   "app-router-scroll-to-all-articles": {
@@ -1015,9 +1015,9 @@ export const blogPosts = {
   "chatgpt-account-migration-checklist": {
     contentId: "04-chatgpt_account_migration",
     markdownFile: "007-chatgpt-account-migration-checklist.md",
-    imageBasePath: "/images/blog/20-investigate-something",
+    imageBasePath: "/images/blog/040-chatgpt_account_migration",
     publishedAt: "2026-06-27",
-    ogImage: "og.png",
+    ogImage: "pattern-comparison-both.png",
     category: "ai-workflow",
   },
   "ai-input-structuring-tips": {

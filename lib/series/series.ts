@@ -18,6 +18,10 @@ export type SeriesConfig = {
   /** Spoke article slugs in display order (subset of blogPosts keys) */
   spokeSlugOrder?: readonly string[];
   publishedAt: string;
+  /** Optional hero image under the series header (public path) */
+  heroImage?: string;
+  /** Alt text for heroImage */
+  heroImageAlt?: string;
 };
 
 export const allSeries: readonly SeriesConfig[] = [
@@ -170,6 +174,10 @@ export const allSeries: readonly SeriesConfig[] = [
       "ChatGPT機種変更・引き継ぎ｜移行シリーズ全体ガイドと読む順番",
     description:
       "機種変更やアカウント移行でChatGPTの引き継ぎ方法を知りたい方向けのシリーズ入口です。同じアカウントのスマホ変更から別アカウント移行まで、手順と注意点を読む順番つきでまとめています。",
+    heroImage:
+      "/images/blog/040-chatgpt_account_migration/pattern-comparison-both.png",
+    heroImageAlt:
+      "パターン1（同アカウント・新スマホ）とパターン2（A→B移行）の違いを比較した図解",
     hubSlug: "chatgpt-account-migration",
     spokeSlugOrder: [
       "chatgpt-migration-md-checklist",
