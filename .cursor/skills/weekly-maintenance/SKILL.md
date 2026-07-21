@@ -89,14 +89,21 @@ intake・DailyNote・編集対象（dashboard / gsc-weekly-log / ctr-rewrite-que
 3. matrix 再生成
 4. reader 健全性（最小限）
 5. KPI 転記（DailyNote / dashboard / gsc-weekly-log / ctr-rewrite-queue+F / §4）
-6. 公開キュー＋シリーズ化（週次範囲）
-7. 負債原則 **2単位** → ①依頼
-8. intake `⑥転記完了` 等を `[x]`
-9. 完了報告。AI-log パスがある日だけ末尾転記
+6. **人気スロット更新**（記事末「よく読まれている記事」）:
+   - 入力: intake **§1.6**（無ければ HOLD せず仮データのまま継続可。初回本番切替時は必須）
+   - 編集: `c:\projects\toolarc-web\lib\blog\popular-articles.ts`
+   - `POPULAR_ARTICLE_SLUGS` を約3件の `BlogSlug` に差し替え（表示回数優先・CTRも見る。ホーム／一覧／非記事は除外）
+   - 本番データに切り替えたら `POPULAR_ARTICLES_IS_PROVISIONAL = false`
+   - 接続型リンクは触らない。PR/commit はユーザー依頼時のみ（他のコード変更とまとめて可）
+7. 公開キュー＋シリーズ化（週次範囲）
+8. 負債原則 **2単位** → ①依頼
+9. intake `⑥転記完了` 等を `[x]`
+10. 完了報告。AI-log パスがある日だけ末尾転記
 
 ## 完了報告
 
 - 作業フォルダ / ガード結果
 - 柱C件数・GSC・ASP N/10・負債2単位
+- 人気スロット: 更新した slug 3件 / 仮のまま据え置き / HOLD理由
 - 変更ファイル一覧
 - ①依頼文言
