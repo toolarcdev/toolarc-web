@@ -22,6 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: latestModified },
     { url: `${baseUrl}/blog`, lastModified: latestModified },
+    { url: `${baseUrl}/search`, lastModified: latestModified },
     { url: `${baseUrl}/series`, lastModified: latestModified },
     { url: `${baseUrl}/tools/poe2-regex`, lastModified: latestModified },
     { url: `${baseUrl}/about`, lastModified: latestModified },
