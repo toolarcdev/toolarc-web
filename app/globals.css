@@ -29,7 +29,8 @@ body {
   margin-top: 3rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #dbeafe;
+  /* Intro カード枠（2px / #2563eb）に合わせる */
+  border-bottom: 2px solid #2563eb;
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.4;
@@ -37,6 +38,10 @@ body {
   color: #0f172a;
   /* sticky header h-14 (3.5rem) + 余白。html scroll-padding と二重にしない */
   scroll-margin-top: 4.5rem;
+}
+
+.article > .article-h2:first-child {
+  margin-top: 0;
 }
 
 .article-h3 {

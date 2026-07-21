@@ -99,7 +99,8 @@ function stripEditorialPreamble(raw: string): string {
 
 /** 本文表示用：先頭の h1 はヘッダーで表示するので除去 */
 function stripTitleHeading(content: string): string {
-  return content.replace(/^#\s+.+\n+/, "").trim();
+  // Windows CRLF（\r\n）でも落ちないよう \r? を許容する
+  return content.replace(/^#\s+.+\r?\n+/, "").trim();
 }
 
 /** Obsidian の `![[image.png]]` を標準 Markdown 画像に変換 */

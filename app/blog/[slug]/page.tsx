@@ -186,7 +186,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   updatedAt={post.updatedAt}
                   tags={post.tags}
                 />
-                <div className="article mt-10">
+                <div className="article mt-4">
                   <ArticleBody
                     content={articleContent}
                     imageBasePath={post.imageBasePath}
@@ -208,7 +208,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 updatedAt={post.updatedAt}
                 tags={post.tags}
               />
-              <div className="article mt-10">
+              <div className="article mt-4">
                 <ArticleBody
                   content={articleContent}
                   imageBasePath={post.imageBasePath}
