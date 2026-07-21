@@ -35,6 +35,8 @@ body {
   line-height: 1.4;
   letter-spacing: -0.02em;
   color: #0f172a;
+  /* sticky header h-14 (3.5rem) + 余白。html scroll-padding と二重にしない */
+  scroll-margin-top: 4.5rem;
 }
 
 .article-h3 {

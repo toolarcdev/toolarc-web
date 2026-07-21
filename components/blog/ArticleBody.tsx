@@ -2,12 +2,14 @@
 
 import { AiOutputScroll } from "@/components/blog/AiOutputScroll";
 import { EmbedRenderer } from "@/components/blog/EmbedRenderer";
+import { InternalLinkCard } from "@/components/blog/InternalLinkCard";
 import { MarkdownArticle } from "@/components/blog/MarkdownArticle";
 import { AffiliateBanner } from "@/components/affiliate/AffiliateBanner";
 import { AffiliateImpression } from "@/components/affiliate/AffiliateImpression";
 import { collectAffiliateImpressions, getCreative } from "@/lib/affiliate";
 import { splitAffiliateSections } from "@/lib/affiliate/split-affiliate-sections";
 import { splitEmbedSections } from "@/lib/blog/split-embed-sections";
+import { splitInternalCardSections } from "@/lib/blog/split-internal-card-sections";
 import { splitScrollSections } from "@/lib/blog/split-scroll-sections";
 import type { BlogSlug } from "@/lib/blog/posts";
 
@@ -45,6 +47,36 @@ function renderAffiliateSegments(
   });
 }
 
+function renderInternalCardSegments(
+  content: string,
+  imageBasePath: string,
+  keyPrefix: string,
+) {
+  const segments = splitInternalCardSections(content);
+
+  return segments.map((segment, index) => {
+    if (segment.type === "internal-card") {
+      return (
+        <InternalLinkCard
+          key={`${keyPrefix}-card-${index}`}
+          href={segment.href}
+          title={segment.title}
+        />
+      );
+    }
+
+    return (
+      <div key={`${keyPrefix}-card-md-${index}`}>
+        {renderAffiliateSegments(
+          segment.content,
+          imageBasePath,
+          `${keyPrefix}-${index}`,
+        )}
+      </div>
+    );
+  });
+}
+
 function renderMarkdownWithEmbeds(
   content: string,
   imageBasePath: string,
@@ -67,7 +99,7 @@ function renderMarkdownWithEmbeds(
 
     return (
       <div key={`${keyPrefix}-embed-md-${index}`}>
-        {renderAffiliateSegments(
+        {renderInternalCardSegments(
           segment.content,
           imageBasePath,
           `${keyPrefix}-${index}`,
@@ -127,7 +159,10 @@ export function ArticleBody({ content, imageBasePath, slug }: ArticleBodyProps) 
     <>
       {renderScrollAwareContent(content, imageBasePath, "root", slug)}
       {textImpressions.map((ref) => (
-        <AffiliateImpression key={`${ref.programId}:${ref.creativeId}`} src={ref.impressionUrl} />
+        <AffiliateImpression
+          key={`${ref.programId}:${ref.creativeId}`}
+          src={ref.impressionUrl}
+        />
       ))}
     </>
   );
