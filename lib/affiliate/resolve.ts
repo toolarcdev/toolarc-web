@@ -11,21 +11,32 @@ import type {
 } from "./types";
 
 const AFFILIATE_HREF_PREFIX = "affiliate:";
-const AFFILIATE_HREF_RE = /^affiliate:([a-z0-9-]+):([a-z0-9-]+)$/;
-/** Markdown リンク `[text](affiliate:program:creative)` のみ */
-export const AFFILIATE_LINK_RE = /\(affiliate:([a-z0-9-]+):([a-z0-9-]+)\)/g;
+/** Optional `:cta` suffix → render as CtaButton (site design D1). */
+const AFFILIATE_HREF_RE =
+  /^affiliate:([a-z0-9-]+):([a-z0-9-]+)(?::(cta))?$/;
+/** Markdown リンク `[text](affiliate:program:creative)` または `...:cta` */
+export const AFFILIATE_LINK_RE =
+  /\(affiliate:([a-z0-9-]+):([a-z0-9-]+)(?::cta)?\)/g;
 export const AFFILIATE_BANNER_MARKER_RE =
   /<!--\s*affiliate:banner:([a-z0-9-]+):([a-z0-9-]+)\s*-->/g;
 
+export type ParsedAffiliateHref = {
+  programId: AffiliateProgramId;
+  creativeId: AffiliateCreativeId;
+  /** true when MD uses `affiliate:program:creative:cta` */
+  asCta: boolean;
+};
+
 export function parseAffiliateHref(
   href: string | undefined,
-): { programId: AffiliateProgramId; creativeId: AffiliateCreativeId } | null {
+): ParsedAffiliateHref | null {
   if (!href?.startsWith(AFFILIATE_HREF_PREFIX)) return null;
   const match = href.match(AFFILIATE_HREF_RE);
   if (!match) return null;
   return {
     programId: match[1] as AffiliateProgramId,
     creativeId: match[2] as AffiliateCreativeId,
+    asCta: match[3] === "cta",
   };
 }
 

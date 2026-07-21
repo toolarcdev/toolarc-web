@@ -29,7 +29,7 @@ export function AffiliateBanner({ programId, creativeId }: AffiliateBannerProps)
     <figure className="article-figure my-6">
       <a
         {...anchorProps}
-        className="article-link inline-block"
+        className="group article-link inline-block rounded-md transition hover:opacity-90 hover:shadow-sm"
         onClick={() =>
           pushEvent("outbound_click", {
             url: resolved.href,
@@ -43,7 +43,7 @@ export function AffiliateBanner({ programId, creativeId }: AffiliateBannerProps)
           width={creative.width ?? 300}
           height={creative.height ?? 250}
           alt={program.displayName}
-          className="max-w-full h-auto"
+          className="max-w-full h-auto transition group-hover:opacity-95"
           style={{ border: "none" }}
         />
       </a>
