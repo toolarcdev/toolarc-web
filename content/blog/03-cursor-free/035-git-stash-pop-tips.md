@@ -10,7 +10,7 @@ tags:
   - cursor-free-series
 site: toolarc.jp
 target: "ターミナルでgitコマンドを使い始めたばかりで、誤操作でファイルが消えたと感じて焦った経験がある初心者"
-last_update: 2026-07-11
+last_update: 2026-07-22
 slug: git-stash-pop-tips
 ---
 
@@ -33,6 +33,8 @@ slug: git-stash-pop-tips
 作業中にターミナルで `git sta` まで入力し、補完で表示された候補をそのまま実行してしまうと、直前まで画面に残っていたはずの変更が一瞬で消えてしまうことがあります。エディタで開いていたファイルを確認しても、変更した箇所が元に戻っており、「保存し忘れたのか」「ファイルが壊れたのか」と一気に不安になります。
 
 しかし、慌てて `git log` や `git reflog` を調べる前に、まず疑うべきなのは `git stash` が実行されていないかどうかです。コマンドの打ち間違いや補完候補の選び間違いは、gitを使い始めたばかりの人ほど起こりやすいミスです。
+
+![焦って消えたように見えた変更がstashに退避され、popで復元されるまでの3ステップ図解](/images/blog/git-stash-pop-tips/mood-restore-flow.png)
 
 ## なぜ消えたように見えたのか——git stashの仕組み
 
