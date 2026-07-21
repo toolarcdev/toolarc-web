@@ -1,3 +1,5 @@
+import { ArticleIntro } from "@/components/blog/ArticleIntro";
+
 type ArticleHeaderProps = {
   title: string;
   description: string;
@@ -5,8 +7,6 @@ type ArticleHeaderProps = {
   updatedAt?: string;
   tags?: string[];
 };
-
-const VISIBLE_TAG_LIMIT = 5;
 
 function formatDate(iso: string): string {
   return new Intl.DateTimeFormat("ja-JP", {
@@ -24,11 +24,8 @@ export function ArticleHeader({
   updatedAt,
   tags = [],
 }: ArticleHeaderProps) {
-  const visibleTags = tags.slice(0, VISIBLE_TAG_LIMIT);
-  const hiddenTagCount = Math.max(0, tags.length - VISIBLE_TAG_LIMIT);
-
   return (
-    <header className="border-b border-[#dbeafe] pb-8 sm:pb-10">
+    <header className="pb-0">
       <h1 className="text-2xl font-bold leading-tight tracking-tight text-slate-900 sm:text-3xl sm:leading-snug">
         {title}
       </h1>
@@ -41,27 +38,7 @@ export function ArticleHeader({
           </>
         )}
       </p>
-      <p className="mt-4 text-base leading-8 text-slate-600 sm:text-lg">
-        {description}
-      </p>
-      {tags.length > 0 && (
-        <ul className="mt-4 flex flex-wrap gap-2" aria-label="記事タグ">
-          {visibleTags.map((tag) => (
-            <li key={tag}>
-              <span className="inline-block rounded-full border border-[#dbeafe] bg-[#f8fbff] px-3 py-1 text-xs font-medium text-slate-600">
-                {tag}
-              </span>
-            </li>
-          ))}
-          {hiddenTagCount > 0 && (
-            <li>
-              <span className="inline-block rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-500">
-                他{hiddenTagCount}
-              </span>
-            </li>
-          )}
-        </ul>
-      )}
+      <ArticleIntro description={description} tags={tags} />
     </header>
   );
 }

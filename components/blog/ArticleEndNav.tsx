@@ -1,11 +1,16 @@
 import Link from "next/link";
 import type { ArticleEndNavData, EndNavArticle } from "@/lib/blog/resolve-article-end-nav";
+import { stripWrappingQuotes } from "@/lib/blog/strip-wrapping-quotes";
 
 type ArticleEndNavProps = {
   data: ArticleEndNavData;
 };
 
 function EndNavLinkCard({ article }: { article: EndNavArticle }) {
+  const description = article.description
+    ? stripWrappingQuotes(article.description)
+    : "";
+
   return (
     <Link
       href={article.href}
@@ -14,9 +19,9 @@ function EndNavLinkCard({ article }: { article: EndNavArticle }) {
       <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
         {article.title}
       </span>
-      {article.description ? (
+      {description ? (
         <p className="mt-1 line-clamp-2 text-sm leading-6 text-slate-600">
-          {article.description}
+          {description}
         </p>
       ) : null}
     </Link>
@@ -26,11 +31,9 @@ function EndNavLinkCard({ article }: { article: EndNavArticle }) {
 function EndNavSection({
   title,
   articles,
-  note,
 }: {
   title: string;
   articles: EndNavArticle[];
-  note?: string;
 }) {
   if (articles.length === 0) return null;
   const headingId = `end-nav-${title}`;
@@ -43,9 +46,6 @@ function EndNavSection({
       >
         {title}
       </h3>
-      {note ? (
-        <p className="mt-1 text-xs text-slate-400">{note}</p>
-      ) : null}
       <ul className="mt-3 space-y-3" role="list">
         {articles.map((article) => (
           <li key={article.href}>
@@ -78,15 +78,7 @@ export function ArticleEndNav({ data }: ArticleEndNavProps) {
         <EndNavSection title="接続して読む" articles={[data.connected]} />
       ) : null}
       <EndNavSection title="最新の記事" articles={data.latest} />
-      <EndNavSection
-        title="よく読まれている記事"
-        articles={data.popular}
-        note={
-          data.popularIsProvisional
-            ? "※週次スロット（初回は仮データ）"
-            : undefined
-        }
-      />
+      <EndNavSection title="よく読まれている記事" articles={data.popular} />
     </aside>
   );
 }
