@@ -1432,7 +1432,7 @@ export const blogPosts = {
   "git-stash-pop-tips": {
     contentId: "03-cursor-free",
     markdownFile: "035-git-stash-pop-tips.md",
-    imageBasePath: "/images/blog/20-investigate-something",
+    imageBasePath: "/images/blog/git-stash-pop-tips",
     publishedAt: "2026-07-11",
     ogImage: "og.png",
     category: "tool",
