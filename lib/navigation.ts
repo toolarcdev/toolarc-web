@@ -18,6 +18,6 @@ export const NAV_LINKS: readonly NavLink[] = [
   { href: "/about", label: "About" },
 ] as const;
 
-/** 当面の検索入口（本格検索は記事増後に別ゲート） */
-export const SEARCH_ENTRY_HREF = "/blog";
+/** ブログ記事検索ページ */
+export const SEARCH_ENTRY_HREF = "/search";
 export const SEARCH_ENTRY_LABEL = "検索";
