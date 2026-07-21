@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleHeader } from "@/components/blog/ArticleHeader";
 import { ArticleBody } from "@/components/blog/ArticleBody";
+import { AuthorBox } from "@/components/blog/AuthorBox";
 import { BlogShell } from "@/components/blog/BlogShell";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/blog/Breadcrumbs";
 import { NextReadArticles } from "@/components/blog/NextReadArticles";
@@ -246,6 +247,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
             </article>
           )}
+
+          <AuthorBox />
 
           <footer className="mt-12 border-t border-slate-200 pt-8">
             {relatedPosts.length > 0 && (

@@ -24,6 +24,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/blog`, lastModified: latestModified },
     { url: `${baseUrl}/series`, lastModified: latestModified },
     { url: `${baseUrl}/tools/poe2-regex`, lastModified: latestModified },
+    { url: `${baseUrl}/about`, lastModified: latestModified },
+    { url: `${baseUrl}/privacy`, lastModified: latestModified },
+    { url: `${baseUrl}/disclaimer`, lastModified: latestModified },
+    { url: `${baseUrl}/affiliate-disclosure`, lastModified: latestModified },
+    { url: `${baseUrl}/contact`, lastModified: latestModified },
   ];
 
   const blogIndexPages: MetadataRoute.Sitemap = Array.from(
