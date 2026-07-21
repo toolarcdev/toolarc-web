@@ -30,7 +30,7 @@ export default function AboutPage() {
           alt={BRAND_MARK_ALT}
           width={72}
           height={72}
-          className="h-[72px] w-[72px] shrink-0 rounded-xl"
+          className="h-18 w-18 shrink-0 rounded-xl"
           unoptimized
         />
         <div>
