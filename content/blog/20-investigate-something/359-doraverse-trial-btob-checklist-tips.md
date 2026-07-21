@@ -36,7 +36,7 @@ last_update: 2026-07-20
 
 3点の確認は30分もあれば終わります。確認項目を見ながらトライアル画面を確かめたい方は、先に公式の無料トライアル内容を開いておくとスムーズです（※本記事にはアフィリエイトリンクを含みます）
 
-[Doraverseの無料トライアル内容を確認する](affiliate:doraverse:text-main)
+[Doraverseの無料トライアル内容を確認する](affiliate:doraverse:text-main:cta)
 
 ---
 
@@ -93,7 +93,7 @@ last_update: 2026-07-20
 
 3点が埋まった方は、そのままトライアル内容の確認に進んでください。
 
-[Doraverseの無料トライアル内容を確認する](affiliate:doraverse:text-main)
+[Doraverseの無料トライアル内容を確認する](affiliate:doraverse:text-main:cta)
 
 ---
 
@@ -135,7 +135,7 @@ last_update: 2026-07-20
 
 無料トライアル前に、人数・部署、比較かポータルか、既存契約の重複を確認すると、評価の迷子を減らしやすくなります。次の一歩は「3点をメモ1枚に書き出してから、トライアル内容を確認する」。ここまでやれば、評価軸のあるトライアルになります。
 
-[Doraverseの無料トライアル内容を確認する](affiliate:doraverse:text-main)
+[Doraverseの無料トライアル内容を確認する](affiliate:doraverse:text-main:cta)
 
 カテゴリ切り分けの詳細や判断表は、次の記事で確認してください。
 

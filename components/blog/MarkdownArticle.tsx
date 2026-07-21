@@ -8,6 +8,7 @@ import type { Components } from "react-markdown";
 import type { Element } from "hast";
 import type { ReactNode } from "react";
 import { CodeBlock } from "@/components/blog/CodeBlock";
+import { CtaButton } from "@/components/affiliate/CtaButton";
 import { pushEvent } from "@/lib/analytics/gtm";
 import { headingToId } from "@/lib/blog/heading-id";
 import {
@@ -228,16 +229,29 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
           const linkText =
             typeof children === "string" ? children : undefined;
           const anchorProps = buildAffiliateAnchorProps(resolved);
+          const onAffiliateClick = () =>
+            pushEvent("outbound_click", {
+              url: resolved.href,
+              link_text: linkText,
+            });
+
+          if (affiliateRef.asCta) {
+            return (
+              <CtaButton
+                {...anchorProps}
+                href={resolved.href}
+                onClick={onAffiliateClick}
+              >
+                {children}
+              </CtaButton>
+            );
+          }
+
           return (
             <a
               {...anchorProps}
               className="article-link"
-              onClick={() =>
-                pushEvent("outbound_click", {
-                  url: resolved.href,
-                  link_text: linkText,
-                })
-              }
+              onClick={onAffiliateClick}
             >
               {children}
             </a>
