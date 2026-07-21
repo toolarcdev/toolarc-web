@@ -72,7 +72,7 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 
 1. 作業フォルダ解決 → 自動探索 → 欠損があれば HOLD
 2. `weekly-intake-YYYY-MM-DD.md` をテンプレから作成（無ければ）
-3. **Collector**: 完全窓 weekly MD → §1 Performance。`page-daily.csv` → §2。クエリ上位10〜15 → §1.5
+3. **Collector**: 完全窓 weekly MD → §1 Performance。`page-daily.csv` → §2。クエリ上位10〜15 → §1.5。ページ表示上位 → **§1.6**（人気スロット約3 slug）
 4. §1.5 統合クラスタ → **§5 選抜3件（勝ち≤1）**。§1 KPI クエリ3件は別記載可
 5. **Coverage**: 索引系。最終更新 ≤ 前週水 → `更新なし（最終更新: …）`
 6. **ASP**（CP932・直近3か月前提のCSV）: 合算 → §4（期間日付必須）。もしも CTR>100% なら汚染疑い
@@ -84,5 +84,6 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 - 作業フォルダ / intake パス
 - 自動探索で使った ZIP・CSV 名
 - §1 要約 / Coverage 更新なし有無 / ASP N/10
+- §1.6 人気スロット候補 slug（あれば）
 - §5 選抜3件
 - 次: ⑤（§5 のみ）→ 新規チャットで `週次メンテナンス続き`（＋同じフォルダパス）
