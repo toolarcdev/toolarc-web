@@ -15,6 +15,13 @@
 
 - 公開repo（本リポ）へ PoE2 / ゲーム JSON をコピー・生成・commit しない。正本は `toolarc-data`、API 用コピーは `toolarc-api`
 
+## 記事画像 Skills（発見用）
+
+入口: `.cursor/skills/blog-image-router/SKILL.md`  
+専門: `generate-blog-image` / `generate-decision-diagram` / `annotate-screenshot` / `bake-og-text`  
+マップ・索引: `docs/ai-context/image-intent-map.md` / `docs/ai-context/image-sample-registry.md`  
+WIP: Vault `06_toolarc-business/blog-image-staging/`（`public/` は採用後のみ）
+
 ## North Star / KPI
 
 - 事業目標: 3年以内に月収100万円到達

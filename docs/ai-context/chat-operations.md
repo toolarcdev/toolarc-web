@@ -1,9 +1,9 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-07-20 02:12（記事テーマ捕捉＋P3初稿基準の同期）
+最終更新: 2026-07-22 00:36（画像 Skill 振り分けを追記）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
-関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`、`[writing-rules.md](writing-rules.md)`、`[llm-forbidden-phrases.md](llm-forbidden-phrases.md)`
+関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`、`[writing-rules.md](writing-rules.md)`、`[llm-forbidden-phrases.md](llm-forbidden-phrases.md)`、`[image-intent-map.md](image-intent-map.md)`
 
 ---
 
@@ -109,6 +109,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - 同日複数本公開時は公開順にクロスリンク（218→221型）
 - 公開日の確定（実装時のみ。下記「公開日 — Get-Date 必須」）
 - rich-toc 記事のリライト（MD の prose のみ。下記「① rich-toc 記事」参照）
+- 記事画像の採用後配線（`posts.ts` の image 系・本文 `![]()`）。**生成・注釈・OG焼きこみ自体は画像 Skill**（下記「画像 Skill」）
 
 【公開日 — Get-Date 必須】
 - 実装開始時に `Get-Date -Format "yyyy-MM-dd"` を実行（JST。手入力・inbox の publishDate・初稿 frontmatter の date は使わない）
@@ -143,6 +144,21 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 
 準備できたら「① 記事公開、準備完了」とだけ返答してください。
 ```
+
+### 画像 Skill（振り分け・①/③で参照）
+
+迷ったら入口は **`blog-image-router`**（GenerateImage は呼ばない）。詳細マップ: `[image-intent-map.md](image-intent-map.md)`／正サンプル索引: `[image-sample-registry.md](image-sample-registry.md)`／トーン: `.cursor/rules/blog-image-tone.mdc`
+
+| 依頼の例 | Skill |
+|----------|--------|
+| 画像どうする／どの手段 | `blog-image-router` |
+| eyecatch・OG素材・mood・section を生成 | `generate-blog-image`（明示の生成依頼が必要） |
+| 比較・分岐・チェック入口の図 | `generate-decision-diagram` |
+| 実機スクショに番号・矢印 | `annotate-screenshot`（偽UI生成禁止） |
+| OG／Series に日本語帯 | `bake-og-text`（Vault `blog-image-staging`） |
+| posts.ts・build・公開日 | `publish-article`（①） |
+
+Claude 初稿の「画像提案」はジョブ票化まで。**その場で GenerateImage しない**（方式1）。WIP は Vault staging、`public/` は採用後のみ。
 
 ### ① 記事公開依頼テンプレ（毎回の依頼文）
 
