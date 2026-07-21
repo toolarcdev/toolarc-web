@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/layout/Header";
+import { SiteDisclosureBand } from "@/components/layout/SiteDisclosureBand";
 import { Footer } from "@/components/layout/Footer";
 import { GTMPageTracker } from "@/components/analytics/GTMPageTracker";
 import "./globals.css";
@@ -50,6 +51,7 @@ export default function RootLayout({
           <GTMPageTracker />
         </Suspense>
         <Header />
+        <SiteDisclosureBand />
         <div className="flex flex-1 flex-col">{children}</div>
         <Footer />
         <Analytics />
