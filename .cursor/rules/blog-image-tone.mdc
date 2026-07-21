@@ -6,19 +6,23 @@ alwaysApply: false
 
 # ブログ画像の品質制約
 
-Skill 本体: `.cursor/skills/generate-blog-image/SKILL.md`（流用ゲート・diagram 系統・後編集・人間ゲートの正本）
+入口ハブ: `.cursor/skills/blog-image-router/SKILL.md`（GenerateImage は呼ばない）  
+専門: `generate-blog-image` / `generate-decision-diagram` / `annotate-screenshot` / `bake-og-text`  
+意図マップ: `docs/ai-context/image-intent-map.md`  
+正サンプル索引: `docs/ai-context/image-sample-registry.md`
 
-## トーン
+## トーン（現状の既定）
 
-- 白背景、本線ソフトブルー `#60a5fa`、角丸、余白多め、初心者向け、フラット
-- ダークSaaS、サイバーパンク、photoreal を使わない
-- **禁止**: claymorphism、強い neumorphism、洗い落ちた低コントラスト、ワイヤーフレーム級の線画だけで完成とすること
+- **既定**: 白背景、本線ソフトブルー `#60a5fa`、角丸、余白多め、初心者向け、フラット
+- 既定は一貫性のための出発点。分析・輸入の選択肢を狭める拒否理由にしない（人間が別トーンを明示したらそれに従う）
+- 既定運用ではダークSaaS、サイバーパンク、photoreal を選ばない（明示依頼がある場合はこの限りでない）
+- **禁止（品質下限）**: claymorphism、強い neumorphism、洗い落ちた低コントラスト、ワイヤーフレーム級の線画だけで完成とすること
 
 ## 意味色（例外・最大3系統）
 
-- 本線は `#60a5fa`
+- 本線は `#60a5fa`（既定時）
 - **比較・分岐の結果ボックスに限り**、成功＝緑系、不可／警告＝赤〜オレンジ系を使ってよい
-- サイト全体や eyecatch 全面を暖色・多色にしない
+- 既定運用ではサイト全体や eyecatch 全面を暖色・多色にしない
 
 ## 生成と後編集
 
@@ -27,10 +31,24 @@ Skill 本体: `.cursor/skills/generate-blog-image/SKILL.md`（流用ゲート・
 - 生成画像へ日本語文字を焼き込まない。必要な文字は**後編集**する
 - **比較・分岐・チェック用の説明図（diagram-decision）は、後編集または既存高品質資産の流用なしに公開しない**
 - 新規生成の前に、同 `imageBasePath` / `caption.md` の流用候補を必ず確認する
+- 振り分けに迷ったら `docs/ai-context/image-intent-map.md` を読む
+
+## 参照ポリシー（C7）
+
+- **自社正サンプル**（同 `imageBasePath`・同シリーズの高評価画像）を `reference_image_paths` に渡してよい（構図密度・線の明確さの参照）
+- **他サイトの完成図・レイアウト画像を構図テンプレとして渡さない**（丸コピー／著作リスク）
+- 配色・余白の参考ストックを使う場合も、レイアウトの丸写しにしない
+
+## 検証ループ（生成後・必須）
+
+1. 生成した画像ファイルを **Read で目視**する
+2. NG（情報不足・洗い落ち・パネル崩れ・結果が見えない等）なら、プロンプトを修正して再生成する
+3. **NG だった画像を `reference_image_paths` に入れない**（壊れた出力を参照に戻さない）
+4. 人間ゲート（読者価値・トーン・誤情報）を通してから配置する
 
 ## 配置・メタ
 
-- 配置先は `public/images/blog/<imageBasePath>/`
+- 配置先は `public/images/blog/<imageBasePath>/`（採用決定後。WIP は Vault staging）
 - Markdown画像には、内容を説明する空でない alt を付ける。キーワード羅列・誇大表現は禁止
 - OGは16:9（1200×630優先）、本文図は4:3を基本とする
 - 誤情報、機密、利用条件不明の素材、巨大・未圧縮画像、**情報を潰す過圧縮**をコミットしない
