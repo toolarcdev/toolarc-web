@@ -74,7 +74,7 @@ export function Header() {
         href={SEARCH_ENTRY_HREF}
         className={linkClass(SEARCH_ENTRY_HREF, { markActive: false })}
         onClick={() => setMenuOpen(false)}
-        aria-label="記事を検索（ブログ一覧へ）"
+        aria-label="記事を検索"
       >
         {SEARCH_ENTRY_LABEL}
       </Link>
