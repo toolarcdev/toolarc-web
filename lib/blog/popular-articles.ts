@@ -7,10 +7,10 @@ import type { BlogSlug } from "@/lib/blog/posts";
  * @see docs/ai-context/internal-link-placement.md
  */
 export const POPULAR_ARTICLE_SLUGS = [
-  "ai-blog-writing-workflow-source-to-publish",
-  "cursor-free",
-  "ai-tools-comparison",
+  "chatgpt-account-migration",
+  "cursor-theme-color-change-tips",
+  "chatgpt-smartphone-account-migration-tips",
 ] as const satisfies readonly BlogSlug[];
 
 /** true while POPULAR_ARTICLE_SLUGS is provisional (not yet from weekly GSC). */
-export const POPULAR_ARTICLES_IS_PROVISIONAL = true;
+export const POPULAR_ARTICLES_IS_PROVISIONAL = false;
