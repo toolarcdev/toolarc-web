@@ -15,7 +15,7 @@ tags:
   - Claude Projects
 site: "toolarc.jp"
 target: "ChatGPTやClaudeを長期間活用し、AIとの会話を知識資産として整理・運用したい人"
-last_update: "2026-07-18"
+last_update: "2026-07-22"
 ---
 
 # ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方
@@ -604,6 +604,7 @@ AI長期運用ではかなり相性が良いです。
 | 20 | 運用 | [長文出力はh1/h2単位で整形依頼する](/blog/chatgpt-long-text-h1-h2-format-tips)｜長い出力を扱いやすく整えたい人向け |
 | 21 | 運用 | [PDFを渡す順番とサイズの注意点](/blog/chatgpt-pdf-attachment-order-tips)｜資料をPDFで読ませたい人向け |
 | 22 | 整理 | [アカウント削除前に確認すべきこと](/blog/chatgpt-account-deletion-checklist)｜旧アカウントを整理・削除する前に確認したい人向け |
+| 23 | トラブル | [機種変更後にProjectsが見当たらないときの手順](/blog/chatgpt-projects-device-change-restore-tips)｜Projectsが消えたように見える人向け |
 
 ※ 各記事は執筆時点の情報に基づきます。ChatGPTの仕様や画面は変更される可能性があるため、重要な操作は公式ヘルプもあわせて確認してください。
 

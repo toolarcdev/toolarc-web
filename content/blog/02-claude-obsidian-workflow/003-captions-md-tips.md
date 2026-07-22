@@ -100,6 +100,7 @@ captions.md の運用ポイントをまとめます。
 
 source.md との組み合わせ方については、以下の記事も参考にしてください。
 
+- Hub: [Obsidianで素材整理 → Claudeで記事生成 → Cursorで公開するブログ制作ワークフロー](/blog/claude-obsidian-workflow)
 - [source.md運用が記事生成AIと相性が良い理由【実運用Tips】](/blog/source-md-tips)
 - [source.md を使った AI 記事生成ワークフロー](/blog/source-md-ai-writing)
 - [captions.md ワークフローの詳細解説](/blog/captions-md-workflow)

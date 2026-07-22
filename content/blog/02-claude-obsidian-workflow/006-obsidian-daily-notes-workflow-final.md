@@ -277,4 +277,4 @@ daily notesは、“綺麗に残すこと”より、“思考を消さないこ
 
 ---
 
-_このdaily notes運用は、[Claude × Obsidian ワークフロー完全版](https://www.toolarc.jp/series/claude-obsidian-workflow-series) の一部として実践しています。他のspoke記事もあわせてご覧ください。_
+_このdaily notes運用は、Hub [Obsidianで素材整理 → Claudeで記事生成 → Cursorで公開するブログ制作ワークフロー](/blog/claude-obsidian-workflow) と [Claude × Obsidian ワークフロー完全版](https://www.toolarc.jp/series/claude-obsidian-workflow-series) の一部として実践しています。他のspoke記事もあわせてご覧ください。_
