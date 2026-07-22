@@ -90,6 +90,7 @@ source.md 運用のポイントをまとめます。
 
 画像付き記事の場合は、captions.md もセットで渡すと出力の精度がさらに上がります。
 
+- Hub: [Obsidianで素材整理 → Claudeで記事生成 → Cursorで公開するブログ制作ワークフロー](/blog/claude-obsidian-workflow)
 - [captions.mdを作るとAI記事生成の精度が上がる](/blog/captions-md-tips)
 - [source.md を使った AI 記事生成ワークフロー（詳細版）](/blog/source-md-ai-writing)
 - [AI ドキュメント整理のコツ](/blog/ai-docs-duplication-tips)

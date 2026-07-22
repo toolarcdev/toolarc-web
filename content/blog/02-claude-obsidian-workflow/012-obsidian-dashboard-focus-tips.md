@@ -117,6 +117,7 @@ Obsidian を使った AI ログ・知識管理の全体像は、AI 知識管理 
 
 ### 次に読む
 
+- Hub: [Obsidianで素材整理 → Claudeで記事生成 → Cursorで公開するブログ制作ワークフロー](/blog/claude-obsidian-workflow)
 - [chat-operations.mdをスロット初回プロンプトの正本にする](/blog/chat-slot-initial-prompt-tips)（固定チャットの起動プロンプト正本化）
 
 ---

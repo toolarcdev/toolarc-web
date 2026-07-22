@@ -142,4 +142,4 @@ AI記事制作での画像管理は、「画像ファイルをどう整理する
 
 ---
 
-_このシリーズの親記事：[Claude × Obsidian workflow series](https://www.toolarc.jp/series/claude-obsidian-workflow-series)_
+_Hub：[Obsidianで素材整理 → Claudeで記事生成 → Cursorで公開するブログ制作ワークフロー](/blog/claude-obsidian-workflow)｜シリーズ一覧：[Claude × Obsidian workflow series](https://www.toolarc.jp/series/claude-obsidian-workflow-series)_
