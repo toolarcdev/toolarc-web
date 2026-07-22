@@ -17,7 +17,7 @@ last_update:
 
 # ObsidianのAdvanced TablesはSource Modeで使う【動かないときの確認手順】
 
-「Advanced Tables を入れたのに、Tab を押しても表が整形されない」。そんな経験はありませんか？
+「Advanced Tables を入れたのに、Tab を押しても表が整形されない」そんな経験はありませんか？
 
 Obsidian のコミュニティプラグイン **Advanced Tables**（拡張テーブル編集機能）は、Markdown の表をキーボードショートカットで素早く編集できる便利なプラグインです。ただし、**編集モードによって動作が大きく変わります**。筆者が実際に試したところ、Source Mode（ソースモード）以外では期待通りに動かないケースが多くありました。
 
