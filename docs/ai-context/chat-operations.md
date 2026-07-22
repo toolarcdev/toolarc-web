@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-07-22 10:59（画像 Skill 振り分けを追記）
+最終更新: 2026-07-22 11:03（画像 Skill 振り分けを追記）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`、`[writing-rules.md](writing-rules.md)`、`[llm-forbidden-phrases.md](llm-forbidden-phrases.md)`、`[image-intent-map.md](image-intent-map.md)`
@@ -356,7 +356,7 @@ GSCクエリ3件: 「...」「...」「...」
 Cursor の `l1-review-article` Skill で実施する。判定基準の正本は Vault 改善施策ノート §4.3.1。要点のみ:
 
 - リズム: 同一文末（です／ます）3連続禁止／ある程度の長さで体言止めゼロ回避／段落の文数均質を崩す
-- 空句: [`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)。「最後に」「まさに」は禁止しない。`――` / 同型 `——`（文中の間・見出し・`title`）は禁止。連続括弧 `（「…」）` / `「（…）」` も禁止
+- 空句: [`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)。「最後に」「まさに」は禁止しない。`――` / 同型 `——`（文中の間・見出し・`title`）は禁止。括弧の入れ子 `（「…」）` / `「(…)`」 は基本的に使わず、括弧内の強調は `"…"` / `` `…` ``
 - 一次情報: 実測数値＋取得日／環境／失敗談のいずれか。無ければ確認日・参照元・未検証範囲を具体化
 - 免責 ≠ 見出し: `## 免責` / `### 免責` / 見出し文言に「免責」なし。末尾は `---`＋段落（本命）または `> **免責**` 引用（許容）
 - 詳細文体: [`writing-rules.md`](writing-rules.md)
