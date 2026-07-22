@@ -79,7 +79,7 @@ GSC の報告はすべてを即時対応しようとすると消耗します。*
 - [Vercelでdomain invalidが直らず苦戦した話](/blog/vercel-domain-invalid-nameserver)
 - [新規ドメインSEOのトラブルシューティング4ステップ](/blog/new-domain-seo-troubleshooting-4steps)
 - [新規ドメインのGSCインデックス状況を確認する4ステップ](/blog/gsc-index-count-new-domain)
-- [GSCの「リダイレクトあり」はループとは限らない——見分け方と確認手順](/blog/gsc-redirect-loop-check-tips)
+- [GSCの「リダイレクトあり」はループとは限らない｜見分け方と確認手順](/blog/gsc-redirect-loop-check-tips)
 - [新規ドメインでcanonicalとwww統一を確認する4ステップ](/blog/new-domain-canonical-www-check-tips)
 
 ---

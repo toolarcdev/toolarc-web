@@ -164,7 +164,7 @@ https://...
 
 ## 次に読む
 
-- **Hub 記事**：[ChatGPTを新アカウントへ移行したい人へ——履歴より重要な「知識資産」の考え方](/blog/chatgpt-account-migration)
+- **Hub 記事**：[ChatGPTのアカウント移行・引き継ぎ｜機種変更との違いと知識資産の移し方](/blog/chatgpt-account-migration)
 - **初日の .md 一覧**：[ChatGPTアカウント移行で最初に作るべき.md一覧](/blog/chatgpt-migration-md-checklist)
 - **履歴の切り分け**：[ChatGPTの検索履歴は別アカウントに引き継げる？今できる代替](/blog/chatgpt-search-history-account-migration)
 - **移行後の再設定**：[ChatGPTのカスタム指示、初心者向けの書き方テンプレ](/blog/chatgpt-custom-instructions-for-beginners)
