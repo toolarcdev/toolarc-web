@@ -63,5 +63,6 @@ SMSやWhatsAppでMFAを設定している場合は、機種変更後も同じ電
 - [ChatGPT機種変更で認証アプリ（2FA）を移行する手順](/blog/chatgpt-migration-2fa-authenticator-tips)（認証アプリ引き継ぎ詳細）
 - 同日公開の関連記事: [ChatGPT移行でメモリは引き継げる？3点確認](/blog/chatgpt-migration-memory-check)
 
-## 免責
+---
+
 本記事は2026年7月時点の一般的な確認手順を紹介したものです。MFAの仕様・利用可能な方式・復旧手順は、アカウントの種類や提供状況によって変わることがあります。重要な設定変更やログイン復旧の際は、必ず「[多要素認証（MFA）の有効化または無効化](https://help.openai.com/ja-jp/articles/7967234-enabling-or-disabling-multi-factor-authentication-mfa)」などOpenAI公式ヘルプで執筆時点の最新情報をご確認ください。

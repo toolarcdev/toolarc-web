@@ -78,6 +78,6 @@ PCの画面で見た目が整っていても、モバイル幅では崩れるこ
 - 関連: [複数AIの出力を比較した記事](/blog/compare-ai-models-opus48-tips)／[MarkdownブログをNext.jsで管理するメリット](/blog/nextjs-blog-markdown-management)
 - 次に読む: [AIにデバッグを頼む時は「整理しすぎない」方がいい](/blog/ai-debug-keep-raw-error-info)
 
-## 免責
+---
 
 本記事は2026年6月21日時点での実測に基づいています。スクロールの見え方はブラウザやデバイスによって変わる可能性があるため、公開前に実機での確認をおすすめします。また、利用しているNext.js / Tailwindのバージョンによって実装方法が変わる場合があるため、最終的な実装はCursor側の既存コードに合わせてください。

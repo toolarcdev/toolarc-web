@@ -91,6 +91,6 @@ Obsidianでのチェックボックス操作をさらに効率化したい場合
 - 関連: [Obsidianでチェックボックスを作るショートカット（Ctrl+L）](/blog/obsidian-checkbox-shortcut-ctrl-l)
 - Hub: [Claude × Obsidianワークフロー](/blog/claude-obsidian-workflow)
 
-## 免責
+---
 
 本記事はWindows 10/11およびmacOSにおける標準ショートカットの動作に基づく執筆時点の情報です。OSの更新やキーボード設定により挙動やショートカットの仕様が変わる可能性があるため、最新の動作はお使いの環境で確認してください。

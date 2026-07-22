@@ -358,6 +358,7 @@ Cursor の `l1-review-article` Skill で実施する。判定基準の正本は 
 - リズム: 同一文末（です／ます）3連続禁止／ある程度の長さで体言止めゼロ回避／段落の文数均質を崩す
 - 空句: [`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)（「最後に」「まさに」は禁止しない）
 - 一次情報: 実測数値＋取得日／環境／失敗談のいずれか。無ければ確認日・参照元・未検証範囲を具体化
+- 免責 ≠ 見出し: `## 免責` / `### 免責` / 見出し文言に「免責」なし。末尾は `---`＋段落（本命）または `> **免責**` 引用（許容）
 - 詳細文体: [`writing-rules.md`](writing-rules.md)
 
 **作業境界（記事品質改善 2026-07）**
@@ -388,11 +389,13 @@ Cursor の `l1-review-article` Skill で実施する。判定基準の正本は 
 - 体言止めはゼロ回避・山場限定。文比率や60%目標を設けない
 - AGENTS.md の Output Contract（記事案時は8項目）
 - 未公開記事へのリンクは slug 確定まで控え／「準備中」扱い
+- 免責は記事末尾に必須。見出し（`##`/`###`）や見出し文言に「免責」を含めない。形式は `---`＋段落（本命）、または `> **免責**` 引用（許容）。StickyTOC は H2 のみ抽出するため見出し化しない
 
 【やらない】
 - posts.ts / series.ts / 実ファイル反映・ビルド（① または ③ に渡す）
 - daily notes の丸投げ記事化
 - rich-toc 記事のリライト案に `<!-- embed:* -->` を含める（既存 MD のマーカーは維持。prose の差分のみ出力）
+- `## 免責` / `### 免責` / `## まとめ・…免責` のような免責の見出し化
 
 【添付の優先順位】
 source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.md > writing-rules.md > llm-forbidden-phrases.md > project-context.md
@@ -437,11 +440,12 @@ source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.
 - Hub 用 source.md を作成（Output Contract 準拠）
 - 読者の悩み・4段階 or チェックリスト形式の入口
 - スポークへの読む順リスト（slug ベース、/blog/slug 形式）
-- 執筆時点の免責を含める
+- 執筆時点の免責を含める（見出しにしない。`---`＋段落が本命）
 
 【やらない】
 - series.ts 登録・posts.ts（①）
 - 既存 Hub の差し替え（別 PR）
+- 免責の `##`/`###` 見出し化
 
 手順: docs/ai-context/debt-paydown-workflow.md
 ```
