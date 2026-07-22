@@ -83,6 +83,6 @@ CursorのAI編集は便利な一方で、変更範囲が広がりやすい面も
 - 関連Tips: [CursorでAgent failedが出たときの切り分け手順](/blog/cursor-agent-failed-tips)
 - 関連Tips: [Cursorの配色（テーマ）を変更する方法｜起動後に見づらくなったときの直し方](/blog/cursor-theme-color-change-tips)
 
-## 免責
+---
 
 キーボードショートカットの既定値は、CursorやVSCodeのバージョン、OS、キーボード配列によって異なる場合があります。本記事の内容は執筆時点（2026年7月）の一般的な挙動をもとにしています。実際に割り当てを確認・変更する際は、Cursorの「Keyboard Shortcuts」設定画面で最新の状態をご確認ください。

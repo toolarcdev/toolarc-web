@@ -59,6 +59,6 @@ last_update: 2026-07-10
 - 同日公開: [AIへの依頼は評価軸と候補を先に出すと1案に収まりやすい](/blog/ai-request-evaluation-axis-tips)
 - 同日公開: [app/page.tsx を編集するとTOPページを変更できる](/blog/nextjs-app-page-top-edit-tips)
 
-## 免責
+---
 
 本記事は2026年7月時点の実測に基づきます。Cursorのワークスペース機能・UI表記は今後変更される可能性があるため、実際の操作画面と異なる場合は最新のCursor公式ドキュメントを確認してください。
