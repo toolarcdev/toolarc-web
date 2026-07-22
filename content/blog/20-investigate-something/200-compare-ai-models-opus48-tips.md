@@ -1,5 +1,5 @@
 ---
-title: "Claude Opus 4.8を4モデルで聞き比べた——GPT系とClaude系で情報整理の見え方がかなり違った"
+title: "Claude Opus 4.8を4モデルで聞き比べた｜GPT系とClaude系で情報整理の見え方がかなり違った"
 description: "同じ質問をChatGPT・Claude・Cursor Pro（Opus 4.8／GPT-5.5）の4モデルに投げてみた。出力傾向の差と「整理用GPT→出力用Claude」という役割分担の仮説を実例つきで紹介します。"
 date: 2026-05-29
 tags:
@@ -13,7 +13,7 @@ site: toolarc.jp
 target: "AIツールを使い始めた初心者・どのモデルを何に使うべきか迷っている人"
 ---
 
-# Claude Opus 4.8を4モデルで聞き比べた——GPT系とClaude系で情報整理の見え方がかなり違った
+# Claude Opus 4.8を4モデルで聞き比べた｜GPT系とClaude系で情報整理の見え方がかなり違った
 
 「同じ質問をしても、AIによってこんなに出力が違うのか」と感じた経験はないでしょうか。
 

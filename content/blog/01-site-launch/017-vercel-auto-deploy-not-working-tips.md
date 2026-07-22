@@ -18,7 +18,7 @@ last_update: 2026-06-30
 
 # VercelのAuto Deployが動かないときに確認する設定
 
-GitHubにpushしたのに、Vercel側でビルドが始まらない——そんなときに焦って何度もpushし直しても、設定が原因であれば解決しません。本記事では、Auto Deploy（自動デプロイ）が動かないときに確認すべき設定を、優先順位の高いものから整理します。
+GitHubにpushしたのに、Vercel側でビルドが始まらない。そんなときに焦って何度もpushし直しても、設定が原因であれば解決しません。本記事では、Auto Deploy（自動デプロイ）が動かないときに確認すべき設定を、優先順位の高いものから整理します。
 
 ## 結論（1分）
 
@@ -53,7 +53,7 @@ Auto Deployが動かないときは、思い込みで設定を変える前に「
 Vercel関連のトラブルは、本記事の他にも以下で扱っています。
 
 - Hub記事：[AI初心者がゼロからWebサイトを公開するまでにやったこと・詰まったこと全部まとめ](/blog/site-launch)
-- 関連：[Vercel Previewを本番前に確認する理由——PR単位でミスを防ぐ手順](/blog/nextjs-vercel-preview-check-tips)
+- 関連：[Vercel Previewを本番前に確認する理由｜PR単位でミスを防ぐ手順](/blog/nextjs-vercel-preview-check-tips)
 - 関連：[VercelでPreviewだけ更新されProductionに反映されないときの確認手順](/blog/vercel-production-not-reflecting-tips)
 - 関連：[VercelのPromote to Productionとは？本番反映に使う場面](/blog/vercel-promote-to-production-tips)
 

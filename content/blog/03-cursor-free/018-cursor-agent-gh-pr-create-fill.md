@@ -70,7 +70,7 @@ Cursor Agent に GitHub 操作を任せるときは、**対話が発生しない
 - [Cursor無料版はどこまで使える？（実測レビュー）](/blog/cursor-free)
 - [Cursor Agentは記事一括公開と基盤横断変更に絞って使う](/blog/cursor-agent-scope-tips)
 - [Cursor Agentが止まったときの再開と確認手順](/blog/cursor-agent-pause-recovery-tips)
-- [Vercel Previewを本番前に確認する理由——PR単位でミスを防ぐ手順](/blog/nextjs-vercel-preview-check-tips)
+- [Vercel Previewを本番前に確認する理由｜PR単位でミスを防ぐ手順](/blog/nextjs-vercel-preview-check-tips)
 - [GitHub push前の確認ポイント5つ【git statusを最初に習慣化する】](/blog/github-push-checklist)
 
 ---

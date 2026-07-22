@@ -87,7 +87,7 @@ Live Preview と Source Mode の切り替えは、**`Ctrl+E`**（Mac は `Cmd+E`
 
 ## まとめ
 
-ObsidianのLive PreviewとSource Modeは、作業内容によって使い分けるものです。日常のメモはLive Preview、frontmatterや表を編集するときはSource Mode——この2パターンを覚えておくだけで、表示崩れや編集ミスの大半を防げます。
+ObsidianのLive PreviewとSource Modeは、作業内容によって使い分けるものです。日常のメモはLive Preview、frontmatterや表を編集するときはSource Mode。この2パターンを覚えておくだけで、表示崩れや編集ミスの大半を防げます。
 
 Obsidianを使ったAIログ・DailyNoteの運用については、以下の記事もあわせてどうぞ。
 

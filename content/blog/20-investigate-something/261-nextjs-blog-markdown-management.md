@@ -18,7 +18,7 @@ last_update:
 
 # MarkdownブログをNext.jsで管理するメリット｜AI原稿との相性とslug管理
 
-WordPressのようなCMSではなく、Next.js + Markdownでブログを管理する——なぜこの構成を選ぶのか、最初は分かりにくいかもしれません。
+WordPressのようなCMSではなく、Next.js + Markdownでブログを管理する。なぜこの構成を選ぶのか、最初は分かりにくいかもしれません。
 
 実際に運用してみると、**Git管理・AI原稿との相性・slug一元管理**の3点で、CMSにはない使いやすさがあります。
 
