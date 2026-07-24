@@ -3,8 +3,10 @@ name: publish-article
 description: >-
   Publishes ToolArc blog articles to toolarc-web (slot ①): place Markdown under
   content/blog, register slug in lib/blog/posts.ts, set publish dates via Get-Date,
-  run npm run build, add internal links and light debt fixes. Use when the user
-  asks for 記事公開, slot ①, posts.ts registration, or publishing a blog slug.
+  run npm run build, add internal links and light debt fixes. Stops before
+  commit/PR/merge — hand off to git-commit-pr then git-merge-cleanup. Use when
+  the user asks for 記事公開, slot ①, posts.ts registration, or publishing a blog
+  slug.
 ---
 
 # publish-article（① 記事公開）
@@ -13,8 +15,19 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 
 ## やること / やらないこと
 
-**やる**: MD配置、`posts.ts` 登録、必要時 `series.ts`、内部リンク、`npm run build`、軽負債、公開日確定  
-**やらない**: 初稿・リライト案（④）、GSC（②）、Next 基盤横断（③）、PoE2/api、Vault 候補マスター本書き（⑥へ引き継ぎ可）
+**やる**: MD配置、`posts.ts` 登録、必要時 `series.ts`、内部リンク、`npm run build`、軽負債（コード側）、公開日確定  
+**やらない**: 初稿・リライト案（④）、GSC（②）、Next 基盤横断（③）、PoE2/api、Vault 候補マスター本書き（⑥へ引き継ぎ可）、**commit / PR / merge / DailyNote・AI-log 追記**（後段 Skill へ委譲）
+
+## Git 後段との接続
+
+```text
+本 Skill（①・リポ編集+build）
+  → git-commit-pr（A・commit/PR）← 人間ゲート前で停止
+  → 人間が GitHub 差分を確認
+  → git-merge-cleanup（B・マージ+branch整理+当日 DailyNote/AI-log）
+```
+
+本 Skill 内では A/B を自動実行しない。完了報告で次手を明示する。
 
 ## 手順
 
@@ -27,8 +40,8 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 5. **シリーズ**: Hub/シリーズなら `lib/series/series.ts` に spoke 追加
 6. **内部リンク**: `/blog/slug` のみ。未公開は「準備中」。同日複数本は公開順クロスリンク
 7. **build**: `npm run build` 成功。新 slug が静的生成に含まれること
-8. **軽負債**（`docs/ai-context/debt-paydown-workflow.md`）: Hubリンク1本、series spoke、`promotion_status: published_in_20` は⑥へメモ可
-9. **PRマージ後の締め**: 別branch作成 → PR作成 → マージ → `main` 更新 → マージ済 branch 削除 の後、**Cursor の Review を Keep All で確定**する（Review の基準はチャットに紐づかず、確定するまで前へ進まないため、次バッチに旧 diff が残らないようにする）
+8. **軽負債**（`docs/ai-context/debt-paydown-workflow.md`）: Hubリンク1本、series spoke。`promotion_status: published_in_20` は⑥へメモ可
+9. **停止**: commit / PR / merge / Vault 追記はしない。完了定型で A → 人間 → B を案内
 
 ## 完了報告
 
@@ -37,7 +50,12 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 - build 結果
 - 相互リンク先
 - 日付: 新規=一致確認 / リライト=据え置き+`last_update`
-- PRマージ後: Review を Keep All で確定済み
+- 次手定型:
+
+```text
+①公開作業完了（build成功）。
+次: git-commit-pr（commit/PR）。人間が差分確認後に git-merge-cleanup（マージ＋DailyNote/AI-log）。
+```
 
 ## 参照（必要時のみ）
 
@@ -45,3 +63,4 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 - 詳細: `docs/ai-context/chat-operations.md`（①節）
 - フォルダ: `docs/ai-context/content-folders.md`
 - アフィ URL: `docs/ai-context/affiliate-registry.md`
+- 後段: 個人 Skill `git-commit-pr` / `git-merge-cleanup`
