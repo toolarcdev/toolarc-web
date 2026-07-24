@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-07-22 11:03（画像 Skill 振り分けを追記）
+最終更新: 2026-07-24 10:56（①後段を git-commit-pr / git-merge-cleanup に分離）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`、`[writing-rules.md](writing-rules.md)`、`[llm-forbidden-phrases.md](llm-forbidden-phrases.md)`、`[image-intent-map.md](image-intent-map.md)`
@@ -35,9 +35,14 @@ DailyNote / AI-log
   → ④ Claude: source.md / SEO・GSCメモ → 本文初稿・既存記事リライト案
   → （任意）ChatGPT: SEO・Output Contract レビュー
   → ① Cursor: content/blog + posts.ts + build + 公開日Get-Date確定（軽負債: series.ts / Hubリンク / promotion_status）
-  → ⑥: 公開反映を候補マスター・Dashboard・DailyNote に記録（debt カウンタ）
+  → git-commit-pr（A）: feature branch → commit → push → PR 作成で停止（マージしない）
+  → 人間: GitHub で差分確認
+  → git-merge-cleanup（B）: PR マージ → main 反映 → branch 整理 → 当日 DailyNote/AI-log 追記（両方既存時のみ）
+  → ⑥: 公開反映を候補マスター・Dashboard に記録（debt カウンタ）。DailyNote のマージ反映は B 側
   → ⑥ 水曜: 重負債原則2単位（Hub更新 / 昇格PR / 逆リンク）→ ①へ依頼
 ```
+
+**Git 後段 Skill（個人・①完了後）**: `git-commit-pr`（commit/PR・マージ禁止）→ 人間確認 → `git-merge-cleanup`（マージ＋整理＋当日 Vault 追記。DailyNote/AI-log 欠落時は追記スキップ＋通知のみ、マージは実行）。`publish-article` 単体では commit/PR/merge/Vault 追記をしない。
 
 上図は「DailyNote / AI-log に候補がある」ことを起点にする。その手前の**記事テーマの捕捉**は下記で行う（捕捉しないと⑥が拾えず、テーマ化が漏れる）。
 
@@ -123,11 +128,13 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - GSC・404 の調査（②）
 - Next.js 基盤の横断改修（③）
 - PoE2 / toolarc-api
+- commit / PR / merge / DailyNote・AI-log 追記（後段: `git-commit-pr` → 人間確認 → `git-merge-cleanup`）
 
 【参照】
 - docs/ai-context/content-folders.md（フォルダ・新規配置ルール）
 - docs/ai-context/project-context.md（記事制作ワークフロー）
 - lib/blog/posts.ts（既存 slug）
+- 個人 Skill: `git-commit-pr` / `git-merge-cleanup`
 - 依頼時は本文 MD のパスを明示してください
 
 【完了条件】
@@ -140,7 +147,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
   - スポークなら Hub へのリンク1本（/blog/[hubSlug]）
   - 候補マスターへ promotion_status: published_in_20 の記録（または⑥へ引き継ぎメモ）
   - 同日複数本は公開順クロスリンク
-- PRマージ後の締め: main 更新・マージ済 branch 削除の後、Cursor の Review を Keep All で確定（次バッチに旧 diff を残さない）
+- 次手案内: `git-commit-pr`（commit/PR）→ 人間が差分確認 → `git-merge-cleanup`（マージ＋branch整理＋当日 DailyNote/AI-log）。①単体では merge / Keep All までやらない
 
 準備できたら「① 記事公開、準備完了」とだけ返答してください。
 ```
@@ -157,6 +164,8 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 | 実機スクショに番号・矢印 | `annotate-screenshot`（偽UI生成禁止） |
 | OG／Series に日本語帯 | `bake-og-text`（Vault `blog-image-staging`） |
 | posts.ts・build・公開日 | `publish-article`（①） |
+| commit / PR（マージしない） | `git-commit-pr`（個人 Skill A） |
+| PRマージ・branch整理・当日 DailyNote/AI-log | `git-merge-cleanup`（個人 Skill B） |
 
 Claude 初稿の「画像提案」はジョブ票化まで。**その場で GenerateImage しない**（方式1）。WIP は Vault staging、`public/` は採用後のみ。
 
@@ -182,6 +191,7 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
 - content/blog/ への反映確認
 - lib/blog/posts.ts への slug 登録（Hub/シリーズなら lib/series/series.ts も）
 - npm run build の成功確認
+- （①完了後・別依頼）`git-commit-pr` → 人間確認 → `git-merge-cleanup`
 
 【公開日 — 実装時に確定】
 実装開始時に Get-Date -Format "yyyy-MM-dd" を実行し、
@@ -202,6 +212,19 @@ docs/ai-context/debt-paydown-workflow.md の①チェックリストに従う
 - アフィリエイトリンクは④文案どおり実装（ASP成果条件・単価の転載はしない）
 - アフィリエイト URL の正本: `docs/ai-context/affiliate-registry.md` / `lib/affiliate/programs/`
 ```
+
+### ①後段（commit/PR → マージ）依頼例
+
+```text
+commit/PRして
+```
+
+```text
+PRマージして。マージ後に当日 DailyNote / AI-log へ反映。
+PR: #<n>
+```
+
+path 指定は不要（B は Get-Date で当日ファイルを解決。欠落時は追記スキップ＋通知、マージは実行）。
 
 ### ① 導線リライトバッチ依頼テンプレ（既存記事・弱リンク差し替え）
 
