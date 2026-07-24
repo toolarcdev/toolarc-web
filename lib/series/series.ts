@@ -93,6 +93,8 @@ export const allSeries: readonly SeriesConfig[] = [
       "obsidian-nested-checklist-indent-tips",
       "obsidian-vault-folder-move-device-change-3points",
       "obsidian-checkbox-hotkey-settings",
+      "claude-todo-to-obsidian-checkbox",
+      "obsidian-dailynote-checklist-carryover",
     ],
     publishedAt: "2026-05-20",
   },
