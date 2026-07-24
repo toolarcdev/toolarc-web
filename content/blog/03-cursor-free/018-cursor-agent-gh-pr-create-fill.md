@@ -13,6 +13,7 @@ tags:
   - cursor-free
 site: toolarc.jp
 target: "Cursor AgentにGitHub操作を任せたい初心者・実践者"
+last_update: 2026-07-24
 ---
 
 # Cursor AgentにPR作成を依頼するなら--fillオプションが確実
@@ -67,7 +68,7 @@ Cursor Agent に GitHub 操作を任せるときは、**対話が発生しない
 
 ## 関連記事
 
-- [Cursor無料版はどこまで使える？（実測レビュー）](/blog/cursor-free)
+- Hub: [Cursor 開発ガイド｜初心者向けの始め方と読む順番](/blog/cursor-free)
 - [Cursor Agentは記事一括公開と基盤横断変更に絞って使う](/blog/cursor-agent-scope-tips)
 - [Cursor Agentが止まったときの再開と確認手順](/blog/cursor-agent-pause-recovery-tips)
 - [Vercel Previewを本番前に確認する理由｜PR単位でミスを防ぐ手順](/blog/nextjs-vercel-preview-check-tips)
@@ -75,4 +76,4 @@ Cursor Agent に GitHub 操作を任せるときは、**対話が発生しない
 
 ---
 
-> **免責**: 本記事は2026年6月時点の Cursor Agent および GitHub CLI（gh）の動作をもとに執筆しています。仕様は予告なく変更される場合があります。最新情報は[GitHub CLI 公式ドキュメント](https://cli.github.com/manual/gh_pr_create)をご確認ください。
+> **免責**: 本記事は 2026-07-24 時点の Cursor Agent および GitHub CLI（gh）の動作をもとに執筆しています（初出 2026-06）。仕様は予告なく変更される場合があります。最新情報は[GitHub CLI 公式ドキュメント](https://cli.github.com/manual/gh_pr_create)をご確認ください。
