@@ -11,6 +11,7 @@ tags:
   - toolarc
 site: toolarc.jp
 target: "Cursor を記事公開・サイト運用に使っている初心者〜中級者"
+last_update: 2026-07-24
 ---
 
 # Cursor Agentは記事一括公開と基盤横断変更に絞って使う
@@ -68,6 +69,7 @@ Cursor には **Agent モード**と **Composer モード**があります。ど
 
 ## 次に読む
 
+- Hub: [Cursor 開発ガイド｜初心者向けの始め方と読む順番](/blog/cursor-free)
 - [AIチャット6スロット固定でToolArcの役割混線を防ぐ方法](/blog/ai-chat-slot-separation-tips)
 - [公開後に既存記事へ相互リンクを逆更新する手順](/blog/cross-link-reverse-update-after-publish)
 - [Cursor Agentが止まったときの再開と確認手順](/blog/cursor-agent-pause-recovery-tips)
@@ -77,4 +79,4 @@ Cursor には **Agent モード**と **Composer モード**があります。ど
 
 ---
 
-> **免責**: 本記事は 2026-06-09 時点の情報をもとに執筆しています。Cursor の仕様・モード名・トークン消費の挙動は変更されることがあります。最新情報は Cursor 公式ドキュメントでご確認ください。
+> **免責**: 本記事は 2026-07-24 時点の情報をもとに執筆しています（初出 2026-06-09）。Cursor の仕様・モード名・トークン消費の挙動は変更されることがあります。最新情報は Cursor 公式ドキュメントでご確認ください。
