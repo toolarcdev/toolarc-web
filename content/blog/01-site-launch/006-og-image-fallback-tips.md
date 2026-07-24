@@ -110,9 +110,7 @@ export async function generateMetadata({ params }: Props) {
 
 - [og.png未配置時はresolveOgImageがdefault-ogにフォールバックする](/blog/resolve-og-image-fallback-to-default)
 
-OGP設定を含むSEO運用の全体像は、以下のHub記事にまとめています。
-
-→ [AI SEO運用 Hub（準備中）](/blog/ai-seo-hub)
+OGP設定を含むSEO運用の全体像は、関連する公開Tipsを横断して確認してください（専用 Hub は準備中）。
 
 ---
 
