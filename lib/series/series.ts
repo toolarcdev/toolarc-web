@@ -255,6 +255,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "ai-basics-before-chatgpt-claude-checklist",
       "chatgpt-claude-prompt-writing-comparison",
       "chatgpt-claude-business-writing-comparison",
+      "team-ai-portal-vs-comparison-tool-guide",
     ],
     publishedAt: "2026-06-28",
   },

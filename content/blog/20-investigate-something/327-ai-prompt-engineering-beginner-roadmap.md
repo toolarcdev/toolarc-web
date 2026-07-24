@@ -11,7 +11,7 @@ tags:
   - 初心者向け
 site: toolarc.jp
 target: "ChatGPT・Claudeのプロンプトの型が分からず伸び悩んでいる初心者"
-last_update: 2026-07-07
+last_update: 2026-07-24
 ---
 
 # プロンプトエンジニアリングを初心者が学ぶ順番｜ChatGPT・Claude実践付き
@@ -97,7 +97,7 @@ ChatGPTとClaudeの違いを、専門用語を避けて箇条書き5項目で説
 
 そんなときは、無料の範囲で方向性だけ確認してみる、という選択肢もあります。
 
-セミナー予約の前に押さえたい確認ポイントは、無料AIセミナー予約前に確認する3点（準備中）でも整理予定です。今回の型4要素で足りないと感じた項目を把握してから検討すると、判断がぶれにくくなります。
+セミナー予約の前に押さえたい確認ポイントは、[無料AIセミナー予約前に確認する3点](/blog/free-ai-seminar-checklist-before-booking-tips)で整理しています。今回の型4要素で足りないと感じた項目を把握してから検討すると、判断がぶれにくくなります。
 
 [無料セミナーで方向性を確認する](affiliate:ai-skill-academy:text-main)
 
@@ -118,9 +118,11 @@ ChatGPTとClaudeの違いを、専門用語を避けて箇条書き5項目で説
 - [ChatGPT・Claude・Cursorの違いと使い分けまとめ（Hub）](/blog/ai-tools-comparison)
 - [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips)
 - [Claude記事生成は「source.md」で精度が変わった](/blog/source-md-ai-writing)
+- [無料AIセミナー予約前に確認する3点](/blog/free-ai-seminar-checklist-before-booking-tips)
+- [ChatGPTとClaudeに同じ質問を投げる比較テンプレ](/blog/chatgpt-claude-same-prompt-comparison-template-tips)
 
 ※本記事と比較記事群とのつながりについては、[比較記事から周辺収益記事への導線設計](/blog/comparison-article-weak-link-funnel)でも解説しています。
 
 ---
 
-**免責**：セミナーの開催内容・日程・無料範囲は変更される場合があります。ChatGPT・Claudeの操作画面やプロンプトの型、モデルの仕様も変更されうるため、重要な判断は各公式ドキュメントでご確認ください。本記事は執筆時点（2026-07-07）の情報に基づいています。
+**免責**：セミナーの開催内容・日程・無料範囲は変更される場合があります。ChatGPT・Claudeの操作画面やプロンプトの型、モデルの仕様も変更されうるため、重要な判断は各公式ドキュメントでご確認ください。本記事は執筆時点（2026-07-24）の情報に基づいています。

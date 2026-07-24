@@ -2,7 +2,7 @@
 title: "ビジネス文書作成はChatGPTとClaudeどちら？用途別比較"
 description: "ChatGPTとClaudeでビジネス文書（メール・議事録・企画書）を作るとき、どちらが向いているか用途別に比較しました。定型メールに強いChatGPTと、長文構成に強いClaudeの傾向を比較表と向き不向きチェックリストで整理し、初心者が自分の用途で選べるよう解説します。"
 date: 2026-07-09
-last_update: 2026-07-09
+last_update: 2026-07-24
 tags:
   - ChatGPT
   - Claude
@@ -79,6 +79,8 @@ AIの基礎から整理したい方は→[AIの基礎を無料で学ぶ方法｜
 
 ChatGPT・Claude・Cursorを含めた全体像を知りたい方は、[ChatGPT・Claude・Cursorの違いと使い分けまとめ](/blog/ai-tools-comparison)も参考にしてください。文章下書きの工程全般を試したい方は、[AIブログ執筆の実務フロー｜source.mdから公開までの進め方](/blog/chatgpt-claude-blog-writing-howto)も参考にしてください。
 
+短いやり取りと長文整理のどちらから試すか迷う方は、[ChatGPT ProjectsとClaudeの長文整理、どちらから試す？](/blog/chatgpt-projects-vs-claude-longtext-start-tips)を、長文を渡す前の準備だけ先に固めたい方は[Claudeに長文を渡す前の3行要約ルール](/blog/claude-longtext-3line-summary-before-paste-tips)を参考にしてください。
+
 ---
 
-ChatGPT・Claudeの仕様や料金、利用上限は今後変更される可能性があります。本文の比較は筆者が実際に試した範囲での傾向であり、断定するものではありません。本記事は執筆時点（2026-07-09）の情報に基づいています。
+ChatGPT・Claudeの仕様や料金、利用上限は今後変更される可能性があります。本文の比較は筆者が実際に試した範囲での傾向であり、断定するものではありません。本記事は執筆時点（2026-07-24）の情報に基づいています。
