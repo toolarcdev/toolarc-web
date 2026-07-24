@@ -71,6 +71,7 @@ intake・DailyNote・編集対象（dashboard / gsc-weekly-log / ctr-rewrite-que
 | 候補マスター | `D:\ObsidianVault\Vault\00-dashboard\toolarc_1min_tips_article_candidates.md` |
 | Inbox | `D:\ObsidianVault\Vault\04-Tips\inbox`（必要分） |
 | revenue-signals | `D:\ObsidianVault\Vault\00-dashboard\revenue-signals.md` |
+| Active Board | `D:\ObsidianVault\Vault\00-dashboard\active-tasks.md`／`done-tasks-log.md`（週枠未同期の保険のみ） |
 | matrix | `node D:\ObsidianVault\Vault\00-dashboard\_classify_audience_axis.mjs` |
 | 分類 | `node D:\ObsidianVault\Vault\00-dashboard\_classify_title.mjs "…"` |
 
@@ -97,6 +98,7 @@ intake・DailyNote・編集対象（dashboard / gsc-weekly-log / ctr-rewrite-que
    - 接続型リンクは触らない。PR/commit はユーザー依頼時のみ（他のコード変更とまとめて可）
 7. 公開キュー＋シリーズ化（週次範囲）
 8. 負債原則 **2単位** → ①依頼
+8.5. **レーンB週枠・完了同期（保険）**: `active-tasks` 週枠のうち、手順が `closed`／引き継ぎ済みなのに Board に残っている行があれば運用設計 §6（削除＋`done-tasks-log`＋任意残切出し）。毎回の棚卸しはしない。正本: Vault `タスク管理_ActiveBoard/運用設計` §6.1（案D）
 9. intake `⑥転記完了` 等を `[x]`
 10. 完了報告。AI-log パスがある日だけ末尾転記
 

@@ -41,6 +41,7 @@ description: >-
 5. 公開フォーカス3件を選び、DailyNote「明日やること」・Dashboard・該当 inbox `publish_date`（翌日）を同期（勝ち2+柔軟1）
 6. `ctr-rewrite-queue` の「表示用」を Dashboard「CTRリライト候補」へ転記（GSC再取得しない）
 7. debt/HUB広範囲は水曜へ。当日公開や①引き継ぎがあるときだけ軽く補完
+7.5. **レーンB完了同期（保険・軽量）**: 当日 AI-log／DailyNote で手順が `closed` なのに `active-tasks` 週枠が残っていたら、運用設計 §6（Board削除＋`done-tasks-log`追記＋任意残の単発切出し）を実行。毎回 Board 全文は読まない。正本: Vault `タスク管理_ActiveBoard/運用設計` §6.1（案D）
 8. 実施サマリ・変更ファイル・主要変更・実行後チェック・明日の推奨を短く報告
 9. **AI-log 転記（プロンプトに AI-log パスがある日だけ）**: 手順8の完了報告を当日 AI-log 末尾へ転記する。パス指定が無い日は転記しない（DailyNote への報告のみ）
 
@@ -52,6 +53,7 @@ description: >-
 - Inbox: `D:\ObsidianVault\Vault\04-Tips\inbox`（必要ファイルだけ）
 - 分類: `node D:\ObsidianVault\Vault\00-dashboard\_classify_title.mjs "記事タイトル"`
 - CTRキュー: `D:\ObsidianVault\Vault\00-dashboard\ctr-rewrite-queue.md`
+- Active Board（必要時のみ）: `D:\ObsidianVault\Vault\00-dashboard\active-tasks.md`／`done-tasks-log.md`
 
 ## inbox必須処理
 
