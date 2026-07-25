@@ -37,7 +37,7 @@ export function CtaButton({
       {...anchorProps}
       href={href}
       onClick={onClick}
-      className={`my-6 flex w-full max-w-xl items-center justify-center rounded-lg px-5 py-3.5 text-center text-sm font-semibold leading-6 transition-colors sm:text-base ${VARIANT_CLASS[variant]}`}
+      className={`mx-auto my-6 flex w-full max-w-xl items-center justify-center rounded-lg px-5 py-3.5 text-center text-sm font-semibold leading-6 transition-colors sm:text-base ${VARIANT_CLASS[variant]}`}
     >
       {children}
     </a>
