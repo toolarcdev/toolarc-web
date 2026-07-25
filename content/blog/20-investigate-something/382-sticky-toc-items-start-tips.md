@@ -63,7 +63,7 @@ TOC 単体の設定に問題がない場合、上から3番目・4番目の項�
 
 ## まとめ・次に読む
 
-sticky が効かないときのチェック順は、TOC 自体 → 祖先の overflow → 親グリッドの縦揃え、の3段階で考えると原因にたどり着きやすくなります。Next.js/Vercel 側のレイアウト・反映トラブルは、[Vercel で Preview だけ更新されて Production に反映されないときの確認手順](/blog/vercel-production-not-reflecting-tips) でも似た「効かない・反映されない」系の確認手順をまとめています。
+sticky が効かないときのチェック順は、TOC 自体 → 祖先の overflow → 親グリッドの縦揃え、の3段階で考えると原因にたどり着きやすくなります。TOCクリックで見出しがヘッダーに隠れる場合は、[scroll-marginの二重適用を疑う手順](/blog/scroll-margin-toc-heading-hidden)も参照してください。Next.js/Vercel 側のレイアウト・反映トラブルは、[Vercel で Preview だけ更新されて Production に反映されないときの確認手順](/blog/vercel-production-not-reflecting-tips) でも似た「効かない・反映されない」系の確認手順をまとめています。
 
 同日公開の次記事として、本文先頭のタイトル二重表示と CRLF の切り分けも整理しています。
 

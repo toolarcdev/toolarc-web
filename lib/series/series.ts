@@ -90,6 +90,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "obsidian-checkmark-to-checkbox",
       "obsidian-checkbox-uncheck-3steps",
       "obsidian-appearance-theme-change-3steps",
+      "obsidian-css-font-size-only",
       "obsidian-nested-checklist-indent-tips",
       "obsidian-vault-folder-move-device-change-3points",
       "obsidian-checkbox-hotkey-settings",
