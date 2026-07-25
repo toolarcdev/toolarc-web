@@ -1853,6 +1853,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "cursor-cli-install-basics": {
+    contentId: "03-cursor-free",
+    markdownFile: "038-cursor-cli-install-basics.md",
+    imageBasePath: "/images/blog/030-cursor-free",
+    publishedAt: "2026-07-25",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
