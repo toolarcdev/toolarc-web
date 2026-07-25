@@ -12,7 +12,7 @@ tags:
   - Cursor開発
 site: toolarc.jp
 target: "Cursorで毎回同じ前提指示を貼り直している初心者〜中級者"
-last_update: 2026-07-14
+last_update: 2026-07-25
 ---
 
 # Cursor Rules 完全ガイド｜.cursor/rulesの書き方・テンプレ・失敗例
@@ -21,7 +21,7 @@ Cursorに毎回「TypeScriptで書いて」「コメントは日本語で」「�
 
 筆者も、チャットごとに同じ前提を書いては漏らし、意図と違う編集が増える経験をしました。プロジェクト側にルールを置くと、その貼り直しコストをかなり減らせます。
 
-本記事は Cursor 開発シリーズの **Spoke #1（Rules）** です。配置の考え方、コピペで使えるテンプレ3種、よくある失敗と確認手順までをまとめます。シリーズ全体の入口は [Cursor無料版はどこまで使える？](/blog/cursor-free)（Hub・執筆時点では開発ガイド化が進行中）を参照してください。
+本記事は Cursor 開発シリーズの **Spoke #1（Rules）** です。配置の考え方、コピペで使えるテンプレ3種、よくある失敗と確認手順までをまとめます。シリーズ全体の入口は [Cursor 開発ガイド｜初心者向けの始め方と読む順番](/blog/cursor-free) を参照してください。
 
 > **この記事の結論**
 > - `.cursor/rules/` にルールを置くと、毎回の前提指示の貼り直しが不要になります
@@ -193,14 +193,14 @@ alwaysApply: false
 
 | 順番 | 内容 | リンク |
 | --- | --- | --- |
-| Hub | シリーズ入口（現状は無料版レビューHub。開発ガイド化は別途進行） | [Cursor無料版はどこまで使える？](/blog/cursor-free) |
+| Hub | シリーズ入口（読む順番と隣クラスターへの分岐） | [Cursor 開発ガイド｜初心者向けの始め方と読む順番](/blog/cursor-free) |
 | #1 | Rules（本記事） | いまここ |
 | #3 | Settings おすすめ設定一覧 | [Cursor Settings おすすめ設定一覧](/blog/cursor-recommended-settings-tips) |
 | #6 | `@` 参照の使い方 | [ファイル・フォルダの参照 Tips](/blog/cursor-reference-file-prompt-tips) |
 | #7 | `.cursorignore` | [.cursorignore で token・コンテキストを抑える](/blog/cursor-cursorignore-token-context) |
-| #2 | モード使い分け（Ask / Plan / Agent など） | 準備中（W2予定） |
+| #2 | モード使い分け（Ask / Plan / Agent など） | [Cursorモード使い分けガイド](/blog/cursor-plan-mode-modify-before-build-tips) |
 
-Ask・Plan・Agent の個別 Tips は次も公開済みです（統合ガイドは準備中）。
+モードごとの個別 Tips は次も公開済みです。
 
 - [Ask モード Tips](/blog/cursor-ask-mode-tips)
 - [Plan モードでビルド前に修正する Tips](/blog/cursor-plan-mode-modify-before-build-tips)
@@ -214,7 +214,7 @@ Ask・Plan・Agent の個別 Tips は次も公開済みです（統合ガイド�
 - `.cursor/rules/` に前提を置くと、毎回の説明コストを下げられます
 - テンプレは「全体用」「特定ファイル用」「手動参照用」の3つで始めれば十分です
 - 失敗の多くは、常時適用の増やしすぎ・重複・未確認のまま継続、に集約されます
-- シリーズの入口へ戻るなら [Cursor Hub（cursor-free）](/blog/cursor-free) から、次の Spoke へ進んでください
+- シリーズの入口へ戻るなら [Cursor 開発ガイド](/blog/cursor-free) から、次の Spoke へ進んでください
 
 ### FAQ
 
@@ -229,4 +229,4 @@ A. 常時適用のルールが多いほど、チャットごとに前提とし�
 
 ---
 
-本記事は **執筆時点（2026-07-14）** の Cursor 利用経験と、一般に公開されているドキュメントの読み方をもとにしています。`.cursor/rules` の読み込み仕様・UI名・プラン制限はアップデートで変わります。`AGENTS.md`／`CLAUDE.md`／`.cursor/rules` の優先関係について、未確認の事項を「公式仕様」として断定はしていません。重要な設定変更の前に、[Cursor 公式ドキュメント](https://docs.cursor.com) で最新情報を確認してください。
+本記事は **執筆時点（2026-07-25。初出 2026-07-14）** の Cursor 利用経験と、一般に公開されているドキュメントの読み方をもとにしています。`.cursor/rules` の読み込み仕様・UI名・プラン制限はアップデートで変わります。`AGENTS.md`／`CLAUDE.md`／`.cursor/rules` の優先関係について、未確認の事項を「公式仕様」として断定はしていません。重要な設定変更の前に、[Cursor 公式ドキュメント](https://docs.cursor.com) で最新情報を確認してください。
