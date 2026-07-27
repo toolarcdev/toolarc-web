@@ -96,6 +96,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "obsidian-checkbox-hotkey-settings",
       "claude-todo-to-obsidian-checkbox",
       "obsidian-dailynote-checklist-carryover",
+      "obsidian-strikethrough-completed-tasks",
     ],
     publishedAt: "2026-05-20",
   },
