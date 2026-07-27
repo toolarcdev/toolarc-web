@@ -1885,6 +1885,30 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "obsidian-shortcut-ime": {
+    contentId: "20-investigate-something",
+    markdownFile: "397-obsidian-shortcut-ime.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-27",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
+  "card-margin-unit": {
+    contentId: "20-investigate-something",
+    markdownFile: "398-card-margin-unit.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-27",
+    ogImage: "og.png",
+    category: "tool",
+  },
+  "h2-underline-brand-accent": {
+    contentId: "20-investigate-something",
+    markdownFile: "399-h2-underline-brand-accent.md",
+    imageBasePath: "/images/blog/20-investigate-something",
+    publishedAt: "2026-07-27",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
