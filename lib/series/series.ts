@@ -126,6 +126,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-strengths-weaknesses",
       "cursor-claude-usecase-comparison",
       "cursor-chatgpt-usecase-comparison",
+      "cursor-model-selection-guide",
       "cursor-auto-manual-model-quality-tips",
       "cursor-free-plan-tips",
       "cursor-token-heavy-tasks",

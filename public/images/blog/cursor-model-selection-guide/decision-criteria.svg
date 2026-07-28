@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <style>
+      .title { font: 700 34px "Segoe UI", sans-serif; fill:#1e293b; }
+      .subtitle { font: 400 18px "Segoe UI", sans-serif; fill:#64748b; }
+      .label { font: 700 20px "Segoe UI", sans-serif; fill:#1e293b; text-anchor:middle; }
+      .desc { font: 15px "Segoe UI", sans-serif; fill:#64748b; text-anchor:middle; }
+      .box { fill:#f8fbff; stroke:#60a5fa; stroke-width:2; rx:16; }
+      .center { fill:#60a5fa; }
+      .centerText { font:700 24px "Segoe UI", sans-serif; fill:white; text-anchor:middle; dominant-baseline:middle;}
+      .line { stroke:#93c5fd; stroke-width:2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="800" fill="white"></rect>
+
+  <text x="600" y="60" class="title" text-anchor="middle">
+    Cursorモデル選び 5つの判断軸
+  </text>
+
+  <text x="600" y="92" class="subtitle" text-anchor="middle">
+    用途に応じて最適なモデルを選択するための基本チェックポイント
+  </text>
+
+  <!-- Connector lines -->
+  <line x1="600" y1="400" x2="600" y2="180" class="line"></line>
+  <line x1="600" y1="400" x2="920" y2="280" class="line"></line>
+  <line x1="600" y1="400" x2="800" y2="610" class="line"></line>
+  <line x1="600" y1="400" x2="400" y2="610" class="line"></line>
+  <line x1="600" y1="400" x2="280" y2="280" class="line"></line>
+
+  <!-- Center -->
+  <circle cx="600" cy="400" r="72" class="center"></circle>
+  <text x="600" y="395" class="centerText">モデル</text>
+  <text x="600" y="425" class="centerText">選定</text>
+
+  <!-- Top -->
+  <rect x="470" y="110" width="260" height="90" class="box"></rect>
+  <text x="600" y="145" class="label">💻 コーディング精度</text>
+  <text x="600" y="172" class="desc">生成品質・バグ修正・設計力</text>
+
+  <!-- Right -->
+  <rect x="840" y="230" width="260" height="90" class="box"></rect>
+  <text x="970" y="265" class="label">⚡ 応答速度</text>
+  <text x="970" y="292" class="desc">待ち時間・作業テンポ</text>
+
+  <!-- Bottom Right -->
+  <rect x="700" y="590" width="260" height="90" class="box"></rect>
+  <text x="830" y="625" class="label">🤖 エージェント適性</text>
+  <text x="830" y="652" class="desc">長時間・自律タスク向け</text>
+
+  <!-- Bottom Left -->
+  <rect x="240" y="590" width="260" height="90" class="box"></rect>
+  <text x="370" y="625" class="label">💰 コスト効率</text>
+  <text x="370" y="652" class="desc">料金・利用量・コスパ</text>
+
+  <!-- Left -->
+  <rect x="100" y="230" width="260" height="90" class="box"></rect>
+  <text x="230" y="265" class="label">📄 コンテキスト処理</text>
+  <text x="230" y="292" class="desc">長文・大量コードへの強さ</text>
+
+</svg>
