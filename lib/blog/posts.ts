@@ -1933,6 +1933,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "cursor-model-selection-guide": {
+    contentId: "20-investigate-something",
+    markdownFile: "403-cursor-model-selection-guide.md",
+    imageBasePath: "/images/blog/cursor-model-selection-guide",
+    publishedAt: "2026-07-29",
+    ogImage: "cursor-task-models-2026-07.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

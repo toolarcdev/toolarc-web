@@ -37,7 +37,10 @@ function resolveImageSrc(src: string | undefined, imageBasePath: string): string
 }
 
 /** 本文幅いっぱいだと不自然に見えるスクリーンショット（ファイル名で判定） */
-const COMPACT_IMAGE_FILES = new Set(["02-example-source-claude.png"]);
+const COMPACT_IMAGE_FILES = new Set([
+  "02-example-source-claude.png",
+  "cursor-task-models-2026-07.png",
+]);
 
 /** 画像ごとの alt / キャプション（読者向けの説明） */
 const IMAGE_META: Record<string, { alt: string; caption: string }> = {
