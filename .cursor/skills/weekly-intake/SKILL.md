@@ -58,6 +58,18 @@ D:\ObsidianVault\Vault\01_Daily\2607\260722
 Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`  
 探索で必須が欠けたら **HOLD**（どれが欠けているか列挙。サイトログインはしない）。
 
+### 週次分析 CSV（`analyze:weekly` 出力・優先）
+
+②の前に `cd c:\projects\seo-data-collector && npm run analyze:weekly` 済みを前提（未実行なら §2/テーマ/主クエリはフォールバック）。
+
+| 用途 | パス（直近の日付ファイル） | intake への載せ方 |
+|------|---------------------------|-------------------|
+| **A-OPP**（§2 本線） | `analysis/a-opp/a-opp-candidates-YYYY-MM-DD.csv` | §2 表を埋める。**page-daily 手抽出はフォールバック** |
+| **A-THEME** | `analysis/a-theme/a-theme-YYYY-MM-DD.csv` | §1 判断1行の根拠、または §3 にシェア・WoW・**win3_total** を要約 |
+| **A-PQMAP** | `analysis/a-pqmap/a-pqmap-pages-YYYY-MM-DD.csv` | §2 の各候補に **primary_query** を付記（slug 突合） |
+
+仕様: Vault `GSC分析仕様書（骨子）` / `GSC分析 設計書兼作業管理表`。
+
 ## 正本
 
 | 層 | パス |
@@ -72,18 +84,22 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 
 1. 作業フォルダ解決 → 自動探索 → 欠損があれば HOLD
 2. `weekly-intake-YYYY-MM-DD.md` をテンプレから作成（無ければ）
-3. **Collector**: 完全窓 weekly MD → §1 Performance。`page-daily.csv` → §2。クエリ上位10〜15 → §1.5。ページ表示上位 → **§1.6**（人気スロット約3 slug）
-4. §1.5 統合クラスタ → **§5 選抜3件（勝ち≤1）**。§1 KPI クエリ3件は別記載可
-5. **Coverage**: 索引系。最終更新 ≤ 前週水 → `更新なし（最終更新: …）`
-6. **ASP**（CP932・直近3か月前提のCSV）: 合算 → §4（期間日付必須）。もしも CTR>100% なら汚染疑い
-7. 判断1行・先週比（dashboard 前週列）。§5.1 は触らない
-8. §0 `②受領完了`。変更計画 → 承認後編集（運用どおり）
+3. **Collector**: 完全窓 weekly MD → §1 Performance。クエリ上位10〜15 → §1.5。ページ表示上位 → **§1.6**（人気スロット約3 slug）
+4. **§2 CTRキュー**: 優先 `analysis/a-opp/a-opp-candidates-*.csv`（最新 asOf）。無ければ `page-daily.csv` 手集計フォールバック。A-PQMAP pages CSV があれば候補に `primary_query` を付記
+5. **A-THEME**: `a-theme-*.csv` があれば §3（または判断1行）にシェア・WoW・勝ち3（`win3_total`）を載せる
+6. §1.5 統合クラスタ → **§5 選抜3件（勝ち≤1）**。§1 KPI クエリ3件は別記載可
+7. **Coverage**: 索引系。最終更新 ≤ 前週水 → `更新なし（最終更新: …）`
+8. **ASP**（CP932・直近3か月前提のCSV）: 合算 → §4（期間日付必須）。もしも CTR>100% なら汚染疑い
+9. 判断1行・先週比（dashboard 前週列）。§5.1 は触らない
+10. §0 `②受領完了`。変更計画 → 承認後編集（運用どおり）
 
 ## 完了報告（短く）
 
 - 作業フォルダ / intake パス
 - 自動探索で使った ZIP・CSV 名
+- analyze:weekly 参照有無（A-OPP / A-THEME / A-PQMAP）
 - §1 要約 / Coverage 更新なし有無 / ASP N/10
 - §1.6 人気スロット候補 slug（あれば）
+- §2 件数 + primary_query 付与有無
 - §5 選抜3件
 - 次: ⑤（§5 のみ）→ 新規チャットで `週次メンテナンス続き`（＋同じフォルダパス）
