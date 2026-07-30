@@ -90,6 +90,9 @@ intake・DailyNote・編集対象（dashboard / gsc-weekly-log / ctr-rewrite-que
 3. matrix 再生成
 4. reader 健全性（最小限）
 5. KPI 転記（DailyNote / dashboard / gsc-weekly-log / ctr-rewrite-queue+F / §4）
+   - **§2 → キュー**: intake §2 を [[ctr-rewrite-queue]] へ**人間ゲート転記**（自動上書き禁止。A-OPP CSV 由来でも同じ）。表示用＋ dashboard F も同様
+   - **A-THEME**: intake にテーマROI／勝ち3があれば、判断1行・量産配分メモの根拠に1行参照（完了報告に「A-THEME参照」と書く）
+   - **A-PQMAP**: §2 に `primary_query` がある候補は、深掘り時に `analysis/a-pqmap/` を見て **meta（一致）/ body・派生（不一致・副意図）** をメモ（キュー自動変更はしない）
 6. **人気スロット更新**（記事末「よく読まれている記事」）:
    - 入力: intake **§1.6**（無ければ HOLD せず仮データのまま継続可。初回本番切替時は必須）
    - 編集: `c:\projects\toolarc-web\lib\blog\popular-articles.ts`
@@ -106,6 +109,8 @@ intake・DailyNote・編集対象（dashboard / gsc-weekly-log / ctr-rewrite-que
 
 - 作業フォルダ / ガード結果
 - 柱C件数・GSC・ASP N/10・負債2単位
+- CTRキュー転記: 件数 / A-OPP由来か / 人間ゲート確認
+- A-THEME 配分参照: あり／なし
 - 人気スロット: 更新した slug 3件 / 仮のまま据え置き / HOLD理由
 - 変更ファイル一覧
 - ①依頼文言
