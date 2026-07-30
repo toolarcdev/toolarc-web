@@ -3,7 +3,7 @@
 
 Inputs (job mode):
   <job>/raw/*.png          — source (never overwritten)
-  <job>/copy.json          — {"main": "...", "sub": "...", "accent": "#60a5fa"}
+  <job>/copy.json          — {"main": "...", "sub": "...", "accent": "#60a5fa", "scale": 1.0}
 Outputs:
   <job>/baked/<stem>-ja.png
 
@@ -32,6 +32,7 @@ def load_copy(path: Path) -> dict:
         raise SystemExit("copy.json requires non-empty 'main'")
     data.setdefault("sub", "")
     data.setdefault("accent", "#60a5fa")
+    data.setdefault("scale", 1.0)
     return data
 
 
@@ -42,6 +43,7 @@ def bake_one(
     sub: str,
     accent: str,
     font_path: str,
+    scale: float = 1.0,
 ) -> None:
     try:
         from PIL import Image, ImageDraw, ImageFont
@@ -50,33 +52,48 @@ def bake_one(
             "Pillow is required: pip install pillow\n" + str(e)
         ) from e
 
+    if scale <= 0:
+        raise SystemExit(f"scale must be > 0, got {scale}")
+
     img = Image.open(src).convert("RGBA")
     w, h = img.size
     overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    band_h = max(int(h * 0.28), 120)
+    size_main = max(int(h * 0.055 * scale), 28)
+    size_sub = max(int(h * 0.032 * scale), 18) if sub else 0
+    gap = max(int(8 * scale), 6)
+
+    try:
+        font_main = ImageFont.truetype(font_path, size_main)
+        font_sub = ImageFont.truetype(font_path, size_sub) if sub else None
+    except OSError as e:
+        raise SystemExit(f"Cannot load font: {font_path}\n{e}") from e
+
+    bb_m = font_main.getbbox(main)
+    main_h = bb_m[3] - bb_m[1]
+    sub_h = 0
+    if sub and font_sub is not None:
+        bb_s = font_sub.getbbox(sub)
+        sub_h = bb_s[3] - bb_s[1]
+    else:
+        bb_s = (0, 0, 0, 0)
+    text_block = main_h + (gap + sub_h if sub else 0)
+    pad_y = max(int(h * 0.02 * min(scale, 1.5)), 10)
+    min_ratio = 0.22 if scale >= 1.5 else 0.28
+    band_h = max(int(h * min_ratio), 120, text_block + pad_y * 2)
+    # Keep diagram visible: band must not exceed ~42% of frame
+    band_h = min(band_h, int(h * 0.42))
     y0 = h - band_h
     r, g, b = parse_hex(accent)
     draw.rectangle([(0, y0), (w, h)], fill=(r, g, b, 230))
 
-    # Prefer Noto / Yu Gothic / Meiryo / MS Gothic
-    font_main = None
-    font_sub = None
-    size_main = max(int(h * 0.055), 28)
-    size_sub = max(int(h * 0.032), 18)
-    try:
-        font_main = ImageFont.truetype(font_path, size_main)
-        font_sub = ImageFont.truetype(font_path, size_sub)
-    except OSError as e:
-        raise SystemExit(f"Cannot load font: {font_path}\n{e}") from e
-
-    margin_x = int(w * 0.05)
-    text_y = y0 + int(band_h * 0.28)
+    margin_x = int(w * 0.04)
+    text_y = y0 + (band_h - text_block) // 2 - bb_m[1]
     draw.text((margin_x, text_y), main, fill=(255, 255, 255, 255), font=font_main)
-    if sub:
+    if sub and font_sub is not None:
         draw.text(
-            (margin_x, text_y + size_main + 8),
+            (margin_x, text_y + main_h + gap - bb_s[1]),
             sub,
             fill=(255, 255, 255, 230),
             font=font_sub,
@@ -113,9 +130,10 @@ def run_job(job: Path, font: str, only: str | None) -> int:
         main = overrides.get("main", copy["main"])
         sub = overrides.get("sub", copy.get("sub", ""))
         accent = overrides.get("accent", copy.get("accent", "#60a5fa"))
+        scale = float(overrides.get("scale", copy.get("scale", 1.0)))
         dest = baked_dir / f"{src.stem}-ja.png"
-        bake_one(src, dest, main, sub, accent, font)
-        print(f"wrote {dest}")
+        bake_one(src, dest, main, sub, accent, font, scale=scale)
+        print(f"wrote {dest} (scale={scale})")
     return 0
 
 
@@ -127,6 +145,7 @@ def main(argv: list[str]) -> int:
     p.add_argument("--main", type=str, help="Main text (single mode)")
     p.add_argument("--sub", type=str, default="", help="Sub text (single mode)")
     p.add_argument("--accent", type=str, default="#60a5fa")
+    p.add_argument("--scale", type=float, default=1.0, help="Font size multiplier")
     p.add_argument("--font", type=str, required=True, help="Path to CJK font file")
     p.add_argument("--only", type=str, default=None, help="Only bake one raw filename/stem")
     args = p.parse_args(argv)
@@ -136,7 +155,15 @@ def main(argv: list[str]) -> int:
 
     if not (args.input and args.output and args.main):
         raise SystemExit("Use --job, or --input --output --main together")
-    bake_one(args.input, args.output, args.main, args.sub, args.accent, args.font)
+    bake_one(
+        args.input,
+        args.output,
+        args.main,
+        args.sub,
+        args.accent,
+        args.font,
+        scale=args.scale,
+    )
     print(f"wrote {args.output}")
     return 0
 
