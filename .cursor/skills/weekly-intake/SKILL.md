@@ -2,8 +2,9 @@
 name: weekly-intake
 description: >-
   Builds ToolArc Wednesday weekly-intake (slot ② / Skill A) from GSC collector
-  plus Coverage ZIP and ASP CSVs auto-discovered in the work folder. Triggers on
-  short prompts: 週次メンテナンス実行, 週次インテーク, weekly-intake, Skill A;
+  plus Coverage ZIP and ASP CSVs auto-discovered in the work folder. On trigger,
+  runs `npm run analyze:weekly` then fills intake. Triggers on short prompts:
+  週次メンテナンス実行, 週次インテーク, weekly-intake, Skill A;
   optional work-folder path on the next line. On Wednesday, path may be omitted
   (resolves 01_Daily/YYMM/YYMMDD from Get-Date). Not for Skill B Commit, daily
   maintenance, or reader-theme batch (⑤).
@@ -58,9 +59,12 @@ D:\ObsidianVault\Vault\01_Daily\2607\260722
 Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`  
 探索で必須が欠けたら **HOLD**（どれが欠けているか列挙。サイトログインはしない）。
 
-### 週次分析 CSV（`analyze:weekly` 出力・優先）
+### 週次分析（`analyze:weekly`）— Skill 内で実行
 
-②の前に `cd c:\projects\seo-data-collector && npm run analyze:weekly` 済みを前提（未実行なら §2/テーマ/主クエリはフォールバック）。
+- **いつ**: 人間が本 Skill を発動したとき（週次メンテ②）。**固定時刻は無し**。スケジューラ登録もしない
+- **誰が起動**: 人間が「週次メンテナンス実行」等で指示 → **Agent が Skill 手順の中で** `npm run analyze:weekly` を実行する（②の事前手動実行は不要）
+- **コマンド**: `cd c:\projects\seo-data-collector && npm run analyze:weekly`（必要なら `--as-of=YYYY-MM-DD`）
+- **失敗時**: ログを短く報告し、§2/テーマ/主クエリは `page-daily` 等へフォールバック（intake 全体は止めない）
 
 | 用途 | パス（直近の日付ファイル） | intake への載せ方 |
 |------|---------------------------|-------------------|
@@ -84,20 +88,21 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 
 1. 作業フォルダ解決 → 自動探索 → 欠損があれば HOLD
 2. `weekly-intake-YYYY-MM-DD.md` をテンプレから作成（無ければ）
-3. **Collector**: 完全窓 weekly MD → §1 Performance。クエリ上位10〜15 → §1.5。ページ表示上位 → **§1.6**（人気スロット約3 slug）
-4. **§2 CTRキュー**: 優先 `analysis/a-opp/a-opp-candidates-*.csv`（最新 asOf）。無ければ `page-daily.csv` 手集計フォールバック。A-PQMAP pages CSV があれば候補に `primary_query` を付記
-5. **A-THEME**: `a-theme-*.csv` があれば §3（または判断1行）にシェア・WoW・勝ち3（`win3_total`）を載せる
-6. §1.5 統合クラスタ → **§5 選抜3件（勝ち≤1）**。§1 KPI クエリ3件は別記載可
-7. **Coverage**: 索引系。最終更新 ≤ 前週水 → `更新なし（最終更新: …）`
-8. **ASP**（CP932・直近3か月前提のCSV）: 合算 → §4（期間日付必須）。もしも CTR>100% なら汚染疑い
-9. 判断1行・先週比（dashboard 前週列）。§5.1 は触らない
-10. §0 `②受領完了`。変更計画 → 承認後編集（運用どおり）
+3. **週次分析**: `cd c:\projects\seo-data-collector && npm run analyze:weekly` を実行し、`analysis/a-opp|a-theme|a-pqmap/` の出力を確認
+4. **Collector**: 完全窓 weekly MD → §1 Performance。クエリ上位10〜15 → §1.5。ページ表示上位 → **§1.6**（人気スロット約3 slug）
+5. **§2 CTRキュー**: 優先 `analysis/a-opp/a-opp-candidates-*.csv`（最新 asOf）。無ければ `page-daily.csv` 手集計フォールバック。A-PQMAP pages CSV があれば候補に `primary_query` を付記
+6. **A-THEME**: `a-theme-*.csv` があれば §3（または判断1行）にシェア・WoW・勝ち3（`win3_total`）を載せる
+7. §1.5 統合クラスタ → **§5 選抜3件（勝ち≤1）**。§1 KPI クエリ3件は別記載可
+8. **Coverage**: 索引系。最終更新 ≤ 前週水 → `更新なし（最終更新: …）`
+9. **ASP**（CP932・直近3か月前提のCSV）: 合算 → §4（期間日付必須）。もしも CTR>100% なら汚染疑い
+10. 判断1行・先週比（dashboard 前週列）。§5.1 は触らない
+11. §0 `②受領完了`。変更計画 → 承認後編集（運用どおり）
 
 ## 完了報告（短く）
 
 - 作業フォルダ / intake パス
 - 自動探索で使った ZIP・CSV 名
-- analyze:weekly 参照有無（A-OPP / A-THEME / A-PQMAP）
+- analyze:weekly 実行結果（asOf / ran / skipped）
 - §1 要約 / Coverage 更新なし有無 / ASP N/10
 - §1.6 人気スロット候補 slug（あれば）
 - §2 件数 + primary_query 付与有無
