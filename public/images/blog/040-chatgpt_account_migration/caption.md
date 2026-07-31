@@ -404,3 +404,33 @@ ChatGPTにはアカウント間の公式履歴移行機能はありません。�
 - 低品質生成 `checklist-same-vs-other-account-diagram.png` は**不採用**（ファイルは残置・参照なし）
 - Markdown: `007-chatgpt-account-migration-checklist.md`
 
+---
+
+# 12. Hub 分岐地図セクション（chatgpt-account-migration・流用）
+
+## ファイル
+
+- `pattern-comparison-both.png`（**新規生成なし・既存流用**）
+
+## 使用箇所
+
+- `/blog/chatgpt-account-migration` 本文「あなたはどちら？｜ここから読み進めます」H2 内
+- 分岐リンク3本の**下**に配置（モバイルで先にリンクが見えるようにするため）
+
+## 経緯
+
+- 2026-07-31 MIG-HubSubHub Step1（Hub を分岐地図へ改稿）で追加
+- 流用ゲート: 同 `imageBasePath` を確認し、「同アカウント機種変更 / 別アカウント移行」の2分岐を示す本図を採用。**生成・後編集なし**
+- これで本図の参照は4か所（003 本文2・Series hero・007 OG/本文・001 本文）
+
+## alt text
+
+```md
+同じアカウントでの機種変更（パターン1）と、別アカウントへの移行（パターン2）で手順が分かれることを示した比較図
+```
+
+## 未対応（任意タスク）
+
+- Hub 固有の分岐図（A＝これから引き継ぐ／B＝履歴が見当たらない の2パネル）は**未作成**。作る場合は `generate-decision-diagram`
+- `chatgpt-history-missing-device-change`（SubHub-B）は `imageBasePath` が `20-investigate-something` の汎用 `og.png`。専用 OG は未作成
+
