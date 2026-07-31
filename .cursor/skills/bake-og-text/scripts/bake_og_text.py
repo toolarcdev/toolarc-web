@@ -33,6 +33,7 @@ def load_copy(path: Path) -> dict:
     data.setdefault("sub", "")
     data.setdefault("accent", "#60a5fa")
     data.setdefault("scale", 1.0)
+    data.setdefault("subAlign", "left")
     return data
 
 
@@ -44,6 +45,7 @@ def bake_one(
     accent: str,
     font_path: str,
     scale: float = 1.0,
+    sub_align: str = "left",
 ) -> None:
     try:
         from PIL import Image, ImageDraw, ImageFont
@@ -92,8 +94,10 @@ def bake_one(
     text_y = y0 + (band_h - text_block) // 2 - bb_m[1]
     draw.text((margin_x, text_y), main, fill=(255, 255, 255, 255), font=font_main)
     if sub and font_sub is not None:
+        # bb_s[2] は ink 右端。右詰めは ink 右端を w - margin_x に合わせる
+        sub_x = w - margin_x - bb_s[2] if sub_align == "right" else margin_x
         draw.text(
-            (margin_x, text_y + main_h + gap - bb_s[1]),
+            (sub_x, text_y + main_h + gap - bb_s[1]),
             sub,
             fill=(255, 255, 255, 230),
             font=font_sub,
@@ -131,9 +135,10 @@ def run_job(job: Path, font: str, only: str | None) -> int:
         sub = overrides.get("sub", copy.get("sub", ""))
         accent = overrides.get("accent", copy.get("accent", "#60a5fa"))
         scale = float(overrides.get("scale", copy.get("scale", 1.0)))
+        sub_align = overrides.get("subAlign", copy.get("subAlign", "left"))
         dest = baked_dir / f"{src.stem}-ja.png"
-        bake_one(src, dest, main, sub, accent, font, scale=scale)
-        print(f"wrote {dest} (scale={scale})")
+        bake_one(src, dest, main, sub, accent, font, scale=scale, sub_align=sub_align)
+        print(f"wrote {dest} (scale={scale}, subAlign={sub_align})")
     return 0
 
 
@@ -146,6 +151,13 @@ def main(argv: list[str]) -> int:
     p.add_argument("--sub", type=str, default="", help="Sub text (single mode)")
     p.add_argument("--accent", type=str, default="#60a5fa")
     p.add_argument("--scale", type=float, default=1.0, help="Font size multiplier")
+    p.add_argument(
+        "--sub-align",
+        type=str,
+        default="left",
+        choices=["left", "right"],
+        help="Sub text alignment (single mode)",
+    )
     p.add_argument("--font", type=str, required=True, help="Path to CJK font file")
     p.add_argument("--only", type=str, default=None, help="Only bake one raw filename/stem")
     args = p.parse_args(argv)
@@ -163,6 +175,7 @@ def main(argv: list[str]) -> int:
         args.accent,
         args.font,
         scale=args.scale,
+        sub_align=args.sub_align,
     )
     print(f"wrote {args.output}")
     return 0
