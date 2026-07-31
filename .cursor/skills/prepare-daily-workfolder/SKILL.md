@@ -72,7 +72,9 @@ obsidian create path="01_Daily/{YYMM}/{YYMMDD}/AI-log-{YYYY-MM-DD}.md" content="
 
 4. 文字化けしたら Vault パスへ UTF-8 で書き直してよい（内容はテンプレ準拠）
 5. **obsidian-markdown** に従い、Vault 内リンクは `[[wikilink]]`、埋め込みは `![[...]]`、callout 可
-6. 完了報告: TargetDate / 作成パス2つ / 公開フォーカス引き継ぎ有無
+6. 完了報告: TargetDate / 作成パス2つ / week-queue 当日行の引き継ぎ有無
+
+**フェーズ参照**: `docs/plan/phase-now.md`／評価フェーズ移行ノート §5.4（DailyNote「今日やること」＝ week-queue 当日行。公開フォーカス3本は廃止）
 
 ## DailyNote テンプレ（必須構造）
 
@@ -87,11 +89,11 @@ obsidian create path="01_Daily/{YYMM}/{YYMMDD}/AI-log-{YYYY-MM-DD}.md" content="
 
 ## 今日やること
 
-### 公開フォーカス3本（⑤→④→①）
+### week-queue（当日 `day` 行・正本はキューファイル）
 
-（前日 DailyNote「明日やること → 公開フォーカス3本」があれば引き継ぐ。無ければ空＋⑥ E 待ちの注記）
+（active な `week-queue-*.md` から TargetDate の行を列挙。無ければ空＋「水曜⑥／Skill B でキュー未作成または週外」の注記。**公開3本選定・前日からの3本引き継ぎはしない**）
 
-### その他（`publish_date` 対象外）
+### その他（キュー外・`publish_date` 対象外）
 
 > [!info] レーンB
 > 未完了の正本は [[active-tasks]]。DailyNote は投影のみ。
@@ -112,11 +114,11 @@ obsidian create path="01_Daily/{YYMM}/{YYMMDD}/AI-log-{YYYY-MM-DD}.md" content="
 
 ## 明日やること
 
-### 公開フォーカス3本（⑤→④→①）
+### week-queue（翌日 `day` 行）
 
->（⑥ E で inbox から選定）
+>（⑥で active week-queue の翌日 `day` 行を投影。inbox からの3本選定はしない）
 
-### その他（`publish_date` 対象外）
+### その他（キュー外）
 
 ![[active-tasks#投影用チェックリスト（単発）]]
 
@@ -127,11 +129,12 @@ obsidian create path="01_Daily/{YYMM}/{YYMMDD}/AI-log-{YYYY-MM-DD}.md" content="
 ## 作業ログ
 ```
 
-### 公開フォーカス引き継ぎルール
+### week-queue 投影ルール
 
-- **引き継ぐのは公開フォーカス3本のみ**（レーンA）
+- **引き継ぐのは week-queue の当日（およびテンプレ上は翌日）`day` 行のみ**（レーンAの実行明細）
 - W3 / Review-2 等の一般タスクは DailyNote にコピーしない（正本 [[active-tasks]]）
-- 前日ノートが無い／公開フォーカス節が空 → 空欄のまま（推測で埋めない）
+- 前日ノートが無い／キュー節が空 → 空欄のまま（推測で inbox を埋めない）
+- 週次キュー作成は**水曜 Skill B のみ**（Skill A／日次⑥では新規 `week-queue` を作らない）
 
 ## AI-log テンプレ
 
@@ -148,4 +151,4 @@ Last Updated: {Get-Date の yyyy-MM-dd HH:mm}
 
 - TargetDate
 - 作成した2パス（または停止理由: 既存あり / 日付確認待ち）
-- 公開フォーカス引き継ぎ: あり（件数）/ なし
+- week-queue 当日行投影: あり（件数）/ なし（キュー未参照）
