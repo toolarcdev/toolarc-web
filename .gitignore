@@ -76,6 +76,7 @@ next-env.d.ts
 !.cursor/rules/**
 !.cursor/skills/
 !.cursor/skills/**
+.cursor/skills/**/__pycache__/
 .cursor-cache/
 
 # =========================
