@@ -2,8 +2,8 @@
 name: daily-maintenance-lite
 description: >-
   Runs ToolArc lightweight daily maintenance (slot ⑥): update DailyNote,
-  candidate master, Dashboard focus, inbox publish sync, and CTR rewrite
-  transfer with minimal file reads. Use when the user asks for 日次メンテ,
+  candidate master, week-queue same-day digest, inbox publish sync, and CTR
+  rewrite transfer with minimal file reads. Use when the user asks for 日次メンテ,
   ⑥, daily maintenance, or daily-maintenance-prompt execution. Not for
   Wednesday weekly work — use weekly-intake (Skill A) then weekly-maintenance
   (Skill B) instead of this skill.
@@ -19,6 +19,10 @@ description: >-
 | **Skill（Agent）** | 本ファイル | 手順の再現。Vault 正本と矛盾したら **Vault を優先**し、本 Skill を追従更新する |
 | 詳細（迷ったとき） | Vault `maintenance_1min-Tips` の該当節のみ | 全文は読まない |
 | リポ補足 | `docs/ai-context/chat-operations.md` | スロット境界 |
+| フェーズ／キュー | `docs/plan/phase-now.md` / `docs/seo-goals.md` | 評価フェーズ・公開ノルマなし |
+| 方針正本 | Vault `06_toolarc-business/評価フェーズ移行検討/toolarc.jp_評価フェーズ移行_現状と方針検討_2026-07-31.md` §5.2・§5.4 | week-queue・例外ゲート |
+
+**評価フェーズ（固定）**: 公開フォーカス3本選定は**廃止**。日次は active な `week-queue-*.md` の**当日 `day` 行**を消化するだけ。公開下限・上限なし。薄味inboxで枠埋め禁止（§5.2 根拠バー）。`type=new` の途中追加は §5.2 ゲート必須（理由1行＋`source`）。
 
 **水曜**: 本 Skill を使わない。  
 短プロンプト: `週次メンテナンス実行`（A）→ ⑤ → `週次メンテナンス続き`（B）。  
@@ -38,7 +42,7 @@ description: >-
 2. DailyNote / AI-log / ⑤ handoff から新規候補を最大10件まで追加
 3. title 確定後、分類コマンド実行 → frontmatter `audience_axis`
 4. inbox必須処理（下記）
-5. 公開フォーカス3件を選び、DailyNote「明日やること」・Dashboard・該当 inbox `publish_date`（翌日）を同期（勝ち2+柔軟1）
+5. **week-queue 当日消化（旧E置換）**: 実行中の active `week-queue-YYYY-MM-DD.md`（木〜水週・正本1ファイル）から**今日の `day` 行**を DailyNote「今日やること」へ投影。翌日分は**選定しない**（翌朝は翌日 `day` 行を投影）。`type=new` かつ公開する行だけ、該当 inbox の `publish_date` をその `day` に合わせる。**公開3本固定・勝ち2+柔軟1・空日の公開埋めはしない**。週途中の行追加は可（理由1行＋`source`；`new` は §5.2）。Dashboard の旧「公開フォーカス3本」同期は行わず、week-queue 要約方針に合わせる
 6. `ctr-rewrite-queue` の「表示用」を Dashboard「CTRリライト候補」へ転記（GSC再取得しない）
 7. debt/HUB広範囲は水曜へ。当日公開や①引き継ぎがあるときだけ軽く補完
 7.5. **レーンB完了同期（保険・軽量）**: 当日 AI-log／DailyNote で手順が `closed` なのに `active-tasks` 週枠が残っていたら、運用設計 §6（Board削除＋`done-tasks-log`追記＋任意残の単発切出し）を実行。毎回 Board 全文は読まない。正本: Vault `タスク管理_ActiveBoard/運用設計` §6.1（案D）
@@ -61,8 +65,8 @@ description: >-
 
 1. `publish_date` が今日以前
 2. `status` が `inbox` / `draft` / `published`
-3. DailyNote「今日／明日やること」に載っている
-4. 候補マスター / Dashboard のフォーカスに載っている
+3. DailyNote「今日やること」／week-queue 当日行に載っている
+4. 候補マスターに載っている（旧「公開フォーカス3本」前提の枠埋めはしない）
 
 公開済み inbox は `status` / `published_at` / `slug` / `promotion_status` を更新し `04-Tips/published` へ移動。マスター・Dashboard・DailyNote も反映。対象外 inbox は読まない。
 
@@ -73,7 +77,7 @@ description: >-
 
 ## 完了報告（短く）
 
-- 実施サマリ（新規 inbox 件数・フォーカス3件・移動件数）
+- 実施サマリ（新規 inbox 件数・week-queue 当日行 id・移動件数）
 - 変更ファイル一覧
 - 明日の推奨アクション 1〜3
 

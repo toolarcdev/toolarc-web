@@ -1,9 +1,9 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-07-24 10:56（①後段を git-commit-pr / git-merge-cleanup に分離）
+最終更新: 2026-07-31 12:50（評価フェーズ: 公開ノルマなし・week-queue消化・①はゲート通過分＋リライト/統合も主対象）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
-関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`、`[writing-rules.md](writing-rules.md)`、`[llm-forbidden-phrases.md](llm-forbidden-phrases.md)`、`[image-intent-map.md](image-intent-map.md)`
+関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`、`[writing-rules.md](writing-rules.md)`、`[llm-forbidden-phrases.md](llm-forbidden-phrases.md)`、`[image-intent-map.md](image-intent-map.md)`、Vault 評価フェーズ移行ノート
 
 ---
 
@@ -11,7 +11,7 @@
 
 | #   | チャット名             | 主ツール                   | Cursor セッションID（参照用）          | 含めない作業                                        | 新規チャット目安                                |
 | --- | ---------------------- | -------------------------- | -------------------------------------- | --------------------------------------------------- | ----------------------------------------------- |
-| ①   | 記事公開               | **Cursor**                 | `702003bf-15e9-4ed8-b351-52fa7aa0c79e` | GSC調査、大規模リファクタ、記事ドラフト・リライト案 | 記事1本 or 公開バッチ完了ごと                   |
+| ①   | 記事公開・統合反映       | **Cursor**                 | `702003bf-15e9-4ed8-b351-52fa7aa0c79e` | GSC調査、大規模リファクタ、記事ドラフト・リライト案 | 記事1本 or 公開/統合バッチ完了ごと           |
 | ②   | SEO・GSC               | **Cursor**                 | `97a2a139-7f80-4ed2-bb72-b4a0609afb94` | 記事本文ドラフト・リライト案、Next.js新機能全般     | 調査1件 / GSC週次ごと                           |
 | ③   | サイト基盤             | **Cursor**                 | `26f9bebd-c54e-48b5-bcad-dd2d86c8cd43` | 記事1本ごとの文言、日次メンテ                       | 実装修正1件 / 大型機能ごと                      |
 | ④   | 記事初稿・既存リライト | **Claude**（Cursorは予備） | `823fe614-90ef-46e9-a065-358ba223c5ff` | `posts.ts` 登録、実装                               | 四半期 / 柱が変わるとき                         |
@@ -39,7 +39,7 @@ DailyNote / AI-log
   → 人間: GitHub で差分確認
   → git-merge-cleanup（B）: PR マージ → main 反映 → branch 整理 → 当日 DailyNote/AI-log 追記（両方既存時のみ）
   → ⑥: 公開反映を候補マスター・Dashboard に記録（debt カウンタ）。DailyNote のマージ反映は B 側
-  → ⑥ 水曜: 重負債原則2単位（Hub更新 / 昇格PR / 逆リンク）→ ①へ依頼
+  → ⑥ 水曜: week-queue 新規作成＋重負債原則2単位（Hub更新 / 昇格PR / 統合・301 / 逆リンク）→ ①へ依頼
 ```
 
 **Git 後段 Skill（個人・①完了後）**: `git-commit-pr`（commit/PR・マージ禁止）→ 人間確認 → `git-merge-cleanup`（マージ＋整理＋当日 Vault 追記。DailyNote/AI-log 欠落時は追記スキップ＋通知のみ、マージは実行）。`publish-article` 単体では commit/PR/merge/Vault 追記をしない。
@@ -53,10 +53,10 @@ DailyNote / AI-log
 1. **記録（必須）**: 当日 AI-log（無ければ DailyNote）へ1行で残す。形式 `記事化候補: <タイトル案> — 悩み1行 / 差別化1行`。`audience_axis` は付けない（⑥が分類）
 2. **クローズ条件**: 1チャット=1タスクで閉じる前に「記事化候補を AI-log / DailyNote に残したか」を確認する（残す事象が無ければ記載不要）
 3. **件数が多い・確度が高いとき（任意）**: 候補マスター `00-dashboard/toolarc_1min_tips_article_candidates.md` に `## 追加候補（日付・出典）` ブロックで直接転記してよい（`audience_axis` 仮・悩み/差別化1行付き・重複除外）。正規の集約は⑥
-4. **集約（⑥）**: ⑥日次が AI-log / DailyNote / ⑤handoff / 直接転記分を候補マスターへ集約 → `_classify_title.mjs` で `audience_axis` 確定 → reader/hybrid 優先で inbox 化
+4. **集約（⑥）**: ⑥日次が AI-log / DailyNote / ⑤handoff / 直接転記分を候補マスターへ集約 → `_classify_title.mjs` で `audience_axis` 確定 → reader/hybrid 優先で inbox 化（根拠バー通過分のみ。薄味枠埋め禁止）
 5. **reader 変換**: operator 寄りの事象は⑤（柱B）で reader タイトルへ言い換えて供給できる（`reader-theme-supply.md`）
 
-**Produce / Commit**: 文案・表は ②⑤④（Produce）、Vault/repo 書き込みは ⑥①（Commit）。負債払い詳細: `[debt-paydown-workflow.md](debt-paydown-workflow.md)`（方針B: 量産維持）。フェーズ: `[phase-now.md](../plan/phase-now.md)`
+**Produce / Commit**: 文案・表は ②⑤④（Produce）、Vault/repo 書き込みは ⑥①（Commit）。負債払い詳細: `[debt-paydown-workflow.md](debt-paydown-workflow.md)`（評価フェーズ: 公開ノルマなし・#6原則2単位）。フェーズ: `[phase-now.md](../plan/phase-now.md)`／評価フェーズ移行ノート。①はゲート通過の新規に加え、**リライト・統合・301・Hub/SubHub反映も主対象**。
 
 公開前の Output Contract レビューは **任意の ChatGPT セッション**（旧⑦レビュー）。番号は ⑦個人R&D とは別用途。
 
@@ -572,18 +572,19 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 - `slot-handoff-template.md` 形式を inbox + 候補マスターに反映
 - `_classify_title.mjs` で audience_axis 確定
 
-【日次 — 公開フォーカス同期（E）】
-- DailyNote「明日やること」**公開フォーカス3本**を inbox から選定（勝ち2+柔軟1・reader/hybrid/operator可）
-- 該当 inbox の publish_date を翌日（Get-Date+1）に設定
-- Dashboard「明日のフォーカス候補」と一致させる
-- 正本: maintenance_1min-Tips 必須タスク E
+【日次 — week-queue 当日消化（E）】
+- DailyNote「今日やること」は **week-queue の当日 `day` 行**を正とする（公開フォーカス3本選定は廃止）
+- `type=new` がある日だけ該当 inbox の `publish_date` をその日に設定
+- 公開ノルマなし。当日行が無ければ公開ゼロでよい。薄味埋め禁止
+- 正本: maintenance_1min-Tips 必須タスク E／評価フェーズ移行ノート §5.4
 
 【日次 — CTRリライト転記（F）】
 - [[ctr-rewrite-queue]] の「表示用」を dashboard「CTRリライト候補」に転記（3〜5件。GSC再取得しない）
+- week-queue の `rewrite` 行と連動させる
 - 正本: maintenance_1min-Tips 必須タスク F
 
 【日次 — inbox必須処理】
-- `04-Tips/inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboardの今日明日フォーカスに載るものは必ず確認する
+- `04-Tips/inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboard・week-queue に載るものは必ず確認する
 - 公開済み inbox は frontmatter の status / published_at / slug / promotion_status を必要に応じて更新し、`D:\ObsidianVault\Vault\04-Tips\published` へ移動する
 - 移動した場合は、候補マスター・Dashboard・DailyNote の参照やログへ反映する
 - 対象外の inbox 全体は読まない
@@ -597,12 +598,12 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 【週次（毎週水曜・統合1ブロック）】
 - 水曜は daily-maintenance-prompt の代わりに `weekly-maintenance-prompt.md` を⑥に貼る
 - 柱C: ⑤ Claude で batch-prompt 実行 → handoff を⑥が backlog/inbox 登録（**同一水曜ブロック内**。曜日分割しない）
-- matrix再生成 + reader健全性 + KPIメモ + **人気スロット**（intake §1.6 → `lib/blog/popular-articles.ts`）+ **#5 シリーズ化スキャン**（series:candidate・ガードレール）+ **#6 負債払い原則2単位**
-- 完了時: dashboard.md の「Last weekly ⑥」・**検索パフォーマンス（GSC）**・**週次公開**を更新（②の週次サマリーを転記）
-- 完了時: gsc-weekly-log.md に週次1行追記
-- 収益: 月次は revenue-signals。2-0中は ASPクリック累計を意識（卒業≥10 → `phase-now.md` 更新）
+- matrix再生成 + reader健全性 + KPIメモ + **人気スロット** + **#5 シリーズ化スキャン** + **#6 負債払い原則2単位** + **week-queue 新規作成**（Skill B／評価フェーズ移行ノート §5.4.2）
+- 完了時: dashboard.md の「Last weekly ⑥」・**検索パフォーマンス（Collector正）**・**週次公開（記録のみ）**を更新
+- 完了時: gsc-weekly-log.md に週次1行追記（100+・migrationシェアも可能な範囲で）
+- 収益: 月次は revenue-signals。2-0中は **読者由来** ASPクリック累計（自己クリック禁止 2026-07-29〜。卒業≥10 → `phase-now.md` 更新）
 - 今月最終水曜: ⑥チャット KPI要約 + seo-goals.md / phase-now.md 照合
-- 手順正本: weekly-maintenance-prompt.md / slot-handoff-template.md / debt-paydown-workflow.md / `.cursor/skills/weekly-maintenance/`
+- 手順正本: weekly-maintenance-prompt.md / slot-handoff-template.md / debt-paydown-workflow.md / `.cursor/skills/weekly-maintenance/` / 評価フェーズ移行ノート §5.4
 
 準備できたら「⑥ KPI＋日次メンテ、準備完了」とだけ返答してください。
 ```
@@ -622,15 +623,15 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 【必ず読む】
 - docs/plan/phase-now.md（現行ステータス）
 - docs/seo-goals.md
-- 必要時: Vault 事業計画書 v0.2 / revenue-signals
+- 必要時: Vault 評価フェーズ移行ノート / 事業計画書 v0.2 / revenue-signals
 
 【判断基準】
 - 3年以内に月収100万円を目指す前提で考える
-- 現行はカレンダー Phase1 ＋ Phase2-0 先行。2-0卒業＝ASPクリック累計≥10 → カレンダー Phase2
-- 方針B: 量産維持、水曜負債原則2単位（公開停止しない）
-- 短期は売上より ASP クリック信号・勝ちカテゴリ・導線を重視する
+- 現行はカレンダー Phase1 ＋ Phase2-0 先行＋**評価フェーズ移行**。2-0卒業＝**読者由来** ASPクリック累計≥10（自己クリック禁止 2026-07-29〜）→ カレンダー Phase2
+- 公開ノルマなし。水曜負債原則2単位（統合・301・SubHub可）。日次は week-queue 消化
+- 短期は売上より ASP クリック信号・勝ちカテゴリ・導線・表示分散を重視する
 - 実行可能性が低い計画は現実的な粒度へ分解する
-- 事業判断は感覚ではなく、GSC / GA4 / ASPクリック / 承認収益 / Index などの数値に接続する
+- 事業判断は感覚ではなく、Collector / GSC / GA4 / 読者ASPクリック / 承認収益 / Index などの数値に接続する
 
 【やること】
 - 添付された事業資料・Phase計画・ダッシュボード案を読み、評価する
@@ -916,7 +917,7 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
 2. DailyNote、候補マスター、Dashboard、必要なinbox最大20件だけ確認
 3. DailyNote / AI-log / ⑤handoff から新規候補を最大10件まで追加
 4. inbox必須処理を実行する（publish_date/status確認、公開済みファイルの published への移動）
-5. 公開フォーカス3件を選び、DailyNote・Dashboard・該当inbox publish_date（翌日）を同期（E）
+5. week-queue の当日行を消化し、DailyNote・Dashboard を同期（E）。`new` がある日だけ inbox publish_date を設定。公開フォーカス3本選定はしない
 6. [[ctr-rewrite-queue]]「表示用」を dashboard CTRリライト候補に転記（F）
 7. debt/HUB広範囲判定は水曜週次に寄せ、当日公開分の補完だけ行う
 8. 実施サマリ、変更ファイル、主要変更点、実行後チェック、明日の推奨アクションを短く報告
@@ -924,10 +925,11 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
 【固定パス】
 - 候補マスター: d:\ObsidianVault\Vault\00-dashboard\toolarc_1min_tips_article_candidates.md
 - Dashboard: d:\ObsidianVault\Vault\00-dashboard\dashboard.md
-- Inbox: d:\ObsidianVault\Vault\04-Tips\inbox（全体読み込みは禁止。候補マスター・Dashboard・DailyNoteで必要になったファイルだけ）
+- week-queue: 当週の `01_Daily/.../week-queue-YYYY-MM-DD.md`（実行正本）
+- Inbox: d:\ObsidianVault\Vault\04-Tips\inbox（全体読み込みは禁止。候補マスター・Dashboard・DailyNote・week-queueで必要になったファイルだけ）
 
 【inbox必須処理】
-- `D:\ObsidianVault\Vault\04-Tips\inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboardの今日明日フォーカスに載るものは必ず確認する
+- `D:\ObsidianVault\Vault\04-Tips\inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboard・week-queue に載るものは必ず確認する
 - 公開済み inbox は frontmatter の status / published_at / slug / promotion_status を必要に応じて更新し、`D:\ObsidianVault\Vault\04-Tips\published` へ移動する
 - 移動した場合は、候補マスター・Dashboard・DailyNote の参照やログへ反映する
 - 対象外の inbox 全体は読まない
@@ -995,7 +997,7 @@ Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`mainte
 | `00-dashboard/reader-theme-backlog.md`                 | シリーズ別 reader バックログ                   |
 | `00-dashboard/reader-theme-batch-prompt.md`            | 柱Cプロンプト（⑤ Claude 主）                   |
 | `00-dashboard/slot-handoff-template.md`                | ⑤→⑥ handoff 形式                               |
-| `docs/ai-context/debt-paydown-workflow.md`             | シリーズ負債払い（軽負債/重負債・方針B）       |
+| `docs/ai-context/debt-paydown-workflow.md`             | シリーズ負債払い（軽負債/重負債・評価フェーズ） |
 | `docs/plan/phase-now.md`                               | 現行フェーズ・Phase2-x・2-0卒業条件            |
 | `docs/seo-goals.md`                                    | 週次オペ／Outcome KPI                          |
 | `00-dashboard/revenue-signals.md`                      | 月次収益シグナル                               |

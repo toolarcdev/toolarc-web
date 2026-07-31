@@ -80,9 +80,11 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 |----|------|
 | **テンプレ** | Vault `00-dashboard/weekly-intake-template.md` |
 | **設計・付録** | Vault `06_toolarc-business/202607/週次メンテSKILL化/週次メンテSKILL化_段階計画.md`（付録A/B） |
-| **後段** | `.cursor/skills/weekly-maintenance/`（Skill B） |
+| **後段** | `.cursor/skills/weekly-maintenance/`（Skill B — **week-queue 作成は B のみ**） |
+| 方針 | Vault `06_toolarc-business/評価フェーズ移行検討/toolarc.jp_評価フェーズ移行_現状と方針検討_2026-07-31.md` §5.2・§5.4 |
+| フェーズ | `docs/plan/phase-now.md` / `docs/seo-goals.md` |
 
-**やらないこと**: dashboard 転記（B）、⑤ batch、§5.1 執筆、日次メンテ。
+**やらないこと**: dashboard 転記（B）、⑤ batch、§5.1 執筆、日次メンテ、**`week-queue-*.md` の新規作成・確定**（§5.4.2 — Skill A は原料まで。キューは水曜⑥ Skill B）。
 
 ## 手順
 
@@ -92,19 +94,21 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 4. **Collector**: 完全窓 weekly MD → §1 Performance。クエリ上位10〜15 → §1.5。ページ表示上位 → **§1.6**（人気スロット約3 slug）
 5. **§2 CTRキュー**: 優先 `analysis/a-opp/a-opp-candidates-*.csv`（最新 asOf）。無ければ `page-daily.csv` 手集計フォールバック。A-PQMAP pages CSV があれば候補に `primary_query` を付記
 6. **A-THEME**: `a-theme-*.csv` があれば §3（または判断1行）にシェア・WoW・勝ち3（`win3_total`）を載せる
-7. §1.5 統合クラスタ → **§5 選抜3件（勝ち≤1）**。§1 KPI クエリ3件は別記載可
+7. §1.5 統合クラスタ → **§5 柱C handoff（勝ち≤1・本数ノルマなし）**。§1 KPI クエリ3件は別記載可
 8. **Coverage**: 索引系。最終更新 ≤ 前週水 → `更新なし（最終更新: …）`
-9. **ASP**（CP932・直近3か月前提のCSV）: 合算 → §4（期間日付必須）。もしも CTR>100% なら汚染疑い
+9. **ASP**（CP932・直近3か月前提のCSV）: 合算 → §4（期間日付必須）。もしも CTR>100% なら汚染疑い。**報告は読者由来累計 N/10**（Phase2-0 卒業＝禁止開始 **2026-07-29** 以降の増分 ≥10。汚染期間の画面合計は参考のみ）
 10. 判断1行・先週比（dashboard 前週列）。§5.1 は触らない
 11. §0 `②受領完了`。変更計画 → 承認後編集（運用どおり）
+
+**Skill A の役割境界**: intake §5 柱C handoff は **`new` 候補の原料**。例外ゲート（§5.2）判定と week-queue への載せは **Skill B**。薄味inbox・枠埋め目的の柱Cは禁止。
 
 ## 完了報告（短く）
 
 - 作業フォルダ / intake パス
 - 自動探索で使った ZIP・CSV 名
 - analyze:weekly 実行結果（asOf / ran / skipped）
-- §1 要約 / Coverage 更新なし有無 / ASP N/10
+- §1 要約 / Coverage 更新なし有無 / **読者ASP N/10**（2026-07-29〜）
 - §1.6 人気スロット候補 slug（あれば）
 - §2 件数 + primary_query 付与有無
-- §5 選抜3件
-- 次: ⑤（§5 のみ）→ 新規チャットで `週次メンテナンス続き`（＋同じフォルダパス）
+- §5 柱C handoff 件数（**week-queue は作らない**）
+- 次: ⑤（§5 のみ）→ 新規チャットで `週次メンテナンス続き`（＋同じフォルダパス）→ Skill B で week-queue 作成
