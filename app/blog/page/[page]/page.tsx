@@ -4,7 +4,6 @@ import { BlogIndexHeadLinks } from "@/components/blog/BlogIndexHeadLinks";
 import { BlogIndexView } from "@/components/blog/BlogIndexView";
 import { loadBlogIndexArticles } from "@/lib/blog/list-articles";
 import {
-  getBlogPagePath,
   getBlogTotalPages,
   parseBlogPageParam,
 } from "@/lib/blog/pagination";
@@ -34,13 +33,12 @@ export async function generateMetadata({
     return {};
   }
 
-  const canonical = getBlogPagePath(page);
-
   return {
     title: `Blog（${page}ページ目） | ToolArc`,
     description:
       "AI活用・開発・ワークフロー・トラブル解決の技術記事一覧。シリーズ形式で体系的にまとめています。",
-    alternates: { canonical },
+    robots: { index: false, follow: true },
+    alternates: { canonical: "/blog" },
   };
 }
 
