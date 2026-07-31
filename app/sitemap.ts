@@ -1,7 +1,6 @@
 import { MetadataRoute } from "next";
 import { blogSlugs } from "@/lib/blog/posts";
 import { loadPost } from "@/lib/blog/load-post";
-import { getBlogTotalPages } from "@/lib/blog/pagination";
 import { allSeries } from "@/lib/series/series";
 
 const baseUrl = "https://www.toolarc.jp";
@@ -32,14 +31,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/contact`, lastModified: latestModified },
   ];
 
-  const blogIndexPages: MetadataRoute.Sitemap = Array.from(
-    { length: getBlogTotalPages(blogSlugs.length) - 1 },
-    (_, index) => ({
-      url: `${baseUrl}/blog/page/${index + 2}`,
-      lastModified: latestModified,
-    }),
-  );
-
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.updatedAt ?? post.publishedAt),
@@ -50,5 +41,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(series.publishedAt),
   }));
 
-  return [...staticPages, ...blogIndexPages, ...blogPages, ...seriesPages];
+  return [...staticPages, ...blogPages, ...seriesPages];
 }
