@@ -13,7 +13,7 @@ tags:
   - cursor-free-series
 site: toolarc.jp
 target: "CursorでAI開発を始めたいが、設定や機能をどの順番で学べばよいか迷っている初心者"
-last_update: 2026-07-25
+last_update: 2026-08-01
 ---
 
 # Cursor 開発ガイド｜初心者向けの始め方と読む順番
@@ -60,7 +60,7 @@ Cursorだけですべてを学ぶ必要はありません。今いる作業場�
 
 CursorとClaude Codeは、どちらか一方だけを選ぶ関係ではありません。エディタ内の差分確認はCursor、ターミナル寄りの作業はClaude Codeというように、作業ごとに分ける方法もあります。
 
-MCPについては、本シリーズではCursor利用者向けの入口だけを扱います。Host・Client・Serverなどの用語や接続全体の地図は、[MCPガイド](/blog/mcp-guide)を確認してください。
+MCPについては、本シリーズではCursor利用者向けの入口だけを扱います。設定画面の場所と `mcp.json` の書き方は [CursorのMCP設定](/blog/cursor-mcp-setup-basics) にまとめました。Host・Client・Serverなどの用語や接続全体の地図は、[MCPガイド](/blog/mcp-guide)を確認してください。
 
 ## 今日の結論と最初の一歩
 
@@ -94,6 +94,7 @@ Cursorの画面名、モデル、利用上限、料金は変更されること�
 | S | 初期設定のまま使っており、安全性や自動実行が気になる | [Cursor Settings おすすめ設定一覧｜プライバシー・モデル・インデックス・自動実行](/blog/cursor-recommended-settings-tips) |
 | A | エディタだけでなくターミナルでも Agent を動かしたい | [Cursor CLIのインストールと基本操作｜agentコマンドで始める手順](/blog/cursor-cli-install-basics) |
 | A | Agentが意図しないファイルまで読んでしまう | [Cursorに参照ファイルを確認させるプロンプトの書き方](/blog/cursor-reference-file-prompt-tips) |
+| A | MCPを設定したいが設定画面が見つからない | [CursorのMCP設定｜設定画面の場所とmcp.jsonの書き方](/blog/cursor-mcp-setup-basics) |
 | A | Ask・Plan・Agentなどをいつ切り替えるか迷う | [Cursorモード使い分けガイド｜Agent・Plan・Askをいつ切り替える？](/blog/cursor-plan-mode-modify-before-build-tips) |
 
 無料枠や消費量が気になる方は、次の補助記事へ進んでください。
@@ -129,7 +130,8 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 3. ターミナルでも Cursor Agent を使いたい → [Cursor CLIのインストールと基本操作](/blog/cursor-cli-install-basics)
 4. Agentの参照範囲を確認したい → [参照ファイル確認プロンプト](/blog/cursor-reference-file-prompt-tips)
 5. ターミナル中心で Claude を使いたい → [Claude Code ガイド](/blog/claude-code-guide)
-6. 外部ツールとの接続を知りたい → [MCPガイド](/blog/mcp-guide)
+6. 外部ツールとの接続を設定したい → [CursorのMCP設定](/blog/cursor-mcp-setup-basics)
+7. MCPの用語と全体像から知りたい → [MCPガイド](/blog/mcp-guide)
 
 ## Cursor開発シリーズ 記事一覧（テーマ別）
 
@@ -178,6 +180,7 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 ### Git・環境・その他
 
 - [Cursor CLIのインストールと基本操作](/blog/cursor-cli-install-basics)｜ターミナルで agent を始めたい人向け
+- [CursorのMCP設定｜設定画面の場所とmcp.jsonの書き方](/blog/cursor-mcp-setup-basics)｜外部ツールと接続したい人向け
 - [Gitブランチを安全に切る基本手順](/blog/git-branch-basic-tips)｜記事1本＝1ブランチ運用を始めたい人向け
 - [git stash popで元に戻す使い方](/blog/git-stash-pop-tips)｜作業を一時退避したい人向け
 - [Agentに--fillでPR作成を依頼する](/blog/cursor-agent-gh-pr-create-fill)｜PR作成を自動化したい人向け
@@ -192,4 +195,4 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 
 ---
 
-本記事は、2026-07-25時点の公開記事構成と筆者の実運用に基づいています。Cursorの画面、モード、モデル、料金、利用上限などは変更される可能性があります。重要な設定や契約判断の前には、Cursorの公式ドキュメントと現在の管理画面を確認してください。
+本記事は、2026-08-01時点の公開記事構成と筆者の実運用に基づいています。Cursorの画面、モード、モデル、料金、利用上限などは変更される可能性があります。重要な設定や契約判断の前には、Cursorの公式ドキュメントと現在の管理画面を確認してください。
