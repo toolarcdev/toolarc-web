@@ -1,6 +1,6 @@
 ---
-title: "GoogleログインのChatGPTを新端末で開く手順｜別アカウントに注意"
-description: "GoogleアカウントでログインしているChatGPTを新しいスマホやPCで開くときの基本手順をまとめました。別のGoogleアカウントやメールログインで入ると履歴やPlus表示が空に見えるため、ログイン後に設定画面でメールアドレスとプラン表示を確認する切り分け方も解説します。"
+title: "ChatGPTのGoogleログイン｜新端末で同じアカウントに入る3手順"
+description: "新端末でChatGPTにGoogleログインするときの3手順を整理しました。ログイン方法をGoogleに揃える／旧端末と同じGoogleアカウントを選ぶ／設定画面でメールとプランを照合する、の順に確認すれば、履歴やPlus表示が空に見える別アカウント状態を避けられます。"
 date: 2026-07-18
 tags:
   - ChatGPT
@@ -11,10 +11,10 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "GoogleアカウントでChatGPTを使っていて、新しいスマホやPCにログインし直そうとしている人"
-last_update: 2026-07-18
+last_update: 2026-08-01
 ---
 
-# GoogleログインのChatGPTを新端末で開く手順｜別アカウントに注意
+# ChatGPTのGoogleログイン｜新端末で同じアカウントに入る3手順
 
 新しいスマホやPCでChatGPTを開いたとき、「あれ、これまでの会話が無い」「無料プランの表示になっている」と焦った経験はないでしょうか。
 
