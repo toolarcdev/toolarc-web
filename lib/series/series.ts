@@ -110,6 +110,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-rules-file-tips",
       "cursor-recommended-settings-tips", // A-5 Settings（#1直後）
       "cursor-cli-install-basics", // W3 #5 CLI（導入寄り）
+      "cursor-mcp-setup-basics", // W4 #4 MCP設定（外部連携の入口）
       "cursor-plan-mode-modify-before-build-tips",
       "cursor-ask-mode-tips",
       "cursor-agent-scope-tips",

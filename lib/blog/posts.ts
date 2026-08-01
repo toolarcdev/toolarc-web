@@ -1885,6 +1885,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "cursor-mcp-setup-basics": {
+    contentId: "03-cursor-free",
+    markdownFile: "039-cursor-mcp-setup-basics.md",
+    imageBasePath: "/images/blog/030-cursor-free",
+    publishedAt: "2026-08-01",
+    ogImage: "og.png",
+    category: "tool",
+  },
   "obsidian-shortcut-ime": {
     contentId: "20-investigate-something",
     markdownFile: "397-obsidian-shortcut-ime.md",
