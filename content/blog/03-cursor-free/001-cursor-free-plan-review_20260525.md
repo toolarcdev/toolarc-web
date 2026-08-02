@@ -1,6 +1,6 @@
 ---
-title: "Cursor 開発ガイド｜初心者向けの始め方と読む順番"
-description: "CursorでAI開発を始めたい初心者向けに、Rules・Settings・参照ファイル指定の読む順番と、Claude Code・MCP・AIツール比較への分岐を整理した開発ガイドです。無料枠を使い切った実測記録も案内します。"
+title: "Cursor Free（無料枠）｜初心者が最初に確認する開発ガイド"
+description: "Cursorの無料枠（Free）から始める初心者向け開発ガイド。Settings・Rules・Agentの読む順番と、Claude Code／MCPへの分岐を整理。無料枠を使い切った実測の入口も案内します。"
 date: 2026-05-25
 tags:
   - Cursor
@@ -13,10 +13,10 @@ tags:
   - cursor-free-series
 site: toolarc.jp
 target: "CursorでAI開発を始めたいが、設定や機能をどの順番で学べばよいか迷っている初心者"
-last_update: 2026-08-01
+last_update: 2026-08-02
 ---
 
-# Cursor 開発ガイド｜初心者向けの始め方と読む順番
+# Cursor Free（無料枠）｜初心者が最初に確認する開発ガイド
 
 Cursorを使い始めると、Settings、Rules、Agent、モード、MCPなど、似た用語が一度に出てきます。「最初に何を設定し、どの記事から読めばよいのか分からない」と迷う方もいるのではないでしょうか。
 
