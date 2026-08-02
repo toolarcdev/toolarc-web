@@ -1965,6 +1965,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
+  "cursor-vs-vscode-copilot-comparison": {
+    contentId: "20-investigate-something",
+    markdownFile: "406-cursor-vs-vscode-copilot-comparison.md",
+    imageBasePath: "/images/blog/cursor-vs-vscode-copilot-comparison",
+    publishedAt: "2026-08-02",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

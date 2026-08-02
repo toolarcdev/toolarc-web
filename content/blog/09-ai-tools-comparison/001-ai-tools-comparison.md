@@ -67,7 +67,7 @@ ChatGPT、Claude、Cursorは、どれも「AIに作業を手伝ってもらえ�
 
 | 知りたいこと | まず読む入口 | 個別記事（参考） |
 | --- | --- | --- |
-| Cursorで何ができるか／ChatGPTやClaudeとの使い分け | [Cursor 開発ガイド](/blog/cursor-free) | [導入前の判断基準](/blog/cursor-strengths-weaknesses)／[CursorとChatGPT](/blog/cursor-chatgpt-usecase-comparison)／[CursorとClaude](/blog/cursor-claude-usecase-comparison) |
+| Cursorで何ができるか／ChatGPTやClaudeとの使い分け | [Cursor 開発ガイド](/blog/cursor-free) | [導入前の判断基準](/blog/cursor-strengths-weaknesses)／[Cursor vs VS Code＋Copilot](/blog/cursor-vs-vscode-copilot-comparison)／[CursorとChatGPT](/blog/cursor-chatgpt-usecase-comparison)／[CursorとClaude](/blog/cursor-claude-usecase-comparison) |
 | ChatGPTとClaudeの違い、Claude Proの判断、プロンプト基礎 | [Claude Code ガイド](/blog/claude-code-guide) | [ChatGPTとClaudeの違い](/blog/chatgpt-claude-comparison)／[Claude Proは必要か](/blog/claude-pro-free-comparison)／[プロンプト入門ロードマップ](/blog/ai-prompt-engineering-beginner-roadmap) |
 
 どの記事も、比較表・向き不向き・チェックリストという同じ形式で整理しているため、気になる組み合わせから読んでも内容が重複しすぎないようになっています。

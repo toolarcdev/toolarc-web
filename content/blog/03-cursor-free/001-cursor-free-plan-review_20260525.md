@@ -190,6 +190,7 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 ### 比較・使い分け
 
 - [Cursorでできること・苦手なこと](/blog/cursor-strengths-weaknesses)｜導入前に判断したい人向け
+- [Cursor vs VS Code＋Copilot比較](/blog/cursor-vs-vscode-copilot-comparison)｜乗り換え・併用・現状維持を判断したい人向け
 - [CursorとClaudeの使い分け](/blog/cursor-claude-usecase-comparison)｜2つの役割分担を知りたい人向け
 - [CursorとChatGPTの使い分け](/blog/cursor-chatgpt-usecase-comparison)｜用途で選び分けたい人向け
 
