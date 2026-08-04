@@ -1973,6 +1973,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "kimi-k3-cursor-guide": {
+    contentId: "20-investigate-something",
+    markdownFile: "407-kimi-k3-cursor-guide.md",
+    imageBasePath: "/images/blog/kimi-k3-cursor-guide",
+    publishedAt: "2026-08-04",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

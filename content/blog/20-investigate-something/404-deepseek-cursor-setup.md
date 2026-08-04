@@ -389,7 +389,7 @@ DeepSeek V4をCursorで使う際に押さえておきたいのは、次の3点�
 - Cursorに貼るBase URLは、プロキシ起動後の`api_base_url`
 - 「Model name is not valid」はモデル名だけでなく、トグルOFFでも起きる
 
-コストを抑えたい場合の使い分けは、上の「コストで選ぶ」章を参考にしてください。Cursorの無料枠に関する記事は、準備中です。モデル選び全般は[Cursorモデル選定ガイド](/blog/cursor-model-selection-guide)、無料枠の入口は[Cursor無料プランのレビュー](/blog/cursor-free)もあわせてどうぞ。
+コストを抑えたい場合の使い分けは、上の「コストで選ぶ」章を参考にしてください。Cursorの無料枠に関する記事は、準備中です。モデル選び全般は[Cursorモデル選定ガイド](/blog/cursor-model-selection-guide)、標準モデルのKimi K3は[CursorでKimi K3を使う方法](/blog/kimi-k3-cursor-guide)、無料枠の入口は[Cursor無料プランのレビュー](/blog/cursor-free)もあわせてどうぞ。
 
 ---
 
