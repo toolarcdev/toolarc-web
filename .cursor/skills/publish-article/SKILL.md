@@ -32,7 +32,7 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 ## 手順
 
 1. **公開日を確定**: `Get-Date -Format "yyyy-MM-dd"`（手入力・inbox `publishDate`・初稿 `date` は使わない）
-2. **本文 MD**: `content/blog/<contentId>/` に配置。contentId は `docs/ai-context/content-folders.md` の判断フロー（既存 A / 既存 B / 新 `21-…`）。**`20` へ新規は置かない**
+2. **本文 MD**: `content/blog/<contentId>/` に配置。contentId は `docs/ai-context/content-folders.md` の判断フロー（既存 A / 既存 B / 新 `22-…`。`21-cursor-models` は使用済み）。**`20` へ新規は置かない**
 3. **posts.ts**: slug キーで1件追加。`markdownFile` / `imageBasePath` / `publishedAt` / `category` を既存に合わせる
 4. **日付反映**
    - 新規: frontmatter `date` と `publishedAt` を実装日で一致。免責「執筆時点」も同じ日

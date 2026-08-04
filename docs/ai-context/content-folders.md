@@ -153,7 +153,7 @@ Vault 候補マスター用。`content_folder` とは別軸。詳細: [`debt-pay
 
 1. ④（主 Claude）: 本文 MD
 2. ① Cursor: [`content-folders.md`](content-folders.md) の判断フローで contentId を決める  
-   - 既存 A 追記 / 既存 B / 新 `21-…` のいずれか。**`20` は使わない**
+   - 既存 A 追記 / 既存 B / 新 `22-…` のいずれか（`21-cursor-models` は使用済み）。**`20` は使わない**
 3. **軽負債（①・毎公開）**  
    - 既存 series: `series.ts` + Spoke→Hub + **Hub 本文スポーク追記**  
    - B／`21-`: 同ジャンル相互リンク。`promotion_status: standalone`（⑥へメモ可）
