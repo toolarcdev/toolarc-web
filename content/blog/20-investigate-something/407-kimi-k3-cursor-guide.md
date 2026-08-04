@@ -58,7 +58,7 @@ Kimi K3は、Cursorの標準モデルとしてすでに統合されています�
 2. 左メニューから Models を選ぶ
 3. 一覧の中から「Kimi K3」を探し、右側のトグルがオンになっていることを確認する（オフならタップしてオンにする）
 
-![Cursor Settings画面のModels一覧。Kimi K3とKimi K2.7 Codeのトグルがオンになっている](cursor-models-kimi-k3-toggle.png)
+![Cursor SettingsのModels一覧。①Kimi K3と②Kimi K2.7 Codeの行を青枠と番号で示し、トグルがオンになっている](cursor-models-kimi-k3-toggle-annotated.png)
 
 筆者も2026年8月4日時点でCursorのSettings → Models画面を確認し、実際にトグルを操作しています。Cursor公式のモデル表ではKimi K3は「Hidden by default」（初期状態では一覧に出ない／オフ扱い）とされており、オンにする操作が前提になります。まずは自分の画面で今の状態を確認するところから始めてください。追加の設定は、ほぼなし。
 
