@@ -1,104 +1,43 @@
 # ToolArc AGENTS Rules
 
 @docs/ai-context/writing-rules.md
+@docs/ai-context/llm-forbidden-phrases.md
 @docs/ai-context/project-context.md
 @docs/ai-context/context.md
 @docs/ai-context/chat-operations.md
 @docs/ai-context/debt-paydown-workflow.md
+@docs/ai-context/content-folders.md
+@docs/ai-context/affiliate-registry.md
 @docs/plan/phase-now.md
 @docs/seo-goals.md
 
-このファイルは `toolarc.jp` の記事制作と改善における共通運用ルールです。  
-目標は「3年以内に月収100万円」を最短で達成すること。SEOを主軸に、収益導線を壊さず伸ばす出力を最優先にします。
+このファイルは AI が常時読む **入口** である。記事の詳細ルールは再掲せず、上の正本へ委譲する（重複禁止）。
+
+| 領域 | 正本 | 備考 |
+|------|------|------|
+| 記事（文体・構成・CTA・SEO・Output Contract・禁止） | `writing-rules.md` | 記事ドメインの唯一の詳細正本 |
+| LLM空句リスト | `llm-forbidden-phrases.md` | 語彙正本（方針は writing-rules） |
+| 直アフィ可否（実装） | `lib/affiliate/policy.ts` | docs は説明のみ |
+| 画像振り分け | `.cursor/skills/blog-image-router/SKILL.md` | マップ: `image-intent-map.md` |
+| Obsidian／Vault 操作・編集 | 個人 Skill `obsidian-markdown` / `obsidian-cli` | ウィキリンク等の ToolArc制約の正本は `obsidian-markdown` |
+
+**North Star（最短）**: 3年以内に月収100万円。主戦略はオーガニック（SEO）。収益導線を壊さず伸ばす。フェーズ詳細は `docs/plan/phase-now.md`。
 
 ## Repo boundaries（触るな）
 
 - 公開repo（本リポ）へ PoE2 / ゲーム JSON をコピー・生成・commit しない。正本は `toolarc-data`、API 用コピーは `toolarc-api`
 
-## 記事画像 Skills（発見用）
+## 依頼時の読み分け
 
-入口: `.cursor/skills/blog-image-router/SKILL.md`  
-専門: `generate-blog-image` / `generate-decision-diagram` / `annotate-screenshot` / `bake-og-text`  
-マップ・索引: `docs/ai-context/image-intent-map.md` / `docs/ai-context/image-sample-registry.md`  
-WIP: Vault `06_toolarc-business/blog-image-staging/`（`public/` は採用後のみ）
-
-## North Star / KPI
-
-- 事業目標: 3年以内に月収100万円到達
-- 主戦略: オーガニック流入最大化（SEO）
-- 収益源: アフィリエイト、広告、デジタル商品（note/教材/テンプレ）
-- **現行フェーズ**: カレンダー Phase1 ＋ Phase2-0 先行（正本: `docs/plan/phase-now.md`）
-- **運用モード**: 評価フェーズ移行（公開ノルマなし・統合／表示／CTR／分散優先）。方針詳細: Vault `評価フェーズ移行検討/toolarc.jp_評価フェーズ移行_現状と方針検討_2026-07-31.md`
-- **Phase2-0**: 売上より ASPクリック信号。卒業＝**読者由来** ASPクリック累計≥10（自己クリック禁止開始 2026-07-29）→ カレンダー Phase2
-- **公開・負債**: 公開ノルマなし（下限・上限なし）。日次は week-queue 消化。シリーズ負債は水曜原則2単位（統合・301・SubHub可）
-- 出力評価の優先順:
-  1. 検索意図に一致している
-  2. 初心者が再現できる
-  3. 収益導線が自然に設計されている（比較は2段導線・直アフィ禁止の前提を守る）
-  4. ToolArcの文体・トーンに一致している
-
-## Task Priority
-
-依頼を受けたときは、次の順で意思決定すること。
-
-0. 現行フェーズを確認する（`docs/plan/phase-now.md`）。評価フェーズ中は week-queue 消化・統合／リライト／Hub・導線計測・負債を優先し、新規は例外ゲート通過分のみ
-1. 読者の悩みを1文で定義する
-2. 検索意図（How-to/比較/チェックリスト）を明確化する
-3. 問題→原因→対策の順で構成を作る
-4. 収益導線（アフィリエイト/広告/デジタル商品）を過不足なく配置する
-5. `writing-rules.md` の文体・Markdown・SEO要件に合わせる
-
-## Content Production Rules
-
-- 基本文体は「です・ます調」（敬体ベース＋文末多様化。詳細は `writing-rules.md`）
-- 一人称は通常省略する。「筆者」は実測・失敗談・確認範囲・未検証の境界を示す必要がある文だけに使い、使用理由が読者に分かるようにする
-- 本文は「実測・実運用」の根拠を優先し、推測は明示する。公開見出しに内部判定語の「一次情報」をそのまま出さない
-- 記事構成は以下を原則とする:
-  - 導入（悩みへの共感）
-  - 今日の結論（3〜5点）
-  - 本論（問題→原因→対策）
-  - チェックリストまたは比較表
-  - まとめ・次に読む
-  - 仕様変更に関する免責
-- H2は最大5前後を目安にし、長文化する場合はシリーズ分割を優先する
-- daily notes や会話ログはそのまま公開せず、必ず構造化してから記事化する
-
-## Monetization Rules
-
-### Affiliate
-
-- 比較記事では「誰に向くか/向かないか」を必ず併記する
-- 訴求は機能羅列ではなく、読者の課題解決に紐づける
-- 断定表現（絶対/必ず）は禁止し、条件や前提を明記する
-- アフィリエイトリンク前後に、判断材料（注意点、代替案、費用感）を置く
-
-### Ads
-
-- 広告収益を優先して情報密度や可読性を下げない
-- UXを崩す提案（過剰な挿入・本文分断）は避ける
-- まずは記事品質と滞在価値を担保し、広告は補助収益として扱う
-
-### Digital Products
-
-- 記事内で先に無料価値（手順、チェックリスト、判断基準）を提供する
-- 読者像を明確にしたCTAを配置する（Tips等は記事末1本に絞る。収益記事の同一オファー3点配置は `writing-rules.md`）
-- 商品誘導は本文テーマと一致する場合のみ行い、無関係な誘導はしない
-
-## SEO Execution Rules
-
-- 検索意図を「初心者が今困っていること」に合わせる
-- タイトルは主要キーワード + 読者メリットを1文で示す
-- descriptionは「誰向け/何が分かる/差別化（実測）」を含める
-- Hub記事はシリーズ入口として、スポーク記事への内部リンクを必ず入れる
-- 内部リンクは `/blog/slug` 形式で、未公開は「準備中」と明記する
-
-## Evidence & Compliance
-
-- 料金、制限、仕様は執筆時点を明記する
-- OpenAI/Anthropic/Cursor等の未確認仕様を事実として断定しない
-- 公式保証がない内容を「公式」と表現しない
-- 法令・規約・景表法に抵触しうる誇大表現を避ける
-- 重要判断は公式ドキュメント確認を促す
+0. 現行フェーズを `docs/plan/phase-now.md` で確認する（評価フェーズ中の優先は week-queue・統合／リライト／Hub・導線計測・負債。新規は例外ゲート通過分のみ）
+1. **記事**（構成・本文・CTA・SEO・禁止・Output Contract）→ `docs/ai-context/writing-rules.md`（空句 → `llm-forbidden-phrases.md`）
+2. **収益記事の手順化** → Skill `revenue-article-template`（基準は writing-rules / `policy.ts`）
+3. **公開（①）** → Skill `publish-article` ＋ `.cursor/rules/article-publish.mdc`
+4. **L1（④）** → Skill `l1-review-article`
+5. **画像** → Skill `blog-image-router`（入口）
+6. **日次⑥／水曜週次** → `daily-maintenance-lite` / `weekly-intake` / `weekly-maintenance`
+7. **Obsidian／Vault の操作・編集** → 個人 Skill `obsidian-markdown`（記法・ToolArc制約の正本）／`obsidian-cli`（CLI）。詳細は本ファイルに書かない
+8. スロット境界・依頼文 → `docs/ai-context/chat-operations.md`
 
 ## Vault メタデータ（⑥・Agent 共通）
 
@@ -117,81 +56,6 @@ Get-Date -Format "yyyy-MM-dd HH:mm"
 6. 編集していないファイルの `Last Updated` は**変更しない**
 
 手順正本: `D:\ObsidianVault\Vault\00-dashboard\maintenance_1min-Tips.md`「メタデータ日時」節
-
-## Markdown フェンス（Obsidian / Vault 貼り付け用）
-
-Vault / Obsidian へ貼る Markdown で、次のいずれかに当てはまるときは **外側4・内側3** のバッククォートを使う。
-
-- 1出力に `` ``` `` フェンスが2つ以上ある
-- フェンス内に `` ``` `` を例示する
-
-**ルール**
-
-- **外側**（出力全体の最初の開きと最後の閉じ）: `` ```` `` + 言語（`text` / `md` 推奨）
-- **内側**（中の各ブロック）: 通常の `` ``` `` + 言語
-
-**適用しない**
-
-- `content/blog` の公開記事 MD（並列の `` ``` `` で問題なし）
-- コードブロックが1つだけの出力
-- TypeScript / Next.js などリポの実装コード
-
-詳細: `/blog/obsidian-nested-codeblock-backticks`
-
-## Obsidian ウィキリンク（Vault 更新時）
-
-DailyNote / AI-log / Dashboard など **Vault 内ノート**へリンクを書くときは、Obsidian のウィキリンク形式を使う。Windows パスや `` `ファイル.md` # 見出し `` の平文は使わない。
-
-**基本形**
-
-```text
-[[ファイル名#見出し]]
-[[ファイル名#見出し|表示名]]          ← エイリアス（短い表示用）
-[[01_Daily/2607/260707/ファイル名]]   ← Vault ルートからの相対パス（拡張子なし）
-```
-
-**禁止（NG 例）**
-
-```text
-`AI-log-2026-07-07.md` # 見出し
-D:\ObsidianVault\Vault\...\ファイル.md
-[見出し](ファイル.md#見出し)          ← Vault 内は Markdown リンクより [[ ]] を優先
-```
-
-**見出しアンカーのルール**
-
-- 見出しに `#`・`:`・バッククォートがあるときは **アンカーを推測しない**
-- 正本は対象ファイルで **右クリック →「見出しへのリンクをコピー」** した文字列（`#` 以降をそのまま使う）
-- 同一ノート内の `[[#見出し]]` は、記号のない単純見出しだけに使う
-- 表セル内でエイリアスに `|` を含むときは `\|` でエスケープ
-
-**toolarc.jp 公開記事**へのリンクは従来どおり `/blog/slug`（ウィキリンクにしない）。
-
-実例・トラブルシュート: Vault `01_Daily/2607/260706/AI-log-2026-07-06.md` の `# Week3実行手順：タイトルの重複改善` 以降
-
-## Output Contract (Required)
-
-記事案・構成案・本文案を出すときは、以下を必ず含める。
-
-1. 想定読者（1行）
-2. 検索意図（How-to / 比較 / チェックリスト）
-3. 主キーワードと副キーワード
-4. 記事の結論（3〜5点）
-5. 構成案（H2中心、最大5前後）
-6. 収益導線案
-   - アフィリエイト導線
-   - 広告配慮方針
-   - デジタル商品CTA案
-7. 内部リンク候補（既存・未公開の区別つき）
-8. 免責文（執筆時点/仕様変更可能性）
-
-## Prohibited Outputs
-
-- 根拠のない「絶対」「必ず成功」「公式保証」
-- 未確認情報の断定
-- クリックベイトや過度な煽り
-- daily notes / 会話ログの丸投げ記事化
-- ToolArc方針に反するダークSaaS/サイバーパンク調のUI提案
 
 <!-- BEGIN:nextjs-agent-rules -->
 

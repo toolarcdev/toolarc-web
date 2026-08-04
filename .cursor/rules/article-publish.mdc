@@ -6,7 +6,8 @@ alwaysApply: false
 
 # 記事公開（スロット ①）
 
-依頼は **① 記事公開** チャット想定。GSC 調査・基盤改修は別スロット。
+依頼は **① 記事公開** チャット想定。GSC 調査・基盤改修は別スロット。  
+手順の詳細は Skill `publish-article`。本 rule は公開日・配置の強制制約。**記事の文体・CTA・Output Contract は扱わない**（正本: `docs/ai-context/writing-rules.md`）。
 
 ## 公開日 — Get-Date 必須
 
@@ -16,11 +17,11 @@ alwaysApply: false
 - 免責の「執筆時点（YYYY-MM-DD）」がある場合は、新規・リライトとも同じ実装日に揃える
 - inbox / Dashboard の `publishDate` は供給計画用。Web 表示日とのズレは許容する
 
-## 新規配置（量産）
+## 新規配置（評価フェーズ）
 
-- 新規1分Tips: `content/blog/20-investigate-something/NNN-slug.md`
-- `posts.ts` の `contentId` は `"20-investigate-something"`
-- ディレクトリ昇格・フォルダ一覧: `docs/ai-context/content-folders.md`
+- contentId は `docs/ai-context/content-folders.md` の判断フローに従う（既存 A / 既存 B / 新 `21-…`）
+- **`20-investigate-something` へ新規は置かない**（量産負債在庫。昇格・整理のみ）
+- 既存 series 追記時は同一 PR で `series.ts` ＋ Hub 本文のスポーク反映
 
 ## 追加手順
 

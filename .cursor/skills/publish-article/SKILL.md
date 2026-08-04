@@ -32,15 +32,15 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 ## 手順
 
 1. **公開日を確定**: `Get-Date -Format "yyyy-MM-dd"`（手入力・inbox `publishDate`・初稿 `date` は使わない）
-2. **本文 MD**: `content/blog/<contentId>/` に配置。新規1分Tipsは `contentId` = `20-investigate-something`
+2. **本文 MD**: `content/blog/<contentId>/` に配置。contentId は `docs/ai-context/content-folders.md` の判断フロー（既存 A / 既存 B / 新 `21-…`）。**`20` へ新規は置かない**
 3. **posts.ts**: slug キーで1件追加。`markdownFile` / `imageBasePath` / `publishedAt` / `category` を既存に合わせる
 4. **日付反映**
    - 新規: frontmatter `date` と `publishedAt` を実装日で一致。免責「執筆時点」も同じ日
    - リライト: `date` / `publishedAt` 据え置き。`last_update` と免責日のみ実装日
-5. **シリーズ**: Hub/シリーズなら `lib/series/series.ts` に spoke 追加
-6. **内部リンク**: `/blog/slug` のみ。未公開は「準備中」。同日複数本は公開順クロスリンク
+5. **シリーズ（既存 A 追記時のみ）**: `lib/series/series.ts` に spoke 追加 ＋ **同一 PR で Hub 本文にスポーク反映**
+6. **内部リンク**: `/blog/slug` のみ。未公開は「準備中」。同日複数本は公開順クロスリンク。B／`21-` は同ジャンル相互リンク
 7. **build**: `npm run build` 成功。新 slug が静的生成に含まれること
-8. **軽負債**（`docs/ai-context/debt-paydown-workflow.md`）: Hubリンク1本、series spoke。`promotion_status: published_in_20` は⑥へメモ可
+8. **軽負債**（`docs/ai-context/debt-paydown-workflow.md`）: 上記5–6。`promotion_status`（A=`hub_updated` / B・21=`standalone`）は⑥へメモ可
 9. **停止**: commit / PR / merge / Vault 追記はしない。完了定型で A → 人間 → B を案内
 
 ## 完了報告
@@ -59,8 +59,9 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 
 ## 参照（必要時のみ）
 
-- Rule: `.cursor/rules/article-publish.mdc`
-- 詳細: `docs/ai-context/chat-operations.md`（①節）
+- Rule（強制制約）: `.cursor/rules/article-publish.mdc`
+- 手順の詳細依頼文: `docs/ai-context/chat-operations.md`（①節）
 - フォルダ: `docs/ai-context/content-folders.md`
 - アフィ URL: `docs/ai-context/affiliate-registry.md`
+- 記事本文ルールは扱わない（`writing-rules.md`）
 - 後段: 個人 Skill `git-commit-pr` / `git-merge-cleanup`

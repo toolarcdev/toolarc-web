@@ -1,22 +1,26 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-07-31 12:50（評価フェーズ: 公開ノルマなし・week-queue消化・①はゲート通過分＋リライト/統合も主対象）
+最終更新: 2026-08-04 18:52（Phase CO: 実態整合 — content-folders / Skills / 評価フェーズ）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
-関連: `[context.md](context.md)`、`[project-context.md](project-context.md)`、`[AGENTS.md](../../AGENTS.md)`、`[phase-now.md](../plan/phase-now.md)`、`[seo-goals.md](../seo-goals.md)`、`[writing-rules.md](writing-rules.md)`、`[llm-forbidden-phrases.md](llm-forbidden-phrases.md)`、`[image-intent-map.md](image-intent-map.md)`、Vault 評価フェーズ移行ノート
+関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
 
 ---
 
 ## スロット一覧
 
+Cursor セッションIDは**参照用**（鮮度保証なし）。⑦のみ「⑦セットアップ」で本表を更新する。①〜⑥は必要なら手動で差し替えてよい。
+
 | #   | チャット名             | 主ツール                   | Cursor セッションID（参照用）          | 含めない作業                                        | 新規チャット目安                                |
 | --- | ---------------------- | -------------------------- | -------------------------------------- | --------------------------------------------------- | ----------------------------------------------- |
 | ①   | 記事公開・統合反映       | **Cursor**                 | `702003bf-15e9-4ed8-b351-52fa7aa0c79e` | GSC調査、大規模リファクタ、記事ドラフト・リライト案 | 記事1本 or 公開/統合バッチ完了ごと           |
-| ②   | SEO・GSC               | **Cursor**                 | `97a2a139-7f80-4ed2-bb72-b4a0609afb94` | 記事本文ドラフト・リライト案、Next.js新機能全般     | 調査1件 / GSC週次ごと                           |
+| ②   | SEO・GSC               | **Cursor**                 | `97a2a139-7f80-4ed2-bb72-b4a0609afb94` | 記事本文ドラフト・リライト案、Next.js新機能全般     | 調査1件 / 水曜 intake（Skill A）ごと            |
 | ③   | サイト基盤             | **Cursor**                 | `26f9bebd-c54e-48b5-bcad-dd2d86c8cd43` | 記事1本ごとの文言、日次メンテ                       | 実装修正1件 / 大型機能ごと                      |
-| ④   | 記事初稿・既存リライト | **Claude**（Cursorは予備） | `823fe614-90ef-46e9-a065-358ba223c5ff` | `posts.ts` 登録、実装                               | 四半期 / 柱が変わるとき                         |
-| ⑤   | Tips・素材             | **Claude**（Cursorは予備） | `667ecb48-b2bc-4210-8470-97769c38221f` | 本番デプロイ、GSC                                   | 半年                                            |
+| ④   | 記事初稿・既存リライト | **Claude**（Cursorは予備） | `823fe614-90ef-46e9-a065-358ba223c5ff` | `posts.ts` 登録、実装                               | **記事1本（またはリライト1件）ごと**。長期枠の四半期は目安にすぎない |
+| ⑤   | Tips・素材             | **Claude**（Cursorは予備） | `667ecb48-b2bc-4210-8470-97769c38221f` | 本番デプロイ、GSC                                   | **収益 source は1記事1チャット**。長期枠の半年は目安にすぎない |
 | ⑥   | KPI＋日次メンテ        | **Cursor**                 | `0d9add01-720b-4594-a2ca-3acb2adfc059` | 記事実装、大規模コード変更                          | 日次は1日1チャット / 週次は週ごと / KPIは月ごと |
+| —   | L1レビュー（公開前）   | **Cursor**（Skill）        | （①または専用短チャット）              | 初稿の全面書き直し、posts.ts 登録                   | 公開候補1本ごと（`l1-review-article`）          |
+| —   | ⑥派生・事業計画        | **Cursor**                 | （⑥と別チャット）                      | 日次メンテ実作業                                    | 検討が終わったら閉じる                          |
 
 **ToolArc 外（個人）**
 
@@ -28,23 +32,42 @@ PoE2 用スロットは設けない。
 
 ### 記事フロー（ツール横断）
 
+**評価フェーズの前提**: 日々の主線は **week-queue 消化**（統合・リライト・Hub/SubHub・CTR）。新規公開は例外ゲート通過分のみ（`phase-now.md`）。下図の「新規パイプライン」はゲート通過時の経路であり、毎日の必須量産フローではない。
+
 ```
+【評価フェーズの主線】
+  ⑥水曜: weekly-intake（② Skill A）→ ⑤柱C → weekly-maintenance（⑥ Skill B）
+       week-queue 作成 + #5 シリーズ化スキャン + #6 重負債原則2単位
+  → 日次⑥: week-queue 当日行を消化（公開ゼロの日も可）
+  → 必要なら ④→L1→①（リライト／統合／Hub／ゲート通過の新規）
+
+【新規・リライトが走るとき】
 DailyNote / AI-log
   → ⑤ Claude（任意）: readerタイトル・inbox骨子 / 柱C表 → handoff（Vault `slot-handoff-template.md`）
   → ⑥ Cursor: handoff 反映・候補マスター・inbox・Dashboard（Commit）
   → ④ Claude: source.md / SEO・GSCメモ → 本文初稿・既存記事リライト案
   → （任意）ChatGPT: SEO・Output Contract レビュー
-  → ① Cursor: content/blog + posts.ts + build + 公開日Get-Date確定（軽負債: series.ts / Hubリンク / promotion_status）
-  → git-commit-pr（A）: feature branch → commit → push → PR 作成で停止（マージしない）
-  → 人間: GitHub で差分確認
-  → git-merge-cleanup（B）: PR マージ → main 反映 → branch 整理 → 当日 DailyNote/AI-log 追記（両方既存時のみ）
+  → L1 Cursor: Skill `l1-review-article`（公開前品質。④と①の間）
+  → ① Cursor: content/blog + posts.ts + build + 公開日Get-Date確定
+       （置き場: content-folders。軽負債: 既存seriesならseries.ts+Hub同時／B・21なら相互リンク）
+  → 同一①チャット可: git-commit-pr（A）→ 人間確認 → git-merge-cleanup（B）
   → ⑥: 公開反映を候補マスター・Dashboard に記録（debt カウンタ）。DailyNote のマージ反映は B 側
-  → ⑥ 水曜: week-queue 新規作成＋重負債原則2単位（Hub更新 / 昇格PR / 統合・301 / 逆リンク）→ ①へ依頼
+  → ⑥水曜 #6: Hub stale 保険 / レガシー20昇格 / series化（Hub+移動同一①）/ 統合・301 / 逆リンク → ①へ依頼
 ```
 
-**Git 後段 Skill（個人・①完了後）**: `git-commit-pr`（commit/PR・マージ禁止）→ 人間確認 → `git-merge-cleanup`（マージ＋整理＋当日 Vault 追記。DailyNote/AI-log 欠落時は追記スキップ＋通知のみ、マージは実行）。`publish-article` 単体では commit/PR/merge/Vault 追記をしない。
+**Git 後段 Skill（個人）**: `git-commit-pr`（commit/PR・マージ禁止）→ 人間確認 → `git-merge-cleanup`（マージ＋整理＋当日 Vault 追記。DailyNote/AI-log 欠落時は追記スキップ＋通知のみ、マージは実行）。`publish-article` 本体は commit/PR/merge/Vault 追記をしないが、**①チャット内で後段 Skill を続けて呼んでよい**（別チャット必須ではない）。
 
-上図は「DailyNote / AI-log に候補がある」ことを起点にする。その手前の**記事テーマの捕捉**は下記で行う（捕捉しないと⑥が拾えず、テーマ化が漏れる）。
+上図の新規経路は「DailyNote / AI-log に候補がある」ことを起点にする。その手前の**記事テーマの捕捉**は下記で行う（捕捉しないと⑥が拾えず、テーマ化が漏れる）。
+
+#### 水曜オペ（② / ⑤ / ⑥）の境界
+
+| 段階 | 誰 | Skill / 手順 | 成果 |
+|------|-----|--------------|------|
+| A | ② Cursor | `weekly-intake`（短プロンプト「週次メンテナンス実行」） | intake（Collector＋Coverage/ASP） |
+| 柱C | ⑤ Claude | `reader-theme-batch-prompt` → handoff | タイトル表・候補 |
+| B | ⑥ Cursor | `weekly-maintenance`（「週次メンテナンス続き」）＋ Vault `weekly-maintenance-prompt.md` | Dashboard / week-queue / #5/#6 / debt |
+
+日次⑥の起動は Vault `daily-maintenance-prompt.md` のコピペ、または Cursor Skill **`daily-maintenance-lite`**（どちらでも可。手順の正本は Vault）。
 
 #### 記事テーマの捕捉（全スロット共通・抜け防止）
 
@@ -106,10 +129,10 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 あなたは ToolArc（toolarc.jp）の「記事公開」専用アシスタントです。
 
 【担当】
-- content/blog/ への Markdown 反映（新規1分Tipsは contentId "20-investigate-something"）
-- lib/blog/posts.ts への slug 登録（Hub/シリーズなら lib/series/series.ts も）
-- シリーズ昇格は docs/ai-context/content-folders.md に従い contentId のみ更新（slug 不変）
-- 記事間の内部リンク（/blog/slug 形式）
+- content/blog/ への Markdown 反映（contentId は docs/ai-context/content-folders.md。既存 A / 既存 B / 新 21-…。20 へ新規禁止）
+- lib/blog/posts.ts への slug 登録（既存シリーズ追記なら lib/series/series.ts ＋ Hub 本文を同一 PR）
+- シリーズ昇格・後付け Hub 化は content-folders / debt-paydown に従い contentId のみ更新（slug 不変。Hub と移動は同時）
+- 記事間の内部リンク（/blog/slug 形式。B/21 は同ジャンル相互リンク）
 - npm run build の成功確認
 - 同日複数本公開時は公開順にクロスリンク（218→221型）
 - 公開日の確定（実装時のみ。下記「公開日 — Get-Date 必須」）
@@ -123,16 +146,19 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - 免責の「執筆時点（YYYY-MM-DD）」がある場合は、新規・リライトとも同じ実装日に揃える
 - inbox / Dashboard の `publishDate` は供給計画用。Web 表示日とのズレは許容
 
-【やらない】
+【やらない】（①本体 = publish-article の範囲）
 - 記事本文の初稿・既存記事リライト案（④ Claude）
 - GSC・404 の調査（②）
 - Next.js 基盤の横断改修（③）
 - PoE2 / toolarc-api
-- commit / PR / merge / DailyNote・AI-log 追記（後段: `git-commit-pr` → 人間確認 → `git-merge-cleanup`）
+- commit / PR / merge / DailyNote・AI-log 追記そのもの（後段 Skill に委譲）
+  ※ ユーザーが同じ①チャットで `commit/PRして` / `PRマージして` と言ったら、後段 Skill を続けて実行してよい
 
 【参照】
 - docs/ai-context/content-folders.md（フォルダ・新規配置ルール）
-- docs/ai-context/project-context.md（記事制作ワークフロー）
+- 本ファイル「記事フロー（ツール横断）」（評価フェーズの主線と新規経路）
+- Skill `publish-article` / `.cursor/rules/article-publish.mdc`
+- docs/ai-context/project-context.md（サイト概要。記事フローの正本ではない）
 - lib/blog/posts.ts（既存 slug）
 - 個人 Skill: `git-commit-pr` / `git-merge-cleanup`
 - 依頼時は本文 MD のパスを明示してください
@@ -142,10 +168,10 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - 新 slug が静的生成に含まれる
 - 関連記事へのリンクが有効な slug を指す
 - 新規公開: frontmatter `date` と `posts.ts` の `publishedAt` が実装日（Get-Date）で一致／リライト: 両方据え置きで `last_update`・免責日が実装日
-- 軽負債（docs/ai-context/debt-paydown-workflow.md）:
-  - シリーズ確定なら lib/series/series.ts に spoke 追加
-  - スポークなら Hub へのリンク1本（/blog/[hubSlug]）
-  - 候補マスターへ promotion_status: published_in_20 の記録（または⑥へ引き継ぎメモ）
+- 軽負債（docs/ai-context/debt-paydown-workflow.md / content-folders.md）:
+  - 置き場: 既存 A / 既存 B / 新 21-…（20 へ新規禁止）
+  - 既存シリーズ追記なら lib/series/series.ts ＋ Hub 本文スポークを同一 PR
+  - B／21- なら同ジャンル相互リンク。promotion_status は standalone（または⑥へメモ）
   - 同日複数本は公開順クロスリンク
 - 次手案内: `git-commit-pr`（commit/PR）→ 人間が差分確認 → `git-merge-cleanup`（マージ＋branch整理＋当日 DailyNote/AI-log）。①単体では merge / Keep All までやらない
 
@@ -188,32 +214,35 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
 【やること】
 - メモ内容の対応可否判断（内部リンク slug 存在確認・仕様記述の妥当性）
 - 記事本文の修正（必要な場合のみ）
-- content/blog/ への反映確認
-- lib/blog/posts.ts への slug 登録（Hub/シリーズなら lib/series/series.ts も）
+- content/blog/ への反映確認（contentId は content-folders.md。既存 A / 既存 B / 新 21-…。20 へ新規禁止）
+- lib/blog/posts.ts への slug 登録
+- 既存シリーズ追記時: lib/series/series.ts ＋ Hub 本文のスポーク反映（同一作業）
 - npm run build の成功確認
-- （①完了後・別依頼）`git-commit-pr` → 人間確認 → `git-merge-cleanup`
+- （①完了後・同一チャット可）`git-commit-pr` → 人間確認 → `git-merge-cleanup`
 
 【公開日 — 実装時に確定】
-実装開始時に Get-Date -Format "yyyy-MM-dd" を実行し、
-各記事の frontmatter date / last_update と posts.ts publishedAt の両方に同じ日付を設定する。
-免責の「執筆時点（YYYY-MM-DD）」も同じ実装日に揃える。
+実装開始時に Get-Date -Format "yyyy-MM-dd" を実行する。
+- **新規**: frontmatter `date` と posts.ts `publishedAt` を同じ実装日。免責の「執筆時点」も同じ日
+- **リライトのみ**: `date` / `publishedAt` は据え置き。`last_update` と免責の執筆時点だけ実装日
 inbox の publishDate や初稿 frontmatter の date は参照しない。
 
 【軽負債】
-docs/ai-context/debt-paydown-workflow.md の①チェックリストに従う
+docs/ai-context/debt-paydown-workflow.md の①チェックリスト / content-folders.md に従う
 
 【任意】
 - 逆リンク先 slug
 - 準備中 → 実 slug への差し替え箇所（比較Series末尾・Hub送り口など）
 - 同日複数本の公開順（クロスリンク用）: <slug1> → <slug2> → <slug3>
-- シリーズ確定時: lib/series/series.ts への spoke 追加
+- シリーズ確定時（既存 A 追記）: lib/series/series.ts への spoke 追加 ＋ Hub 本文反映（同一 PR）
 - Hub リンク先: /blog/<hubSlug>
-- 候補マスター promotion_status: published_in_20 は⑥へ引き継ぎ
+- B／21-: 同ジャンル相互リンク。候補マスター promotion_status: standalone は⑥へ引き継ぎ
 - アフィリエイトリンクは④文案どおり実装（ASP成果条件・単価の転載はしない）
 - アフィリエイト URL の正本: `docs/ai-context/affiliate-registry.md` / `lib/affiliate/programs/`
 ```
 
 ### ①後段（commit/PR → マージ）依頼例
+
+①本体完了後、**同じ①チャット**で送ってよい（別チャット必須ではない）。
 
 ```text
 commit/PRして
@@ -228,7 +257,7 @@ path 指定は不要（B は Get-Date で当日ファイルを解決。欠落時
 
 ### ① 導線リライトバッチ依頼テンプレ（既存記事・弱リンク差し替え）
 
-④ で差分文案を受け取ったあと、複数 slug をまとめて①に渡すとき用。正本のリライト一覧は Vault の Week実行手順（例: `Week2実行手順 AIライティング・記事制作導線` Step5）を参照。
+④ で差分文案を受け取ったあと、複数 slug をまとめて①に渡すとき用。正本のリライト一覧は Vault の **当週の Week実行手順**（例: `Week2実行手順 …` は過去週の命名例）を参照。
 
 ```text
 【導線リライトバッチ】
@@ -312,19 +341,26 @@ path 指定は不要（B は Get-Date で当日ファイルを解決。欠落時
 - 画像 URL 404 と記事ページ 404 の切り分け
 - sitemap / robots / メタデータの調査
 - インデックス・CTR 改善の手順提案（実測ベース）
+- **水曜週次の本線（Skill A）**: Cursor Skill `weekly-intake`（短プロンプト「週次メンテナンス実行」）。seo-data-collector の出力＋作業フォルダの Coverage ZIP / ASP CSV から intake を作る
 
 【やらない】
 - 記事本文ドラフト・既存記事リライト案（④）
 - posts.ts への新規記事登録（①）
 - 一覧ページ送りなど基盤機能の実装（③）
+- ⑥の Dashboard / week-queue 本書き（intake 作成後は ⑤柱C → ⑥ Skill B へ渡す）
 
 【出力】
 - 問題 → 原因 → 対策 → 確認手順
 - 表示文言の変更可能性は免責に明記
 - 未確認仕様は断定しない
 
-【週次サマリー時 — ⑥ Dashboard 用（水曜・過去7日固定）】
-GSC UI を開き、[[gsc-weekly-acquisition-checklist]]（Vault `00-dashboard/gsc-weekly-acquisition-checklist.md`）に従って取得し、以下のブロックを埋めて⑥に渡す。背景: /blog/gsc-index-weekly-check-tips。記録先: Vault dashboard.md / gsc-weekly-log.md。
+【週次 — 本線】
+1. Skill `weekly-intake` を実行（手順は `.cursor/skills/weekly-intake/SKILL.md`）
+2. できた intake / シグナルを⑤柱C・⑥ Skill B が使える形で残す
+3. ⑥の Dashboard 確定書きは Skill B（`weekly-maintenance`）側
+
+【週次 — フォールバック（UI手動）】
+Collector / intake が使えないときだけ、GSC UI を開き [[gsc-weekly-acquisition-checklist]]（Vault `00-dashboard/gsc-weekly-acquisition-checklist.md`）に従って取得し、以下を⑥に渡す。背景: /blog/gsc-index-weekly-check-tips。
 
 ```text
 【GSC週次サマリー — YYYY-MM-DD】
@@ -341,9 +377,9 @@ CTR（%）: __（任意）
 GSCクエリ3件: 「...」「...」「...」
 ```
 
-【週次サマリー時 — ⑤柱Cへ渡すメモ】
+【週次 — ⑤柱Cへ渡すメモ】
 
-- 上記 `GSCクエリ3件` を⑤の reader-theme-batch-prompt `PasteExternalSignalsHere` にも流用
+- intake または上記 `GSCクエリ3件` を⑤の reader-theme-batch-prompt `PasteExternalSignalsHere` に流用
 - 形式例: `- GSC: 「クエリA」「クエリB」「クエリC」`
 - 水曜週次で ⑤ → ⑥ handoff 登録（同一ブロック内）
 
@@ -374,26 +410,24 @@ GSCクエリ3件: 「...」「...」「...」
 
 ### ④ 記事初稿・既存記事リライト（Claude — 主。Cursor は予備）
 
-**L1観点（要約・公開前）**
+**L1レビュー（公開前・Cursor）**
 
-Cursor の `l1-review-article` Skill で実施する。判定基準の正本は Vault 改善施策ノート §4.3.1。要点のみ:
+- ④の文案ができたあと、公開①の前に Cursor Skill **`l1-review-article`** を使う（スロット表の「L1レビュー」行）
+- 判定基準の正本は Vault 改善施策ノート §4.3.1
+- 文体・Output Contract・CTA・禁止の詳細は再掲せず [`writing-rules.md`](writing-rules.md) / [`llm-forbidden-phrases.md`](llm-forbidden-phrases.md) を読む
+- 初回固定プロンプトは不要（Skill 起動で足りる）
 
-- リズム: 同一文末（です／ます）3連続禁止／ある程度の長さで体言止めゼロ回避／段落の文数均質を崩す
-- 空句: [`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)。「最後に」「まさに」は禁止しない。`――` / 同型 `——`（文中の間・見出し・`title`）は禁止。括弧の入れ子 `（「…」）` / `「(…)`」 は基本的に使わず、括弧内の強調は `"…"` / `` `…` ``
-- 一次情報: 実測数値＋取得日／環境／失敗談のいずれか。無ければ確認日・参照元・未検証範囲を具体化
-- 免責 ≠ 見出し: `## 免責` / `### 免責` / 見出し文言に「免責」なし。末尾は `---`＋段落（本命）または `> **免責**` 引用（許容）
-- 詳細文体: [`writing-rules.md`](writing-rules.md)
-
-**作業境界（記事品質改善 2026-07）**
+**作業境界**
 
 | 作業 | スロット | 備考 |
 |------|----------|------|
-| writing-rules／空句リスト／L1 SKILL 等のルール変更 | **④** | 本計画 P0 |
-| 収益記事テンプレ改修・L1 | **④ → ①** | L1後に公開反映は① |
+| writing-rules／空句リスト／L1 SKILL 等のルール・docs 変更 | **Cursor**（スロット横断メンテ） | `context.md` どおり。④チャットでは文案のみ |
+| 収益記事テンプレ改修・本文 Produce | **④** | 公開反映は① |
+| L1 判定 | **Cursor**（`l1-review-article`） | ④→L1→① |
 | GSC／GA4／ASP の計測転記 | **②** | 実行ログ／revenue-signals |
 | バナー実装 | 実装用チャット（web） | ①の公開手順は変えない |
 
-計画・ログ: Vault `06_toolarc-business/記事品質改善/記事品質改善_実行計画_2026-07.md` ／ `記事品質改善_実行ログ_2026-07.md`
+履歴（完了計画のログ）: Vault `06_toolarc-business/記事品質改善/記事品質改善_実行計画_2026-07.md` ／ `記事品質改善_実行ログ_2026-07.md`（現行の評価フェーズ正本ではない）
 
 **Claude チャットに貼る:**
 
@@ -405,14 +439,9 @@ Cursor の `l1-review-article` Skill で実施する。判定基準の正本は 
 - GSC/GA4/SEOメモをもとにした既存記事の title・description・導入・見出し・FAQ・内部リンク文言の改善案
 - 本文(MDファイル)リライト
 - 既存記事リライト時は、検索クエリ・CTR・平均順位などの実測根拠を明記
-- writing-rules.md の文体（敬体ベース＋文末多様化。一人称は通常省略し、実測・失敗談・確認範囲・未検証の境界を示す必要がある文だけ「筆者」）
-- llm-forbidden-phrases.md の空句禁止。「最後に」「まさに」は禁止しない
-- 記事ごとに実在感マーカーを最低1つ（実測数値＋取得日／使用環境／失敗談）。無ければ捏造せず、確認日・参照元・未検証範囲を書く
-- 結論を先延ばしせず、「今日の結論」を冒頭側に維持する
-- 体言止めはゼロ回避・山場限定。文比率や60%目標を設けない
-- AGENTS.md の Output Contract（記事案時は8項目）
+- writing-rules.md（記事正本: 文体・構成・CTA・SEO・Output Contract・禁止・免責）
+- llm-forbidden-phrases.md（空句。リストは再掲しない）
 - 未公開記事へのリンクは slug 確定まで控え／「準備中」扱い
-- 免責は記事末尾に必須。見出し（`##`/`###`）や見出し文言に「免責」を含めない。形式は `---`＋段落（本命）、または `> **免責**` 引用（許容）。StickyTOC は H2 のみ抽出するため見出し化しない
 
 【やらない】
 - posts.ts / series.ts / 実ファイル反映・ビルド（① または ③ に渡す）
@@ -421,7 +450,7 @@ Cursor の `l1-review-article` Skill で実施する。判定基準の正本は 
 - `## 免責` / `### 免責` / `## まとめ・…免責` のような免責の見出し化
 
 【添付の優先順位】
-source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.md > writing-rules.md > llm-forbidden-phrases.md > project-context.md
+source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > writing-rules.md > llm-forbidden-phrases.md > AGENTS.md（入口）> project-context.md
 
 【slug 取り扱い（必須）】
 - 依頼文・source.md・frontmatter に `slug` が明示されている場合、その値を正本として扱い、別slugへ置換・提案・採用しない
@@ -437,16 +466,14 @@ source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.
 「添付GSCメモをもとに既存記事の title / description / 導入 / 内部リンク文言の改善案を作成。実ファイル反映はしない。」
 「Week2導線接続リライト — 対象 slug と④差分ルールに従い、変更箇所の文案のみ出力。」
 
-【収益導線・CTA（Phase1 実装週以降）】
-- 2段導線: 比較 → 周辺収益 → アフィリエイト
-- 比較Series4本（ai-tools-comparison 含む）: 天秤・Rakurinとも**直アフィ禁止**。周辺収益記事への弱リンクのみ
-- CTA前後に向く人/向かない人・注意点・代替案（AGENTS.md Monetization / writing-rules.md）
-- 収益記事は CTA 3点（リード直後／本文中／まとめ前）・無料オファー型・バナーは記事末等の面のみ
-- ASP管理画面の成果条件・単価・否認条件は**記事に転載しない**
-- 天秤AI Biz: 本人NG。周辺収益記事のみ中CTA
-- Rakurin: 本人OK。読者価値優先。手順説明後・末尾CTA
+【収益導線・CTA】
+- 一般ルール（CTA点数・無料オファー・バナー位置・向く人/向かない人）: writing-rules.md「収益導線」
+- 直リンク可否: lib/affiliate/policy.ts／案件MD: affiliate-registry.md
+- 比較Series（ai-tools-comparison 含む）: 直アフィ禁止・周辺収益への弱リンクのみ
+- 天秤AI Biz: 本人NG。Rakurin: 本人OK（手順後・末尾CTA）
+- ASP成果条件・単価・否認条件は記事に転載しない
 - **既存記事リライトは最小差分**（1行〜短い段落）。全文書き換えしない
-- 実装週の slug 優先順・案件対応は Vault の Week実行手順を正本とする（例: Week2実行手順 AIライティング・記事制作導線）
+- 実装週の slug 優先順・案件対応は Vault の **当週の Week実行手順** を正本とする
 
 準備できたら「④ 記事初稿・既存リライト、準備完了」とだけ返答してください。
 ```
@@ -456,21 +483,21 @@ source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > AGENTS.
 ```text
 【新シリーズ Hub 初稿】
 テーマ: <theme-slug>（series:candidate 付与済み）
-対象スポーク slug: <20 に滞留している slug 一覧>
+対象スポーク slug: <B／21-／レガシー20 の slug 一覧>
 既存 series との関係: 統合不可の理由（1行）
 
 【依頼】
-- Hub 用 source.md を作成（Output Contract 準拠）
+- Hub 用 source.md を作成（writing-rules.md の Output Contract 準拠）
 - 読者の悩み・4段階 or チェックリスト形式の入口
 - スポークへの読む順リスト（slug ベース、/blog/slug 形式）
 - 執筆時点の免責を含める（見出しにしない。`---`＋段落が本命）
 
 【やらない】
-- series.ts 登録・posts.ts（①）
-- 既存 Hub の差し替え（別 PR）
+- series.ts 登録・posts.ts・フォルダ移動（①。Hub と移動は同一 PR）
+- 既存 Hub の全面差し替え（別 PR 可）
 - 免責の `##`/`###` 見出し化
 
-手順: docs/ai-context/debt-paydown-workflow.md
+手順: docs/ai-context/debt-paydown-workflow.md / content-folders.md
 ```
 
 **Cursor ④（予備・Claude から Cursor に切り替えるとき）:**
@@ -490,16 +517,16 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 【担当 — Produce】
 - 04-Tips/inbox 向けの短い Tips ノート文案・3ステップ骨子
 - 候補マスター向けテーマ整理（文案のみ。ファイル書き込みは⑥）
-- Hub/Spoke・シリーズ設計のメモ
+- 同ジャンル記事の相互リンク案・テーマ束メモ（**勝ちが見えるまで Hub / series.ts は新設しない**。series 候補は週次 #5 後に④ Hub 初稿）
 - source.md 作成前の構成メモ
-- **収益記事向け source.md**: AGENTS.md Output Contract 8項目（想定読者・検索意図・キーワード・結論・構成・収益導線案・内部リンク候補・免責）
-- 実装週の slug 一覧・優先順は Vault の **Week実行手順** を正本とする（例: `Week2実行手順 AIライティング・記事制作導線`）
+- **収益記事向け source.md**: writing-rules.md の Output Contract 8項目に準拠（項目は再掲しない）
+- 実装週の slug 一覧・優先順は Vault の **当週の Week実行手順** を正本とする
 - **メンテ handoff**: 柱B（operator→reader変換）・柱C（reader-theme-batch-prompt）・backlog選定・質ゲート表
 - 出力形式: Vault `00-dashboard/slot-handoff-template.md` 厳守
 
 【チャット運用 — 収益記事】
 - 収益記事の source.md は **1記事1チャット**。完了後に閉じる（本ファイル「Cursor cost/token 節約原則」の 1チャット=1タスクを優先）
-- スロット表の「新規チャット目安: 半年」より、記事単位の区切りを優先する
+- スロット表の長期枠より、記事単位の区切りを優先する
 
 【やらない】
 - 本番への posts.ts 登録（①）
@@ -526,9 +553,9 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 
 【担当】
 - Obsidian: 候補マスター、Dashboard、DailyNote、04-Tips/inbox の更新
-- 通常日次は `daily-maintenance-prompt.md` の軽量手順を使う
+- 通常日次: Vault `daily-maintenance-prompt.md` を貼る、または Cursor Skill **`daily-maintenance-lite`** を起動（どちらでも可）
 - 詳細判断が必要なときだけ `maintenance_1min-Tips.md` の該当節を読む
-- 毎日の依頼ではユーザーが DailyNote パスを指定する（PasteDailyNotePath 運用）
+- 毎日の依頼ではユーザーが DailyNote パスを指定する（PasteDailyNotePath 運用）。Skill 起動時はプロンプト側のパス規則に従う
 
 【cost/token 節約】
 - 日次は1日1チャットで実行し、完了後に閉じる
@@ -563,8 +590,9 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 - 通常日は分類コマンドと候補マスターの情報で判断する
 - 正本 `reader-theme-supply.md` / `reader-theme-backlog.md` は reader 候補が不足したときだけ読む
 - **⑤ handoff があれば優先反映**（文案は⑤、Commitは⑥）
-- 新規追加: reader 最低1件/日、operator 最大1件/日
-- reader が無い日だけ `reader-theme-backlog.md` から1件 inbox 化を検討
+- 公開ノルマなし。薄味の枠埋め inbox 化はしない（評価フェーズ）
+- 新規追加の目安: 質ゲート通過の reader を優先。operator は最大1件/日
+- **reader が無い日だけ** `reader-theme-backlog.md` から1件 inbox 化を検討（「毎日最低1件」のノルマではない）
 - 質ゲート3条件を満たす reader のみ priority A 候補
 - 長文のタイトル案生成は⑤へ返す（⑥では書かない）
 
@@ -590,20 +618,24 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 - 対象外の inbox 全体は読まない
 
 【日次 — シリーズ負債追跡】
-- 分類ゲート: 当日公開分の content_folder を series:* / topic:* / standalone のいずれかに
+- 分類ゲート: 当日公開分の content_folder を series:* / topic:*（含 topic:21-*）/ standalone のいずれかに
+- 新規の置き場は docs/ai-context/content-folders.md（既存 A / 既存 B / 新 21-…。**20 へ新規禁止**）
 - debt カウンタ / Hub stale の広範囲判定は水曜週次に寄せる
 - 当日公開分や①からの引き継ぎがある場合だけ、該当行を軽く補完する
-- 詳細確認が必要なときだけ docs/ai-context/debt-paydown-workflow.md の該当節を読む
+- 詳細: docs/ai-context/debt-paydown-workflow.md
 
 【週次（毎週水曜・統合1ブロック）】
-- 水曜は daily-maintenance-prompt の代わりに `weekly-maintenance-prompt.md` を⑥に貼る
-- 柱C: ⑤ Claude で batch-prompt 実行 → handoff を⑥が backlog/inbox 登録（**同一水曜ブロック内**。曜日分割しない）
-- matrix再生成 + reader健全性 + KPIメモ + **人気スロット** + **#5 シリーズ化スキャン** + **#6 負債払い原則2単位** + **week-queue 新規作成**（Skill B／評価フェーズ移行ノート §5.4.2）
+- 本線: ② `weekly-intake` → ⑤柱C → ⑥ `weekly-maintenance`（本ファイル「水曜オペ」表）
+- 水曜は daily-maintenance-prompt の代わりに `weekly-maintenance-prompt.md` を⑥に貼る（または Skill B）
+- 柱C: ⑤ Claude で batch-prompt 実行 → handoff を⑥が backlog/inbox 登録（**同一水曜ブロック内**）
+- matrix再生成 + reader健全性 + KPIメモ + **人気スロット** + **#5 シリーズ化スキャン** + **#6 負債払い原則2単位** + **week-queue 新規作成**
+- **#5**: 対象は B 層 / `21-…` / レガシー `20`。GSC・相互リンクの塊で「新Hub / 既存統合 / standalone継続」。詳細は debt-paydown
+- **#6**: Hub stale 保険 / レガシー20昇格 / **series化（Hub+移動同一①）** / 統合・301 / 逆リンク
 - 完了時: dashboard.md の「Last weekly ⑥」・**検索パフォーマンス（Collector正）**・**週次公開（記録のみ）**を更新
 - 完了時: gsc-weekly-log.md に週次1行追記（100+・migrationシェアも可能な範囲で）
 - 収益: 月次は revenue-signals。2-0中は **読者由来** ASPクリック累計（自己クリック禁止 2026-07-29〜。卒業≥10 → `phase-now.md` 更新）
 - 今月最終水曜: ⑥チャット KPI要約 + seo-goals.md / phase-now.md 照合
-- 手順正本: weekly-maintenance-prompt.md / slot-handoff-template.md / debt-paydown-workflow.md / `.cursor/skills/weekly-maintenance/` / 評価フェーズ移行ノート §5.4
+- 手順正本: weekly-maintenance-prompt.md / slot-handoff-template.md / content-folders.md / debt-paydown-workflow.md / `.cursor/skills/weekly-intake/` / `.cursor/skills/weekly-maintenance/` / 評価フェーズ移行ノート §5.4
 
 準備できたら「⑥ KPI＋日次メンテ、準備完了」とだけ返答してください。
 ```
@@ -935,9 +967,9 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
 - 対象外の inbox 全体は読まない
 ```
 
-Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`maintenance_1min-Tips.md` は迷ったときの詳細正本として該当節だけ読む。
+Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。Cursor では Skill **`daily-maintenance-lite`** でも起動できる。`maintenance_1min-Tips.md` は迷ったときの詳細正本として該当節だけ読む。
 
-**水曜**は `D:\ObsidianVault\Vault\00-dashboard\weekly-maintenance-prompt.md` を使う（日次テンプレは使わない）。
+**水曜**は `D:\ObsidianVault\Vault\00-dashboard\weekly-maintenance-prompt.md` を使う（日次テンプレは使わない）。本線は ② `weekly-intake` → ⑤柱C → ⑥ `weekly-maintenance`。
 
 ### ⑥ 週次 KPI テンプレ
 
@@ -952,7 +984,7 @@ Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`mainte
 1. 1タスクが完了した（記事1本、GSC調査1件、実装修正1件、日次メンテ1日分）
 2. 10〜15往復以上続いた
 3. Agent が複数回ファイル探索した、または広範囲探索が必要になった
-4. フェーズが変わった（調査 → 実装、立ち上げ → 量産 → 収益化）
+4. フェーズが変わった（調査 → 実装、立ち上げ → **評価・統合** → 収益強化）
 5. 同じ説明を何度も繰り返している
 6. AI が古い方針・実装を引きずる
 7. 読み込みが重い
@@ -960,10 +992,11 @@ Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`mainte
 | スロット                 | 目安                                                                                 |
 | ------------------------ | ------------------------------------------------------------------------------------ |
 | ① 記事公開               | 記事1本 / 同日公開バッチ / 10〜15往復                                                |
-| ② SEO・GSC               | 調査1件 / GSC週次1回 / 方針変更時                                                    |
+| ② SEO・GSC               | 調査1件 / 水曜 intake（Skill A）1回 / 方針変更時                                     |
 | ③ サイト基盤             | 実装修正1件 / 大型機能ごと                                                           |
-| ④ 記事初稿・既存リライト | 四半期 / コンテンツ柱が変わるとき                                                    |
-| ⑤ Tips・素材             | 半年                                                                                 |
+| ④ 記事初稿・既存リライト | **記事1本 or リライト1件**（表の長期枠より記事単位を優先）                           |
+| ⑤ Tips・素材             | **収益 source は1記事1チャット**（表の長期枠より記事単位を優先）                     |
+| L1レビュー               | 公開候補1本ごと                                                                      |
 | ⑥ KPI＋日次メンテ        | 日次は1日1チャットで実行後に閉じる / 週次は週ごと / 月次KPI要約は月ごと              |
 | ⑦ 個人R&D                | explore 保存後にチャットを閉じる（推奨）/ テーマが大きく変わる / 3か月以上空いたとき |
 
@@ -974,21 +1007,27 @@ Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`mainte
 - [ ] Cursor ①②③⑥⑦ に上記「初回固定プロンプト」を1回ずつ貼った（⑦は ToolArc 外）
 - [ ] Claude ④⑤ に Claude 用プロンプトを貼った
 - [ ] Cursor ④⑤ は予備のまま、または初回プロンプトを貼った
-- [ ] ⑥ で `daily-maintenance-prompt.md` をコピーし、`PasteDailyNotePath` を今日のパスに差し替えて送信した
+- [ ] ⑥ は `daily-maintenance-prompt.md` コピペ、または Skill `daily-maintenance-lite` で起動できる
+- [ ] 水曜は ② `weekly-intake` → ⑤柱C → ⑥ `weekly-maintenance` の順が分かっている
 - [ ] DailyNote の「日次メンテナンス」にチェックを入れられる状態になった
 
 ---
 
-## 参照（Vault）
+## 参照（Vault / repo）
 
 | ファイル                                               | 用途                                           |
 | ------------------------------------------------------ | ---------------------------------------------- |
+| `docs/ai-context/content-folders.md`                   | 記事置き場・B/21・後付け series（リポ正本）    |
+| `docs/ai-context/debt-paydown-workflow.md`             | シリーズ負債払い（軽負債/重負債・評価フェーズ） |
 | `00-dashboard/maintenance_1min-Tips.md`                | 日次メンテ手順の正本                           |
 | `00-dashboard/daily-maintenance-prompt.md`             | 毎日コピペ用短テンプレ（月〜火・木〜日）       |
+| `.cursor/skills/daily-maintenance-lite/`               | ⑥日次の Skill 起動経路                         |
 | `00-dashboard/weekly-maintenance-prompt.md`            | 週次コピペ用（毎週水曜）                       |
+| `.cursor/skills/weekly-intake/`                        | ②水曜 Skill A（Collector intake）              |
+| `.cursor/skills/weekly-maintenance/`                   | ⑥水曜 Skill B（Commit）                        |
 | `00-dashboard/toolarc_1min_tips_article_candidates.md` | 候補マスター                                   |
 | `00-dashboard/dashboard.md`                            | 1分Tips Dashboard（GSC週次・週次公開の正本）   |
-| `00-dashboard/gsc-weekly-acquisition-checklist.md`     | GSC 週次取得手順（②オペレーション正本）        |
+| `00-dashboard/gsc-weekly-acquisition-checklist.md`     | GSC UI 手動フォールバック（②）                 |
 | `00-dashboard/gsc-weekly-log.md`                       | GSC / 週次アーカイブ（水曜1行追記）            |
 | `00-dashboard/audience-axis-labels.md`                 | 読者軸定義                                     |
 | `00-dashboard/content-audience-matrix.md`              | 読者軸一覧（週次再生成）                       |
@@ -997,7 +1036,6 @@ Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。`mainte
 | `00-dashboard/reader-theme-backlog.md`                 | シリーズ別 reader バックログ                   |
 | `00-dashboard/reader-theme-batch-prompt.md`            | 柱Cプロンプト（⑤ Claude 主）                   |
 | `00-dashboard/slot-handoff-template.md`                | ⑤→⑥ handoff 形式                               |
-| `docs/ai-context/debt-paydown-workflow.md`             | シリーズ負債払い（軽負債/重負債・評価フェーズ） |
 | `docs/plan/phase-now.md`                               | 現行フェーズ・Phase2-x・2-0卒業条件            |
 | `docs/seo-goals.md`                                    | 週次オペ／Outcome KPI                          |
 | `00-dashboard/revenue-signals.md`                      | 月次収益シグナル                               |

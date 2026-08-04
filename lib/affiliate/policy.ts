@@ -1,6 +1,12 @@
 import type { AffiliateProgramId } from "./types";
 import { getProgram } from "./registry";
 
+/**
+ * Direct-affiliate allow/deny for a slug × program.
+ * Human-facing placement notes: docs/ai-context/affiliate-registry.md
+ * General CTA rules: docs/ai-context/writing-rules.md（収益導線）
+ */
+
 /** ai-tools-comparison-series の hub + spoke（直アフィ禁止） */
 export const DIRECT_AFFILIATE_BLOCKED_SLUGS = new Set([
   "ai-tools-comparison",

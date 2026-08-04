@@ -1,23 +1,30 @@
 # debt-paydown-workflow.md — シリーズ負債払い運用
 
-最終更新: 2026-07-31 12:50（評価フェーズ: 公開ノルマなし・水曜重負債原則2単位・単位に統合/301/SubHub可）  
-用途: `20-investigate-something` 先公開フローで溜まる「後払い負債」の払い方。①（公開）・⑥（日次/週次）が参照。
+最終更新: 2026-08-04 18:26（評価フェーズ: 後付け series・B/21 直置き・`20` 新規禁止）  
+用途: 公開後に溜まる「後払い負債」と、後付け series 化の払い方。①（公開）・⑥（日次/週次）が参照。  
+置き場の正本: [`content-folders.md`](content-folders.md)
 
-関連: [`content-folders.md`](content-folders.md)、[`chat-operations.md`](chat-operations.md)、[`lib/series/series.ts`](../../lib/series/series.ts)、[`docs/plan/phase-now.md`](../plan/phase-now.md)、Vault 評価フェーズ移行ノート
+関連: [`chat-operations.md`](chat-operations.md)、[`lib/series/series.ts`](../../lib/series/series.ts)、[`docs/plan/phase-now.md`](../plan/phase-now.md)、Vault 評価フェーズ移行ノート
 
 ---
 
 ## 背景とトレードオフ
 
-評価フェーズでは **公開ノルマ（下限・上限）を設けない**。新規1分Tipsを出すときは引き続き `20-investigate-something` 入口を使えるが、薄味の枠埋め公開はしない（例外ゲート: 評価フェーズ移行ノート §5.2）。
+評価フェーズでは **公開ノルマ（下限・上限）を設けない**。薄味の枠埋め公開はしない（例外ゲート: 評価フェーズ移行ノート §5.2）。
 
-公開するたびに次の負債が溜まりうる:
+**現行の公開モデル（後付け series）**
 
-- Hub 更新の遅れ
-- `series.ts` と実フォルダのズレ
-- A/B 層への昇格・`001-` リネームの手戻り
+- 勝ちが見えるまで Hub／`series.ts` は作らない。新規は **既存 B** または **新 `21-…`** に直置きし、同ジャンルは相互リンク
+- 既存 series への追記は A 直置き ＋ **同一①で Hub 反映**（「フォルダだけ先」禁止）
+- `20-investigate-something` は量産負債の在庫。**新規投入禁止**。週次で昇格・統合を払う
+
+公開するたびに起きうる負債:
+
+- 既存 series の Hub／`series.ts` 漏れ（①で潰し切れなかったとき）
+- レガシー `20` の滞留・A/B 未昇格
 - 逆方向内部リンクの未整備
 - 意図重複による統合・301・SubHub未整備
+- B／`21-` クラスタの series 化タイミング（データ待ち。負債というより判断待ち）
 
 本ドキュメントは負債を **軽負債（毎公開）** と **重負債（水曜・原則2単位）** に分け、溜まり続けない運用を定義する。
 
@@ -37,32 +44,34 @@ flowchart LR
 
 | 種類 | タイミング | 担当 | 内容 |
 |------|-----------|------|------|
-| **軽負債** | 毎公開（①） | Cursor ① | `series.ts` 追記、スポーク→Hub リンク、Vault `promotion_status` |
-| **重負債** | 水曜・原則2単位（⑥→①） | ⑥で選定、①で実装 | Hub 改稿、フォルダ昇格 PR、逆リンク |
+| **軽負債** | 毎公開（①） | Cursor ① | 既存 series なら `series.ts`＋Hub 本文スポーク。非 series なら相互リンク。Vault `promotion_status` |
+| **重負債** | 水曜・原則2単位（⑥→①） | ⑥で選定、①で実装 | Hub stale 保険、`20`→A/B 昇格、series 化 PR、逆リンク、統合・301 |
 | **日次追跡** | 毎日（⑥） | Cursor ⑥ | 分類・debt カウンタ・Hub stale 判定（Vault のみ） |
 
-**変更しない**: 新規の `contentId` 入口（`20`）、`slug` / 公開 URL、`imageBasePath`（昇格時も当面維持可）。
+**変更しない**: `slug` / 公開 URL、`imageBasePath`（昇格時も当面維持可）。  
+**変えたこと**: 新規の `contentId` 入口は `20` ではない（正本: [`content-folders.md`](content-folders.md)）。
 
 ---
 
 ## ① 公開時チェックリスト（軽負債・必須）
 
-公開 PR の完了条件に含める。所要目安 5 分以内。
+公開 PR の完了条件に含める。所要目安 5〜10 分。
 
 | # | 作業 | 条件 |
 |---|------|------|
-| 1 | **`series.ts` に spoke 追加** | シリーズが確定している場合のみ。未確定はスキップ可 |
-| 2 | **新スポーク本文に Hub リンク1本** | `/blog/[hubSlug]` 形式。Hub 自身の公開時は不要 |
-| 3 | **Vault 候補マスターに記録** | `content_folder` + `promotion_status: published_in_20`（⑥が日次で確認） |
-| 4 | **同日複数本のクロスリンク** | 既存ルール（公開順に相互リンク） |
-| 5 | **公開日を実装日で統一** | 実装開始時に `Get-Date -Format "yyyy-MM-dd"` を取得し、frontmatter `date` と `posts.ts` の `publishedAt` が同じ実装日で一致。inbox の `publishDate` は参照しない |
+| 1 | **置き場を確定** | [`content-folders.md`](content-folders.md): 既存 A / 既存 B / 新 `21-…`。**`20` へ置かない** |
+| 2 | **`series.ts` に spoke 追加** | **既存 series への追記時のみ**。未確定（B／`21-`）はスキップ |
+| 3 | **Hub 本文にスポークリンク** | 既存 series 追記時は **同一 PR 必須**（spoke→Hub リンク1本＋Hub 側一覧）。Hub 自身の公開時は不要 |
+| 4 | **同ジャンル相互リンク** | B／`21-`（および同日複数本）。既存ルール（公開順クロスリンク含む） |
+| 5 | **Vault 候補マスターに記録** | `content_folder` + `promotion_status`（A 追記完了寄りなら `hub_updated`、B／`21-` なら `standalone`。レガシーのみ `published_in_20`） |
+| 6 | **公開日を実装日で統一** | 実装開始時に `Get-Date -Format "yyyy-MM-dd"`。frontmatter `date` と `publishedAt` 一致。inbox の `publishDate` は参照しない |
 
 **週次に回す（公開 PR ではやらない）**
 
-- MD の A/B 層フォルダ移動
-- `001-` リネーム
-- Hub 本文の全面改稿
-- 既存記事への逆リンク一括更新
+- レガシー `20` の大量 A/B 移動・`001-` リネーム一括
+- 既存 Hub の全面差し替え（`hubSlug` 変更）
+- 既存記事への逆リンク一括（関連1本程度は①で可）
+- 「まだ勝ちが見えない」クラスタの Hub 新設
 
 ---
 
@@ -73,35 +82,35 @@ flowchart LR
 | タスク | 内容 |
 |--------|------|
 | **分類ゲート** | 当日公開分の `content_folder` を `series:*` / `topic:*` / `standalone` のいずれかに。`inbox:keep` は「未判断」のみ |
-| **debt カウンタ** | Dashboard のシリーズ負債カウンタ4行を更新（定義は下記「debt カウンタ定義」節） |
-| **Hub stale 判定** | シリーズごとに `series.ts` の spoke 数 − Hub 本文のスポークリンク数 ≥ 2 → `hub_stale: true` |
-| **黄/赤判定** | Hub 未更新・昇格待ち・`20` 総数・週次純増を閾値と照合し、Dashboard に段階を記録（詳細は「閾値トリガー」節） |
-| **week-queue 当日消化** | 当日 `day` の week-queue 行を消化（公開フォーカス3本選定は廃止）。`type=new` がある日だけ該当 inbox の `publish_date` をその日に設定。正本: maintenance_1min-Tips 必須タスク E／評価フェーズ移行ノート §5.4 |
+| **debt カウンタ** | Dashboard のシリーズ負債カウンタを更新（定義は下記「debt カウンタ定義」節） |
+| **Hub stale 判定** | シリーズごとに `series.ts` の spoke 数 − Hub 本文のスポークリンク数 ≥ 2 → `hub_stale: true`（①漏れの保険） |
+| **黄/赤判定** | Hub 未更新・`20` 滞留・昇格待ちを閾値と照合し、Dashboard に段階を記録 |
+| **week-queue 当日消化** | 当日 `day` の week-queue 行を消化。正本: maintenance_1min-Tips 必須タスク E／評価フェーズ移行ノート §5.4 |
 
 ### 日次で公開があったときの最小手順
 
-1. `posts.ts` で当日 `publishedAt` の件数と `contentId: "20-investigate-something"` 総数を確認する（0本の日もあり）
+1. `posts.ts` で当日 `publishedAt` の件数を確認。あわせて `contentId: "20-investigate-something"` 総数（レガシー滞留）を確認する（0本の日もあり）
 2. 候補マスターの該当件だけ `status: published` / `published_date` / `公開` / `promotion_status` を補完する
-3. `content_folder: series:*` の記事だけ、昇格アクション待ち（`published_in_20` または `hub_updated`）へ加算する
-4. Dashboard のシリーズ負債カウンタ4行を更新する
-5. Hub stale は日次では広範囲再判定しない。`series.ts` 追加やHub差分が明らかな場合だけ該当シリーズを補正する
+3. `content_folder: series:*` かつまだ A 未移動のレガシーだけ、昇格アクション待ちへ加算する
+4. Dashboard のシリーズ負債カウンタを更新する
+5. Hub stale は日次では広範囲再判定しない。`series.ts` 追加や Hub 差分が明らかな場合だけ該当シリーズを補正する
 
 ---
 
-## ⑥ 水曜 #5 — シリーズ化スキャン（公開キュー拡張）
+## ⑥ 水曜 #5 — シリーズ化スキャン（後付け判定）
 
-水曜週次の **#5 公開キュー** 内で実施。新チェック項目は増やさない。**検知と Hub 作成は分離**する。
+水曜週次の **#5** 内で実施。**検知と Hub 作成は分離**するが、Hub を作るときは移動と同時（下記「新シリーズ実装フロー」）。
 
 ### スキャン手順（10〜15分）
 
-1. **対象列挙** — `posts.ts` で `contentId: "20-investigate-something"` の公開済み slug を列挙し、候補マスターの `content_folder` / `audience_axis` と突合
-2. **クラスタリング** — テーマごとに束ねる（特に `standalone` / `inbox:keep` / 既存 `series:*` 以外 / `topic:*`）
-3. **推奨ゲート** — 4項目中 **3以上** で「新シリーズ推奨」:
-   - 同一テーマが `20` に **≥3本** 公開済み
+1. **対象列挙** — B 層（`05`〜`09`）・`21-` 以降・レガシー `20` の公開済み slug。候補マスターの `content_folder` / `audience_axis` / GSC メモと突合
+2. **クラスタリング** — テーマ・相互リンクの塊ごとに束ねる（特に `standalone` / `topic:*`）
+3. **推奨ゲート** — 4項目中 **3以上** で「新シリーズ推奨」（勝ち待ちを尊重し、無理に Hub を作らない）:
+   - 同一テーマが **≥3本** 公開済み（B／`21-`／`20` の合算可）
    - **既存 `series.ts` の Hub でカバーできない**（統合可能なら新シリーズ禁止）
-   - **`audience_axis: reader` が中心**
+   - **`audience_axis: reader` が中心** かつデータ／導線上「勝ち筋」が見える（クリック・表示・相互導線のいずれか）
    - **Hub 記事が読者導線として意味がある**（How-to 連鎖・段階的切り分け）
-4. **判定** — 各クラスタを `新Hub` / `既存series統合` / `保留` に分類
+4. **判定** — 各クラスタを `新Hub` / `既存series統合` / `保留（standalone継続）` に分類
 5. **ラベル付与** — 新シリーズ候補に `content_folder: series:candidate:<theme-slug>` を付与（週次のみ）
 
 ### 出力（必須）
@@ -119,11 +128,16 @@ flowchart LR
 | アクティブ上限 | **`series.ts` 登録が12本超** → 新シリーズ停止、統合/`standalone` 優先 |
 | メタ記事 | ブログ運用系は **1クラスタに集約**（`series:candidate:blog-ops-meta` 等） |
 
-### 新シリーズ実装フロー（#6 とは別トラック）
+### 新シリーズ実装フロー（#6 とは別トラックだが同一①で完結）
 
 1. 週次 #5 で `series:candidate:<theme-slug>` 付与
-2. 月次キャップ内なら **④** で Hub `source.md` → **①** で `series.ts` 新規 + Hub 公開（**別 PR**。Hub 差し替えルールと同様）
-3. 以降は軽負債・昇格フローに乗せる
+2. 月次キャップ内なら **④** で Hub `source.md`
+3. **①** で次を **同一 PR**:
+   - 新 A の `contentId` フォルダ（採番は既存 A の空き／方針に従う）または既存 A への統合
+   - Hub MD 配置 + `series.ts` 新規／spoke 一覧
+   - 関連 Spoke を B／`21-`／`20` から移動 + `posts.ts` の contentId 更新
+   - Hub 本文に全スポークリンク
+4. 「Hub だけ先・Spoke は後」「フォルダだけ先・Hub は後」は禁止
 
 ④ 依頼テンプレ: [`chat-operations.md`](chat-operations.md)「④ 新シリーズ Hub 初稿」
 
@@ -139,7 +153,7 @@ flowchart LR
 | 優先 | 単位 | 内容 | 担当 |
 |------|------|------|------|
 | P0 | **Hub 更新 / SubHub** | `hub_stale: true` のシリーズで Hub に未掲載スポークを追記、または分岐地図・SubHub改稿 | ④文案 → ①反映 |
-| P1 | **シリーズ昇格 PR / 統合・301** | 1シリーズ分の `20` → A/B 層移動 + `posts.ts` + `001-`、または重複URLの統合・301 | ① |
+| P1 | **昇格 PR / series 化 / 統合・301** | レガシー `20`→A/B、または #5 通過クラスタの series 化同一 PR、または重複URLの統合・301 | ① |
 | P2 | **逆リンク更新** | 今週公開/昇格スポークについて関連記事1〜2本にリンク追加 | ① |
 | P3 | **単発整理** | `standalone` 確定の `promotion_status` を更新 | ⑥のみ |
 
@@ -148,25 +162,22 @@ flowchart LR
 ```
 単位1:
   if hub_stale あり → P0 Hub更新
-  else if 既存seriesの20滞留 ≥ 3本 → P1 昇格PR（#5の「既存統合」推奨を優先）
+  else if レガシー20の既存series滞留 ≥ 3本 → P1 昇格PR（#5の「既存統合」推奨を優先）
+  else if #5 で新Hub推奨 & 月次キャップ余裕 → P1 series化同一PR（または来週④準備を記録）
   else → P2 逆リンク or P3
 
 単位2:
   if まだ hub_stale あり → 別シリーズの P0
   else if 昇格待ちが残る → 別シリーズの P1
   else → P2
-
-例外:
-  新シリーズ候補がゲート通過 & N≥5 & 月次キャップ余裕あり
-    → 単位の1つを「来週④Hub初稿」記録に振り、実装は別トラック
 ```
 
 ### ① 依頼テンプレ（水曜⑥から）
 
 ```text
 【負債払い（原則2単位・評価フェーズ）】
-単位1: 種別 Hub更新|SubHub|昇格PR|統合301|逆リンク / シリーズ / slug一覧
-単位2: 種別 Hub更新|SubHub|昇格PR|統合301|逆リンク / シリーズ / slug一覧
+単位1: 種別 Hub更新|SubHub|昇格PR|series化|統合301|逆リンク / シリーズ / slug一覧
+単位2: 種別 Hub更新|SubHub|昇格PR|series化|統合301|逆リンク / シリーズ / slug一覧
 手順: docs/ai-context/debt-paydown-workflow.md / content-folders.md / docs/plan/phase-now.md
 ```
 
@@ -183,28 +194,27 @@ flowchart LR
 | 昇格アクション待ち **≥8本** | 赤 | 整理 PR（P1）を①へ依頼 |
 | `20` 総数 **≥50本** | 黄 | 48時間以内に①を整理 PR（P0/P1／統合）へ1回差し替え |
 | `20` 総数 **≥70本** | 赤 | 赤指標が2つ以上なら翌営業日に整理①を **追加1枠**（薄味の枠埋め公開はしない） |
-| 週次純増 **≥+15本** | 黄 | 次回水曜 #6 を2単位厳守（余力あれば3）。公開ノルマは設けない |
-| 週次純増 **≥+25本** | 赤 | 赤指標が2つ以上なら水曜待たず整理①を追加1枠 |
-| 単発確定（シリーズ化予定なし） | — | 公開時に `standalone`。昇格キューに入れない |
+| 週次の `20` 純減が止まっている週が続く | 黄 | #6 で P1 を優先（新規は B/21 のため純増はレガシー消化速度の指標） |
+| 単発確定（series 化しない） | — | `standalone`。昇格キューに入れない |
 
 **運用注釈（評価フェーズ）**
 
-- 公開ノルマ（下限・上限）は無い。週次純増が大きい週は統合・#6を厚くする
-- `20` 総数は公開速度の結果も拾うため、**単独では「もっと公開せよ／止めよ」の根拠にしない**
-- 赤域の対処は「整理①の追加枠」と「水曜2単位（統合・301含む）」で払う。薄味inboxで枠埋めしない
+- 公開ノルマ（下限・上限）は無い
+- `20` 総数はレガシー消化の指標。**新規を `20` に入れて枠を埋めない**
+- 赤域の対処は「整理①の追加枠」と「水曜2単位（統合・301含む）」で払う
 - 黄/赤は「正常/異常」ではなく **ベースライン超過の段階的通知**
 - フェーズ文脈: [`docs/plan/phase-now.md`](../plan/phase-now.md)／評価フェーズ移行ノート
 
 ---
 
-## debt カウンタ定義（Dashboard 4行）
+## debt カウンタ定義（Dashboard）
 
 | 指標 | 集計方法 |
 |------|----------|
 | `20` 滞留本数 | `posts.ts` で `contentId: "20-investigate-something"` を grep |
 | Hub 未更新 | `series.ts` spoke − Hub リンク ≥2 のシリーズ数 |
-| **昇格アクション待ち** | 候補マスターで `content_folder: series:*` かつ `promotion_status` が `published_in_20` **または** `hub_updated` |
-| **週次純増** | 当週の `20` 滞留 − 前週水曜（または前回記録）の値。⑥日次で Dashboard に記入 |
+| **昇格アクション待ち** | 候補マスターで `content_folder: series:*` かつ `promotion_status` が `published_in_20` **または** `hub_updated`（レガシー／未移動） |
+| **週次 `20` 純減** | 前週水曜の `20` 滞留 − 当週の値（消化速度）。⑥日次で Dashboard に記入 |
 
 ---
 
@@ -214,17 +224,17 @@ flowchart LR
 
 | 値 | 意味 |
 |----|------|
-| `published_in_20` | 公開済み・`20` に配置（デフォルト） |
-| `hub_updated` | Hub に当該スポークを反映済み |
-| `promoted` | A/B 層へ昇格済み（`posts.ts` contentId 更新済み） |
-| `standalone` | 単発確定。昇格対象外 |
+| `published_in_20` | 公開済み・まだ `20` 配置（レガシー負債） |
+| `standalone` | B／`21-` 公開・series 化しない／勝ち待ち。昇格キュー外 |
+| `hub_updated` | 既存 series で Hub に当該スポークを反映済み |
+| `promoted` | A 層へ移動済み（`posts.ts` contentId 更新済み） |
 
 **状態遷移**
 
 ```
-公開 → published_in_20
-Hub追記済 → hub_updated（当該シリーズの hub_stale 解除）
-A層移動済 → promoted
+（レガシー）公開 in 20 → published_in_20 → hub_updated → promoted
+（現行）公開 in B/21 → standalone（series化時）→ promoted（+ Hub 同時）
+（現行）既存 A 追記 → hub_updated（同一①で完了）
 ```
 
 Vault 定義の正本: `00-dashboard/content-folder-labels.md`
@@ -233,7 +243,7 @@ Vault 定義の正本: `00-dashboard/content-folder-labels.md`
 
 ## 初期バックログ（昇格・Hub 優先順）
 
-水曜1単位ずつ消化する目安。
+水曜1単位ずつ消化する目安（レガシー中心。完了したら #5 の後付け候補へ）。
 
 | 週 | 単位 | 対象 |
 |----|------|------|
@@ -242,9 +252,9 @@ Vault 定義の正本: `00-dashboard/content-folder-labels.md`
 | 3 | Hub 更新 | `site-launch-series`（`blog-page-size-15-tips` 等） |
 | 4 | 昇格 PR | `site-launch-series` 残り → `01-site-launch` |
 | 5 | Hub 更新 | `claude-obsidian-workflow-series`（`obsidian-dashboard-focus-tips` 等） |
-| 6以降 | #5 スキャン | `series:candidate` 付与。月1本以内なら ④→① で新 Hub |
+| 6以降 | #5 スキャン | `series:candidate` 付与。月1本以内なら ④→① で新 Hub（移動同時） |
 
-`08-new-domain-seo` は昇格済み。Hub 差し替え（`013` 原稿）は [`content-folders.md`](content-folders.md) のとおり別 PR。
+`08-new-domain-seo` は昇格済み。Hub 差し替え（`013` 原稿）は [`content-folders.md`](content-folders.md) のとおり別 PR 可。
 
 ---
 
@@ -257,6 +267,6 @@ Vault 定義の正本: `00-dashboard/content-folder-labels.md`
 | debt カウンタ・分類 | ⑥ Cursor | 毎日 |
 | シリーズ化スキャン | ⑥ Cursor | 水曜 #5 |
 | Hub 改稿文案 | ④ Claude | Hub stale / 新シリーズ候補時 |
-| 重負債（昇格・逆リンク） | ① Cursor | 水曜 #6・原則2単位 |
-| 新シリーズ Hub 実装 | ④→① | 月0〜1本（#5 推奨後） |
+| 重負債（昇格・series化・逆リンク） | ① Cursor | 水曜 #6・原則2単位 |
+| 新シリーズ Hub＋移動 | ④→① | 月0〜1本（#5 推奨後・同一①） |
 | GSC 影響確認 | ② Cursor | 昇格後（imageBasePath 不変なら軽く） |
