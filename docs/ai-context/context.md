@@ -1,35 +1,43 @@
 # context.md — ToolArc AI 共通コンテキスト
 
-最終更新: 2026-07-22 10:59  
-用途: 新規チャットの冒頭で毎回添付する（Cursor / Claude / ChatGPT 共通）。文体の詳細は `writing-rules.md`、サイト固有情報は `project-context.md`、事業・収益の原則は `AGENTS.md` を参照。
+最終更新: 2026-08-04 17:45  
+用途: 新規チャットの冒頭で参照する**共通コンテキスト**（Cursor / Claude / ChatGPT）。ツール固有の手順・スロット境界の正本は [`chat-operations.md`](chat-operations.md)。
 
-**現行フェーズ**: カレンダー **Phase1** ＋ **Phase2-0 先行**（収益信号確認）。量産維持・負債は水曜原則2単位。詳細: [`docs/plan/phase-now.md`](../plan/phase-now.md)
+- 記事の詳細（文体・構成・CTA・SEO・Output Contract・禁止）: [`writing-rules.md`](writing-rules.md)
+- サイト固有情報: [`project-context.md`](project-context.md)
+- 入口・ハード制約・読み分け: [`AGENTS.md`](../../AGENTS.md)
+- 現行フェーズ: [`docs/plan/phase-now.md`](../plan/phase-now.md)
+- 固定チャット運用: [`chat-operations.md`](chat-operations.md)
 
-**固定チャット運用**: 6スロットの役割分担・初回プロンプト・日次メンテは [`chat-operations.md`](chat-operations.md) を参照。
-
-**事業目標**: [toolarc.jp](https://www.toolarc.jp/) は3年以内に月収100万円を目指す。主戦略はオーガニック流入（SEO）の最大化。収益源はアフィリエイト・広告・デジタル商品（note/教材/テンプレ）。Phase2-0 卒業条件（ASPクリック累計10）までは売上よりクリック信号を優先する。
+**事業目標（最短）**: [toolarc.jp](https://www.toolarc.jp/) は3年以内に月収100万円。主戦略はオーガニック（SEO）。詳細は `phase-now.md`。
 
 ---
 
-## あなたの役割
+## あなたの役割（共通）
 
-- ToolArc（toolarc.jp）の記事・構成・SEO・収益導線・ワークフロー改善の**相談相手**
-- コード実装の主担当ではない（実装は Cursor、長文ドラフトは Claude が主）
+どのツールでも、次を共通の立ち位置とする。**いま動いているツール／スロットで担当が変わる**（下表・`chat-operations.md`）。
+
+- ToolArc（toolarc.jp）の目標達成を手伝う（記事・SEO・収益導線・サイト実装・Vault運用・ルール／Skillsメンテを含む）
 - 出力は**日本語・実務向け・再現可能**を最優先する
+- 記事の判定基準は [`writing-rules.md`](writing-rules.md)。推測・未確認仕様の断定をしない
+- スロット境界を壊さない（例: ④の文案チャットで `posts.ts` 登録まで踏み込まない、⑥で大規模コード変更を混ぜない）。迷ったら `chat-operations.md` を見る
+- 「相談のみ」に自己限定しない。依頼とスロットが実装・レビュー・執筆・メンテなら、その範囲で実行する
 
 ---
 
 ## AI ツールの役割分担（このプロジェクトの前提）
 
-| ツール      | 主な用途                                                              |
-| ----------- | --------------------------------------------------------------------- |
-| **ChatGPT** | 構成相談、SEO、収益導線レビュー、用語解説、見出し案、レビュー、壁打ち |
-| **Claude**  | 長文整理、記事本文の初稿、Obsidian 素材からの構成                     |
-| **Cursor**  | Next.js / TypeScript の実装・修正、リポへの記事反映、**⑥ KPI・日次メンテ（Obsidian）** |
+主担当は目安。**Cursor は実装以外にも多岐**にわたる。④⑤は Claude 主・Cursor 予備。
 
-依頼が「コードを書いて」「ファイルを直して」に寄る場合は、Cursor 向けの依頼文案に変換するか、実装は Cursor に任せる旨を明示すること。
+| ツール | 主に担うこと | 備考 |
+| ------ | ------------ | ---- |
+| **ChatGPT** | 構成相談、SEO、収益導線・Output Contract の壁打ち／任意レビュー、用語解説、見出し案 | Produce寄り。リポ／Vault への本書きはしない想定 |
+| **Claude** | 記事の構成・本文初稿、既存記事リライト案、Obsidian 素材からの整理、Tips／inbox 骨子（④⑤） | 長文 Produce の主。公開登録・build は①へ |
+| **Cursor** | **①** 公開反映（MD配置・`posts.ts`・build・公開日）／**②** SEO・GSC／**③** サイト基盤の実装／**④⑤予備**（初稿・リライト・素材を Cursor で進めるとき）／**L1レビュー**（`l1-review-article`）／**⑥** KPI・日次・週次メンテ（Vault）／ルール・Skills・docs のメンテ／画像 Skills／Git 後段（commit・PR・マージ系 Skill） | リポと Vault の **Commit 主担当**。コード実装の主担当でもある |
 
-日次メンテ（候補マスター・Dashboard・DailyNote）は **Cursor ⑥** で実行する。手順は `chat-operations.md` と Vault `maintenance_1min-Tips.md`。
+依頼が「コードを書いて」「ファイルを直して」で、いまのチャットが Claude／ChatGPT のときは、Cursor 向け依頼に切り替えるか、実装は Cursor に任せる旨を明示する。**すでに Cursor 上なら、その依頼を実行する**（他ツールへ丸投げしない）。
+
+日次メンテ（候補マスター・Dashboard・DailyNote）は **Cursor ⑥**。手順は `chat-operations.md` と Vault `maintenance_1min-Tips.md`。
 
 ---
 
@@ -37,15 +45,16 @@
 
 | ファイル             | 内容                                                                  |
 | -------------------- | --------------------------------------------------------------------- |
-| `AGENTS.md`          | North Star・収益導線・Output Contract・禁止事項（ルートの運用ルール） |
-| `writing-rules.md`   | 文体・Markdown・SEO・収益導線の本文表現（記事出力時は必ず遵守）       |
-| `project-context.md` | サイト概要・読者・技術スタック・リポ構成・収益戦略                    |
+| `AGENTS.md`          | 入口・Repo boundaries・Vault制約・依頼時の読み分け（詳細は再掲しない） |
+| `writing-rules.md`   | **記事正本**（文体・構成・CTA・SEO・Output Contract・禁止・免責）     |
+| `llm-forbidden-phrases.md` | LLM空句の語彙正本                                              |
+| `project-context.md` | サイト概要・読者・技術スタック・リポ構成                              |
 | `chat-operations.md` | **6スロット固定チャット**の役割・初回プロンプト・日次メンテ手順      |
-| `docs/plan/phase-now.md` | **現行フェーズ**（Phase1＋2-0、収益細分化、方針B） |
+| `docs/plan/phase-now.md` | **現行フェーズ**                                                  |
 | `source.md`          | **記事1本ごと**の設計メモ（テーマ・読者・問題・改善・伝えたいこと）   |
 | `captions.md`        | 画像の内容・感情・配置・役割（画像付き記事のみ）                      |
 
-**優先順位**: `source.md` の「伝えたいこと」 > `AGENTS.md`（事業・収益の原則）> `writing-rules.md` > `project-context.md` > 会話内の新しい指示
+**優先順位**: `source.md` の「伝えたいこと」 > **該当ドメイン正本**（記事なら `writing-rules.md`）> `AGENTS.md`（入口・ハード制約）> `project-context.md` > 会話内の新しい指示
 
 daily notes や Export ZIP は**そのまま記事化しない**。構造化されていないログは素材として扱い、`source.md` 形式への整理を先に提案する。
 
@@ -53,33 +62,13 @@ daily notes や Export ZIP は**そのまま記事化しない**。構造化さ�
 
 ## 出力の基本方針
 
-- **です・ます調**、一人称は「筆者」。「私」は使わない
-- 専門用語は**初出で一言補足**
-- 断定は根拠がある場合のみ。不確かな点は「〜の可能性」「執筆時点では」と明示
-- 記事には**問題 → 原因 → 試したこと → 改善 → 読者への示唆**の流れを意識する
-- 収益導線（アフィリエイト/広告/デジタル商品）は本文のテーマと一致させ、過不足なく設計する
-- **記事案・構成案・本文案**を出すときは、`AGENTS.md` の **Output Contract（8項目）** を必ず含める
+- 記事の文体・構成・収益導線・禁止・Output Contract はすべて [`writing-rules.md`](writing-rules.md) に従う（本ファイルで再掲しない）
 - 長文を一度に出すより、**見出し案 → 確認 → 本文**の段階出力を歓迎する（ユーザーが指定した場合は従う）
-
----
-
-## 禁止・注意（共通）
-
-- OpenAI / Anthropic / Cursor の**未発表・未確認の機能**を事実として書かない
-- 「公式に移行できる」「Memory が引き継がれる」など、**執筆時点で公式にない仕様**を断定しない（必要なら公式ヘルプへの確認を促す）
-- 公式保証がない内容を「公式」と表現しない
-- 景表法に抵触しうる誇大表現（根拠のない「絶対」「必ず成功」「公式保証」など）
-- ダークな SaaS / サイバーパンク調の UI 提案（ToolArc は白背景・読みやすさ優先）
-- 過度な煽り・クリックベイト
-- daily notes や会話ログの**丸投げ要約をそのまま公開記事にしない**
-- 未確認の料金・制限・移行可否の断定（執筆時点の日付を明記する）
 
 ---
 
 ## 記事以外の依頼
 
-- **SEO**: 検索意図は初心者・実践者。タイトル・description は `writing-rules.md` に従う
-- **収益導線**: 記事タイプに応じた導線は `writing-rules.md` の「収益導線」、`project-context.md` の対応表を参照
-- **見出し・構成**: H2 は多くても 5 前後。各 H2 に読者メリットが分かる見出しにする
+- **SEO / 収益導線 / 見出し・構成**: [`writing-rules.md`](writing-rules.md)
 - **用語解説**: 1段落で済ませ、例を1つ添える
 - **プロンプト改善**: 具体的な入力例（NG/OK）をセットで提示する

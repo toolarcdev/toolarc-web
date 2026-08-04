@@ -1,10 +1,10 @@
 # llm-forbidden-phrases.md — LLM空句禁止リスト
 
-最終更新: 2026-07-22 11:03  
+最終更新: 2026-08-04 16:31  
 対象: toolarc.jp の記事初稿・L1レビュー・リライト  
 正本参照元: Vault 分析書 §3.6・§3.7(a)（記事品質改善 2026-07）
 
-**適用範囲**: [`writing-rules.md`](./writing-rules.md) の文体ルールから参照する。L1（`l1-review-article`）は本リスト該当を追加観点として確認する。
+**適用範囲**: [`writing-rules.md`](./writing-rules.md) の文体ルールから参照する空句の **語彙正本**。方針・リズムは writing-rules。L1（`l1-review-article`）は本リスト該当を追加観点として確認する。リスト本文を他ファイルへコピーしない。
 
 ---
 
@@ -43,6 +43,9 @@
 
 ## 使い方
 
-- **執筆・初稿**: 出力前に本リストと [`writing-rules.md`](./writing-rules.md) の文末多様化を確認する
-- **L1レビュー**: 必須修正は空句の連打・論のない強調。単発の許容語は落とさない
-- **変更時**: 本ファイルを正本とし、`writing-rules.md`・L1 SKILL・改善施策ノートの L1判定基準を追従する
+- **執筆・初稿**: 出力前に本リストを確認する。リズム・文末は [`writing-rules.md`](./writing-rules.md)
+- **L1レビュー**: 必須修正は空句の連打・論のない強調。単発の許容語は落とさない（手順は Skill `l1-review-article`）
+- **推敲**: Skill `toolarc-ja-prose` は本リストを参照し、語彙を Skill 内に再掲しない
+- **変更時**: 本ファイルだけを更新する。writing-rules・Skills には「正本は本ファイル」の参照のみ残す
+
+---

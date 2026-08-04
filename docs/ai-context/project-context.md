@@ -1,31 +1,78 @@
 # project-context.md — ToolArc プロジェクト文脈
 
-最終更新: 2026-07-08 18:42  
-サイト: https://toolarc.jp
+最終更新: 2026-08-04 18:26  
+サイト: https://toolarc.jp（本番。ローカル開発は別）
 
 ---
 
 ## プロジェクト概要
 
-**ToolArc** は、AI ワークフロー・開発ツール・学習リソースに特化した**日本語の初心者向けブログ＆ツールサイト**。
+**ToolArc**（ツールアーク）は、AI ワークフロー・開発ツール・学習リソースに特化した**日本語の初心者向けブログ＆ツールサイト**である。  
+公開ドメインは [toolarc.jp](https://toolarc.jp/)。本文・UI・運用ドキュメントは日本語を正とする。
 
-- 目的: Cursor / Claude / ChatGPT などを使い始めた人が、**再現可能な手順**で学べること
-- トーン: 読みやすさ最優先。白背景・ソフトブルーアクセント。ダーク SaaS 風は採用しない
-- 執筆方針: **実測・実運用ログ**を重視。理論より「何をしたらどうなったか」
+### 何をするサイトか
+
+- **ブログ**: Cursor / Claude / ChatGPT / Obsidian / Next.js / GitHub / Vercel などを「使い始めた人が、自分の環境で再現できる」粒度で解説する
+- **ツール**: ブログとは別に、ゲーム系ユーティリティ（現状の代表は PoE2 向け regex ツール `/tools/poe2-regex`）を提供する。ゲーム用 JSON の正本は非公開リポ（後述）
+- **シリーズ構造**: Hub（入口）＋ Spoke を基本形にする。新規は既存 B または新 `21-…` に直置きし、勝ちが見えてから後付けで series／Hub 化する（`20` は量産負債のみ。正本: [`content-folders.md`](content-folders.md)）
+- **記事の層**: 集客寄りの How-to／比較／チェックリストと、周辺・本命の収益記事（第2〜3層）が同居する。比較本文に現金ASPを直置きしない（2段導線）
+
+### 誰の、どんな悩み向けか（要約）
+
+主読者は「プログラミングや Web が専門ではないが、業務・個人開発で AI ツールを使い始めた日本語ユーザー」。  
+エラーや設定画面の前で止まりやすい人に、**手順・判断基準・チェックリスト・実測の境界**を渡す。詳細は後節「読者像」。
+
+### 目的・成功の定義（サイトとして）
+
+- 読者が **今日の環境で同じ操作を再現できる**こと（抽象論や機能カタログで終わらない）
+- 検索（オーガニック）から流入し、信頼（実測・再現性）を積んだうえで、自然な収益導線へつなぐこと
+- 事業側の North Star は「3年以内に月収100万円」（複合収益）。サイト単体の日次ゴールはフェーズ依存（正本: [`phase-now.md`](../plan/phase-now.md)）
+
+### トーン・デザイン
+
+- **読みやすさ最優先**。白基調、ソフトブルーアクセント（`#60a5fa`）、余白多め
+- **採用しない**: ダーク SaaS／サイバーパンク／Terminal・Midnight 系を既定にした紙面
+- 詳細トークン: [`docs/design-system.md`](../design-system.md)
+
+### 執筆・情報の出し方
+
+- **実測・実運用ログを優先**。「何をしたらどうなったか」を理論より先に書く
+- 料金・制限・仕様は**執筆時点**を明示し、未確認は断定しない
+- 記事ドメインのルール正本は [`writing-rules.md`](writing-rules.md)（Output Contract・CTA・禁止を含む）
+- daily notes / 会話ログの丸投げ記事化はしない（先に `source.md` 等へ構造化）
+
+### いまの運営の姿（概要レベル）
+
+- カレンダー **Phase1** ＋ **Phase2-0 先行**、運用モードは**評価フェーズ移行**（公開ノルマなし。統合／表示／CTR／分散と week-queue 消化が主）
+- 制作は **6+1 スロット**（Cursor / Claude 中心。ChatGPT は任意レビュー・壁打ち）。手順の正本は [`chat-operations.md`](chat-operations.md)
+- 公開パイプライン: Markdown（`content/blog`）→ `lib/blog/posts.ts` 登録 → PR → Vercel デプロイ
+
+### この概要に書かないこと（他節・他ファイルへ）
+
+| 内容 | 参照先 |
+|------|--------|
+| フェーズ数値・卒業条件・いまやる／やらない | [`phase-now.md`](../plan/phase-now.md)／後節「現行フェーズ」 |
+| 収益源・2段導線の詳細 | 後節「North Star / 収益戦略」／`writing-rules`／`affiliate-registry` |
+| 技術スタック・3リポ・PoE2 データ境界 | 後節「技術スタック」「リポジトリ構成」 |
+| 記事フォルダ3層・昇格 | [`content-folders.md`](content-folders.md) |
+| 記事制作〜公開の横断フロー | [`chat-operations.md`](chat-operations.md)「記事フロー（ツール横断）」 |
+| ①公開手順 | Skill `publish-article` ／ `.cursor/rules/article-publish.mdc` |
 
 ---
 
-## 現行フェーズ（2026-07 時点）
+## 現行フェーズ（要約・正本は phase-now）
 
-正本: [`docs/plan/phase-now.md`](../plan/phase-now.md)
+正本: [`docs/plan/phase-now.md`](../plan/phase-now.md)（下記はエージェントが迷わないための要約。矛盾したら phase-now を優先）
 
 | 項目 | 値 |
 |------|-----|
-| カレンダー | **Phase1**（勝ちカテゴリ／導線検証・〜9月末レビュー） |
-| 運用 | **Phase2-0 先行**（ASPクリック信号）。卒業後にカレンダー Phase2 |
-| 2-0卒業 | ASP管理画面クリック **累計 ≥10**（主条件） |
-| 量産 | **方針B**: 公開ペース維持、負債は水曜原則2単位＋赤域時の整理①追加 |
-| 資産目安 | 記事150本超、索引〜139、アフィリエイト設置開始済み |
+| カレンダー | **Phase1**（勝ちカテゴリ／導線検証。v0.2目安 2026-07〜09） |
+| 運用 | **Phase2-0 先行**（読者由来 ASPクリック信号）＋**評価フェーズ移行** |
+| 2-0卒業 | 読者由来 ASPクリック累計 **≥10**（自己クリック禁止開始 2026-07-29） |
+| 公開 | **ノルマなし**。新規は例外ゲート通過分。原則は統合・リライト・Hub/SubHub |
+| 負債 | 水曜重負債 **原則2単位** |
+| 日次 | active な **week-queue** の当日行を消化 |
+| 記事資産（目安） | **200本超**・索引約243（Coverage更新後。増減しうる） |
 
 ---
 
@@ -37,7 +84,7 @@
 - **記事の役割**: 検索流入 → 信頼構築（実測・再現性）→ 自然な収益導線
 - **比較記事**: ChatGPT / Claude / Cursor は現金ASPが無い前提で **直収益にしない**。比較 → 周辺収益記事 → アフィの2段導線
 
-運用ルールの詳細はルートの [`AGENTS.md`](../../AGENTS.md) を参照。フェーズ詳細は [`phase-now.md`](../plan/phase-now.md)。
+運用の入口は [`AGENTS.md`](../../AGENTS.md)。フェーズ詳細は [`phase-now.md`](../plan/phase-now.md)。記事ルールは [`writing-rules.md`](writing-rules.md)。
 
 ---
 
@@ -95,53 +142,6 @@
 
 ---
 
-## 記事制作ワークフロー（ToolArc 流）
-
-```
-Obsidian daily notes（作業ログ）
-    ↓
-source.md（記事ごとの設計メモ）
-    ↓
-captions.md（画像がある場合）
-    ↓
-Claude: 構成 → 本文初稿
-    ↓
-ChatGPT: SEO・見出し・構成・収益導線（Output Contract）レビュー
-    ↓
-人間レビュー
-    ↓
-published.md（Obsidian 上の成果物名。実ファイル名は任意）
-    ↓
-Cursor: content/blog/[contentId]/ に Markdown、public/images/blog/ に画像
-    ↓
-lib/blog/posts.ts に slug 登録（Hub/シリーズなら lib/series/series.ts も・公開時に spoke 追加）
-    ↓
-GitHub PR → Vercel 公開（軽負債: Hubリンク / promotion_status）
-    ↓
-⑥ 水曜: シリーズ昇格・Hub改稿・逆リンク（重負債原則2単位 / debt-paydown-workflow.md・方針B）
-```
-
-- **Claude**: 長文初稿・構成展開の主担当
-- **ChatGPT**: 構成相談・SEO・用語・レビュー
-- **Cursor**: リポへの反映・実装
-- daily notes をそのまま記事化しない（`source.md` で構造化してから）
-
-### content/blog フォルダ運用（3層）
-
-| 層 | 用途 | 代表 contentId |
-|----|------|----------------|
-| A シリーズ確定 | `series.ts` 登録済み | `01-site-launch`, `03-cursor-free`, `08-new-domain-seo` 等 |
-| B トピック束 | 非シリーズ・フォルダ分け済み | `05-nextjs-image-cache`, `06-chatgpt-how-to`, `07-daily-note-obsidian` |
-| C 量産インボックス | **新規1分Tipsの最初の置き場** | `20-investigate-something` |
-
-詳細・昇格ルール・分類ラベル: [`content-folders.md`](content-folders.md)
-
-- 新規公開時は `contentId: "20-investigate-something"`（従来どおり）
-- 公開時は軽負債を払う（`series.ts` / Hubリンク / `promotion_status`）— [`debt-paydown-workflow.md`](debt-paydown-workflow.md)
-- シリーズ昇格は水曜原則2単位（方針B）。MD 移動 + `posts.ts` の `contentId` のみ更新（**slug は変えない**）
-
----
-
 ## 運用方針
 
 ### 6+1スロット固定チャット（Cursor / Claude）
@@ -169,24 +169,15 @@ GitHub PR → Vercel 公開（軽負債: Hubリンク / promotion_status）
 - 仕様（OpenAI / Cursor 等）は変わりやすい → **執筆時点の日付**と免責を入れる
 - 画像付き記事は `captions.md` で意図を渡す（スクショだけでは感情・役割が伝わらない）
 
-### 記事タイプと収益導線（目安）
-
-| 記事タイプ          | 主な収益導線                   | 備考                                     |
-| ------------------- | ------------------------------ | ---------------------------------------- |
-| How-to              | デジタル商品 CTA               | 手順・チェックリストで無料価値を先に提供 |
-| 比較・選定          | 周辺収益記事経由のアフィリエイト（2段） | 比較本文に直アフィを置かない。向く人/向かない人・注意点を併記 |
-| チェックリスト      | デジタル商品 or アフィリエイト | テーマに合う方を1本に絞る                |
-| Hub（シリーズ入口） | 内部リンク + 必要に応じて CTA  | スポーク記事への導線を優先               |
-
-- **広告**: UX を損なわない前提。本文の情報密度・可読性を優先（詳細は `writing-rules.md`）
-- 記事案・構成案では `AGENTS.md` の **Output Contract（8項目）** を必ず確認する
+記事タイプ別の収益導線・CTA・Output Contract は [`writing-rules.md`](writing-rules.md) を正本とする（本ファイルでは再掲しない）。
 
 ---
 
 ## 参照ドキュメント（リポ内）
 
-- `AGENTS.md` — North Star・収益導線・Output Contract（ルート）
-- `docs/ai-context/` — `context.md`、`writing-rules.md`、`chat-operations.md`、`content-folders.md`、`debt-paydown-workflow.md`、本ファイル
+- `AGENTS.md` — 入口・ハード制約・読み分け
+- `docs/ai-context/writing-rules.md` — **記事正本**（文体・CTA・Output Contract 等）
+- `docs/ai-context/` — `context.md`、`chat-operations.md`、`content-folders.md`、`debt-paydown-workflow.md`、`affiliate-registry.md`、本ファイル
 - `docs/project-overview.md` — 概要・読者・執筆スタイル
 - `docs/design-system.md` — 色・レイアウト
 - `docs/seo-goals.md` — 週次オペ／Outcome KPI（フェーズ連動）
@@ -194,6 +185,7 @@ GitHub PR → Vercel 公開（軽負債: Hubリンク / promotion_status）
 - `docs/vercel-poe2-deployment.md` — PoE2 本番デプロイ
 - `lib/blog/posts.ts` — 公開 URL の slug 一覧（新規記事はここに追加）
 - `lib/series/series.ts` — Hub / スポークのシリーズ定義
+- `lib/affiliate/policy.ts` — 直アフィ可否
 - `content/blog/` — 既存記事のトーン・frontmatter の参考
 
 新規記事提案時は、**`lib/blog/posts.ts` の slug** と重複しない角度を意識する。
