@@ -1,6 +1,6 @@
 # content-folders.md — content/blog フォルダ運用
 
-最終更新: 2026-08-04 18:26  
+最終更新: 2026-08-04 19:13  
 用途: `contentId`（`content/blog/[contentId]/`）の選び方・昇格ルール。記事公開（①）・日次／週次メンテ（⑥）で参照。  
 記事の文体・CTA・SEO は扱わない（正本: [`writing-rules.md`](writing-rules.md)）。公開手順は Skill `publish-article` / `.cursor/rules/article-publish.mdc`。
 
@@ -12,7 +12,7 @@
 
 - **後付け series**: 勝ち記事・導線が見えるまで Hub／`series.ts` は作らない。それまでは **standalone（相互リンク）**
 - **新規の既定置き場は `20` ではない**。`20-investigate-something` は量産負債の在庫（**新規投入禁止**）
-- **置き場ルール**: 既存 B にジャンルが合う → その B。合わない → **`21-…` 以降の新 B フォルダ**を切る
+- **置き場ルール**: 既存 B にジャンルが合う → その B。合わない → **`22-…` 以降の新 B フォルダ**を切る（`21-cursor-models` は使用済み）
 - **既存 series（A）への追記**: A 層直置き ＋ **同一① PR で** `series.ts` と Hub 本文のスポーク反映（週次に先送りしない）
 - **series 化**: データ／相互リンクの塊を見て週次 #5 で判定。実装は **Hub 新規＋移動＋スポーク一覧を同一①**（振り分けと Hub を同時に）
 
@@ -33,11 +33,12 @@
 | **B** | 非シリーズ・トピック束 | `06-chatgpt-how-to` | なし | 同上 |
 | **B** | 非シリーズ・トピック束 | `07-daily-note-obsidian` | claude-obsidian（DailyNote系） | 同上 |
 | **B** | 非シリーズ・トピック束 | `09-ai-tools-comparison` | なし | 同上 |
-| **B** | 非シリーズ・トピック束（新規） | `21-{theme-slug}` 以降 | なし（series 化後に A へ） | 既存 B に合わないときの**新規既定** |
+| **B** | 非シリーズ・トピック束 | `21-cursor-models` | なし（後付け series 候補。`cursor-model-selection-guide` / `kimi-k3-cursor-guide` は cursor-free スポークにも載る） | Cursor のモデル選定・外部モデル連携。配置済: `001`〜`003`（selection / DeepSeek / Kimi） |
+| **B** | 非シリーズ・トピック束（新規） | `22-{theme-slug}` 以降 | なし（series 化後に A へ） | 既存 B（`21` 含む）に合わないときの**新規既定** |
 | **C** | 量産負債在庫 | `20-investigate-something` | なし | **新規禁止**（既存の昇格・整理のみ） |
 
 1シリーズが複数 contentId を持ってもよい（例: claude-obsidian = `02` + `07`）。  
-`21-` 以降は未使用の整数を採番する（例: 最初の新束は `21-…`、次は `22-…`）。1本だけの束でもよい（後から同フォルダへ追記）。
+`21-` 以降は未使用の整数を採番する（次の新束は `22-…`）。1本だけの束でもよい（後から同フォルダへ追記）。
 
 ---
 
@@ -59,7 +60,7 @@
   │            promotion_status 目安: standalone
   │
   └─【B 新設】どちらにも合わない
-        → content/blog/21-{theme-slug}/ を新設（次の空き番号）
+        → content/blog/22-{theme-slug}/ を新設（次の空き番号。`21-cursor-models` は使用済み）
            posts.ts もその contentId
            軽負債: 関連既存があれば相互リンク（無ければスキップ可）
            promotion_status 目安: standalone
@@ -126,9 +127,10 @@
 | `topic:06-chatgpt-how-to` | ChatGPT How-to 束 |
 | `topic:07-daily-note-obsidian` | DailyNote 束 |
 | `topic:09-ai-tools-comparison` | AI ツール比較束 |
-| `topic:21-<theme-slug>` | 新 B フォルダ束（`21-` 以降） |
+| `topic:21-cursor-models` | Cursor モデル選定・外部モデル連携束 |
+| `topic:22-<theme-slug>` | 新 B フォルダ束（`22-` 以降） |
 | `inbox:keep` | 分類**未決定**（判断前のみ。公開済みの常用はしない） |
-| `standalone` | 単発／まだ series 化しない（B/21 の既定） |
+| `standalone` | 単発／まだ series 化しない（B/`21-` 等の既定） |
 
 公開済み新規は日次⑥で `series:*`（既存 A 追記）／`topic:*`／`standalone` のいずれかに確定する。
 
