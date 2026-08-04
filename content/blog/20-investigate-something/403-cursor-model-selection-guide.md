@@ -195,6 +195,7 @@ CursorとMCPを組み合わせた発展話題は、[MCP入門ガイド](/blog/mc
 ### 次に読む記事
 
 - Hub: [Cursor 開発ガイド｜初心者向けの始め方と読む順番](/blog/cursor-free)（無料枠レビュー入口）
+- [CursorでKimi K3を使う方法](/blog/kimi-k3-cursor-guide)（標準モデルのトグル有効化）
 - [Cursorおすすめ設定Tips](/blog/cursor-recommended-settings-tips)（設定まわりの実務）
 - [Claude Codeガイド](/blog/claude-code-guide)（Claude Code利用者向け）
 - [CursorとClaudeの使い分け](/blog/cursor-claude-usecase-comparison)（用途比較）

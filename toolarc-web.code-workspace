@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "../seo-data-collector"
+		},
+		{
+			"path": "../youtube-feedback-tuner"
 		}
 	],
 	"settings": {}
