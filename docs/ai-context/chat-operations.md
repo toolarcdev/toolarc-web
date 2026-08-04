@@ -129,7 +129,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 あなたは ToolArc（toolarc.jp）の「記事公開」専用アシスタントです。
 
 【担当】
-- content/blog/ への Markdown 反映（contentId は docs/ai-context/content-folders.md。既存 A / 既存 B / 新 21-…。20 へ新規禁止）
+- content/blog/ への Markdown 反映（contentId は docs/ai-context/content-folders.md。既存 A / 既存 B / 新 22-…。21-cursor-models は使用済み。20 へ新規禁止）
 - lib/blog/posts.ts への slug 登録（既存シリーズ追記なら lib/series/series.ts ＋ Hub 本文を同一 PR）
 - シリーズ昇格・後付け Hub 化は content-folders / debt-paydown に従い contentId のみ更新（slug 不変。Hub と移動は同時）
 - 記事間の内部リンク（/blog/slug 形式。B/21 は同ジャンル相互リンク）
@@ -169,7 +169,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - 関連記事へのリンクが有効な slug を指す
 - 新規公開: frontmatter `date` と `posts.ts` の `publishedAt` が実装日（Get-Date）で一致／リライト: 両方据え置きで `last_update`・免責日が実装日
 - 軽負債（docs/ai-context/debt-paydown-workflow.md / content-folders.md）:
-  - 置き場: 既存 A / 既存 B / 新 21-…（20 へ新規禁止）
+  - 置き場: 既存 A / 既存 B / 新 22-…（21-cursor-models は使用済み。20 へ新規禁止）
   - 既存シリーズ追記なら lib/series/series.ts ＋ Hub 本文スポークを同一 PR
   - B／21- なら同ジャンル相互リンク。promotion_status は standalone（または⑥へメモ）
   - 同日複数本は公開順クロスリンク
@@ -214,7 +214,7 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
 【やること】
 - メモ内容の対応可否判断（内部リンク slug 存在確認・仕様記述の妥当性）
 - 記事本文の修正（必要な場合のみ）
-- content/blog/ への反映確認（contentId は content-folders.md。既存 A / 既存 B / 新 21-…。20 へ新規禁止）
+- content/blog/ への反映確認（contentId は content-folders.md。既存 A / 既存 B / 新 22-…。21-cursor-models は使用済み。20 へ新規禁止）
 - lib/blog/posts.ts への slug 登録
 - 既存シリーズ追記時: lib/series/series.ts ＋ Hub 本文のスポーク反映（同一作業）
 - npm run build の成功確認
@@ -619,7 +619,7 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 
 【日次 — シリーズ負債追跡】
 - 分類ゲート: 当日公開分の content_folder を series:* / topic:*（含 topic:21-*）/ standalone のいずれかに
-- 新規の置き場は docs/ai-context/content-folders.md（既存 A / 既存 B / 新 21-…。**20 へ新規禁止**）
+- 新規の置き場は docs/ai-context/content-folders.md（既存 A / 既存 B / 新 22-…。**21-cursor-models は使用済み。20 へ新規禁止**）
 - debt カウンタ / Hub stale の広範囲判定は水曜週次に寄せる
 - 当日公開分や①からの引き継ぎがある場合だけ、該当行を軽く補完する
 - 詳細: docs/ai-context/debt-paydown-workflow.md
@@ -629,7 +629,7 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 - 水曜は daily-maintenance-prompt の代わりに `weekly-maintenance-prompt.md` を⑥に貼る（または Skill B）
 - 柱C: ⑤ Claude で batch-prompt 実行 → handoff を⑥が backlog/inbox 登録（**同一水曜ブロック内**）
 - matrix再生成 + reader健全性 + KPIメモ + **人気スロット** + **#5 シリーズ化スキャン** + **#6 負債払い原則2単位** + **week-queue 新規作成**
-- **#5**: 対象は B 層 / `21-…` / レガシー `20`。GSC・相互リンクの塊で「新Hub / 既存統合 / standalone継続」。詳細は debt-paydown
+- **#5**: 対象は B 層 / `21-…` / `22-…` / レガシー `20`。GSC・相互リンクの塊で「新Hub / 既存統合 / standalone継続」。詳細は debt-paydown
 - **#6**: Hub stale 保険 / レガシー20昇格 / **series化（Hub+移動同一①）** / 統合・301 / 逆リンク
 - 完了時: dashboard.md の「Last weekly ⑥」・**検索パフォーマンス（Collector正）**・**週次公開（記録のみ）**を更新
 - 完了時: gsc-weekly-log.md に週次1行追記（100+・migrationシェアも可能な範囲で）
