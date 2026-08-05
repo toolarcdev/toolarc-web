@@ -101,7 +101,7 @@ last_update: 2026-08-05
 
 - 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
 
-履歴が空に見える症状だけに絞って切り分けたい場合は、[ChatGPT機種変更で履歴が見えないときの3確認](/blog/chatgpt-history-missing-device-change)もあわせて参照してください。会話履歴そのものではなく運用知識の引き継ぎ方を知りたい場合は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)を参照してください。同日公開の関連記事: [ChatGPTアカウント移行で先に見る3項目](/blog/chatgpt-account-migration-3-checkpoints)
+履歴が空に見える症状だけに絞って切り分けたい場合は、[ChatGPT機種変更で履歴が見えないときの3確認](/blog/chatgpt-history-missing-device-change)もあわせて参照してください。会話履歴そのものではなく運用知識の引き継ぎ方を知りたい場合は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)を参照してください。
 
 ---
 

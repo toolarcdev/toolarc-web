@@ -12,6 +12,7 @@ tags:
   - AI運用
 site: "toolarc.jp"
 target: "ChatGPTやClaudeを長期運用し、新アカウントへ知識資産を移したい人"
+last_update: 2026-08-05
 ---
 
 # ChatGPTアカウント移行で最初に作るべき.md一覧｜新アカウント初日のチェックリスト
@@ -146,8 +147,8 @@ target: "ChatGPTやClaudeを長期運用し、新アカウントへ知識資産�
 
 ## 次に読む
 
+- 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
 - **Hub 記事**：[ChatGPTのアカウント移行・引き継ぎ｜機種変更との違いと知識資産の移し方](/blog/chatgpt-account-migration)
-- **スマホ向け手順**：[ChatGPT機種変更の引き継ぎ方法](/blog/chatgpt-smartphone-account-migration-tips)
 - **履歴の切り分け**：[ChatGPTの検索履歴は別アカウントに引き継げる？今できる代替](/blog/chatgpt-search-history-account-migration)
 - **移行後の再設定**：[ChatGPTのカスタム指示、初心者向けの書き方テンプレ](/blog/chatgpt-custom-instructions-for-beginners)
 - **関連記事**：[Claude記事生成は「source.md」で精度が変わった](/blog/source-md-ai-writing)

@@ -12,7 +12,7 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "Cursorで「total usage limit reached」に遭遇し、どう動けばよいか知りたい初心者"
-last_update: 2026-07-09
+last_update: 2026-08-05
 ---
 
 # Cursor total usage limit reachedの対処3ステップ
@@ -99,7 +99,7 @@ Cursor無料版の制限そのものの実測データ（どのくらいの作�
 - □ 通信環境が原因でないかを切り分けた
 - □ 待機中に進める非消費タスクをリストアップした
 
-Cursor Proでの制限表示の詳しい背景（Set new limitやプランアップグレードの選択肢など）は、[Cursor Proの「Total usage limit reached」対処法](/blog/cursor-pro-total-usage-limit-reached)で解説しています。無料版そのものの制限傾向を知りたい場合は、[Cursor無料版はどこまで使える？実際に上限到達まで使った記録と制限](/blog/cursor-free)を参照してください。同日公開の関連記事: [ChatGPTアカウント移行で先に見る3項目](/blog/chatgpt-account-migration-3-checkpoints)。関連Tips: [CursorのAuto/手動モデル切替で出力品質が落ちたときの対処法](/blog/cursor-auto-manual-model-quality-tips)
+Cursor Proでの制限表示の詳しい背景（Set new limitやプランアップグレードの選択肢など）は、[Cursor Proの「Total usage limit reached」対処法](/blog/cursor-pro-total-usage-limit-reached)で解説しています。無料版そのものの制限傾向を知りたい場合は、[Cursor無料版はどこまで使える？実際に上限到達まで使った記録と制限](/blog/cursor-free)を参照してください。関連Tips: [CursorのAuto/手動モデル切替で出力品質が落ちたときの対処法](/blog/cursor-auto-manual-model-quality-tips)
 
 ---
 

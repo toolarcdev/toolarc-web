@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/blog/chatgpt-account-migration-3-checkpoints",
+        destination: "/blog/chatgpt-account-migration",
+        permanent: true,
+      },
+      {
         source: "/posts/:slug",
         destination: "/blog/:slug",
         permanent: true,

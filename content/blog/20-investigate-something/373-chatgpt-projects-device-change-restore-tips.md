@@ -11,7 +11,7 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "ChatGPTのProjectsを日常的に使っていて、機種変更後にProjectsが見当たらず困っている読者"
-last_update: 2026-07-19
+last_update: 2026-08-05
 ---
 
 # 機種変更後にChatGPTのProjectsが消えたときの手順
@@ -65,6 +65,8 @@ last_update: 2026-07-19
 ## まとめ・次に読む
 
 機種変更後にChatGPTのProjectsが見当たらないときは、まず「同じアカウントでログインし直す」という1点を確認するだけで、多くの場合は特別な作業なしに元の状態へ戻ります。
+
+- 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
 
 ログイン先の切り分けをもう少し詳しく知りたい場合は、[GoogleログインのChatGPTを新端末で開く手順｜別アカウントに注意](/blog/chatgpt-device-change-google-login-tips)を参照してください。
 

@@ -1373,14 +1373,6 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
-  "chatgpt-account-migration-3-checkpoints": {
-    contentId: "04-chatgpt_account_migration",
-    markdownFile: "018-chatgpt-account-migration-3-checkpoints.md",
-    imageBasePath: "/images/blog/20-investigate-something",
-    publishedAt: "2026-07-09",
-    ogImage: "og.png",
-    category: "ai-workflow",
-  },
   "cursor-usage-limit-reached-3-steps": {
     contentId: "03-cursor-free",
     markdownFile: "027-cursor-usage-limit-reached-3-steps.md",
