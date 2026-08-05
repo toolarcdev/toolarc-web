@@ -58,7 +58,7 @@ Skill = 手順。判定基準の正本は改善施策ノート **§4.3.1 L1判�
 
 基準は `writing-rules.md`「収益導線」と `lib/affiliate/policy.ts` / `affiliate-registry.md`。
 
-- 直アフィ可否・案件固有（比較Series・天秤・Rakurin）を policy／registry で確認
+- 直アフィ可否・案件固有（比較Series・Rakurin）を policy／registry で確認
 - CTA 3点想定に近いか → **不足は任意改善として提示**（必須修正にしない）
 - CTA前後の判断材料・ASP条件転載の有無
 

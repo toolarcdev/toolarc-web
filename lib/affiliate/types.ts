@@ -1,6 +1,5 @@
 export type AffiliateProgramId =
   | "rakurin"
-  | "tenbin-ai"
   | "doraverse"
   | "ai-skill-academy";
 
