@@ -1,7 +1,6 @@
 import { aiSkillAcademyProgram } from "./programs/ai-skill-academy";
 import { doraverseProgram } from "./programs/doraverse";
 import { rakurinProgram } from "./programs/rakurin";
-import { tenbinAiProgram } from "./programs/tenbin-ai";
 import type {
   AffiliateCreative,
   AffiliateCreativeId,
@@ -11,7 +10,6 @@ import type {
 
 const programs: Record<AffiliateProgramId, AffiliateProgram> = {
   rakurin: rakurinProgram,
-  "tenbin-ai": tenbinAiProgram,
   doraverse: doraverseProgram,
   "ai-skill-academy": aiSkillAcademyProgram,
 };
