@@ -10,7 +10,7 @@ tags:
   - データ移行
 site: toolarc.jp
 target: "ChatGPTのアカウント移行を検討している初心者で、何が引き継がれるか不安な人"
-last_update: 2026-07-21
+last_update: 2026-08-05
 ---
 
 
@@ -98,6 +98,7 @@ ChatGPTのアカウント移行で迷ったときは、まず「同じアカウ�
 
 より詳しい移行手順や会話履歴の扱いについては、以下の記事もあわせてご覧ください。
 
+- 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
 - [ChatGPTアカウント移行の完全ガイド](/blog/chatgpt-account-migration)
 - [ChatGPTの会話履歴とアカウント移行](/blog/chatgpt-search-history-account-migration)
 

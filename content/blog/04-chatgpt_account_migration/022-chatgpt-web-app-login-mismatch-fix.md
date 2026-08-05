@@ -10,7 +10,7 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "ChatGPTをWeb（chatgpt.com）とアプリの両方で使っていて、表示や履歴が食い違って戸惑っている人"
-last_update: 2026-07-16
+last_update: 2026-08-05
 ---
 
 # ChatGPTでWebとアプリのログイン先が違うときの揃え方
@@ -89,7 +89,7 @@ Plusの表示だけがどうしても揃わない場合は、[ChatGPT Plus引き
 - □ 不一致の場合、片方をサインアウトして同じアカウントで入り直した
 - □ 履歴・Plus表示が両方で揃ったか再確認した
 
-機種変更全体の確認手順は、[ChatGPT機種変更の引き継ぎ｜スマホで確認する3手順](/blog/chatgpt-device-change-handover-tips)で解説しています。移行全体の考え方を確認したい場合は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)を参照してください。同日公開の関連記事: [ChatGPTの新スマホで履歴が空に見えるとき｜まず疑うべき「別ログイン」](/blog/chatgpt-device-change-wrong-login-history-empty)
+機種変更全体の確認手順は、[ChatGPT機種変更の引き継ぎ｜スマホで確認する3手順](/blog/chatgpt-device-change-handover-tips)で解説しています。移行全体の考え方を確認したい場合は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)を参照してください。同日公開の関連記事: [ChatGPT機種変更で履歴が消えた？空に見える3確認](/blog/chatgpt-history-missing-device-change)
 
 ---
 

@@ -10,7 +10,7 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "ChatGPTの「引き継ぎ」を検索しているが、機種変更なのか別アカウント移行なのか切り分けられていない人"
-last_update: 2026-07-16
+last_update: 2026-08-05
 ---
 
 # ChatGPTの引き継ぎ｜機種変更とアカウント移行の切り分け3点
@@ -92,7 +92,7 @@ ChatGPTを新しい環境でも使い続けたいとき、「引き継ぎ」と�
 - □ ログインできない・別アカウントを作る場合、旧アカウントの情報を先にメモした
 - □ 自分のケースに合う詳細記事（機種変更ルート／別アカウント移行ルート）に進んだ
 
-移行の全体像や「知識資産」という考え方は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)で解説しています。同日公開の関連記事: [ChatGPTの新スマホで履歴が空に見えるとき｜まず疑うべき「別ログイン」](/blog/chatgpt-device-change-wrong-login-history-empty)
+移行の全体像や「知識資産」という考え方は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)で解説しています。同日公開の関連記事: [ChatGPT機種変更で履歴が消えた？空に見える3確認](/blog/chatgpt-history-missing-device-change)
 
 ---
 

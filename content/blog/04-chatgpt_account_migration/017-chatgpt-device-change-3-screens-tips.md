@@ -10,7 +10,7 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "スマホの機種変更後にChatGPTの表示に違和感を覚え、履歴やプランが消えたのではと不安になっている初心者読者"
-last_update: 2026-07-17
+last_update: 2026-08-05
 slug: chatgpt-device-change-3-screens-tips
 ---
 
@@ -70,6 +70,8 @@ slug: chatgpt-device-change-3-screens-tips
 ## まとめ・次に読む
 
 3画面の確認だけで、多くの場合は「データが消えた」のではなく「表示の同期待ち」であることが分かります。
+
+- 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
 
 より詳しい確認手順（2段階認証の切り分けまで含む）は、[ChatGPT機種変更の引き継ぎ｜スマホで確認する3手順](/blog/chatgpt-device-change-handover-tips) で解説しています。
 

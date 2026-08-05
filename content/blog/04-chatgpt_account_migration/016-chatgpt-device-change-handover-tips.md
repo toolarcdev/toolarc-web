@@ -12,7 +12,7 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "ChatGPTのスマホを機種変更し、会話履歴が引き継がれるか不安な初心者"
-last_update: 2026-07-13
+last_update: 2026-08-05
 ---
 
 # ChatGPT機種変更の引き継ぎ｜スマホで確認する3手順
@@ -99,7 +99,9 @@ last_update: 2026-07-13
 - □ 2段階認証を設定している場合、認証アプリの状態を確認した
 - □ 上記すべてを試しても改善しない場合、公式サポートへの確認を検討した
 
-履歴が空に見える症状だけに絞って切り分けたい場合は、[ChatGPT機種変更で履歴が見えないときの3確認](/blog/chatgpt-history-missing-device-change)もあわせて参照してください。より詳しいスマホ側の手順（バックアップの取り方、別アカウントへの実質的な引き継ぎ方法まで含む）は、[スマホでChatGPTのアカウントを引き継ぐ方法｜機種変更と別アカウント移行の違い](/blog/chatgpt-smartphone-account-migration-tips)で解説しています。会話履歴そのものではなく運用知識の引き継ぎ方を知りたい場合は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)を参照してください。同日公開の関連記事: [ChatGPTアカウント移行で先に見る3項目](/blog/chatgpt-account-migration-3-checkpoints)
+- 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
+
+履歴が空に見える症状だけに絞って切り分けたい場合は、[ChatGPT機種変更で履歴が見えないときの3確認](/blog/chatgpt-history-missing-device-change)もあわせて参照してください。会話履歴そのものではなく運用知識の引き継ぎ方を知りたい場合は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)を参照してください。同日公開の関連記事: [ChatGPTアカウント移行で先に見る3項目](/blog/chatgpt-account-migration-3-checkpoints)
 
 ---
 
