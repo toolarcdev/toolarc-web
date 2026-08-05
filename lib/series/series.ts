@@ -209,7 +209,6 @@ export const allSeries: readonly SeriesConfig[] = [
       "chatgpt-migration-2fa-authenticator-tips",
       "chatgpt-device-change-handover-tips",
       "chatgpt-device-change-3-screens-tips",
-      "chatgpt-account-migration-3-checkpoints",
       "chatgpt-pdf-attachment-order-tips",
       "chatgpt-device-change-account-migration-3-points",
       "chatgpt-web-app-login-mismatch-fix",

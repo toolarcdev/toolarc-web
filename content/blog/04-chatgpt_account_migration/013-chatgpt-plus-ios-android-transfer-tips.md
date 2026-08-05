@@ -12,7 +12,7 @@ tags:
   - アカウント移行
 site: toolarc.jp
 target: "iPhoneとAndroidを乗り換える予定があり、ChatGPT Plusの契約が引き継がれるか不安な人"
-last_update: 2026-07-05
+last_update: 2026-08-05
 ---
 
 # ChatGPT PlusをiOSとAndroidで引き継ぐときの確認手順
@@ -75,6 +75,8 @@ ChatGPT Plusのサブスクリプションは、契約した経路（Webのク�
 ## まとめ・次に読む
 
 OS跨ぎの機種変更でPlusが使えなくなったように見えても、多くはストア課金とログインアカウントのどちらかを確認すれば切り分けられます。焦って新しいストアで再契約する前に、まずは今回の3点確認を試してください。
+
+- 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
 
 ChatGPTアカウント移行全体の考え方は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)も参考にしてください。Plus全般の確認手順は[ChatGPT機種変更でPlusが切れた？引き継ぎ確認](/blog/chatgpt-migration-plus-check)を先に読むと、本記事のOS跨ぎケースとの切り分けがしやすくなります。同日公開の関連記事: [ChatGPT機種変更で認証アプリ（2FA）を移行する手順](/blog/chatgpt-migration-2fa-authenticator-tips)、[AIの基礎を無料で学ぶ方法｜ChatGPT・Claudeを使う前のチェックリスト](/blog/ai-basics-before-chatgpt-claude-checklist)
 

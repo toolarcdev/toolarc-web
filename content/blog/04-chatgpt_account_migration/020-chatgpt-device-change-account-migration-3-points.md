@@ -79,7 +79,7 @@ ChatGPTを新しい環境でも使い続けたいとき、「引き継ぎ」と�
 2. 会話履歴は自動で引き継がれない前提で、必要な内容だけ整理してから新アカウントに渡す
 3. 移行後は、契約プランやカスタム指示など設定面の反映状況だけを、事前のメモと照合して確認する
 
-確認すべき項目の詳細は、[ChatGPTアカウント移行で先に見る3項目](/blog/chatgpt-account-migration-3-checkpoints)で整理しています。引き継げるもの・引き継げないものを一覧で見たい場合は、[ChatGPTアカウント移行で引き継げるもの・引き継げないもの](/blog/chatgpt-account-migration-checklist)もあわせてご覧ください。
+引き継げるもの・引き継げないものを一覧で見たい場合は、[ChatGPTアカウント移行で引き継げるもの・引き継げないもの](/blog/chatgpt-account-migration-checklist)をあわせてご覧ください。ログイン手段・契約・履歴の確認順は、入口の[ChatGPTアカウント移行・引き継ぎ](/blog/chatgpt-account-migration)から自分のケースを選ぶと迷いにくいです。
 
 ---
 
@@ -92,6 +92,7 @@ ChatGPTを新しい環境でも使い続けたいとき、「引き継ぎ」と�
 - □ ログインできない・別アカウントを作る場合、旧アカウントの情報を先にメモした
 - □ 自分のケースに合う詳細記事（機種変更ルート／別アカウント移行ルート）に進んだ
 
+- 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
 移行の全体像や「知識資産」という考え方は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)で解説しています。同日公開の関連記事: [ChatGPT機種変更で履歴が消えた？空に見える3確認](/blog/chatgpt-history-missing-device-change)
 
 ---

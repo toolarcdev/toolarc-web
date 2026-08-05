@@ -8,8 +8,8 @@ import type { BlogSlug } from "@/lib/blog/posts";
  */
 export const POPULAR_ARTICLE_SLUGS = [
   "chatgpt-account-migration",
-  "chatgpt-smartphone-account-migration-tips",
-  "cursor-pro-total-usage-limit-reached",
+  "cursor-model-selection-guide",
+  "deepseek-cursor-setup",
 ] as const satisfies readonly BlogSlug[];
 
 /** true while POPULAR_ARTICLE_SLUGS is provisional (not yet from weekly GSC). */
