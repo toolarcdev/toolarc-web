@@ -11,7 +11,7 @@ tags:
   - OpenAI
 site: toolarc.jp
 target: "ChatGPT Plus契約中に機種変更をして、Plusが使えなくなったように見えて困っている読者"
-last_update: 2026-07-12
+last_update: 2026-08-05
 ---
 
 # ChatGPT Plus引き継ぎ｜機種変更で切れたときの確認3点
@@ -67,6 +67,7 @@ last_update: 2026-07-12
 ## まとめ・次に読みたい記事
 Plusが切れて見えるときの多くは、契約の停止ではなく**ログインアカウントの不一致**が原因です。ストアの契約状況・ログインアカウント・購入の復元という3点を順番に確認すれば、多くの場合は自己解決できます。
 
+- 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
 - [ChatGPTアカウント移行ガイド（Hub）](/blog/chatgpt-account-migration)
 - [ChatGPT Plusは必要か？無料版との違いと判断基準3つ](/blog/chatgpt-plus-free-comparison)
 - [ChatGPT PlusをiOSとAndroidで引き継ぐときの確認手順](/blog/chatgpt-plus-ios-android-transfer-tips)（iOS⇄Android跨ぎ）

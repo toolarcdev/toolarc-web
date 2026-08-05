@@ -1605,14 +1605,6 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
-  "chatgpt-device-change-wrong-login-history-empty": {
-    contentId: "04-chatgpt_account_migration",
-    markdownFile: "021-chatgpt-device-change-wrong-login-history-empty.md",
-    imageBasePath: "/images/blog/20-investigate-something",
-    publishedAt: "2026-07-16",
-    ogImage: "og.png",
-    category: "ai-workflow",
-  },
   "chatgpt-web-app-login-mismatch-fix": {
     contentId: "04-chatgpt_account_migration",
     markdownFile: "022-chatgpt-web-app-login-mismatch-fix.md",

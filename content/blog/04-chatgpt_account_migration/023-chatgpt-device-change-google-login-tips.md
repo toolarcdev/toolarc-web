@@ -11,7 +11,7 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "GoogleアカウントでChatGPTを使っていて、新しいスマホやPCにログインし直そうとしている人"
-last_update: 2026-08-01
+last_update: 2026-08-05
 ---
 
 # ChatGPTのGoogleログイン｜新端末で同じアカウントに入る3手順
@@ -70,7 +70,7 @@ GoogleログインのChatGPTを新端末で開くときは、「同じGoogleア�
 
 ログイン以外の画面も含めて確認したい場合は、[ChatGPT機種変更で最初に見る3画面｜ログイン・履歴・プラン表示](/blog/chatgpt-device-change-3-screens-tips)を参照してください。
 
-すでに履歴が空に見えていて不安な場合は、[ChatGPTの新スマホで履歴が空に見えるとき｜まず疑うべき「別ログイン」](/blog/chatgpt-device-change-wrong-login-history-empty)で原因の切り分け手順を解説しています。
+すでに履歴が空に見えていて不安な場合は、[ChatGPT機種変更で履歴が消えた？空に見える3確認](/blog/chatgpt-history-missing-device-change)で原因の切り分け手順を解説しています。
 
 会話履歴だけでなく運用知識そのものの引き継ぎ方を知りたい場合は、シリーズのHub記事 [ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration) にまとまっています。
 

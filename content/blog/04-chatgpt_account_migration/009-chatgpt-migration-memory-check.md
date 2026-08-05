@@ -11,7 +11,7 @@ tags:
   - 初心者向け
 site: toolarc.jp
 target: "ChatGPTのアカウント移行・機種変更を控え、メモリが引き継がれるか不安な初心者"
-last_update: 2026-07-03
+last_update: 2026-08-05
 ---
 
 # ChatGPT移行でメモリは引き継げる？3点確認
@@ -61,6 +61,7 @@ ChatGPT移行時にメモリが引き継がれるかどうかは、**「同じ�
 
 アカウント移行の全体的な流れは、以下もあわせてご覧ください。
 
+- 引き継ぎ全体の流れは[スマホでChatGPTのアカウントを引き継ぐ方法](/blog/chatgpt-smartphone-account-migration-tips)にまとめています。
 - [ChatGPTアカウント移行ガイド（Hub）](/blog/chatgpt-account-migration)
 - [ChatGPTアカウント移行で引き継げるもの・引き継げないもの](/blog/chatgpt-account-migration-checklist)
 - 同日公開の関連記事: [ChatGPT機種変更でPlusが切れた？引き継ぎ確認](/blog/chatgpt-migration-plus-check)
