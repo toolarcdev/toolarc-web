@@ -62,7 +62,7 @@ IMEとの兼ね合いで発生する入力トラブル全般は範囲が広い�
 
 同日公開の前後記事もあわせてどうぞ。
 
-- [ChatGPTアカウント移行前の「残す・捨てる・戻す」メモ術](/blog/chatgpt-migration-3-memo-types)
+- [ChatGPT機種変更・引き継ぎのチェックリスト](/blog/chatgpt-account-migration-checklist)
 - [サイト内検索はメタ情報の絞り込みだけで始められる](/blog/nextjs-site-search-without-full-text-index)
 
 ---

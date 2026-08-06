@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/blog/chatgpt-migration-3-memo-types",
+        destination: "/blog/chatgpt-account-migration-checklist",
+        permanent: true,
+      },
+      {
         source: "/posts/:slug",
         destination: "/blog/:slug",
         permanent: true,
