@@ -77,6 +77,7 @@ ChatGPTのアカウントを削除する前は、次の3点を意識しておく
 
 ChatGPTのアカウントを別のメールアドレスに引き継ぎたい場合や、移行そのものを検討している場合は、関連記事も参考にしてください。
 
+- 履歴が見当たらないときは[空に見える3確認](/blog/chatgpt-history-missing-device-change)から確認してください。
 - 関連記事: [ChatGPTアカウントの引き継ぎ・移行ガイド](/blog/chatgpt-account-migration)
 - 公開順で次の記事: [Cursorで変更前に確認したいファイルの見方](/blog/cursor-file-check-before-edit)
 

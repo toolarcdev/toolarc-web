@@ -1789,14 +1789,6 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
-  "chatgpt-migration-3-memo-types": {
-    contentId: "20-investigate-something",
-    markdownFile: "388-chatgpt-migration-3-memo-types.md",
-    imageBasePath: "/images/blog/20-investigate-something",
-    publishedAt: "2026-07-24",
-    ogImage: "og.png",
-    category: "ai-workflow",
-  },
   "obsidian-checkbox-hotkey-settings": {
     contentId: "20-investigate-something",
     markdownFile: "389-obsidian-checkbox-hotkey-settings.md",

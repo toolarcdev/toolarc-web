@@ -186,7 +186,7 @@ export const allSeries: readonly SeriesConfig[] = [
     title:
       "ChatGPT機種変更・引き継ぎ｜移行シリーズ全体ガイドと読む順番",
     description:
-      "機種変更やアカウント移行でChatGPTの引き継ぎ方法を知りたい方向けのシリーズ入口です。同じアカウントのスマホ変更から別アカウント移行まで、手順と注意点を読む順番つきでまとめています。",
+      "ChatGPTの機種変更・引き継ぎを読む順番で案内するシリーズ入口です。手順の本体は入口記事で自分のケース（初めての引き継ぎ／履歴トラブル）を選んでから進めてください。",
     heroImage:
       "/images/blog/040-chatgpt_account_migration/pattern-comparison-both.png",
     heroImageAlt:
@@ -214,7 +214,6 @@ export const allSeries: readonly SeriesConfig[] = [
       "chatgpt-web-app-login-mismatch-fix",
       "chatgpt-device-change-google-login-tips",
       "chatgpt-projects-device-change-restore-tips",
-      "chatgpt-migration-3-memo-types",
     ],
     publishedAt: "2026-05-25",
   },

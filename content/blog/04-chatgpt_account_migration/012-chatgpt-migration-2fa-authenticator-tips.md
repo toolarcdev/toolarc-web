@@ -82,6 +82,6 @@ Google AuthenticatorやMicrosoft Authenticatorなど、利用している認証�
 
 2FAを有効にしたままの機種変更で焦りやすいのは、「認証アプリの引き継ぎ」と「バックアップコードの保管」を同時に考えてしまうことです。この2つを分けて、先にバックアップコードを確保してから認証アプリの引き継ぎに進めば、ログインできなくなるリスクを大きく減らせます。
 
-ChatGPTアカウント移行全体の考え方は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)も参考にしてください。移行前の2FA確認は[ChatGPT機種変更前に2段階認証を確認する手順](/blog/chatgpt-migration-2fa-check)を先に読んでおくと、本記事の手順がスムーズに進みやすくなります。同日公開の関連記事: [ChatGPT PlusをiOSとAndroidで引き継ぐときの確認手順](/blog/chatgpt-plus-ios-android-transfer-tips)
+履歴が見当たらないときは[空に見える3確認](/blog/chatgpt-history-missing-device-change)から確認してください。ChatGPTアカウント移行全体の考え方は、[ChatGPTのアカウント移行・引き継ぎは可能？機種変更との違いと「知識資産」の移し方](/blog/chatgpt-account-migration)も参考にしてください。移行前の2FA確認は[ChatGPT機種変更前に2段階認証を確認する手順](/blog/chatgpt-migration-2fa-check)を先に読んでおくと、本記事の手順がスムーズに進みやすくなります。同日公開の関連記事: [ChatGPT PlusをiOSとAndroidで引き継ぐときの確認手順](/blog/chatgpt-plus-ios-android-transfer-tips)
 
 **免責**: 本記事は2026年7月5日時点の情報をもとにした実務メモです。ChatGPTの2FA仕様、およびGoogle Authenticator等の認証アプリの機種変更・引き継ぎ手順は、各社の仕様変更により変わる可能性があります。実際の操作前に、必ず公式ヘルプで最新情報をご確認ください。
