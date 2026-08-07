@@ -79,9 +79,9 @@ Skill = 画像の作り方（eyecatch / og / mood / section）。
    - [ ] 画像だけで意図（物語・主題）が分かるか
    - [ ] 線画のみ／粘土・強いニューモ／洗い落ちでないか
    - [ ] 過圧縮で貧相でないか
-9. 軽量化して配置（過圧縮しない）。採用前 WIP は Vault `blog-image-staging`
+9. **軽量化して配置**（過圧縮しない）。手順・スクリプト正本: [`references/optimize.md`](references/optimize.md)。採用前 WIP は Vault `blog-image-staging`
 10. og で日本語帯が必要なら **`bake-og-text`** へ委譲（本 Skill で文字焼き込みしない）
-11. alt 作成 → `caption.md` 追記
+11. alt 作成 → `caption.md` 追記（軽量化した場合は前後サイズも）
 12. **配線境界**:
     - **本 Skill の完了範囲**: 画像ファイル配置、`caption.md`、必要なら本文 Markdown の `![]()` 挿入、alt
     - **本 Skill でやらない**: `posts.ts` の登録、Series `heroImage`、`npm run build`、公開日確定 → **`publish-article` へ引き継ぎ文を残す**

@@ -67,7 +67,7 @@ Outcome: 左=[結果A]、右=[結果B] が色分け可能なボックスで分�
    - [ ] 既存正サンプルより情報が減っていない
    - [ ] 偽UI・誤情報なし
    - [ ] トーン／明示トーンに沿う
-6. 採用後に `public/images/blog/<imageBasePath>/` へ配置。WIP は staging 可
+6. 採用後に `public/images/blog/<imageBasePath>/` へ配置。WIP は staging 可。巨大なら軽量化: `generate-blog-image/references/optimize.md`
 7. alt / `caption.md` → 必要なら MD 挿入。`posts.ts` は `publish-article` へ
 
 ## 出力
