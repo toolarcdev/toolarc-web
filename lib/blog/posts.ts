@@ -1957,6 +1957,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "game-dev-beginner-first-steps": {
+    contentId: "22-game-dev-js",
+    markdownFile: "001-game-dev-beginner-first-steps.md",
+    imageBasePath: "/images/blog/game-dev-beginner-first-steps",
+    publishedAt: "2026-08-07",
+    ogImage: "html-css-js-roles-diagram.png",
+    category: "gaming",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

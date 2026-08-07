@@ -15,6 +15,7 @@ Round1（C1）で rule/Skill 参照用に本ファイルを正とする。
 | チェックリスト入口 | 分岐図 or 既存比較図 | **流用優先** | 流用不可時のみ可 | 流用ゲート → `generate-decision-diagram` |
 | 概念理解 | ステップ／アイコン物語 | mood / section | 可 | `generate-blog-image` |
 | アイキャッチ / OG / 共有面 | 数字・対比が読める構図 | eyecatch / og（日本語帯は後工程） | 可 | `generate-blog-image` → `bake-og-text` |
+| 既存 PNG が巨大（軽量化のみ） | サイズ最適化 | 圧縮スクリプト | **否**（生成しない） | `generate-blog-image/references/optimize.md` |
 | 数値・比較データ表 | 表 / Canvas / コード | 生成しない | **否** | 本文表など |
 | ランキング／スクール系 | 写真・表・バナー | 素材／表 | 低 | ToolArc 主戦場外（参考のみ） |
 | 疑念系 | before/after・注意点の図 | 誇張禁止・証拠境界 | 条件付き可 | decision / mood／スクショ |

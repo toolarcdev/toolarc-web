@@ -52,4 +52,5 @@ alwaysApply: false
 - Markdown画像には、内容を説明する空でない alt を付ける。キーワード羅列・誇大表現は禁止
 - OGは16:9（1200×630優先）、本文図は4:3を基本とする
 - 誤情報、機密、利用条件不明の素材、巨大・未圧縮画像、**情報を潰す過圧縮**をコミットしない
+- 軽量化の手順・目標サイズ・スクリプト: `.cursor/skills/generate-blog-image/references/optimize.md`
 - 画像用途・caption・alt・参照元・後編集有無は同フォルダの `caption.md` に記録する
