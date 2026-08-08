@@ -1,11 +1,25 @@
 export type AffiliateProgramId =
   | "rakurin"
   | "doraverse"
-  | "ai-skill-academy";
+  | "ai-skill-academy"
+  | "programming-hacks"
+  | "techgym"
+  | "fjord-boot-camp"
+  | "zerosuku"
+  | "udemy"
+  | "audible"
+  | "kinokuniya"
+  | "amazon-prime-video"
+  | "yahoo-shopping";
 
 export type AffiliateCreativeId = string;
 
-export type AffiliateAsp = "moshimo" | "a8" | "accesstrade" | "generic";
+export type AffiliateAsp =
+  | "moshimo"
+  | "a8"
+  | "accesstrade"
+  | "valuecommerce"
+  | "generic";
 
 export type AffiliatePlacement = "direct" | "peripheral-only" | "disabled";
 
