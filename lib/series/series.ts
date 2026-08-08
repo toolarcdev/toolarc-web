@@ -265,6 +265,20 @@ export const allSeries: readonly SeriesConfig[] = [
     ],
     publishedAt: "2026-06-28",
   },
+  {
+    // contentFolder: 12-game-dev-js
+    slug: "game-dev-roadmap-series",
+    title: "ゲーム制作で学ぶプログラミングシリーズ",
+    description:
+      "HTML・CSSは学んだがJavaScriptはこれからの初心者向け。ゲーム制作を入り口に、AIを活用しながら3か月で1本公開するまでの読み順を整理。",
+    hubSlug: "game-dev-roadmap",
+    spokeSlugOrder: [
+      "game-dev-beginner-first-steps",
+      "why-javascript-for-game-dev",
+      "game-dev-roadmap-comparison",
+    ],
+    publishedAt: "2026-08-08",
+  },
 ] as const;
 
 /** Keyed by series slug for O(1) lookup */

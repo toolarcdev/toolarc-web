@@ -1,6 +1,6 @@
 # content-folders.md — content/blog フォルダ運用
 
-最終更新: 2026-08-07 12:03  
+最終更新: 2026-08-08 15:39  
 用途: `contentId`（`content/blog/[contentId]/`）の選び方・昇格ルール。記事公開（①）・日次／週次メンテ（⑥）で参照。  
 記事の文体・CTA・SEO は扱わない（正本: [`writing-rules.md`](writing-rules.md)）。公開手順は Skill `publish-article` / `.cursor/rules/article-publish.mdc`。
 
@@ -12,7 +12,7 @@
 
 - **後付け series**: 勝ち記事・導線が見えるまで Hub／`series.ts` は作らない。それまでは **standalone（相互リンク）**
 - **新規の既定置き場は `20` ではない**。`20-investigate-something` は量産負債の在庫（**新規投入禁止**）
-- **置き場ルール**: 既存 B にジャンルが合う → その B。合わない → **`23-…` 以降の新 B フォルダ**を切る（`21-cursor-models`・`22-game-dev-js` は使用済み）
+- **置き場ルール**: 既存 B にジャンルが合う → その B。合わない → **`23-…` 以降の新 B フォルダ**を切る（`21-cursor-models` 使用中。`22-game-dev-js` は `12-game-dev-js` へ昇格済・番号22は再利用しない）
 - **既存 series（A）への追記**: A 層直置き ＋ **同一① PR で** `series.ts` と Hub 本文のスポーク反映（週次に先送りしない）
 - **series 化**: データ／相互リンクの塊を見て週次 #5 で判定。実装は **Hub 新規＋移動＋スポーク一覧を同一①**（振り分けと Hub を同時に）
 
@@ -29,13 +29,13 @@
 | **A** | シリーズ確定 | `08-new-domain-seo` | new-domain-seo-series | 同上 |
 | **A** | シリーズ確定 | `10-claude-developer` | claude-developer-series | 同上 |
 | **A** | シリーズ確定 | `11-mcp` | mcp-series | 同上 |
+| **A** | シリーズ確定 | `12-game-dev-js` | game-dev-roadmap-series | 同上（Hub=`001-game-dev-roadmap`。旧 `22-game-dev-js` から昇格） |
 | **B** | 非シリーズ・トピック束 | `05-nextjs-image-cache` | （site-launch スポーク等・例外あり） | ジャンル一致ならここへ直置き |
 | **B** | 非シリーズ・トピック束 | `06-chatgpt-how-to` | なし | 同上 |
 | **B** | 非シリーズ・トピック束 | `07-daily-note-obsidian` | claude-obsidian（DailyNote系） | 同上 |
 | **B** | 非シリーズ・トピック束 | `09-ai-tools-comparison` | なし | 同上 |
 | **B** | 非シリーズ・トピック束 | `21-cursor-models` | なし（後付け series 候補。`cursor-model-selection-guide` / `kimi-k3-cursor-guide` は cursor-free スポークにも載る） | Cursor のモデル選定・外部モデル連携。配置済: `001`〜`003`（selection / DeepSeek / Kimi） |
-| **B** | 非シリーズ・トピック束 | `22-game-dev-js` | なし（後付け series 候補。ゲーム制作を入り口に JS／プログラミングを学ぶ束） | ジャンル一致ならここへ直置き。配置予定: Spoke1 `game-dev-beginner-first-steps` ほか |
-| **B** | 非シリーズ・トピック束（新規） | `23-{theme-slug}` 以降 | なし（series 化後に A へ） | 既存 B（`21`・`22` 含む）に合わないときの**新規既定** |
+| **B** | 非シリーズ・トピック束（新規） | `23-{theme-slug}` 以降 | なし（series 化後に A へ） | 既存 B（`21` 含む）に合わないときの**新規既定**（`22` は `12` へ昇格済のため欠番） |
 | **C** | 量産負債在庫 | `20-investigate-something` | なし | **新規禁止**（既存の昇格・整理のみ） |
 
 1シリーズが複数 contentId を持ってもよい（例: claude-obsidian = `02` + `07`）。  
@@ -61,7 +61,7 @@
   │            promotion_status 目安: standalone
   │
   └─【B 新設】どちらにも合わない
-        → content/blog/23-{theme-slug}/ を新設（次の空き番号。`21-cursor-models`・`22-game-dev-js` は使用済み）
+        → content/blog/23-{theme-slug}/ を新設（次の空き番号。`21-cursor-models` 使用中。`22` は `12-game-dev-js` へ昇格済で欠番）
            posts.ts もその contentId
            軽負債: 関連既存があれば相互リンク（無ければスキップ可）
            promotion_status 目安: standalone
@@ -123,13 +123,14 @@
 | `series:cursor-free` | Cursor無料版シリーズ |
 | `series:chatgpt-migration` | ChatGPT移行シリーズ |
 | `series:new-domain-seo` | 新規ドメインSEO・GSCシリーズ |
+| `series:game-dev-roadmap` | ゲーム制作で学ぶプログラミングシリーズ |
 | `series:candidate:<theme-slug>` | **新シリーズ候補**（`series.ts` 未登録。週次 #5 で付与） |
 | `topic:05-nextjs-image-cache` | Next.js 画像トピック束 |
 | `topic:06-chatgpt-how-to` | ChatGPT How-to 束 |
 | `topic:07-daily-note-obsidian` | DailyNote 束 |
 | `topic:09-ai-tools-comparison` | AI ツール比較束 |
 | `topic:21-cursor-models` | Cursor モデル選定・外部モデル連携束 |
-| `topic:22-game-dev-js` | ゲーム制作を入り口に JS／プログラミングを学ぶ束 |
+| `topic:22-game-dev-js` | （旧）ゲーム制作JS束。昇格後は `series:game-dev-roadmap` / contentId `12-game-dev-js` |
 | `topic:23-<theme-slug>` | 新 B フォルダ束（`23-` 以降） |
 | `inbox:keep` | 分類**未決定**（判断前のみ。公開済みの常用はしない） |
 | `standalone` | 単発／まだ series 化しない（B/`21-`／`22-` 等の既定） |
@@ -155,7 +156,7 @@ Vault 候補マスター用。`content_folder` とは別軸。詳細: [`debt-pay
 
 1. ④（主 Claude）: 本文 MD
 2. ① Cursor: [`content-folders.md`](content-folders.md) の判断フローで contentId を決める  
-   - 既存 A 追記 / 既存 B / 新 `23-…` のいずれか（`21-cursor-models`・`22-game-dev-js` は使用済み）。**`20` は使わない**
+   - 既存 A 追記 / 既存 B / 新 `23-…` のいずれか（`21-cursor-models` 使用中。`22` は `12-game-dev-js` へ昇格済）。**`20` は使わない**
 3. **軽負債（①・毎公開）**  
    - 既存 series: `series.ts` + Spoke→Hub + **Hub 本文スポーク追記**  
    - B／`21-`／`22-`: 同ジャンル相互リンク。`promotion_status: standalone`（⑥へメモ可）
