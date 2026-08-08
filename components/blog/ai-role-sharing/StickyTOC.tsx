@@ -43,10 +43,7 @@ export function StickyTOC({ items }: StickyTOCProps) {
   }, [items]);
 
   return (
-    <nav
-      aria-label="記事の目次"
-      className="max-h-[calc(100vh-5.5rem)] overflow-y-auto pr-1"
-    >
+    <nav aria-label="記事の目次">
       <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">
         目次
       </p>

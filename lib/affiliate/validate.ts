@@ -122,7 +122,7 @@ export async function validateAffiliateContent(): Promise<AffiliateValidationIss
         file: relativeFile,
         slug,
         severity: "error",
-        message: `比較シリーズ slug (${slug}) では直アフィリエイトを配置できません。`,
+        message: `比較シリーズ slug (${slug}) では本文の直アフィリエイトを配置できません（右レール共通枠は別チャネルで可）。`,
       });
     }
   }
