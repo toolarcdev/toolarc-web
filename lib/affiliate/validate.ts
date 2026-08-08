@@ -17,6 +17,8 @@ const RAW_AFFILIATE_URL_PATTERNS = [
   /px\.a8\.net/i,
   /www\d*\.a8\.net/i,
   /h\.accesstrade\.net/i,
+  /ck\.jp\.ap\.valuecommerce\.com/i,
+  /ad\.jp\.ap\.valuecommerce\.com/i,
   /rakurin\.net/i,
 ];
 

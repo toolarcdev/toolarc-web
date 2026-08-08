@@ -3,6 +3,7 @@ import { buildA8AnchorProps } from "./asp/a8";
 import { buildAccessTradeAnchorProps } from "./asp/accesstrade";
 import { buildGenericAnchorProps } from "./asp/generic";
 import { buildMoshimoAnchorProps } from "./asp/moshimo";
+import { buildValueCommerceAnchorProps } from "./asp/valuecommerce";
 import { getCreative, getProgram } from "./registry";
 import type {
   AffiliateCreativeId,
@@ -68,6 +69,9 @@ export function buildAffiliateAnchorProps(
   }
   if (resolved.asp === "moshimo") {
     return buildMoshimoAnchorProps(resolved.href);
+  }
+  if (resolved.asp === "valuecommerce") {
+    return buildValueCommerceAnchorProps(resolved.href);
   }
   return buildGenericAnchorProps(resolved.href);
 }
