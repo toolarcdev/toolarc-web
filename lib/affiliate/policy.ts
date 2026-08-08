@@ -1,4 +1,4 @@
-import { isRailPoolProgramId } from "./rail-pool";
+import { isNarrowPoolProgramId, isRailPoolProgramId } from "./rail-pool";
 import type { AffiliateProgramId } from "./types";
 import { getProgram } from "./registry";
 
@@ -8,7 +8,7 @@ import { getProgram } from "./registry";
  * General CTA rules: docs/ai-context/writing-rules.md（収益導線）
  *
  * Scope: **本文 Markdown** の `affiliate:` のみ。
- * 右レール共通枠は {@link isRailAffiliateAllowed}（本文禁止と独立）。
+ * 右レール／狭い幅共通枠は {@link isRailAffiliateAllowed} / {@link isNarrowAffiliateAllowed}。
  */
 
 /** ai-tools-comparison-series の hub + spoke（本文の直アフィ禁止） */
@@ -48,6 +48,16 @@ export function isRailAffiliateAllowed(programId: string): boolean {
   if (!program) return false;
   if (program.placement === "disabled") return false;
   return isRailPoolProgramId(programId);
+}
+
+/**
+ * 狭い幅（lg未満）横長バナー枠。Prime除外。テキストフォールバックなし。
+ */
+export function isNarrowAffiliateAllowed(programId: string): boolean {
+  const program = getProgram(programId);
+  if (!program) return false;
+  if (program.placement === "disabled") return false;
+  return isNarrowPoolProgramId(programId);
 }
 
 export function isKnownProgramId(programId: string): programId is AffiliateProgramId {

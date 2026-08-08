@@ -53,5 +53,12 @@ export const yahooShoppingProgram: AffiliateProgram = {
       width: 468,
       height: 60,
     },
+    "banner-728x90": {
+      href: "https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3771139&pid=892675085",
+      impressionUrl: "https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3771139&pid=892675085",
+      bannerImageUrl: "https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3771139&pid=892675085",
+      width: 728,
+      height: 90,
+    },
   },
 };

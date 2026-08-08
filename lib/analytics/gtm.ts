@@ -28,13 +28,13 @@ type AnalyticsEventMap = {
     program_id: string;
     creative_id: string;
     pool_date: string;
-    placement: "rail";
+    placement: "rail" | "narrow";
   };
   rail_affiliate_click: {
     program_id: string;
     creative_id: string;
     pool_date: string;
-    placement: "rail";
+    placement: "rail" | "narrow";
     url: string;
   };
   copy_code: {

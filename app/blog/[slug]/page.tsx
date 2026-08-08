@@ -9,6 +9,7 @@ import { BlogShell } from "@/components/blog/BlogShell";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/blog/Breadcrumbs";
 import { RichArticleLayout } from "@/components/blog/RichArticleLayout";
 import { SeriesArticleLink } from "@/components/blog/SeriesArticleLink";
+import { NarrowAffiliateSlot } from "@/components/affiliate/NarrowAffiliateSlot";
 import { ScrollDepthTracker } from "@/components/analytics/ScrollDepthTracker";
 import { blogPostUrl, SITE_URL } from "@/lib/blog/constants";
 import { extractTocHeadings } from "@/lib/blog/heading-id";
@@ -161,6 +162,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const afterArticle = (
     <>
+      <NarrowAffiliateSlot />
       <ArticleEndNav data={endNav} />
       <AuthorBox />
       <footer className="mt-12 border-t border-slate-200 pt-8">
