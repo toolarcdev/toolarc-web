@@ -1957,9 +1957,18 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "game-dev-roadmap": {
+    contentId: "22-game-dev-js",
+    markdownFile: "001-game-dev-roadmap.md",
+    // 自slug用PNGなし。OGはSpoke3流用（本文画像は絶対パス）
+    imageBasePath: "/images/blog/game-dev-roadmap-comparison",
+    publishedAt: "2026-08-08",
+    ogImage: "game-dev-roadmap-5-overview.png",
+    category: "gaming",
+  },
   "game-dev-beginner-first-steps": {
     contentId: "22-game-dev-js",
-    markdownFile: "001-game-dev-beginner-first-steps.md",
+    markdownFile: "002-game-dev-beginner-first-steps.md",
     imageBasePath: "/images/blog/game-dev-beginner-first-steps",
     publishedAt: "2026-08-07",
     ogImage: "html-css-js-roles-diagram.png",
@@ -1967,7 +1976,7 @@ export const blogPosts = {
   },
   "why-javascript-for-game-dev": {
     contentId: "22-game-dev-js",
-    markdownFile: "002-why-javascript-for-game-dev.md",
+    markdownFile: "003-why-javascript-for-game-dev.md",
     imageBasePath: "/images/blog/why-javascript-for-game-dev",
     publishedAt: "2026-08-08",
     ogImage: "js-game-dev-language-choice-overview.png",
@@ -1975,7 +1984,7 @@ export const blogPosts = {
   },
   "game-dev-roadmap-comparison": {
     contentId: "22-game-dev-js",
-    markdownFile: "003-game-dev-roadmap-comparison.md",
+    markdownFile: "004-game-dev-roadmap-comparison.md",
     imageBasePath: "/images/blog/game-dev-roadmap-comparison",
     publishedAt: "2026-08-08",
     ogImage: "game-dev-roadmap-5-overview.png",
