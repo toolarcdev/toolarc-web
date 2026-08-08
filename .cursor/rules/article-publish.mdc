@@ -19,7 +19,7 @@ alwaysApply: false
 
 ## 新規配置（評価フェーズ）
 
-- contentId は `docs/ai-context/content-folders.md` の判断フローに従う（既存 A / 既存 B / 新 `23-…`。`21-cursor-models`・`22-game-dev-js` は使用済み）
+- contentId は `docs/ai-context/content-folders.md` の判断フローに従う（既存 A / 既存 B / 新 `23-…`。`21-cursor-models` 使用中。`22-game-dev-js` は `12-game-dev-js` へ昇格済）
 - **`20-investigate-something` へ新規は置かない**（量産負債在庫。昇格・整理のみ）
 - 既存 series 追記時は同一 PR で `series.ts` ＋ Hub 本文のスポーク反映
 

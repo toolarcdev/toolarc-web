@@ -14,7 +14,7 @@
 
 - **ブログ**: Cursor / Claude / ChatGPT / Obsidian / Next.js / GitHub / Vercel などを「使い始めた人が、自分の環境で再現できる」粒度で解説する
 - **ツール**: ブログとは別に、ゲーム系ユーティリティ（現状の代表は PoE2 向け regex ツール `/tools/poe2-regex`）を提供する。ゲーム用 JSON の正本は非公開リポ（後述）
-- **シリーズ構造**: Hub（入口）＋ Spoke を基本形にする。新規は既存 B または新 `23-…` に直置きし、勝ちが見えてから後付けで series／Hub 化する（`21-cursor-models`・`22-game-dev-js` は使用済み。`20` は量産負債のみ。正本: [`content-folders.md`](content-folders.md)）
+- **シリーズ構造**: Hub（入口）＋ Spoke を基本形にする。新規は既存 B または新 `23-…` に直置きし、勝ちが見えてから後付けで series／Hub 化する（`21-cursor-models` 使用中。`22-game-dev-js` は `12-game-dev-js` へ昇格済。`20` は量産負債のみ。正本: [`content-folders.md`](content-folders.md)）
 - **記事の層**: 集客寄りの How-to／比較／チェックリストと、周辺・本命の収益記事（第2〜3層）が同居する。比較本文に現金ASPを直置きしない（2段導線）
 
 ### 誰の、どんな悩み向けか（要約）
