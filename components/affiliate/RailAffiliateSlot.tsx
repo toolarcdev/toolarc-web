@@ -11,11 +11,11 @@ import {
   isRailAffiliateAllowed,
   pickRailAffiliateForDate,
   resolveAffiliateLink,
-  type RailAffiliatePoolEntry,
+  type AffiliatePoolEntry,
 } from "@/lib/affiliate";
 
 type RailSlotState = {
-  entry: RailAffiliatePoolEntry;
+  entry: AffiliatePoolEntry;
   poolDate: string;
 };
 
