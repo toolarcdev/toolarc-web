@@ -136,6 +136,91 @@ export default async function BlogPostPage({ params }: PageProps) {
     image: ogImageUrl,
   };
 
+  const article = (
+    <article
+      className="mt-3"
+      itemScope
+      itemType="https://schema.org/BlogPosting"
+    >
+      <ArticleHeader
+        title={post.title}
+        description={post.description}
+        publishedAt={post.publishedAt}
+        updatedAt={post.updatedAt}
+        tags={post.tags}
+      />
+      <div className="article mt-4">
+        <ArticleBody
+          content={articleContent}
+          imageBasePath={post.imageBasePath}
+          slug={slug}
+        />
+      </div>
+    </article>
+  );
+
+  const afterArticle = (
+    <>
+      <ArticleEndNav data={endNav} />
+      <AuthorBox />
+      <footer className="mt-12 border-t border-slate-200 pt-8">
+        {seriesRelatedPosts.length > 0 && series && (
+          <section aria-labelledby="related-heading" className="mb-8">
+            <h2
+              id="related-heading"
+              className="text-sm font-semibold uppercase tracking-wider text-slate-500"
+            >
+              このシリーズの記事
+            </h2>
+            <ul className="mt-4 space-y-3" role="list">
+              {seriesRelatedPosts.map((related) => (
+                <li key={related.slug}>
+                  <SeriesArticleLink
+                    href={`/blog/${related.slug}`}
+                    seriesSlug={series.slug}
+                    targetSlug={related.slug}
+                    linkType={
+                      related.slug === series.hubSlug ? "hub" : "spoke"
+                    }
+                    className="group block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd]"
+                  >
+                    <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
+                      {related.title}
+                    </span>
+                    {related.description && (
+                      <p className="mt-1 text-sm leading-6 text-slate-500 line-clamp-2">
+                        {related.description}
+                      </p>
+                    )}
+                  </SeriesArticleLink>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {series && (
+          <SeriesArticleLink
+            href={`/series/${series.slug}`}
+            seriesSlug={series.slug}
+            targetSlug={series.hubSlug}
+            linkType="hub"
+            className="mb-4 block text-sm font-medium text-[#2563eb] hover:underline"
+          >
+            ← {series.title} のシリーズ一覧へ
+          </SeriesArticleLink>
+        )}
+
+        <Link
+          href="/blog"
+          className="text-sm text-slate-500 hover:text-[#2563eb]"
+        >
+          ← 全記事一覧へ
+        </Link>
+      </footer>
+    </>
+  );
+
   return (
     <BlogShell>
       <script
@@ -174,108 +259,16 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           {showToc ? (
             <RichArticleLayout tocItems={tocItems}>
-              <article
-                className="mt-3"
-                itemScope
-                itemType="https://schema.org/BlogPosting"
-              >
-                <ArticleHeader
-                  title={post.title}
-                  description={post.description}
-                  publishedAt={post.publishedAt}
-                  updatedAt={post.updatedAt}
-                  tags={post.tags}
-                />
-                <div className="article mt-4">
-                  <ArticleBody
-                    content={articleContent}
-                    imageBasePath={post.imageBasePath}
-                    slug={slug}
-                  />
-                </div>
-              </article>
+              {article}
+              {/* 左カラム内: sticky 右レールが末尾ブロックと重ならないようにする */}
+              {afterArticle}
             </RichArticleLayout>
           ) : (
-            <article
-              className="mt-3"
-              itemScope
-              itemType="https://schema.org/BlogPosting"
-            >
-              <ArticleHeader
-                title={post.title}
-                description={post.description}
-                publishedAt={post.publishedAt}
-                updatedAt={post.updatedAt}
-                tags={post.tags}
-              />
-              <div className="article mt-4">
-                <ArticleBody
-                  content={articleContent}
-                  imageBasePath={post.imageBasePath}
-                  slug={slug}
-                />
-              </div>
-            </article>
+            <>
+              {article}
+              {afterArticle}
+            </>
           )}
-
-          <ArticleEndNav data={endNav} />
-          <AuthorBox />
-
-          <footer className="mt-12 border-t border-slate-200 pt-8">
-            {seriesRelatedPosts.length > 0 && series && (
-              <section aria-labelledby="related-heading" className="mb-8">
-                <h2
-                  id="related-heading"
-                  className="text-sm font-semibold uppercase tracking-wider text-slate-500"
-                >
-                  このシリーズの記事
-                </h2>
-                <ul className="mt-4 space-y-3" role="list">
-                  {seriesRelatedPosts.map((related) => (
-                    <li key={related.slug}>
-                      <SeriesArticleLink
-                        href={`/blog/${related.slug}`}
-                        seriesSlug={series.slug}
-                        targetSlug={related.slug}
-                        linkType={
-                          related.slug === series.hubSlug ? "hub" : "spoke"
-                        }
-                        className="group block rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#93c5fd]"
-                      >
-                        <span className="font-medium text-slate-900 group-hover:text-[#2563eb]">
-                          {related.title}
-                        </span>
-                        {related.description && (
-                          <p className="mt-1 text-sm leading-6 text-slate-500 line-clamp-2">
-                            {related.description}
-                          </p>
-                        )}
-                      </SeriesArticleLink>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {series && (
-              <SeriesArticleLink
-                href={`/series/${series.slug}`}
-                seriesSlug={series.slug}
-                targetSlug={series.hubSlug}
-                linkType="hub"
-                className="mb-4 block text-sm font-medium text-[#2563eb] hover:underline"
-              >
-                ← {series.title} のシリーズ一覧へ
-              </SeriesArticleLink>
-            )}
-
-            <Link
-              href="/blog"
-              className="text-sm text-slate-500 hover:text-[#2563eb]"
-            >
-              ← 全記事一覧へ
-            </Link>
-          </footer>
         </div>
       </main>
     </BlogShell>

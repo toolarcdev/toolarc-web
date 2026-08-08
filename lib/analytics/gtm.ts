@@ -24,6 +24,19 @@ type AnalyticsEventMap = {
     url: string;
     link_text?: string;
   };
+  rail_affiliate_impression: {
+    program_id: string;
+    creative_id: string;
+    pool_date: string;
+    placement: "rail";
+  };
+  rail_affiliate_click: {
+    program_id: string;
+    creative_id: string;
+    pool_date: string;
+    placement: "rail";
+    url: string;
+  };
   copy_code: {
     language?: string;
   };

@@ -21,4 +21,13 @@ export { splitAffiliateSections, type AffiliateBodySegment } from "./split-affil
 export {
   DIRECT_AFFILIATE_BLOCKED_SLUGS,
   isDirectAffiliateAllowed,
+  isRailAffiliateAllowed,
 } from "./policy";
+export {
+  RAIL_AFFILIATE_POOL,
+  getJstDateKey,
+  hashDateKey,
+  isRailPoolProgramId,
+  pickRailAffiliateForDate,
+  type RailAffiliatePoolEntry,
+} from "./rail-pool";
