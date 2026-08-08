@@ -1965,6 +1965,14 @@ export const blogPosts = {
     ogImage: "html-css-js-roles-diagram.png",
     category: "gaming",
   },
+  "why-javascript-for-game-dev": {
+    contentId: "22-game-dev-js",
+    markdownFile: "002-why-javascript-for-game-dev.md",
+    imageBasePath: "/images/blog/why-javascript-for-game-dev",
+    publishedAt: "2026-08-08",
+    ogImage: "js-game-dev-language-choice-overview.png",
+    category: "gaming",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
