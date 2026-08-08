@@ -16,6 +16,7 @@ import {
   parseAffiliateHref,
   resolveAffiliateLink,
 } from "@/lib/affiliate";
+import { fixEmphasisFlanking } from "@/lib/blog/fix-emphasis-flanking";
 
 type MarkdownArticleProps = {
   content: string;
@@ -350,7 +351,7 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
       urlTransform={urlTransform}
       components={components}
     >
-      {content}
+      {fixEmphasisFlanking(content)}
     </ReactMarkdown>
   );
 }
