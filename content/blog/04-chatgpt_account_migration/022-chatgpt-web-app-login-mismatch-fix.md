@@ -1,6 +1,6 @@
 ---
-title: "ChatGPTでWebとアプリのログイン先が違うときの揃え方"
-description: "ChatGPTをWeb（chatgpt.com）とアプリの両方で使っていて、履歴やPlus表示が食い違うとき、多くの原因はログイン先アカウントの不一致です。両方のログイン状況を確認し、揃える手順を整理しました。"
+title: "ChatGPTのWebとアプリのログイン｜履歴が違うときの揃え方"
+description: "ChatGPTをWeb（chatgpt.com）とアプリの両方で使っていて、履歴やPlus表示が食い違うときの確認手順です。多くの原因はログイン先アカウントの不一致なので、両方のログイン状況を確認し、片方をサインアウトして揃える流れを3手順でまとめました。"
 date: 2026-07-16
 tags:
   - ChatGPT
@@ -10,10 +10,10 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "ChatGPTをWeb（chatgpt.com）とアプリの両方で使っていて、表示や履歴が食い違って戸惑っている人"
-last_update: 2026-08-05
+last_update: 2026-08-08
 ---
 
-# ChatGPTでWebとアプリのログイン先が違うときの揃え方
+# ChatGPTのWebとアプリのログイン｜履歴が違うときの揃え方
 
 ChatGPTをスマホアプリとブラウザ（chatgpt.com）の両方で使っていると、「アプリでは見えていた履歴がWebでは違う」「片方だけPlusの表示になっていない」といった食い違いに気づくことがあります。
 
