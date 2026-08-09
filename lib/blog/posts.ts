@@ -1990,6 +1990,24 @@ export const blogPosts = {
     ogImage: "game-dev-roadmap-5-overview.png",
     category: "gaming",
   },
+  "game-dev-schedule-month1": {
+    contentId: "12-game-dev-js",
+    markdownFile: "005-game-dev-schedule-month1.md",
+    // 自slug用PNGなし。OGはSpoke1学習サイクル図を流用（本文画像は絶対パス）
+    imageBasePath: "/images/blog/game-dev-beginner-first-steps",
+    publishedAt: "2026-08-09",
+    ogImage: "learning-cycle-diagram.png",
+    category: "gaming",
+  },
+  "game-dev-schedule-month2": {
+    contentId: "12-game-dev-js",
+    markdownFile: "006-game-dev-schedule-month2.md",
+    // 自slug用PNGなし。OGはSpoke1学習サイクル図を流用（本文画像は絶対パス）
+    imageBasePath: "/images/blog/game-dev-beginner-first-steps",
+    publishedAt: "2026-08-09",
+    ogImage: "learning-cycle-diagram.png",
+    category: "gaming",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

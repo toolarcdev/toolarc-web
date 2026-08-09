@@ -276,6 +276,8 @@ export const allSeries: readonly SeriesConfig[] = [
       "game-dev-beginner-first-steps",
       "why-javascript-for-game-dev",
       "game-dev-roadmap-comparison",
+      "game-dev-schedule-month1",
+      "game-dev-schedule-month2",
     ],
     publishedAt: "2026-08-08",
   },
