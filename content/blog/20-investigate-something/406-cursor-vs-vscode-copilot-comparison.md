@@ -12,7 +12,7 @@ tags:
   - 開発環境
 site: toolarc.jp
 target: "VS Code＋Copilotで開発しているが、Cursorへの乗り換え・併用・現状維持のどれが自分に合うか、機能比較だけでは判断できない初心者〜若手エンジニア。"
-last_update: 2026-08-02
+last_update: 2026-08-10
 ---
 
 # Cursor vs VS Code＋Copilot比較｜乗り換え・併用の判断基準
@@ -25,7 +25,7 @@ last_update: 2026-08-02
 
 ## VS Code＋CopilotからCursorへ？迷う理由と今日の結論
 
-先に本記事の範囲を絞っておきます。ここで扱うのは、Cursor単体の得意・不得意ではなく、VS Code＋Copilotとの比較です。Cursor単体でどこが強く、どこが弱いかを先に知りたい方は、まず[Cursorでできること・苦手なこと](/blog/cursor-strengths-weaknesses)を読むと判断材料が増えます。CursorとGitHub Copilotを単体同士で詳しく扱う比較は、別記事のテーマとして扱います。
+先に本記事の範囲を絞っておきます。ここで扱うのは、Cursor単体の得意・不得意ではなく、VS Code＋Copilotとの比較です。Cursor単体でどこが強く、どこが弱いかを先に知りたい方は、まず[Cursorでできること・苦手なこと](/blog/cursor-strengths-weaknesses)を読むと判断材料が増えます。CursorとGitHub Copilotを製品同士で詳しく比べたい方は、[Cursor vs GitHub Copilot比較](/blog/cursor-vs-github-copilot-comparison)を参照してください。
 
 > **今日の結論**
 > - CursorとVS Code＋Copilotは、どちらが優れているかではなく編集体験と補完の立ち位置で向き不向きが分かれる傾向にあります
@@ -90,4 +90,4 @@ AIツール全般の基礎から整理したい方は→[AIの基礎を無料で
 
 ---
 
-本記事の内容は、Cursor・VS Code・GitHub Copilotの仕様や料金プラン、利用上限を含め、執筆時点（2026-08-02）の情報に基づいています。本文の比較はいずれも傾向であり、断定するものではありません。仕様は今後変更される可能性があるため、契約や乗り換えを判断する際は公式ドキュメントで最新情報を確認してください。
+本記事の内容は、Cursor・VS Code・GitHub Copilotの仕様や料金プラン、利用上限を含め、執筆時点（2026-08-10）の情報に基づいています。本文の比較はいずれも傾向であり、断定するものではありません。仕様は今後変更される可能性があるため、契約や乗り換えを判断する際は公式ドキュメントで最新情報を確認してください。

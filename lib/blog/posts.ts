@@ -2008,6 +2008,14 @@ export const blogPosts = {
     ogImage: "learning-cycle-diagram.png",
     category: "gaming",
   },
+  "cursor-vs-github-copilot-comparison": {
+    contentId: "03-cursor-free",
+    markdownFile: "040-cursor-vs-github-copilot-comparison.md",
+    imageBasePath: "/images/blog/cursor-vs-github-copilot-comparison",
+    publishedAt: "2026-08-10",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
