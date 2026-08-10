@@ -13,7 +13,7 @@ tags:
   - cursor-free-series
 site: toolarc.jp
 target: "CursorでAI開発を始めたいが、設定や機能をどの順番で学べばよいか迷っている初心者"
-last_update: 2026-08-02
+last_update: 2026-08-10
 ---
 
 # Cursor Free（無料枠）｜初心者が最初に確認する開発ガイド
@@ -191,6 +191,7 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 
 - [Cursorでできること・苦手なこと](/blog/cursor-strengths-weaknesses)｜導入前に判断したい人向け
 - [Cursor vs VS Code＋Copilot比較](/blog/cursor-vs-vscode-copilot-comparison)｜乗り換え・併用・現状維持を判断したい人向け
+- [Cursor vs GitHub Copilot比較](/blog/cursor-vs-github-copilot-comparison)｜製品同士でどちらを選ぶか判断したい人向け
 - [CursorとClaudeの使い分け](/blog/cursor-claude-usecase-comparison)｜2つの役割分担を知りたい人向け
 - [CursorとChatGPTの使い分け](/blog/cursor-chatgpt-usecase-comparison)｜用途で選び分けたい人向け
 

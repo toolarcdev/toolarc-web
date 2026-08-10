@@ -126,6 +126,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "git-branch-basic-tips",
       "cursor-strengths-weaknesses",
       "cursor-vs-vscode-copilot-comparison", // W4 #16 Cursor vs VS Code＋Copilot
+      "cursor-vs-github-copilot-comparison", // W5 #17 Cursor vs GitHub Copilot
       "cursor-claude-usecase-comparison",
       "cursor-chatgpt-usecase-comparison",
       "cursor-model-selection-guide",
