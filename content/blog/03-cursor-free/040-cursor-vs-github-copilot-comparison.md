@@ -12,7 +12,7 @@ tags:
   - Agent
 site: toolarc.jp
 target: "GitHub Copilotを使っている／検討している初心者〜若手エンジニアで、Cursorへの乗り換え・併用・継続のどれが自分に合うか、機能一覧だけでは判断できない人。"
-last_update: 2026-08-10
+last_update: 2026-08-11
 ---
 
 # Cursor vs GitHub Copilot比較｜どちらを選ぶかの判断基準
@@ -29,7 +29,7 @@ Cursorは「AI専用エディタ」、GitHub Copilotは「既存のエディタ�
 
 先に本記事の範囲を絞っておきます。ここでは Cursor と GitHub Copilot を製品同士で比べます。VS CodeにCopilotを足した環境全体との比較は、別記事の[Cursor vs VS Code＋Copilot比較](/blog/cursor-vs-vscode-copilot-comparison)を先に読むと整理しやすいです。
 
-Cursor単体の得意・不得意を先に知りたい方は、[Cursorでできること・苦手なこと](/blog/cursor-strengths-weaknesses)で判断材料を増やせます。単体の強み・弱みは、この記事では扱いません。
+Cursor単体の得意・不得意を先に知りたい方は、[Cursorでできること・苦手なこと](/blog/cursor-strengths-weaknesses)で判断材料を増やせます。単体の強み・弱みは、この記事では扱いません。CursorとWindsurfなどAIエディタ同士の比較は、[Cursor vs Windsurf比較](/blog/cursor-vs-windsurf-comparison)を参照してください。
 
 > **今日の結論**
 >

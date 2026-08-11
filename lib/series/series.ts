@@ -127,6 +127,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-strengths-weaknesses",
       "cursor-vs-vscode-copilot-comparison", // W4 #16 Cursor vs VS Code＋Copilot
       "cursor-vs-github-copilot-comparison", // W5 #17 Cursor vs GitHub Copilot
+      "cursor-vs-windsurf-comparison", // W5 #18 Cursor vs Windsurf
       "cursor-claude-usecase-comparison",
       "cursor-chatgpt-usecase-comparison",
       "cursor-model-selection-guide",

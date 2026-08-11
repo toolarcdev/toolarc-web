@@ -2016,6 +2016,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "ai-workflow",
   },
+  "cursor-vs-windsurf-comparison": {
+    contentId: "03-cursor-free",
+    markdownFile: "041-cursor-vs-windsurf-comparison.md",
+    imageBasePath: "/images/blog/cursor-vs-windsurf-comparison",
+    publishedAt: "2026-08-11",
+    ogImage: "og.png",
+    category: "ai-workflow",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
