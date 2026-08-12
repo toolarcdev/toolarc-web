@@ -280,6 +280,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "game-dev-roadmap-comparison",
       "game-dev-schedule-month1",
       "game-dev-schedule-month2",
+      "game-dev-schedule-month3",
     ],
     publishedAt: "2026-08-08",
   },
