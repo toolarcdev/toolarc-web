@@ -92,7 +92,7 @@ intake・DailyNote・編集対象（dashboard / gsc-weekly-log / ctr-rewrite-que
 2. 柱C: §5.1 → inbox/候補マスター + `_classify_title.mjs`
 3. matrix 再生成
 4. reader 健全性（最小限）
-5. KPI 転記（DailyNote / dashboard / gsc-weekly-log / ctr-rewrite-queue+F / §4）
+5. KPI 転記（DailyNote / dashboard **成績パネル** / gsc-weekly-log / ctr-rewrite-queue+F / §4）。週次公開表・ランウェイ・新シリーズは dashboard に書かない。Coverageは任意
    - **ASP §4**: 読者由来累計を **N/10** で報告（禁止開始 **2026-07-29** 以降。汚染込み合計は卒業に使わない）。`revenue-signals` に方針どおり追記
    - **§2 → キュー**: intake §2 を [[ctr-rewrite-queue]] へ**人間ゲート転記**（自動上書き禁止。A-OPP CSV 由来でも同じ）。表示用＋ dashboard F も同様
    - **A-THEME**: intake にテーマROI／勝ち3があれば、判断1行・**週次キュー組み立て**の根拠に1行参照（完了報告に「A-THEME参照」と書く）。量産配分メモ（旧方針B）は書かない
@@ -109,7 +109,7 @@ intake・DailyNote・編集対象（dashboard / gsc-weekly-log / ctr-rewrite-que
    - **行**: 推奨構成 `integrate` 2〜4 / `rewrite` 2〜4 / `hub` 0〜2 / `monetize|measure` 1〜2 / `debt` 2単位 / `new` 0〜n（**§5.2 通過のみ**）。合計目安 8〜14行。空日を公開埋めで埋めない
    - **繰越**: 前週 `planned`/`doing` を先頭へ
    - **active-tasks**: 取込行の `source` に `active-tasks:<ID>`。週枠表に当週 `[[week-queue-…]]` 1行（中身の重複記載は week-queue のみ）
-   - **Dashboard**: 当週 week-queue 要約（旧公開フォーカス3本欄は使わない）
+   - **Dashboard**: week-queue リンク更新（旧公開フォーカス3本欄は使わない）
    - **確定チェック**: 全行 `done_def`／`new` は §5.2／柔軟1本空枠なし／週枠逆リンク
 8. シリーズ化・inbox（週次範囲。**本数ノルマで埋めない**。柱C handoff は `new` 候補原料）
 9. 負債原則 **2単位**（**統合・301・SubHub** 可）→ ①依頼。可能なら week-queue に `debt` 行としても載せる

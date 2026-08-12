@@ -38,13 +38,13 @@ description: >-
 
 開始時: `Get-Date -Format "yyyy-MM-dd HH:mm"` → 編集したファイルの `Last Updated` に使う（手入力禁止）
 
-1. DailyNote・候補マスター・Dashboard・必要な inbox（最大20件）だけ確認
+1. DailyNote・候補マスター・当週 week-queue・必要な inbox（最大20件）を確認。[[dashboard]] は成績パネル（日次は CTR転記・必要時負債のみ。全体必読ではない）
 2. DailyNote / AI-log / ⑤ handoff から新規候補を最大10件まで追加
 3. title 確定後、分類コマンド実行 → frontmatter `audience_axis`
 4. inbox必須処理（下記）
-5. **week-queue 当日消化（旧E置換）**: 実行中の active `week-queue-YYYY-MM-DD.md`（木〜水週・正本1ファイル）から**今日の `day` 行**を DailyNote「今日やること」へ投影。翌日分は**選定しない**（翌朝は翌日 `day` 行を投影）。`type=new` かつ公開する行だけ、該当 inbox の `publish_date` をその `day` に合わせる。**公開3本固定・勝ち2+柔軟1・空日の公開埋めはしない**。週途中の行追加は可（理由1行＋`source`；`new` は §5.2）。Dashboard の旧「公開フォーカス3本」同期は行わず、week-queue 要約方針に合わせる
+5. **week-queue 当日消化（旧E置換）**: 実行中の active `week-queue-YYYY-MM-DD.md`（木〜水週・正本1ファイル）から**今日の `day` 行**を DailyNote「今日やること」へ投影。翌日分は**選定しない**（翌朝は翌日 `day` 行を投影）。`type=new` かつ公開する行だけ、該当 inbox の `publish_date` をその `day` に合わせる。**公開3本固定・勝ち2+柔軟1・空日の公開埋めはしない**。週途中の行追加は可（理由1行＋`source`；`new` は §5.2）。Dashboard へのタスク同期は行わない（week-queue リンク確認のみ）
 6. `ctr-rewrite-queue` の「表示用」を Dashboard「CTRリライト候補」へ転記（GSC再取得しない）
-7. debt/HUB広範囲は水曜へ。当日公開や①引き継ぎがあるときだけ軽く補完
+7. debt/HUB広範囲は水曜へ。当日公開や①引き継ぎがあるときだけ負債4行を軽く補完
 7.5. **レーンB完了同期（保険・軽量）**: 当日 AI-log／DailyNote で手順が `closed` なのに `active-tasks` 週枠が残っていたら、運用設計 §6（Board削除＋`done-tasks-log`追記＋任意残の単発切出し）を実行。毎回 Board 全文は読まない。正本: Vault `タスク管理_ActiveBoard/運用設計` §6.1（案D）
 8. 実施サマリ・変更ファイル・主要変更・実行後チェック・明日の推奨を短く報告
 9. **AI-log 転記（プロンプトに AI-log パスがある日だけ）**: 手順8の完了報告を当日 AI-log 末尾へ転記する。パス指定が無い日は転記しない（DailyNote への報告のみ）
@@ -66,9 +66,9 @@ description: >-
 1. `publish_date` が今日以前
 2. `status` が `inbox` / `draft` / `published`
 3. DailyNote「今日やること」／week-queue 当日行に載っている
-4. 候補マスターに載っている（旧「公開フォーカス3本」前提の枠埋めはしない）
+4. 候補マスターに載っている（Dashboard フォーカス判定は廃止。旧「公開フォーカス3本」前提の枠埋めはしない）
 
-公開済み inbox は `status` / `published_at` / `slug` / `promotion_status` を更新し `04-Tips/published` へ移動。マスター・Dashboard・DailyNote も反映。対象外 inbox は読まない。
+公開済み inbox は `status` / `published_at` / `slug` / `promotion_status` を更新し `04-Tips/published` へ移動。マスター・DailyNote・week-queue も反映（Dashboard 成績欄へのタスク反映はしない）。対象外 inbox は読まない。
 
 ## ⑤ handoff
 
