@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-08-04 18:52（Phase CO: 実態整合 — content-folders / Skills / 評価フェーズ）
+最終更新: 2026-08-12 18:51（L1任意観察: prose-observation-cards 配線）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
@@ -19,7 +19,7 @@ Cursor セッションIDは**参照用**（鮮度保証なし）。⑦のみ「�
 | ④   | 記事初稿・既存リライト | **Claude**（Cursorは予備） | `823fe614-90ef-46e9-a065-358ba223c5ff` | `posts.ts` 登録、実装                               | **記事1本（またはリライト1件）ごと**。長期枠の四半期は目安にすぎない |
 | ⑤   | Tips・素材             | **Claude**（Cursorは予備） | `667ecb48-b2bc-4210-8470-97769c38221f` | 本番デプロイ、GSC                                   | **収益 source は1記事1チャット**。長期枠の半年は目安にすぎない |
 | ⑥   | KPI＋日次メンテ        | **Cursor**                 | `0d9add01-720b-4594-a2ca-3acb2adfc059` | 記事実装、大規模コード変更                          | 日次は1日1チャット / 週次は週ごと / KPIは月ごと |
-| —   | L1レビュー（公開前）   | **Cursor**（Skill）        | （①または専用短チャット）              | 初稿の全面書き直し、posts.ts 登録                   | 公開候補1本ごと（`l1-review-article`）          |
+| —   | L1レビュー（公開前）   | **Cursor**（Skill）        | （①または専用短チャット）              | 初稿の全面書き直し、posts.ts 登録、読み味の必須合否化 | 公開候補1本ごと（`l1-review-article`＋任意観察） |
 | —   | ⑥派生・事業計画        | **Cursor**                 | （⑥と別チャット）                      | 日次メンテ実作業                                    | 検討が終わったら閉じる                          |
 
 **ToolArc 外（個人）**
@@ -47,7 +47,7 @@ DailyNote / AI-log
   → ⑥ Cursor: handoff 反映・候補マスター・inbox・Dashboard（Commit）
   → ④ Claude: source.md / SEO・GSCメモ → 本文初稿・既存記事リライト案
   → （任意）ChatGPT: SEO・Output Contract レビュー
-  → L1 Cursor: Skill `l1-review-article`（公開前品質。④と①の間）
+  → L1 Cursor: Skill `l1-review-article`（必須合否＋導入読み味の任意観察。④と①の間）
   → ① Cursor: content/blog + posts.ts + build + 公開日Get-Date確定
        （置き場: content-folders。軽負債: 既存seriesならseries.ts+Hub同時／B・21なら相互リンク）
   → 同一①チャット可: git-commit-pr（A）→ 人間確認 → git-merge-cleanup（B）
@@ -413,7 +413,9 @@ GSCクエリ3件: 「...」「...」「...」
 **L1レビュー（公開前・Cursor）**
 
 - ④の文案ができたあと、公開①の前に Cursor Skill **`l1-review-article`** を使う（スロット表の「L1レビュー」行）
-- 判定基準の正本は Vault 改善施策ノート §4.3.1
+- 判定基準の正本は Vault 改善施策ノート §4.3.1（**必須合否**＋**任意観察**）
+- 導入読み味の任意観察は Skill **`prose-observation-cards`**（現役カード最大3。合否に使わない。任意改善は空欄禁止／適用は人間）
+- 読み味の本格推敲が必要なときは任意改善に残し、Skill **`toolarc-ja-prose`** へ分岐（L1内で全文推敲しない）
 - 文体・Output Contract・CTA・禁止の詳細は再掲せず [`writing-rules.md`](writing-rules.md) / [`llm-forbidden-phrases.md`](llm-forbidden-phrases.md) を読む
 - 初回固定プロンプトは不要（Skill 起動で足りる）
 
@@ -423,7 +425,8 @@ GSCクエリ3件: 「...」「...」「...」
 |------|----------|------|
 | writing-rules／空句リスト／L1 SKILL 等のルール・docs 変更 | **Cursor**（スロット横断メンテ） | `context.md` どおり。④チャットでは文案のみ |
 | 収益記事テンプレ改修・本文 Produce | **④** | 公開反映は① |
-| L1 判定 | **Cursor**（`l1-review-article`） | ④→L1→① |
+| L1 判定（必須） | **Cursor**（`l1-review-article`） | ④→L1→① |
+| L1 任意観察（読み味） | **Cursor**（`prose-observation-cards`／L1手順内） | 合否外。カード改修は人間承認後 |
 | GSC／GA4／ASP の計測転記 | **②** | 実行ログ／revenue-signals |
 | バナー実装 | 実装用チャット（web） | ①の公開手順は変えない |
 
@@ -1025,6 +1028,9 @@ Vault の `daily-maintenance-prompt.md` が毎日コピペ用の正本。Cursor 
 | `00-dashboard/weekly-maintenance-prompt.md`            | 週次コピペ用（毎週水曜）                       |
 | `.cursor/skills/weekly-intake/`                        | ②水曜 Skill A（Collector intake）              |
 | `.cursor/skills/weekly-maintenance/`                   | ⑥水曜 Skill B（Commit）                        |
+| `.cursor/skills/l1-review-article/`                    | ④→①の間のL1（必須合否＋任意観察の起動）        |
+| `.cursor/skills/prose-observation-cards/`              | L1任意観察・読み味カード（現役最大3）            |
+| `.cursor/skills/toolarc-ja-prose/`                     | 日本語推敲（L1合否の代替ではない）               |
 | `00-dashboard/toolarc_1min_tips_article_candidates.md` | 候補マスター                                   |
 | `00-dashboard/dashboard.md`                            | 1分Tips Dashboard（GSC週次・週次公開の正本）   |
 | `00-dashboard/gsc-weekly-acquisition-checklist.md`     | GSC UI 手動フォールバック（②）                 |

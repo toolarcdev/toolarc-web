@@ -2008,6 +2008,15 @@ export const blogPosts = {
     ogImage: "learning-cycle-diagram.png",
     category: "gaming",
   },
+  "game-dev-schedule-month3": {
+    contentId: "12-game-dev-js",
+    markdownFile: "007-game-dev-schedule-month3.md",
+    // 自slug用PNGなし。OGはSpoke1学習サイクル図を流用（本文画像は絶対パス）
+    imageBasePath: "/images/blog/game-dev-beginner-first-steps",
+    publishedAt: "2026-08-12",
+    ogImage: "learning-cycle-diagram.png",
+    category: "gaming",
+  },
   "cursor-vs-github-copilot-comparison": {
     contentId: "03-cursor-free",
     markdownFile: "040-cursor-vs-github-copilot-comparison.md",
