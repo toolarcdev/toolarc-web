@@ -1922,7 +1922,7 @@ export const blogPosts = {
     markdownFile: "001-cursor-model-selection-guide.md",
     imageBasePath: "/images/blog/cursor-model-selection-guide",
     publishedAt: "2026-07-29",
-    ogImage: "cursor-task-models-2026-07.png",
+    ogImage: "cursor-task-models-2026-08.png",
     category: "tool",
   },
   "deepseek-cursor-setup": {
