@@ -41,6 +41,7 @@ function resolveImageSrc(src: string | undefined, imageBasePath: string): string
 const COMPACT_IMAGE_FILES = new Set([
   "02-example-source-claude.png",
   "cursor-task-models-2026-07.png",
+  "cursor-task-models-2026-08.png",
 ]);
 
 /** 画像ごとの alt / キャプション（読者向けの説明） */

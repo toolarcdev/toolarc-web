@@ -1,11 +1,21 @@
 # cursor-model-selection-guide 画像メモ
 
-Last Updated: 2026-07-29 07:15
+Last Updated: 2026-08-13 09:04
+
+## cursor-task-models-2026-08.png
+
+- 用途: 本文挿絵（標準モデル一覧セクション）／OG
+- 挿入位置: 「2026年8月時点｜Cursor標準モデル一覧」内
+- 種別: 実画面スクリーンショット（Cursor Settings → Models / Task Models）
+- 確認日: 2026-08-13（Cursor Grok 4.6 追加。Explore Subagent は 4.6 High Fast。Grok 4.5 も一覧に残る）
+- 原図: `D:\ObsidianVault\assets\2026-08\cursor-task-models-2026-08.png`（確認日 2026-08-13。チャット添付を採用。30KBのため再圧縮なし）
+- 後編集: なし
+- 表示: 縦長のため `article-img--compact`（`COMPACT_IMAGE_FILES`）で幅を抑制
 
 ## cursor-task-models-2026-07.png
 
-- 用途: 本文挿絵（標準モデル一覧セクション）／OG
-- 挿入位置: 「2026年7月時点｜Cursor標準モデル一覧（9モデル）」内
+- 用途: 2026-07-28 確認の旧画面（本文・OGからは外した。ファイルは残置）
+- 挿入位置: なし（2026-08-13 以降）
 - 種別: 実画面スクリーンショット（Cursor Settings → Models / Task Models）
 - 原図: `D:\ObsidianVault\assets\2026-07\2026-07-29_05-22-57.png`（確認日 2026-07-28 設定画面）
 - 後編集: なし（クロップ済み原図を採用）
@@ -44,7 +54,7 @@ CursorのTask Models設定と、用途別のモデル使い分け判断軸を図
 ## alt text
 
 ```md
-CursorのTask Models設定画面。Explore Subagentと標準モデル一覧（2026年7月時点）
+CursorのTask Models設定画面。Explore SubagentがCursor Grok 4.6 High Fast、標準一覧にGrok 4.6（2026年8月13日時点）
 Plan & Usage画面。On-Demand SpendingがDisabledになっている例（2026年7月時点）
 Cursorモデル選びの5つの判断軸（コーディング精度・コスト・速度・コンテキスト・エージェント適性）
 用途別のモデル使い分けマップ（日常実装・高難度・長時間自律・コスト優先）
