@@ -23,7 +23,7 @@ description: Rewrites and polishes ToolArc Japanese article prose by checking rh
 
 各項の詳細は正本を開く。ここでは観点名のみ:
 
-1. 敬体ベース＋文末多様化（3連続禁止・体言止めは山場／ゼロ回避）
+1. 敬体ベース＋文末多様化（3連続禁止・体言止めは段落途中の山場／ゼロ回避・**段落末は敬体**）
 2. 一人称は必要時だけ＋実在感（「筆者」の濫用禁止）
 3. 断定と逡巡の使い分け（結論先延ばし禁止）
 4. 空句削除（リストは `llm-forbidden-phrases.md`）
