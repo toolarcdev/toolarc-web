@@ -1,6 +1,6 @@
 export type BlogCategory = "ai-workflow" | "devops" | "gaming" | "tool";
 
-export type ArticleLayout = "default" | "rich-toc";
+export type ArticleLayout = "default" | "rich-toc" | "hands-on";
 
 /** 記事レジストリの1件分（管理用 ID と公開設定） */
 export type BlogPostConfig = {

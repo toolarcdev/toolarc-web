@@ -12,6 +12,7 @@ import { SeriesArticleLink } from "@/components/blog/SeriesArticleLink";
 import { NarrowAffiliateSlot } from "@/components/affiliate/NarrowAffiliateSlot";
 import { ScrollDepthTracker } from "@/components/analytics/ScrollDepthTracker";
 import { blogPostUrl, SITE_URL } from "@/lib/blog/constants";
+import { getArticleLayout } from "@/lib/blog/article-layout";
 import { extractTocHeadings } from "@/lib/blog/heading-id";
 import { loadPost } from "@/lib/blog/load-post";
 import { estimateReadingTime } from "@/lib/blog/reading-time";
@@ -79,6 +80,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     ? `${nextReadSplit.before}\n\n${nextReadSplit.after}`.trim()
     : post.content;
   const showToc = shouldShowStickyToc(slug, articleContent);
+  const articleLayout = getArticleLayout(slug);
+  const isHandsOn = articleLayout === "hands-on";
   const tocItems = showToc ? extractTocHeadings(articleContent) : [];
   const endNav = await resolveArticleEndNav(
     slug,
@@ -150,11 +153,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         updatedAt={post.updatedAt}
         tags={post.tags}
       />
-      <div className="article mt-4">
+      <div className={`article mt-4${isHandsOn ? " article--hands-on" : ""}`}>
         <ArticleBody
           content={articleContent}
           imageBasePath={post.imageBasePath}
           slug={slug}
+          variant={isHandsOn ? "hands-on" : "default"}
         />
       </div>
     </article>

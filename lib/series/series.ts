@@ -279,6 +279,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "why-javascript-for-game-dev",
       "game-dev-roadmap-comparison",
       "game-dev-schedule-month1",
+      "game-dev-js-week1",
       "game-dev-schedule-month2",
       "game-dev-schedule-month3",
     ],

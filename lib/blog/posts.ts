@@ -2017,6 +2017,15 @@ export const blogPosts = {
     ogImage: "learning-cycle-diagram.png",
     category: "gaming",
   },
+  "game-dev-js-week1": {
+    contentId: "12-game-dev-js",
+    markdownFile: "008-game-dev-js-week1.md",
+    imageBasePath: "/images/blog/game-dev-js-week1",
+    publishedAt: "2026-08-15",
+    ogImage: "og.png",
+    category: "gaming",
+    layout: "hands-on",
+  },
   "cursor-vs-github-copilot-comparison": {
     contentId: "03-cursor-free",
     markdownFile: "040-cursor-vs-github-copilot-comparison.md",
