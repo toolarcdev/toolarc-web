@@ -17,12 +17,14 @@ type ArticleBodyProps = {
   content: string;
   imageBasePath: string;
   slug?: BlogSlug;
+  variant?: "default" | "hands-on";
 };
 
 function renderAffiliateSegments(
   content: string,
   imageBasePath: string,
   keyPrefix: string,
+  variant: "default" | "hands-on" = "default",
 ) {
   const segments = splitAffiliateSections(content);
 
@@ -42,6 +44,7 @@ function renderAffiliateSegments(
         key={`${keyPrefix}-md-${index}`}
         content={segment.content}
         imageBasePath={imageBasePath}
+        variant={variant}
       />
     );
   });
@@ -51,6 +54,7 @@ function renderInternalCardSegments(
   content: string,
   imageBasePath: string,
   keyPrefix: string,
+  variant: "default" | "hands-on" = "default",
 ) {
   const segments = splitInternalCardSections(content);
 
@@ -71,6 +75,7 @@ function renderInternalCardSegments(
           segment.content,
           imageBasePath,
           `${keyPrefix}-${index}`,
+          variant,
         )}
       </div>
     );
@@ -82,6 +87,7 @@ function renderMarkdownWithEmbeds(
   imageBasePath: string,
   keyPrefix: string,
   slug?: BlogSlug,
+  variant: "default" | "hands-on" = "default",
 ) {
   const embedSegments = splitEmbedSections(content);
 
@@ -103,6 +109,7 @@ function renderMarkdownWithEmbeds(
           segment.content,
           imageBasePath,
           `${keyPrefix}-${index}`,
+          variant,
         )}
       </div>
     );
@@ -114,6 +121,7 @@ function renderScrollAwareContent(
   imageBasePath: string,
   keyPrefix: string,
   slug?: BlogSlug,
+  variant: "default" | "hands-on" = "default",
 ) {
   const segments = splitScrollSections(content);
 
@@ -123,6 +131,7 @@ function renderScrollAwareContent(
       imageBasePath,
       keyPrefix,
       slug,
+      variant,
     );
   }
 
@@ -135,6 +144,7 @@ function renderScrollAwareContent(
             imageBasePath,
             `seg-${index}`,
             slug,
+            variant,
           )}
         </div>
       );
@@ -144,20 +154,32 @@ function renderScrollAwareContent(
         <MarkdownArticle
           content={segment.content}
           imageBasePath={imageBasePath}
+          variant={variant}
         />
       </AiOutputScroll>
     );
   });
 }
 
-export function ArticleBody({ content, imageBasePath, slug }: ArticleBodyProps) {
+export function ArticleBody({
+  content,
+  imageBasePath,
+  slug,
+  variant = "default",
+}: ArticleBodyProps) {
   const textImpressions = collectAffiliateImpressions(content).filter(
     (ref) => !getCreative(ref.programId, ref.creativeId)?.bannerImageUrl,
   );
 
   return (
     <>
-      {renderScrollAwareContent(content, imageBasePath, "root", slug)}
+      {renderScrollAwareContent(
+        content,
+        imageBasePath,
+        "root",
+        slug,
+        variant,
+      )}
       {textImpressions.map((ref) => (
         <AffiliateImpression
           key={`${ref.programId}:${ref.creativeId}`}

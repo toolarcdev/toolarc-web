@@ -6,9 +6,18 @@ import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 type Props = {
   children: React.ReactNode;
   className?: string;
+  copyLabel?: string;
+  copiedLabel?: string;
+  filename?: string;
 };
 
-export function CodeBlock({ children, className }: Props) {
+export function CodeBlock({
+  children,
+  className,
+  copyLabel = "Copy",
+  copiedLabel = "Copied!",
+  filename,
+}: Props) {
   const preRef = useRef<HTMLPreElement>(null);
   const language = className?.replace(/^language-/, "");
   const { copied, copy } = useCopyToClipboard({ language });
@@ -19,7 +28,13 @@ export function CodeBlock({ children, className }: Props) {
 
   return (
     <div className="article-pre-wrapper">
-      <pre ref={preRef} className="article-pre">
+      {filename ? (
+        <p className="article-pre-filename">ファイル: {filename}</p>
+      ) : null}
+      <pre
+        ref={preRef}
+        className={filename ? "article-pre article-pre--named" : "article-pre"}
+      >
         {children}
       </pre>
       <button
@@ -28,7 +43,7 @@ export function CodeBlock({ children, className }: Props) {
         aria-label="コードをコピー"
         className="article-copy-btn"
       >
-        {copied ? "Copied!" : "Copy"}
+        {copied ? copiedLabel : copyLabel}
       </button>
     </div>
   );

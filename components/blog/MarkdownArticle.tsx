@@ -6,7 +6,7 @@ import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
 import type { Element } from "hast";
-import type { ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 import { CodeBlock } from "@/components/blog/CodeBlock";
 import { CtaButton } from "@/components/affiliate/CtaButton";
 import { pushEvent } from "@/lib/analytics/gtm";
@@ -17,10 +17,41 @@ import {
   resolveAffiliateLink,
 } from "@/lib/affiliate";
 import { fixEmphasisFlanking } from "@/lib/blog/fix-emphasis-flanking";
+import {
+  isHandsOnExtraStep,
+  splitHandsOnChunks,
+} from "@/lib/blog/split-hands-on-chunks";
+import {
+  splitHandsOnGuide,
+  type HandsOnGuidePart,
+} from "@/lib/blog/split-hands-on-guide";
+
+const HandsOnFilenameContext = createContext<string | undefined>(undefined);
+
+function HandsOnCodeBlock({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const filename = useContext(HandsOnFilenameContext);
+  return (
+    <CodeBlock
+      className={className}
+      copyLabel="コピー"
+      copiedLabel="コピー済み"
+      filename={filename}
+    >
+      {children}
+    </CodeBlock>
+  );
+}
 
 type MarkdownArticleProps = {
   content: string;
   imageBasePath: string;
+  variant?: "default" | "hands-on";
 };
 
 /** react-markdown の defaultUrlTransform は affiliate: スキームを空文字にするため通過させる */
@@ -131,6 +162,110 @@ const IMAGE_META: Record<string, { alt: string; caption: string }> = {
     caption:
       "「Invalid Configuration」が消えた。両方のドメインに青いチェックマークがついた状態",
   },
+  "week01-01.png": {
+    alt: "エクスプローラの C:\\projects に js-game-toolarc がある画面",
+    caption: "",
+  },
+  "week01-02.png": {
+    alt: "Cursorの起動画面で Open project を選ぶところ",
+    caption: "",
+  },
+  "week01-02-02.png": {
+    alt: "Open project が無く、右上に IDE がある画面",
+    caption: "",
+  },
+  "week01-03.png": {
+    alt: "フォルダーを開くで js-game-toolarc を選ぶ画面",
+    caption: "",
+  },
+  "week01-04.png": {
+    alt: "Cursorに js-game-toolarc が開いた画面",
+    caption: "",
+  },
+  "week01-05.png": {
+    alt: "新しいフォルダーから week01 を作る画面",
+    caption: "",
+  },
+  "week01-05-02.png": {
+    alt: "空白を右クリックして新しいフォルダーを作る画面",
+    caption: "",
+  },
+  "week01-06.png": {
+    alt: "左の一覧に week01 がある画面",
+    caption: "",
+  },
+  "week01-07.png": {
+    alt: "新しいファイルから hello.html を作る画面",
+    caption: "",
+  },
+  "week01-08.png": {
+    alt: "Cursorで hello.html を開いた画面",
+    caption: "",
+  },
+  "week01-09.png": {
+    alt: "Cursorで hello.js を開いた画面",
+    caption: "",
+  },
+  "week01-10.png": {
+    alt: "hello.html と hello.js を保存した画面",
+    caption: "",
+  },
+  "week01-11.png": {
+    alt: "Chromeで hello.html を開き、こんにちはが出た画面",
+    caption: "",
+  },
+  "week01-12.png": {
+    alt: "hello.html の title を変えた画面",
+    caption: "",
+  },
+  "week01-12-02.png": {
+    alt: "hello.js の log の文字を変えた画面",
+    caption: "",
+  },
+  "week01-12-03.png": {
+    alt: "変更した文字がページに出た画面",
+    caption: "",
+  },
+  "week01-21.png": {
+    alt: "Cursorで calc.html を開いた画面",
+    caption: "",
+  },
+  "week01-22.png": {
+    alt: "Cursorで calc.js を開いた画面",
+    caption: "",
+  },
+  "week01-23.png": {
+    alt: "税込 1100 円が出た画面",
+    caption: "",
+  },
+  "week01-25.png": {
+    alt: "Cursorの拡張機能を開くところ",
+    caption: "",
+  },
+  "week01-31.png": {
+    alt: "Cursorで omikuji.html を開いた画面",
+    caption: "",
+  },
+  "week01-32.png": {
+    alt: "Cursorで omikuji.js を開いた画面",
+    caption: "",
+  },
+  "week01-33.png": {
+    alt: "omikuji.html を開いた画面",
+    caption: "",
+  },
+  "week01-33-2.png": {
+    alt: "再読み込みでおみくじの表示が変わった画面",
+    caption: "",
+  },
+  "week01-34.png": {
+    alt: "omikuji.js に Math.random の log を足した画面",
+    caption: "",
+  },
+  "week01-34-02.png": {
+    alt: "ページに Math.random の値が出た画面",
+    caption: "",
+  },
 };
 
 function getImageFileName(src: string | undefined): string {
@@ -172,6 +307,74 @@ function isImageOnlyParagraph(node: unknown): boolean {
   );
 }
 
+function renderStepHeading(
+  tag: "h3" | "h4",
+  children: ReactNode,
+  isHandsOn: boolean,
+) {
+  const text = flattenText(children);
+  const circled = isHandsOn ? text.match(/^([①-⑳])\s+([\s\S]+)$/) : null;
+  const numbered = isHandsOn ? text.match(/^(\d+)\.\s+([\s\S]+)$/) : null;
+  const Tag = tag;
+  if (circled || numbered) {
+    const mark = circled
+      ? String("①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳".indexOf(circled[1]) + 1)
+      : numbered![1];
+    const rest = circled ? circled[2] : numbered![2];
+    return (
+      <Tag className={`article-${tag} article-step-title`}>
+        <span className="article-step-num">{mark}</span>
+        <span>{rest}</span>
+      </Tag>
+    );
+  }
+  return <Tag className={`article-${tag}`}>{children}</Tag>;
+}
+
+function HandsOnStepBlock({
+  keyPrefix,
+  body,
+  renderPart,
+}: {
+  keyPrefix: string;
+  body: string;
+  renderPart: (part: HandsOnGuidePart, partKey: string) => ReactNode;
+}) {
+  const parts = splitHandsOnGuide(body);
+  const partKey = (part: HandsOnGuidePart, partIndex: number) =>
+    `${keyPrefix}-${part.kind}-${partIndex}`;
+  if (isHandsOnExtraStep(body)) {
+    const headingParts = parts.filter((part) => part.kind === "heading");
+    const bodyParts = parts.filter((part) => part.kind !== "heading");
+    return (
+      <details className="article-step article-extra-step">
+        <summary className="article-extra-step-summary">
+          <div className="article-extra-step-heading">
+            {headingParts.map((part, partIndex) =>
+              renderPart(part, partKey(part, partIndex)),
+            )}
+            <span className="article-extra-step-toggle">
+              <span className="article-extra-step-toggle-open">開く ▸</span>
+              <span className="article-extra-step-toggle-close">閉じる ▾</span>
+            </span>
+          </div>
+          <span className="article-extra-step-hint">押すと開きます</span>
+        </summary>
+        <div className="article-extra-step-body">
+          {bodyParts.map((part, partIndex) =>
+            renderPart(part, partKey(part, partIndex)),
+          )}
+        </div>
+      </details>
+    );
+  }
+  return (
+    <section className="article-step">
+      {parts.map((part, partIndex) => renderPart(part, partKey(part, partIndex)))}
+    </section>
+  );
+}
+
 function flattenText(node: ReactNode): string {
   if (typeof node === "string") return node;
   if (typeof node === "number") return String(node);
@@ -183,7 +386,12 @@ function flattenText(node: ReactNode): string {
   return "";
 }
 
-export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps) {
+export function MarkdownArticle({
+  content,
+  imageBasePath,
+  variant = "default",
+}: MarkdownArticleProps) {
+  const isHandsOn = variant === "hands-on";
   const components: Components = {
     h2: ({ children }) => {
       const id = headingToId(flattenText(children));
@@ -193,19 +401,26 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
         </h2>
       );
     },
-    h3: ({ children }) => (
-      <h3 className="article-h3">{children}</h3>
-    ),
+    h3: ({ children }) => renderStepHeading("h3", children, isHandsOn),
+    h4: ({ children }) => renderStepHeading("h4", children, isHandsOn),
     p: ({ node, children }) => {
       if (isImageOnlyParagraph(node)) {
         const src = getImageSrcFromParagraph(node);
         const compact = isCompactImage(src);
-        const caption = getImageMeta(src)?.caption;
+        const meta = getImageMeta(src);
+        const caption = meta?.caption;
+        const altHint = meta?.alt ?? "";
+        const isResult =
+          isHandsOn && /結果|答え合わせ|ページに/.test(`${altHint}${caption ?? ""}`);
         return (
           <figure
-            className={
-              compact ? "article-figure article-figure--compact" : "article-figure"
-            }
+            className={[
+              compact ? "article-figure article-figure--compact" : "article-figure",
+              isResult ? "article-figure--result" : "",
+              isHandsOn && !isResult ? "article-figure--guide" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
           >
             {children}
             {caption && (
@@ -219,9 +434,21 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
     ul: ({ children }) => <ul className="article-ul">{children}</ul>,
     ol: ({ children }) => <ol className="article-ol">{children}</ol>,
     li: ({ children }) => <li className="article-li">{children}</li>,
-    blockquote: ({ children }) => (
-      <blockquote className="article-blockquote">{children}</blockquote>
-    ),
+    blockquote: ({ children }) => {
+      if (isHandsOn) {
+        const text = flattenText(children);
+        if (/期待する表示|画面に表示される|成功条件|できたか/.test(text)) {
+          return (
+            <blockquote className="article-blockquote article-check">
+              {children}
+            </blockquote>
+          );
+        }
+      }
+      return (
+        <blockquote className="article-blockquote">{children}</blockquote>
+      );
+    },
     hr: () => <hr className="article-hr" />,
     a: ({ href, children }) => {
       const affiliateRef = parseAffiliateHref(href);
@@ -311,6 +538,11 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
         codeChild?.type === "element"
           ? (codeChild.properties?.className as string[] | undefined)?.[0]
           : undefined;
+      if (isHandsOn) {
+        return (
+          <HandsOnCodeBlock className={codeClassName}>{children}</HandsOnCodeBlock>
+        );
+      }
       return (
         <CodeBlock className={codeClassName}>{children}</CodeBlock>
       );
@@ -335,6 +567,7 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
           alt={imageAlt}
           width={1200}
           height={675}
+          unoptimized={isHandsOn}
           className={compact ? "article-img article-img--compact" : "article-img"}
           sizes={
             compact
@@ -346,13 +579,72 @@ export function MarkdownArticle({ content, imageBasePath }: MarkdownArticleProps
     },
   };
 
-  return (
+  const renderMarkdown = (body: string) => (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       urlTransform={urlTransform}
       components={components}
     >
-      {fixEmphasisFlanking(content)}
+      {fixEmphasisFlanking(body)}
     </ReactMarkdown>
   );
+
+  const renderGuidePart = (part: HandsOnGuidePart, partKey: string) => {
+    if (part.kind === "heading") {
+      return <div key={partKey}>{renderMarkdown(part.body)}</div>;
+    }
+    if (part.kind === "row") {
+      return (
+        <div key={partKey} className="article-guide-row">
+          <div className="article-guide-shots">
+            {renderMarkdown(part.images)}
+          </div>
+          {part.text ? (
+            <div className="article-guide-copy">
+              {renderMarkdown(part.text)}
+            </div>
+          ) : null}
+        </div>
+      );
+    }
+    if (part.kind === "code") {
+      return (
+        <HandsOnFilenameContext.Provider key={partKey} value={part.filename}>
+          <div className="article-guide-code">{renderMarkdown(part.body)}</div>
+        </HandsOnFilenameContext.Provider>
+      );
+    }
+    return (
+      <div key={partKey} className="article-guide-prose">
+        {renderMarkdown(part.body)}
+      </div>
+    );
+  };
+
+  if (isHandsOn) {
+    return (
+      <>
+        {splitHandsOnChunks(content).map((chunk, index) =>
+          chunk.kind === "trouble" ? (
+            <aside key={`trouble-${index}`} className="article-trouble-card">
+              {renderMarkdown(chunk.body)}
+            </aside>
+          ) : chunk.kind === "step" ? (
+            <HandsOnStepBlock
+              key={`step-${index}`}
+              keyPrefix={`step-${index}`}
+              body={chunk.body}
+              renderPart={renderGuidePart}
+            />
+          ) : (
+            <div key={`prose-${index}`} className="article-prose-chunk">
+              {renderMarkdown(chunk.body)}
+            </div>
+          ),
+        )}
+      </>
+    );
+  }
+
+  return renderMarkdown(content);
 }

@@ -3,5 +3,7 @@ import type { ArticleLayout, BlogPostConfig } from "@/lib/blog/types";
 
 export function getArticleLayout(slug: BlogSlug): ArticleLayout {
   const config = blogPosts[slug] as BlogPostConfig;
-  return config.layout === "rich-toc" ? "rich-toc" : "default";
+  if (config.layout === "rich-toc") return "rich-toc";
+  if (config.layout === "hands-on") return "hands-on";
+  return "default";
 }
