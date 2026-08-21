@@ -45,10 +45,20 @@ D:\ObsidianVault\Vault\01_Daily\2607\260722
 
 作業フォルダを走査し、見つかったパスを使う（複数なら最新の LastWriteTime）。
 
+**必須（Cursor Glob / 索引検索は使わない）**: 探索は **シェルの実ファイル一覧**だけ。`.zip` は索引に乗らず、Glob では「無い」と誤判定する（2026-08-19: Coverage ZIP が格納済みでも HOLD した）。CSV も同じ一覧から照合する（二重探索しない）。
+
+```powershell
+Get-ChildItem -LiteralPath "<作業フォルダ>" -File |
+  Sort-Object LastWriteTime -Descending |
+  Select-Object Name, Length, LastWriteTime
+```
+
+一覧の `Name` に対して下表のパターンを照合する。HOLD は **この一覧で欠けているときだけ**（Glob 0件は根拠にしない）。
+
 | 用途 | パターン（例） |
 |------|----------------|
 | Coverage | `*Coverage*.zip` / `*coverage*.zip` |
-| A8 | `*program_summary*.csv` |
+| A8 | `*program_detail_monthly*.csv` |
 | もしも | `*report-kpi*.csv` / `*kpi-site*.csv` |
 | AT | `*site_report*.csv` |
 | VC | ファイル無し → §4 で 0・プログラムなし |
@@ -88,7 +98,7 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 
 ## 手順
 
-1. 作業フォルダ解決 → 自動探索 → 欠損があれば HOLD
+1. 作業フォルダ解決 → **Get-ChildItem 一覧**で自動探索（Glob禁止） → 欠損があれば HOLD
 2. `weekly-intake-YYYY-MM-DD.md` をテンプレから作成（無ければ）
 3. **週次分析**: `cd c:\projects\seo-data-collector && npm run analyze:weekly` を実行し、`analysis/a-opp|a-theme|a-pqmap/` の出力を確認
 4. **Collector**: 完全窓 weekly MD → §1 Performance。クエリ上位10〜15 → §1.5。ページ表示上位 → **§1.6**（人気スロット約3 slug）
