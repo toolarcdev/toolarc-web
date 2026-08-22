@@ -144,6 +144,7 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 - [Plan出力は.plan.mdで保存すると実装がぶれない](/blog/cursor-plan-mode-md-save-tips)｜計画を残して実装を安定させたい人向け
 - [Plan Modeでplan.mdが作られないときの依頼文](/blog/cursor-implementation-plan-file-request)｜計画ファイルが出ないときの人向け
 - [.cursorignoreでtoken消費を抑える](/blog/cursor-cursorignore-token-context)｜読み込ませたくないファイルを除外したい人向け
+- [コードベースインデックスが進まないときの確認](/blog/cursor-codebase-indexing-basics)｜進捗が動かない・見当違いな返答の切り分けをしたい人向け
 - [外部AIの記事をリファクタする前に判断する](/blog/cursor-refactor-judgment-before-apply-tips)｜他AIの出力を取り込む前に確認したい人向け
 - [依頼文に「初心者向けに説明して」を足す](/blog/ai-prompt-beginner-friendly)｜AIの説明を分かりやすくしたい人向け
 - [デバッグ依頼は「整理しすぎない」方がいい](/blog/ai-debug-keep-raw-error-info)｜エラー情報の渡し方に迷う人向け
@@ -169,6 +170,7 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 - [ターミナルエラーを読む最初の3行](/blog/cursor-terminal-error-first-3-lines)｜エラーの読み方が分からない人向け
 - [同じエラーが続くときに試す3つの順番](/blog/cursor-repeated-error-tips)｜エラーが直らない人向け
 - [急に重くなった時に確認したいこと](/blog/cursor-slow-troubleshoot-tips)｜動作が重い人向け
+- [拡張機能のおすすめ｜入れすぎない選び方](/blog/cursor-extensions-recommended)｜Marketplaceで足しすぎて迷っている人向け
 - [Windowsだけ重いときに確認すること](/blog/cursor-windows-slow-check-tips)｜Windows環境で重い人向け
 
 ### 使用上限・モデル
@@ -193,6 +195,7 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 - [Cursor vs VS Code＋Copilot比較](/blog/cursor-vs-vscode-copilot-comparison)｜乗り換え・併用・現状維持を判断したい人向け
 - [Cursor vs GitHub Copilot比較](/blog/cursor-vs-github-copilot-comparison)｜製品同士でどちらを選ぶか判断したい人向け
 - [Cursor vs Windsurf比較](/blog/cursor-vs-windsurf-comparison)｜AIエディタ同士でどちらを選ぶか判断したい人向け
+- [Rules・CLAUDE.md・AGENTS.mdのどれを使うか](/blog/cursor-rules-claude-agents-md)｜指示ファイルの置き場所を先に決めたい人向け
 - [CursorとClaudeの使い分け](/blog/cursor-claude-usecase-comparison)｜2つの役割分担を知りたい人向け
 - [CursorとChatGPTの使い分け](/blog/cursor-chatgpt-usecase-comparison)｜用途で選び分けたい人向け
 

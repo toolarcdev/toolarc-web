@@ -108,7 +108,9 @@ export const allSeries: readonly SeriesConfig[] = [
     hubSlug: "cursor-free",
     spokeSlugOrder: [
       "cursor-rules-file-tips",
+      "cursor-rules-claude-agents-md", // W6 #20 Rules vs CLAUDE.md vs AGENTS.md
       "cursor-recommended-settings-tips", // A-5 Settings（#1直後）
+      "cursor-extensions-recommended", // W6 #12 拡張の判断軸
       "cursor-cli-install-basics", // W3 #5 CLI（導入寄り）
       "cursor-mcp-setup-basics", // W4 #4 MCP設定（外部連携の入口）
       "cursor-plan-mode-modify-before-build-tips",
@@ -119,6 +121,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-plan-mode-md-save-tips",
       "cursor-reference-file-prompt-tips",
       "cursor-cursorignore-token-context",
+      "cursor-codebase-indexing-basics", // W6 #13 インデックス確認
       "claude-cursor-2step-workflow-tips",
       "cursor-pre-dev-checklist",
       "cursor-agent-gh-pr-create-fill",
