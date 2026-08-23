@@ -124,7 +124,7 @@ LLM空句の正本: [`llm-forbidden-phrases.md`](./llm-forbidden-phrases.md)（�
 ```yaml
 ---
 title: "32文字前後で検索意図が分かるタイトル"
-description: "120〜160文字程度。誰向け・何が分かるか・実測などの差別化を1文で"
+description: "120〜160文字（正本レンジ。完了前にUnicode実測）"
 date: YYYY-MM-DD
 tags:
   - タグ1
@@ -138,6 +138,11 @@ last_update: YYYY-MM-DD
 ### Frontmatter の補足
 
 - `title` と本文先頭の `#` 見出しは**意味を揃える**（完全一致でなくてよいが、検索意図は一致させる）
+- `description` は **120〜160文字（Unicode・両端含む）**。正本レンジ。完了前に必ず実測する（「だいたい」不可）
+  - **120未満 / 160超は未完了**（コミット・PR・week-queue `done` にしない）
+  - 計測例（PowerShell）: `(Get-Content … -Raw | Select-String -Pattern 'description:\s*"(.*?)"' -AllMatches).Matches.Groups[1].Value.Length`  
+    または Node: `node -e "const t=require('fs').readFileSync('PATH','utf8'); const m=t.match(/^description:\\s*\\\"([^\\\"]+)\\\"/m); console.log([...m[1]].length)"`
+  - CTR meta（`rewrite_type=meta`）は title/H1/description が成果物本体。短い description はリライト不成立とみなす（手順: Vault `ctr-rewrite-queue`「meta 完了ゲート」）
 - `tags` は 5〜10 個程度。記事テーマ・ツール名・シリーズ名を含める
 - `site` は `toolarc.jp`（引用符の有無は既存記事に合わせてよい）
 - `last_update` は更新したときだけ追記（任意）
@@ -188,7 +193,7 @@ Tips／チェックリストなど非収益型は、従来どおり**テーマ�
 
 - **検索意図**: 初心者が今困っていること（How-to、チェックリスト、比較）
 - **タイトル**: 主要キーワード + 読者メリット（煽り・過剰な記号は避ける）
-- **description**: 誰向けか・何が分かるか・実測・差別化を1文に集約
+- **description**: 誰向けか・何が分かるか・実測・差別化を1文に集約（**120〜160文字・実測必須**。Frontmatter補足）
 - **本文**: キーワードの詰め込みより、見出しと表で意図を満たす
 - **Hub 記事**: シリーズ全体の入口として、スポーク記事への内部リンクを入れる
 

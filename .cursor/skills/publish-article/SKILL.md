@@ -37,16 +37,26 @@ Skill = 手順。制約（公開日 Get-Date・PoE2 JSON 禁止）は `.cursor/r
 4. **日付反映**
    - 新規: frontmatter `date` と `publishedAt` を実装日で一致。免責「執筆時点」も同じ日
    - リライト: `date` / `publishedAt` 据え置き。`last_update` と免責日のみ実装日
-5. **シリーズ（既存 A 追記時のみ）**: `lib/series/series.ts` に spoke 追加 ＋ **同一 PR で Hub 本文にスポーク反映**
-6. **内部リンク**: `/blog/slug` のみ。未公開は「準備中」。同日複数本は公開順クロスリンク。B／`21-` は同ジャンル相互リンク
-7. **build**: `npm run build` 成功。新 slug が静的生成に含まれること
-8. **軽負債**（`docs/ai-context/debt-paydown-workflow.md`）: 上記5–6。`promotion_status`（A=`hub_updated` / B・21=`standalone`）は⑥へメモ可
-9. **停止**: commit / PR / merge / Vault 追記はしない。完了定型で A → 人間 → B を案内
+5. **description 字数ゲート（必須・ハードストップ）** — 正本: `docs/ai-context/writing-rules.md` Frontmatter  
+   - 触った各 MD の `description` を **Unicode 文字数で実測**する（推測・目視不可）
+   - **合格: 120〜160 文字（両端含む）**。未満・超過は **未完了**（build 前でも commit/PR に進まない。MD を直してから再開）
+   - 計測例:
+     ```powershell
+     node -e "const fs=require('fs'); const t=fs.readFileSync('PATH','utf8'); const m=t.match(/^description:\s*\"([^\"]+)\"/m); console.log([...m[1]].length)"
+     ```
+   - 完了報告に `description: NNN字` を必ず書く（複数 slug なら一覧）
+   - **CTR meta**（title/H1/description のみ〜冒頭）のとき: ④/作業側で **案3つ＋各字数＋採用理由** が無い／字数未測なら①で止め、差し戻す（Vault `ctr-rewrite-queue`「meta 完了ゲート」）
+6. **シリーズ（既存 A 追記時のみ）**: `lib/series/series.ts` に spoke 追加 ＋ **同一 PR で Hub 本文にスポーク反映**
+7. **内部リンク**: `/blog/slug` のみ。未公開は「準備中」。同日複数本は公開順クロスリンク。B／`21-` は同ジャンル相互リンク
+8. **build**: `npm run build` 成功。新 slug が静的生成に含まれること
+9. **軽負債**（`docs/ai-context/debt-paydown-workflow.md`）: 上記6–7。`promotion_status`（A=`hub_updated` / B・21=`standalone`）は⑥へメモ可
+10. **停止**: commit / PR / merge / Vault 追記はしない。完了定型で A → 人間 → B を案内
 
 ## 完了報告
 
 - 公開 URL（`/blog/[slug]`）
 - 変更ファイル一覧
+- **description 字数**（各 slug: `NNN字`。120–160 外なら報告せず差し戻し）
 - build 結果
 - 相互リンク先
 - 日付: 新規=一致確認 / リライト=据え置き+`last_update`

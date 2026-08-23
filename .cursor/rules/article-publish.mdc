@@ -17,6 +17,12 @@ alwaysApply: false
 - 免責の「執筆時点（YYYY-MM-DD）」がある場合は、新規・リライトとも同じ実装日に揃える
 - inbox / Dashboard の `publishDate` は供給計画用。Web 表示日とのズレは許容する
 
+## description 字数 — 実測必須（ハードストップ）
+
+- 正本: `docs/ai-context/writing-rules.md` Frontmatter（**120〜160 文字**）
+- 触った MD の `description` は Unicode 文字数を**実測**する。120未満・160超は未完了（commit/PR に進まない）
+- 手順の詳細は Skill `publish-article` 手順5。CTR meta は案3つ＋字数＋採用理由が前提（Vault `ctr-rewrite-queue`）
+
 ## 新規配置（評価フェーズ）
 
 - contentId は `docs/ai-context/content-folders.md` の判断フローに従う（既存 A / 既存 B / 新 `23-…`。`21-cursor-models` 使用中。`22-game-dev-js` は `12-game-dev-js` へ昇格済）
@@ -47,6 +53,7 @@ alwaysApply: false
 
 - 公開 URL（`/blog/[slug]`）
 - 変更ファイル一覧
+- **description 字数**（各 slug: `NNN字`。120–160 外なら未完了）
 - build 結果
 - 追加した相互リンク先
 - 新規公開: `date` / `publishedAt` が Get-Date 実装日で一致したこと／リライト: 据え置きと `last_update` 更新
