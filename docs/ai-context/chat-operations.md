@@ -146,6 +146,11 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - 免責の「執筆時点（YYYY-MM-DD）」がある場合は、新規・リライトとも同じ実装日に揃える
 - inbox / Dashboard の `publishDate` は供給計画用。Web 表示日とのズレは許容
 
+【description 字数 — ハードストップ】
+- 正本: `docs/ai-context/writing-rules.md`（**120〜160文字** Unicode）。触った MD は Skill `publish-article` 手順5で**実測**。未満・超過は未完了（commit/PR に進まない）
+- CTR meta（title/H1/description）: 案3＋各字数＋採用理由が無い／字数未測なら差し戻す（Vault `ctr-rewrite-queue`「meta 完了ゲート」）
+- 完了報告に各 slug の `description: NNN字` を必須
+
 【やらない】（①本体 = publish-article の範囲）
 - 記事本文の初稿・既存記事リライト案（④ Claude）
 - GSC・404 の調査（②）
@@ -167,6 +172,7 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 - build 成功
 - 新 slug が静的生成に含まれる
 - 関連記事へのリンクが有効な slug を指す
+- **description が 120〜160文字（実測）**。完了報告に `NNN字`
 - 新規公開: frontmatter `date` と `posts.ts` の `publishedAt` が実装日（Get-Date）で一致／リライト: 両方据え置きで `last_update`・免責日が実装日
 - 軽負債（docs/ai-context/debt-paydown-workflow.md / content-folders.md）:
   - 置き場: 既存 A / 既存 B / 新 22-…（21-cursor-models は使用済み。20 へ新規禁止）
