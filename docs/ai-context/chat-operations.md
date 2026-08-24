@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-08-12 18:51（L1任意観察: prose-observation-cards 配線）
+最終更新: 2026-08-24 21:51（L1必須: 読者最優先＋sourceペルソナ）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
@@ -419,7 +419,7 @@ GSCクエリ3件: 「...」「...」「...」
 **L1レビュー（公開前・Cursor）**
 
 - ④の文案ができたあと、公開①の前に Cursor Skill **`l1-review-article`** を使う（スロット表の「L1レビュー」行）
-- 判定基準の正本は Vault 改善施策ノート §4.3.1（**必須合否**＋**任意観察**）
+- 判定基準の正本は Vault 改善施策ノート §4.3.1（**必須合否**＋**任意観察**）。必須に読者最優先（ペルソナ充足・着地完結・リンク動機・用語公開面・出口の場所）。サブ情報 +α は任意。冒頭リンクは一律禁止しない。**ペルソナ2〜3は source.md 作成時から必須**（Output Contract 項目1）
 - 導入読み味の任意観察は Skill **`prose-observation-cards`**（現役カード最大3。合否に使わない。任意改善は空欄禁止／適用は人間）
 - 読み味の本格推敲が必要なときは任意改善に残し、Skill **`toolarc-ja-prose`** へ分岐（L1内で全文推敲しない）
 - 文体・Output Contract・CTA・禁止の詳細は再掲せず [`writing-rules.md`](writing-rules.md) / [`llm-forbidden-phrases.md`](llm-forbidden-phrases.md) を読む
@@ -448,8 +448,9 @@ GSCクエリ3件: 「...」「...」「...」
 - GSC/GA4/SEOメモをもとにした既存記事の title・description・導入・見出し・FAQ・内部リンク文言の改善案
 - 本文(MDファイル)リライト
 - 既存記事リライト時は、検索クエリ・CTR・平均順位などの実測根拠を明記
-- writing-rules.md（記事正本: 文体・構成・CTA・SEO・Output Contract・禁止・免責）
+- writing-rules.md（記事正本: 文体・構成・CTA・SEO・Output Contract・禁止・免責・読者最優先）
 - llm-forbidden-phrases.md（空句。リストは再掲しない）
+- source.md を新規作成するときは Output Contract 項目1の**ペルソナ2〜3**を必ず入れる（公開本文へは転載しない）
 - 未公開記事へのリンクは slug 確定まで控え／「準備中」扱い
 
 【やらない】
@@ -496,7 +497,7 @@ source.md の「伝えたいこと」 / SEO・GSCメモの実測根拠 > writing
 既存 series との関係: 統合不可の理由（1行）
 
 【依頼】
-- Hub 用 source.md を作成（writing-rules.md の Output Contract 準拠）
+- Hub 用 source.md を作成（writing-rules.md の Output Contract 準拠。**ペルソナ2〜3必須**）
 - 読者の悩み・4段階 or チェックリスト形式の入口
 - スポークへの読む順リスト（slug ベース、/blog/slug 形式）
 - 執筆時点の免責を含める（見出しにしない。`---`＋段落が本命）
@@ -528,7 +529,7 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 - 候補マスター向けテーマ整理（文案のみ。ファイル書き込みは⑥）
 - 同ジャンル記事の相互リンク案・テーマ束メモ（**勝ちが見えるまで Hub / series.ts は新設しない**。series 候補は週次 #5 後に④ Hub 初稿）
 - source.md 作成前の構成メモ
-- **収益記事向け source.md**: writing-rules.md の Output Contract 8項目に準拠（項目は再掲しない）
+- **収益記事向け source.md**: writing-rules.md の Output Contract 8項目に準拠（項目は再掲しない）。**ペルソナ2〜3必須**（項目1）
 - 実装週の slug 一覧・優先順は Vault の **当週の Week実行手順** を正本とする
 - **メンテ handoff**: 柱B（operator→reader変換）・柱C（reader-theme-batch-prompt）・backlog選定・質ゲート表
 - 出力形式: Vault `00-dashboard/slot-handoff-template.md` 厳守

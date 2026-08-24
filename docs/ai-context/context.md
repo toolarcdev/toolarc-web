@@ -1,6 +1,6 @@
 # context.md — ToolArc AI 共通コンテキスト
 
-最終更新: 2026-08-04 17:45  
+最終更新: 2026-08-24 21:51  
 用途: 新規チャットの冒頭で参照する**共通コンテキスト**（Cursor / Claude / ChatGPT）。ツール固有の手順・スロット境界の正本は [`chat-operations.md`](chat-operations.md)。
 
 - 記事の詳細（文体・構成・CTA・SEO・Output Contract・禁止）: [`writing-rules.md`](writing-rules.md)
@@ -51,7 +51,7 @@
 | `project-context.md` | サイト概要・読者・技術スタック・リポ構成                              |
 | `chat-operations.md` | **6スロット固定チャット**の役割・初回プロンプト・日次メンテ手順      |
 | `docs/plan/phase-now.md` | **現行フェーズ**                                                  |
-| `source.md`          | **記事1本ごと**の設計メモ（テーマ・読者・問題・改善・伝えたいこと）   |
+| `source.md`          | **記事1本ごと**の設計メモ（テーマ・読者・**ペルソナ2〜3**・問題・改善・伝えたいこと。Output Contract準拠）   |
 | `captions.md`        | 画像の内容・感情・配置・役割（画像付き記事のみ）                      |
 
 **優先順位**: `source.md` の「伝えたいこと」 > **該当ドメイン正本**（記事なら `writing-rules.md`）> `AGENTS.md`（入口・ハード制約）> `project-context.md` > 会話内の新しい指示
