@@ -141,6 +141,7 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 
 - [資料を先読みさせるときはAskモードを使う](/blog/cursor-ask-mode-tips)｜調査と実装でモードを分けたい人向け
 - [Agentは一括公開・基盤横断変更に絞って使う](/blog/cursor-agent-scope-tips)｜Agentの使いどころを決めたい人向け
+- [Cloud Agents（旧Background Agent）の向く仕事とつまずき](/blog/cursor-background-agent-basics)｜エディタを閉じた長めの仕事を任せたい人向け
 - [Plan出力は.plan.mdで保存すると実装がぶれない](/blog/cursor-plan-mode-md-save-tips)｜計画を残して実装を安定させたい人向け
 - [Plan Modeでplan.mdが作られないときの依頼文](/blog/cursor-implementation-plan-file-request)｜計画ファイルが出ないときの人向け
 - [.cursorignoreでtoken消費を抑える](/blog/cursor-cursorignore-token-context)｜読み込ませたくないファイルを除外したい人向け

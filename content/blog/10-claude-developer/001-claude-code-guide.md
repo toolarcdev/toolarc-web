@@ -12,7 +12,7 @@ tags:
   - MCP
 site: toolarc.jp
 target: "Claudeをコード／CLI／API側から使いたい個人開発〜小チームの初心者〜中級（執筆・Vault用途は別）"
-last_update: 2026-07-16
+last_update: 2026-08-24
 ---
 
 # Claude Code ガイド（開発者向け入口）
@@ -21,7 +21,7 @@ last_update: 2026-07-16
 >
 > - このページは Claude を**開発**（コード・CLI・API）側から使うためのシリーズ入口です。執筆・Vault 運用は [Obsidian×Claude ワークフロー](/blog/claude-obsidian-workflow) 側です。
 > - Claude Code はターミナル寄りの実装支援、Cursor は IDE・Agent。どちらか一方に絞る必要はなく、用途で分担・併用できます。
-> - 当面の Spoke は、すでに公開済みの比較・プロンプト系5本です。Code の手順本はこれから追加します（準備中）。
+> - Claude Code の始め方は [Claude Codeの始め方｜向く人の見分けと最初の一歩](/blog/claude-code-getting-started) から。比較・プロンプト系の公開 Spoke も下表から辿れます。
 > - ツール連携（MCP）の地図は [Model Context Protocol（MCP）ガイド](/blog/mcp-guide) にまとめます。
 > - プラン・モデル名・コマンドは変わりやすいので、重要判断は公式情報の確認を優先してください。
 
@@ -37,7 +37,7 @@ last_update: 2026-07-16
 | --- | --- |
 | Claude をコード／CLI／API 側で使う入口の整理 | 本 Hub |
 | ChatGPT・Claude・モデル比較やプロンプトの読む順 | 公開済み Spoke 5本（下表） |
-| Claude Code 自体の始め方・手順 | Spoke として追加予定（準備中） |
+| Claude Code 自体の始め方・手順 | [Claude Codeの始め方](/blog/claude-code-getting-started)（インストール・コマンド一覧は準備中） |
 
 一方で、次のテーマは**このシリーズの本筋ではありません**。
 
@@ -77,7 +77,7 @@ last_update: 2026-07-16
 
 1. 執筆・Vault が主目的 → [claude-obsidian-workflow](/blog/claude-obsidian-workflow) へ戻る
 2. IDE・Agent・無料枠の実測が主目的 → [cursor-free](/blog/cursor-free) へ進む
-3. Claude を開発・比較・プロンプト順で押さえたい → 次の「読む順番」表の1番から読む
+3. Claude を開発・比較・プロンプト順で押さえたい → [Claude Codeの始め方](/blog/claude-code-getting-started) か、次の「読む順番」表の該当行から読む
 
 Claude Pro の加入判断は、本 Hub では断定しません。判断材料は比較 Spoke に委譲します。
 
@@ -91,26 +91,27 @@ Claude Pro の加入判断は、本 Hub では断定しません。判断材料�
 
 未確認の仕様を「公式保証」のように扱わないことが、判断ミスを減らす前提です。
 
-## 公開済み記事から読む順番 — 初期 Spoke 5本表
+## 公開済み記事から読む順番 — Spoke 表
 
-Code 手順本が揃うまでの当面は、次の公開済み5本を初期 Spoke として読んでください。すべて既存記事への実リンクです。
+Code 手順本が揃うまでの当面は、次の公開済み Spoke を読んでください。すべて既存記事への実リンクです。
 
 | 順 | こんなときに読む | 記事 |
 | --- | ---: | --- |
-| 1 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
-| 2 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
-| 3 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
-| 4 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
-| 5 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
+| 1 | Claude Code が自分向けか見分け、最初の一歩まで進めたい | [Claude Codeの始め方｜向く人の見分けと最初の一歩](/blog/claude-code-getting-started) |
+| 2 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
+| 3 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
+| 4 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
+| 5 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
+| 6 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
 
-全部を一気に読む必要はありません。いまの迷いが「用途差」「料金判断」「分担運用」「モデル差」「プロンプト順」のどれに近いかで、1本選んで進めてください。
+全部を一気に読む必要はありません。いまの迷いが「始め方」「用途差」「料金判断」「分担運用」「モデル差」「プロンプト順」のどれに近いかで、1本選んで進めてください。
 
 ## 今後の Spoke（準備中）と隣のクラスター — Code／MCP／Cursor Hub
 
 今後このクラスターで追加予定の Spoke（slug 未確定のため、偽リンクは置かず「準備中」のみ）:
 
-- Claude Code の始め方（導入の地図）
-- CLI・ターミナル寄りの手順
+- CLI・ターミナル寄りのインストール手順（詳細）
+- コマンド一覧
 - API 側の入り方（必要になった読者向け）
 
 隣のクラスター（迷子防止用）:
@@ -126,14 +127,15 @@ MCP を先に知りたい場合も、まずは [MCP Hub](/blog/mcp-guide) へ進
 
 ## まとめ
 
-Claude Code 周りで迷ったときは、「執筆か開発か」「エディタかターミナルか」の線引きから入ると、読む記事が決まりやすくなります。本 Hub は開発クラスターの入口として、まず公開済み5本の読む順と、隣 Hub への分かれ道だけを先に置いています。
+Claude Code 周りで迷ったときは、「執筆か開発か」「エディタかターミナルか」の線引きから入ると、読む記事が決まりやすくなります。本 Hub は開発クラスターの入口として、始め方 Spoke と公開済み比較・プロンプト系の読む順、隣 Hub への分かれ道を先に置いています。
 
 次の一手の例:
 
-1. 用途差から固めたい → [ChatGPTとClaudeの違い](/blog/chatgpt-claude-comparison)
-2. IDE 中心で進めたい → [Cursor Hub](/blog/cursor-free)
-3. 執筆フローが主目的だった → [Obsidian×Claude](/blog/claude-obsidian-workflow)
+1. Claude Code を試したい → [Claude Codeの始め方](/blog/claude-code-getting-started)
+2. 用途差から固めたい → [ChatGPTとClaudeの違い](/blog/chatgpt-claude-comparison)
+3. IDE 中心で進めたい → [Cursor Hub](/blog/cursor-free)
+4. 執筆フローが主目的だった → [Obsidian×Claude](/blog/claude-obsidian-workflow)
 
 ---
 
-本記事の整理は、2026-07-16執筆時点の情報と公開済み記事構成に基づきます。Anthropic／Claude Code／プラン・モデル名・コマンド、および関連サービスの仕様・料金は変更される可能性があります。重要な判断の前には、各サービスの公式ドキュメントを確認してください。
+本記事の整理は、2026-07-16執筆時点の情報と公開済み記事構成に基づきます（読む順表は2026-08-24更新）。Anthropic／Claude Code／プラン・モデル名・コマンド、および関連サービスの仕様・料金は変更される可能性があります。重要な判断の前には、各サービスの公式ドキュメントを確認してください。

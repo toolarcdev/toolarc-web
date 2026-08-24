@@ -116,6 +116,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-plan-mode-modify-before-build-tips",
       "cursor-ask-mode-tips",
       "cursor-agent-scope-tips",
+      "cursor-background-agent-basics", // W7 #26 Cloud Agents（旧Background Agent）
       "cursor-agent-pause-recovery-tips",
       "cursor-agent-unintended-edit-git-restore-tips",
       "cursor-plan-mode-md-save-tips",
@@ -168,6 +169,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "Claude Code / API を開発・実装の入口から読むシリーズ。Obsidian執筆ワークフローは別シリーズ。",
     hubSlug: "claude-code-guide",
     spokeSlugOrder: [
+      "claude-code-getting-started", // W7 Claude #1 始め方
       "chatgpt-claude-comparison",
       "claude-pro-free-comparison",
       "gpt-claude-two-stage-ai-workflow-tips",
