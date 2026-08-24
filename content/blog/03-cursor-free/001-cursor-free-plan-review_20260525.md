@@ -13,7 +13,7 @@ tags:
   - cursor-free-series
 site: toolarc.jp
 target: "CursorでAI開発を始めたいが、設定や機能をどの順番で学べばよいか迷っている初心者"
-last_update: 2026-08-11
+last_update: 2026-08-24
 ---
 
 # Cursor Free（無料枠）｜初心者が最初に確認する開発ガイド
@@ -177,6 +177,7 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 
 - [Proの「Total usage limit reached」対処法](/blog/cursor-pro-total-usage-limit-reached)｜上限に到達した有料ユーザー向け
 - [total usage limit reachedの対処3ステップ](/blog/cursor-usage-limit-reached-3-steps)｜上限表示を早く解消したい人向け
+- [Cursorモデル選び方ガイド｜APIキー・OpenRouterの注意](/blog/cursor-model-selection-guide)｜モデル固定・BYOKを検討する人向け
 - [Auto/手動モデル切替で品質が落ちたときの対処](/blog/cursor-auto-manual-model-quality-tips)｜出力品質が不安定な人向け
 
 ### Git・環境・その他
@@ -201,4 +202,4 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 
 ---
 
-本記事は、2026-08-01時点の公開記事構成と筆者の実運用に基づいています。Cursorの画面、モード、モデル、料金、利用上限などは変更される可能性があります。重要な設定や契約判断の前には、Cursorの公式ドキュメントと現在の管理画面を確認してください。
+本記事は、2026-08-24時点の公開記事構成と筆者の実運用に基づいています。Cursorの画面、モード、モデル、料金、利用上限などは変更される可能性があります。重要な設定や契約判断の前には、Cursorの公式ドキュメントと現在の管理画面を確認してください。
