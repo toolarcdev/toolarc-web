@@ -12,14 +12,14 @@ tags:
   - claude-developer-series
 site: toolarc.jp
 target: "Claude をコード／CLI 側で使い始めたいが、Cursor・Obsidian 記事と何が違うのか分からず最初の一歩で止まっている初心者〜中級の個人開発者"
-last_update: 2026-08-24
+last_update: 2026-08-25
 ---
 
 # Claude Codeの始め方｜向く人の見分けと最初の一歩
 
 「Claude Code」で検索すると、Cursorの記事や比較サイトが混ざって出てきて、結局何がどう違うのか分からなくなることがあります。どちらも「AIにコードを書かせるツール」という説明のされ方をするため、初めて触る人ほど迷いやすいところです。
 
-本記事は、Claude Codeが自分に向いているかを見分け、最初の1セッションを開くところまでを短く通す入口記事です。インストールの手順全体は[Claude Codeのインストール](/blog/claude-code-install)へ、コマンド一覧は別記事（準備中）へ。まずは「試す価値があるかどうか」を数分で判断できる材料をまとめました。
+本記事は、Claude Codeが自分に向いているかを見分け、最初の1セッションを開くところまでを短く通す入口記事です。インストールの手順全体は[Claude Codeのインストール](/blog/claude-code-install)へ、コマンド一覧は[Claude Codeの基本コマンド一覧](/blog/claude-code-commands)へ。まずは「試す価値があるかどうか」を数分で判断できる材料をまとめました。
 
 本記事はClaude Codeシリーズの1本目として、始め方だけに絞っています。シリーズ全体の地図は後半の「次に読む」で案内します。
 
@@ -30,7 +30,7 @@ last_update: 2026-08-24
 > - エディタの中で完結させたいならCursor、ターミナル中心で進めたいならClaude Codeが入口になります
 > - 始める前提はシンプルで、Claudeの有料サブスクリプションまたはAnthropic Consoleアカウント、ターミナルを開ける環境、作業対象のプロジェクトフォルダの3つに絞られます
 > - 最初の一歩は、プロジェクトフォルダでCLIを起動し、最初のセッションを開くことです。具体的なコマンド名は公式ドキュメントで確認してから進めてください
-> - インストールの詳細は[Claude Codeのインストール](/blog/claude-code-install)、コマンド一覧は別記事（準備中）に任せ、本記事では向く人の見分けと最初のセッションまで進めば十分です
+> - インストールの詳細は[Claude Codeのインストール](/blog/claude-code-install)、コマンド一覧は[Claude Codeの基本コマンド一覧](/blog/claude-code-commands)に任せ、本記事では向く人の見分けと最初のセッションまで進めば十分です
 
 ## 向く人の見分け（Cursorとの分かれ道を1行で）
 
@@ -87,7 +87,7 @@ claude
 
 ## 次に読む
 
-Claude Code関連のシリーズ全体は、[Claude Codeガイド](/blog/claude-code-guide)で見渡せます。次に読みたい記事を選ぶときは、まずこちらから。インストールの詳細は[Claude Codeのインストール](/blog/claude-code-install)、コマンド一覧は専用の記事を準備中です。
+Claude Code関連のシリーズ全体は、[Claude Codeガイド](/blog/claude-code-guide)で見渡せます。次に読みたい記事を選ぶときは、まずこちらから。インストールの詳細は[Claude Codeのインストール](/blog/claude-code-install)、コマンド一覧は[Claude Codeの基本コマンド一覧](/blog/claude-code-commands)です。
 
 エディタの中で完結させたい場合や、Cursorとの違いをもう少し押さえておきたい場合は、[Cursor無料版の記事](/blog/cursor-free)もあわせてどうぞ。
 

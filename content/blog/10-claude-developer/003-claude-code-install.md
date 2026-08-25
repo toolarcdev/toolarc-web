@@ -13,6 +13,7 @@ tags:
   - claude-developer-series
 site: toolarc.jp
 target: "Claude Code を自分の OS にインストールしたいが、手順の分岐・認証・初回のエラーで止まっている初心者〜中級の個人開発者"
+last_update: 2026-08-25
 ---
 
 # Claude Codeのインストール｜OS別手順・認証・初回起動まで
@@ -28,7 +29,7 @@ Claude Codeを入れようとして検索すると、Cursorの記事や古いコ
 > - インストール経路はOSで分岐する。コマンドは変わりやすいため、本記事は執筆時点（2026-08-25）の公式手順に沿って書く
 > - 認証はアカウント連携で進める。APIキー・トークンの実値を手で書き写す運用はしない
 > - 止まったらPATH・認証・権限の3系統で切り分ける
-> - 「誰向けか」の判断は別記事、コマンド一覧は準備中の別記事に譲る。本記事は初回起動の確認までを扱う
+> - 「誰向けか」の判断は別記事、コマンド一覧は[基本コマンド一覧](/blog/claude-code-commands)に譲る。本記事は初回起動の確認までを扱う
 
 ## OS別インストール手順（macOS・Windows・Linux）
 
@@ -136,12 +137,12 @@ WSL・SSH接続・コンテナ内で作業している場合、ブラウザで�
 
 上記で解決しない場合は、`claude doctor`の出力を確認するか、公式ドキュメントの「Troubleshoot installation and login」（https://code.claude.com/docs/en/troubleshoot-install）で症状を検索する方法もあります。
 
-## 次に読む（地図はHubへ・コマンド表は準備中）
+## 次に読む（地図はHubへ・コマンド表は一覧記事へ）
 
 本記事で扱わなかった範囲は、それぞれ別記事に譲ります。
 
 - 「自分に合っているか」の判断や最初の1セッションは[Claude Codeの始め方](/blog/claude-code-getting-started)で扱っています
-- コマンド一覧は準備中です。公開までは`claude --help`または公式ドキュメントを参照してください
+- コマンド一覧は[Claude Codeの基本コマンド一覧](/blog/claude-code-commands)にまとめています
 - ターミナルの見た目はCursorのCLIと似ていますが、別製品です。Cursor側の導入は[Cursor CLIのインストールと基本操作](/blog/cursor-cli-install-basics)を参照してください
 - Cursorから来た人向けに、無料枠の実測は[Cursor無料版の実測レビュー](/blog/cursor-free)にまとめています
 
