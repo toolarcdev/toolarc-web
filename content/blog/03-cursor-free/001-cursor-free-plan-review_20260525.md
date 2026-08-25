@@ -184,6 +184,8 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 ### Git・環境・その他
 
 - [Cursor CLIのインストールと基本操作](/blog/cursor-cli-install-basics)｜ターミナルで agent を始めたい人向け
+- [Cursor Settings おすすめ設定一覧｜プライバシー・モデル・インデックス・自動実行](/blog/cursor-recommended-settings-tips)｜初期設定を横断で見直したい人向け
+- [Cursor Privacy Modeとは｜送信範囲と確認の入口](/blog/cursor-privacy-mode-basics)｜コードの送信範囲とPrivacy Modeを深掘りしたい人向け
 - [CursorのMCP設定｜設定画面の場所とmcp.jsonの書き方](/blog/cursor-mcp-setup-basics)｜外部ツールと接続したい人向け
 - [Gitブランチを安全に切る基本手順](/blog/git-branch-basic-tips)｜記事1本＝1ブランチ運用を始めたい人向け
 - [git stash popで元に戻す使い方](/blog/git-stash-pop-tips)｜作業を一時退避したい人向け
@@ -203,4 +205,4 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 
 ---
 
-本記事は、2026-08-24時点の公開記事構成と筆者の実運用に基づいています。Cursorの画面、モード、モデル、料金、利用上限などは変更される可能性があります。重要な設定や契約判断の前には、Cursorの公式ドキュメントと現在の管理画面を確認してください。
+本記事は、2026-08-25時点の公開記事構成と筆者の実運用に基づいています。Cursorの画面、モード、モデル、料金、利用上限などは変更される可能性があります。重要な設定や契約判断の前には、Cursorの公式ドキュメントと現在の管理画面を確認してください。

@@ -90,7 +90,7 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\source-{slug}.md
 web版 Claude.ai はリポジトリを読めない。**本 source だけ添付して初稿を書ける**粒度で要約を入れる。
 
 - 詳細基準は `writing-rules.md` / `llm-forbidden-phrases.md` を読み、source には**運用に必要な要約のみ**（全文コピー禁止）
-- 必須: 敬体ベース・です／ます3連続禁止・結論先延ばし禁止・`――`禁止・括弧入れ子禁止・内部リンク `/blog/slug`・未公開は「準備中」・直アフィ方針（収益なら `policy.ts` に従う旨1行）
+- 必須: 敬体ベース・段落末敬体・結論先延ばし禁止・`――`禁止・括弧入れ子禁止・内部リンク `/blog/slug`・未公開は「準備中」・直アフィ方針（収益なら `policy.ts` に従う旨1行）。です／ます3連続の切断は**必須にしない**（望ましい工夫／L1任意）
 - 初稿用 YAML Frontmatter 雛形（title / description **120〜160文字必須** / date プレースホルダ / tags / site / `target`＝ペルソナ要約1行）
 
 ## 収益記事のとき（追加）
