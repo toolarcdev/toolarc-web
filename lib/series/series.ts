@@ -172,6 +172,7 @@ export const allSeries: readonly SeriesConfig[] = [
     spokeSlugOrder: [
       "claude-code-getting-started", // W7 Claude #1 始め方
       "claude-code-install", // W7 Claude #2 インストール
+      "claude-code-commands", // W7 Claude #3 基本コマンド
       "chatgpt-claude-comparison",
       "claude-pro-free-comparison",
       "gpt-claude-two-stage-ai-workflow-tips",
