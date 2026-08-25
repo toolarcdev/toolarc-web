@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-08-24 21:51（L1必須: 読者最優先＋sourceペルソナ）
+最終更新: 2026-08-25 11:24（create-source-md Skill ポインタ）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
@@ -554,6 +554,7 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 
 ```text
 通常は Claude ⑤ を使います。Cursor で Tips 素材を作るときだけ使用してください。
+source.md を Cursor で作る依頼のときは Skill create-source-md に従う（構成のみ。本文初稿は④）。
 ```
 
 ### ⑥ KPI＋日次メンテ（Cursor）

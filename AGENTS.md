@@ -19,6 +19,7 @@
 | LLM空句リスト | `llm-forbidden-phrases.md` | 語彙正本（方針は writing-rules） |
 | 直アフィ可否（実装） | `lib/affiliate/policy.ts` | docs は説明のみ |
 | 画像振り分け | `.cursor/skills/blog-image-router/SKILL.md` | マップ: `image-intent-map.md` |
+| source.md 作成 | `.cursor/skills/create-source-md/SKILL.md` | 構成・§5.2・Claude制約。本文初稿はしない |
 | L1任意観察（読み味カード） | `.cursor/skills/prose-observation-cards/SKILL.md` | 合否外。現役最大3。手順は `l1-review-article` が呼ぶ |
 | Obsidian／Vault 操作・編集 | 個人 Skill `obsidian-markdown` / `obsidian-cli` | ウィキリンク等の ToolArc制約の正本は `obsidian-markdown` |
 
@@ -32,13 +33,14 @@
 
 0. 現行フェーズを `docs/plan/phase-now.md` で確認する（評価フェーズ中の優先は week-queue・統合／リライト／Hub・導線計測・負債。新規は例外ゲート通過分のみ）
 1. **記事**（構成・本文・CTA・SEO・禁止・Output Contract）→ `docs/ai-context/writing-rules.md`（空句 → `llm-forbidden-phrases.md`）
-2. **収益記事の手順化** → Skill `revenue-article-template`（基準は writing-rules / `policy.ts`）
-3. **公開（①）** → Skill `publish-article` ＋ `.cursor/rules/article-publish.mdc`
-4. **L1（④）** → Skill `l1-review-article`（導入読み味の任意観察 → `prose-observation-cards`。深い推敲 → `toolarc-ja-prose`）
-5. **画像** → Skill `blog-image-router`（入口）
-6. **日次⑥／水曜週次** → `daily-maintenance-lite` / `weekly-intake` / `weekly-maintenance`
-7. **Obsidian／Vault の操作・編集** → 個人 Skill `obsidian-markdown`（記法・ToolArc制約の正本）／`obsidian-cli`（CLI）。詳細は本ファイルに書かない
-8. スロット境界・依頼文 → `docs/ai-context/chat-operations.md`
+2. **source.md 作成** → Skill `create-source-md`（Vault 配置・ペルソナ・§5.2・Claude制約。本文初稿・公開はしない）
+3. **収益記事の手順化** → Skill `revenue-article-template`（基準は writing-rules / `policy.ts`）
+4. **公開（①）** → Skill `publish-article` ＋ `.cursor/rules/article-publish.mdc`
+5. **L1（④）** → Skill `l1-review-article`（導入読み味の任意観察 → `prose-observation-cards`。深い推敲 → `toolarc-ja-prose`）
+6. **画像** → Skill `blog-image-router`（入口）
+7. **日次⑥／水曜週次** → `daily-maintenance-lite` / `weekly-intake` / `weekly-maintenance`
+8. **Obsidian／Vault の操作・編集** → 個人 Skill `obsidian-markdown`（記法・ToolArc制約の正本）／`obsidian-cli`（CLI）。詳細は本ファイルに書かない
+9. スロット境界・依頼文 → `docs/ai-context/chat-operations.md`
 
 ## Vault メタデータ（⑥・Agent 共通）
 
