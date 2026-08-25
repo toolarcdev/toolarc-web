@@ -12,7 +12,7 @@ tags:
   - MCP
 site: toolarc.jp
 target: "Claudeをコード／CLI／API側から使いたい個人開発〜小チームの初心者〜中級（執筆・Vault用途は別）"
-last_update: 2026-08-24
+last_update: 2026-08-25
 ---
 
 # Claude Code ガイド（開発者向け入口）
@@ -37,7 +37,7 @@ last_update: 2026-08-24
 | --- | --- |
 | Claude をコード／CLI／API 側で使う入口の整理 | 本 Hub |
 | ChatGPT・Claude・モデル比較やプロンプトの読む順 | 公開済み Spoke 5本（下表） |
-| Claude Code 自体の始め方・手順 | [Claude Codeの始め方](/blog/claude-code-getting-started)（インストール・コマンド一覧は準備中） |
+| Claude Code 自体の始め方・手順 | [Claude Codeの始め方](/blog/claude-code-getting-started)／[インストール](/blog/claude-code-install)（コマンド一覧は準備中） |
 
 一方で、次のテーマは**このシリーズの本筋ではありません**。
 
@@ -98,19 +98,19 @@ Code 手順本が揃うまでの当面は、次の公開済み Spoke を読ん�
 | 順 | こんなときに読む | 記事 |
 | --- | ---: | --- |
 | 1 | Claude Code が自分向けか見分け、最初の一歩まで進めたい | [Claude Codeの始め方｜向く人の見分けと最初の一歩](/blog/claude-code-getting-started) |
-| 2 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
-| 3 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
-| 4 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
-| 5 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
-| 6 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
+| 2 | OS別に入れて認証・初回起動まで進めたい | [Claude Codeのインストール｜OS別手順・認証・初回起動まで](/blog/claude-code-install) |
+| 3 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
+| 4 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
+| 5 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
+| 6 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
+| 7 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
 
-全部を一気に読む必要はありません。いまの迷いが「始め方」「用途差」「料金判断」「分担運用」「モデル差」「プロンプト順」のどれに近いかで、1本選んで進めてください。
+全部を一気に読む必要はありません。いまの迷いが「始め方」「インストール」「用途差」「料金判断」「分担運用」「モデル差」「プロンプト順」のどれに近いかで、1本選んで進めてください。
 
 ## 今後の Spoke（準備中）と隣のクラスター — Code／MCP／Cursor Hub
 
 今後このクラスターで追加予定の Spoke（slug 未確定のため、偽リンクは置かず「準備中」のみ）:
 
-- CLI・ターミナル寄りのインストール手順（詳細）
 - コマンド一覧
 - API 側の入り方（必要になった読者向け）
 
@@ -138,4 +138,4 @@ Claude Code 周りで迷ったときは、「執筆か開発か」「エディ�
 
 ---
 
-本記事の整理は、2026-07-16執筆時点の情報と公開済み記事構成に基づきます（読む順表は2026-08-24更新）。Anthropic／Claude Code／プラン・モデル名・コマンド、および関連サービスの仕様・料金は変更される可能性があります。重要な判断の前には、各サービスの公式ドキュメントを確認してください。
+本記事の整理は、2026-07-16執筆時点の情報と公開済み記事構成に基づきます（読む順表は2026-08-25更新）。Anthropic／Claude Code／プラン・モデル名・コマンド、および関連サービスの仕様・料金は変更される可能性があります。重要な判断の前には、各サービスの公式ドキュメントを確認してください。

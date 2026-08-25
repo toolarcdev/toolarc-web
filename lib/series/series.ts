@@ -110,6 +110,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "cursor-rules-file-tips",
       "cursor-rules-claude-agents-md", // W6 #20 Rules vs CLAUDE.md vs AGENTS.md
       "cursor-recommended-settings-tips", // A-5 Settings（#1直後）
+      "cursor-privacy-mode-basics", // W7 #27 Privacy Mode
       "cursor-extensions-recommended", // W6 #12 拡張の判断軸
       "cursor-cli-install-basics", // W3 #5 CLI（導入寄り）
       "cursor-mcp-setup-basics", // W4 #4 MCP設定（外部連携の入口）
@@ -170,6 +171,7 @@ export const allSeries: readonly SeriesConfig[] = [
     hubSlug: "claude-code-guide",
     spokeSlugOrder: [
       "claude-code-getting-started", // W7 Claude #1 始め方
+      "claude-code-install", // W7 Claude #2 インストール
       "chatgpt-claude-comparison",
       "claude-pro-free-comparison",
       "gpt-claude-two-stage-ai-workflow-tips",
