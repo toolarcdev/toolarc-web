@@ -10,7 +10,7 @@ tags:
   - cursor-free-series
 site: toolarc.jp
 target: "CursorのAgentで「failed」エラーに遭遇し、何から確認すればいいか分からず困っている初心者"
-last_update: 2026-07-11
+last_update: 2026-08-25
 slug: cursor-agent-failed-tips
 ---
 
@@ -91,14 +91,30 @@ Cursorには依頼内容に応じてAIモデルを自動選択する「Auto」�
 | 5 | 依頼の粒度 | Agent停止 → 依頼を分割して再実行 |
 | 6 | それでも直らない | 新規チャットの開始、Agentの再起動を試す |
 
+## よくある質問（FAQ）
+
+**Q1. failed と Auto-run の pause は同じ対処でよいですか？**
+
+いいえ。failed はエラーで処理が中断した状態で、本記事の3系統（ネットワーク／モデル／依頼の粒度）で切り分けます。pause は安全装置的な一時停止なので、復旧手順は [Agentが止まったときの復旧](/blog/cursor-agent-pause-recovery-tips) 側を優先してください。
+
+**Q2. 同じ依頼をすぐ再送してよいですか？**
+
+先にエラー文言の全文と、直前にどこまで進んだかを控えてからにします。原因を見ずに同じ重い依頼を連打すると、失敗が続きやすいです。対象ファイルを絞り、依頼を短く分けてから再実行してください。
+
+**Q3. ネットワークもモデルも問題なさそうなときは？**
+
+依頼が大きすぎた可能性が高いです。Agent を一度止め、「このファイルだけ」「変更は1つずつ」に分割して再実行します。Queue や重さ全体の入口は [Cursorが急に重くなった時の確認](/blog/cursor-slow-troubleshoot-tips) もあわせてどうぞ。
+
+---
+
 ## まとめ｜エラー文言と状態の見極めが近道
 
 Agent failedは単一の原因で起きるとは限らないため、「エラー文言」「直前の操作」「ネットワーク」「モデル・混雑」の順に確認していくと、無駄なやり直しを減らせます。また、そもそも「エラーで止まった」のか「一時停止した」のかを見極めることも、正しい対処法にたどり着く近道です。
 
-- Hub: [Cursor無料版はどこまで使える？実際に上限到達まで使った記録と制限](https://www.toolarc.jp/blog/cursor-free)
-- 関連Tips: [Cursor AgentがAuto-runで止まった｜3ステップの復旧手順](https://www.toolarc.jp/blog/cursor-agent-pause-recovery-tips)
+- Hub: [Cursor無料版はどこまで使える？実際に上限到達まで使った記録と制限](/blog/cursor-free)
+- 関連Tips: [Cursor AgentがAuto-runで止まった｜3ステップの復旧手順](/blog/cursor-agent-pause-recovery-tips)
 - 関連Tips: [CursorのAuto/手動モデル切替で出力品質が落ちたときの対処法](/blog/cursor-auto-manual-model-quality-tips)
 
 ---
 
-Cursorのエラー文言やAgentの挙動は、バージョンやプラン、利用環境によって変化する場合があります。本記事の内容は執筆時点（2026年7月）の一般的な傾向をもとにした整理であり、個別の原因を断定するものではありません。改善しない場合は、Cursor公式のコミュニティフォーラム（forum.cursor.com）やサポート窓口もあわせてご確認ください。
+Cursorのエラー文言やAgentの挙動は、バージョンやプラン、利用環境によって変化する場合があります。本記事の内容は執筆時点（2026-08-25）の一般的な傾向をもとにした整理であり、個別の原因を断定するものではありません。改善しない場合は、Cursor公式のコミュニティフォーラム（forum.cursor.com）やサポート窓口もあわせてご確認ください。

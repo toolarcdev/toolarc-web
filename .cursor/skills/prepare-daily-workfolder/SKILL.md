@@ -59,20 +59,36 @@ Vault ルート: `D:\ObsidianVault\Vault`
 
 `obsidian create` の `overwrite` は使わない。
 
+## 作成経路（排他・必須）
+
+作成は次のどちらか **一方のみ**。両方は禁止。
+
+| 経路 | いつ使う | やること | やってはいけないこと |
+|------|----------|----------|----------------------|
+| A. `obsidian create` | Obsidian 起動中・CLI 利用可 | 未存在確認後に create のみ | 作成後に同パスへ直書き／再 create |
+| B. Vault 直書き（UTF-8） | CLI 不可・文字化け・パス指定が楽なとき | 未存在確認後にファイル新規作成のみ | 直書き後に同パスで `obsidian create` |
+
+- 既存パスへ `obsidian create` すると、上書きせず `… 1.md` のような別名が作られる
+- 「登録のため」の再 create は不要（直書き済みなら Vault 上に既にある）
+
 ## 作成手順
 
 1. `TargetDate` 確定（曖昧なら確認待ち）
 2. 存在チェック → 既存なら停止
-3. Obsidian が起動している前提で **obsidian-cli** を使う:
+3. **経路 A または B のどちらか一方**で新規作成する（両方禁止）
+
+**経路 A（既定）** — Obsidian 起動中:
 
 ```bash
 obsidian create path="01_Daily/{YYMM}/{YYMMDD}/{YYYY-MM-DD}.md" content="..." silent
 obsidian create path="01_Daily/{YYMM}/{YYMMDD}/AI-log-{YYYY-MM-DD}.md" content="..." silent
 ```
 
-4. 文字化けしたら Vault パスへ UTF-8 で書き直してよい（内容はテンプレ準拠）
-5. **obsidian-markdown** に従い、Vault 内リンクは `[[wikilink]]`、埋め込みは `![[...]]`、callout 可
-6. 完了報告: TargetDate / 作成パス2つ / week-queue 当日行の引き継ぎ有無
+**経路 B** — CLI 不可・文字化け時など。Vault 絶対パスへ UTF-8 で新規書き込み（内容はテンプレ準拠）。切替後は同パスで `obsidian create` しない。
+
+4. **obsidian-markdown** に従い、Vault 内リンクは `[[wikilink]]`、埋め込みは `![[...]]`、callout 可
+5. 完了前: 対象日フォルダに `* 1.md`（衝突別名）が無いことを確認。あれば削除して報告
+6. 完了報告: TargetDate / 作成パス2つ / week-queue 当日行の引き継ぎ有無 / 作成経路（A または B）
 
 **フェーズ参照**: `docs/plan/phase-now.md`／評価フェーズ移行ノート §5.4（DailyNote「今日やること」＝ week-queue 当日行。公開フォーカス3本は廃止）
 
@@ -151,4 +167,5 @@ Last Updated: {Get-Date の yyyy-MM-dd HH:mm}
 
 - TargetDate
 - 作成した2パス（または停止理由: 既存あり / 日付確認待ち）
+- 作成経路: A（`obsidian create`）または B（Vault 直書き）
 - week-queue 当日行投影: あり（件数）/ なし（キュー未参照）
