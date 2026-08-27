@@ -17,6 +17,7 @@ import {
   resolveAffiliateLink,
 } from "@/lib/affiliate";
 import { fixEmphasisFlanking } from "@/lib/blog/fix-emphasis-flanking";
+import { getFirstH2SectionImageSrc } from "@/lib/blog/first-h2-section-image";
 import {
   isHandsOnExtraStep,
   splitHandsOnChunks,
@@ -392,6 +393,7 @@ export function MarkdownArticle({
   variant = "default",
 }: MarkdownArticleProps) {
   const isHandsOn = variant === "hands-on";
+  const priorityImageSrc = getFirstH2SectionImageSrc(content);
   const components: Components = {
     h2: ({ children }) => {
       const id = headingToId(flattenText(children));
@@ -561,6 +563,9 @@ export function MarkdownArticle({
       const compact = isCompactImage(rawSrc);
       const meta = getImageMeta(rawSrc);
       const imageAlt = alt?.trim() || meta?.alt || "";
+      const priority = Boolean(
+        priorityImageSrc && rawSrc && rawSrc === priorityImageSrc,
+      );
       return (
         <Image
           src={resolved}
@@ -568,6 +573,7 @@ export function MarkdownArticle({
           width={1200}
           height={675}
           unoptimized={isHandsOn}
+          priority={priority}
           className={compact ? "article-img article-img--compact" : "article-img"}
           sizes={
             compact
