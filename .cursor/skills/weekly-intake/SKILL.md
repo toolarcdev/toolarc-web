@@ -59,7 +59,8 @@ Get-ChildItem -LiteralPath "<作業フォルダ>" -File |
 |------|----------------|
 | Coverage | `*Coverage*.zip` / `*coverage*.zip` |
 | A8 | `*program_detail_monthly*.csv` |
-| もしも | `*report-kpi*.csv` / `*kpi-site*.csv` |
+| もしも（サイト合計・必須） | `*report-kpi-site*.csv` / `*kpi-site*.csv`（`*report-kpi-promotion*` はサイト合計の代用にしない） |
+| もしも（案件別・任意） | `*report-kpi-promotion*.csv`（汚染切り分け用。サイト合計の上に載せない） |
 | AT | `*site_report*.csv` |
 | VC | ファイル無し → §4 で 0・プログラムなし |
 | 既存 intake | `weekly-intake-*.md` |
@@ -106,7 +107,7 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 6. **A-THEME**: `a-theme-*.csv` があれば §3（または判断1行）にシェア・WoW・勝ち3（`win3_total`）を載せる
 7. §1.5 統合クラスタ → **§5 柱C handoff（勝ち≤1・本数ノルマなし）**。§1 KPI クエリ3件は別記載可
 8. **Coverage**: 索引系。最終更新 ≤ 前週水 → `更新なし（最終更新: …）`
-9. **ASP**（CP932・直近3か月前提のCSV）: 合算 → §4（期間日付必須）。もしも CTR>100% なら汚染疑い。**報告は読者由来累計 N/10**（Phase2-0 卒業＝禁止開始 **2026-07-29** 以降の増分 ≥10。汚染期間の画面合計は参考のみ）
+9. **ASP**（CP932・直近3か月前提のCSV）: 合算 → §4（期間日付必須）。もしもは **サイト合計CSVを正**。案件別（promotion）があれば CTR≥100%／click>imp の案件を汚染疑いとしてメモ（サイト合計CTRが正常でも案件異常があり得る）。**報告は読者由来累計 N/10**（Phase2-0 卒業＝禁止開始 **2026-07-29** 以降の増分 ≥10。汚染期間の画面合計は参考のみ）。`analyze:weekly` は GSC専用で ASP CSV を読まない
 10. 判断1行・先週比（dashboard 前週列）。§5.1 は触らない
 11. §0 `②受領完了`。変更計画 → 承認後編集（運用どおり）
 

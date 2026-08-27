@@ -173,6 +173,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "claude-code-getting-started", // W7 Claude #1 始め方
       "claude-code-install", // W7 Claude #2 インストール
       "claude-code-commands", // W7 Claude #3 基本コマンド
+      "claude-code-git-workflow", // W8 Claude #4 Git連携（branch〜commit〜PR）
       "chatgpt-claude-comparison",
       "claude-pro-free-comparison",
       "gpt-claude-two-stage-ai-workflow-tips",

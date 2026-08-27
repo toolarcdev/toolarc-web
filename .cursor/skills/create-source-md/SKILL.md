@@ -91,6 +91,7 @@ web版 Claude.ai はリポジトリを読めない。**本 source だけ添付�
 
 - 詳細基準は `writing-rules.md` / `llm-forbidden-phrases.md` を読み、source には**運用に必要な要約のみ**（全文コピー禁止）
 - 必須: 敬体ベース・段落末敬体・結論先延ばし禁止・`――`禁止・括弧入れ子禁止・内部リンク `/blog/slug`・未公開は「準備中」・直アフィ方針（収益なら `policy.ts` に従う旨1行）。です／ます3連続の切断は**必須にしない**（望ましい工夫／L1任意）
+- **暦日**: 免責の `執筆時点（YYYY-MM-DD）` に1回あれば足りる。本文は「執筆時点」で範囲限定可。各H2への同一暦日の連打を source／Claude制約で要求しない（詳細は writing-rules「暦日の置き方」、template の Claude制約1行）
 - 初稿用 YAML Frontmatter 雛形（title / description **120〜160文字必須** / date プレースホルダ / tags / site / `target`＝ペルソナ要約1行）
 
 ## 収益記事のとき（追加）
