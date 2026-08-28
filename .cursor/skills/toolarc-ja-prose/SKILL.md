@@ -29,6 +29,7 @@ description: Rewrites and polishes ToolArc Japanese article prose by checking rh
 4. 空句削除（リストは `llm-forbidden-phrases.md`）
 5. 段落設計（1トピック・密度波形・テンプレ連打回避）
 6. 因果に機構を一文
+7. **同義ラベルの分散** — description・導入・今日の結論で、同じ役割説明（「この記事は入り口」「ここに専念」等）が短い範囲で繰り返されていないか。あれば公開面語彙メモ（source）または言い換え候補（手順 / 始め方 / 絞る 等）で分散。title/description の SEO アンカー1語は残してよい。固定語の回数制限は設けない
 
 ### 3. 話題テスト
 

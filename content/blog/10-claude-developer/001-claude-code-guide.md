@@ -12,7 +12,7 @@ tags:
   - MCP
 site: toolarc.jp
 target: "Claudeをコード／CLI／API側から使いたい個人開発〜小チームの初心者〜中級（執筆・Vault用途は別）"
-last_update: 2026-08-27
+last_update: 2026-08-28
 ---
 
 # Claude Code ガイド（開発者向け入口）
@@ -37,7 +37,7 @@ last_update: 2026-08-27
 | --- | --- |
 | Claude をコード／CLI／API 側で使う入口の整理 | 本 Hub |
 | ChatGPT・Claude・モデル比較やプロンプトの読む順 | 公開済み Spoke 5本（下表） |
-| Claude Code 自体の始め方・手順 | [Claude Codeの始め方](/blog/claude-code-getting-started)／[インストール](/blog/claude-code-install)／[基本コマンド一覧](/blog/claude-code-commands)／[Git操作の流れ](/blog/claude-code-git-workflow) |
+| Claude Code 自体の始め方・手順 | [Claude Codeの始め方](/blog/claude-code-getting-started)／[インストール](/blog/claude-code-install)／[基本コマンド一覧](/blog/claude-code-commands)／[Git操作の流れ](/blog/claude-code-git-workflow)／[MCP設定（Desktop/Code）](/blog/claude-mcp-setup-basics) |
 
 一方で、次のテーマは**このシリーズの本筋ではありません**。
 
@@ -101,13 +101,14 @@ Code 手順本が揃うまでの当面は、次の公開済み Spoke を読ん�
 | 2 | OS別に入れて認証・初回起動まで進めたい | [Claude Codeのインストール｜OS別手順・認証・初回起動まで](/blog/claude-code-install) |
 | 3 | 基本コマンドの全体像と日常操作を表で確認したい | [Claude Codeの基本コマンド一覧｜カテゴリ別表と使い方の例](/blog/claude-code-commands) |
 | 4 | 対話で branch 作成から commit・PR 作成まで回したい | [Claude CodeでGit操作｜branch作成からcommit・PR作成までの流れ](/blog/claude-code-git-workflow) |
-| 5 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
-| 6 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
-| 7 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
-| 8 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
-| 9 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
+| 5 | Claude Desktop と Claude Code の MCP 設定入口を分けて進めたい | [ClaudeのMCP設定入門｜DesktopとCodeで設定ファイルはどこに書くか](/blog/claude-mcp-setup-basics) |
+| 6 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
+| 7 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
+| 8 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
+| 9 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
+| 10 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
 
-全部を一気に読む必要はありません。いまの迷いが「始め方」「インストール」「コマンド一覧」「Git操作」「用途差」「料金判断」「分担運用」「モデル差」「プロンプト順」のどれに近いかで、1本選んで進めてください。
+全部を一気に読む必要はありません。いまの迷いが「始め方」「インストール」「コマンド一覧」「Git操作」「MCP設定」「用途差」「料金判断」「分担運用」「モデル差」「プロンプト順」のどれに近いかで、1本選んで進めてください。
 
 ## 今後の Spoke（準備中）と隣のクラスター — Code／MCP／Cursor Hub
 
