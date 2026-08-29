@@ -12,7 +12,7 @@ tags:
   - MCP
 site: toolarc.jp
 target: "Claudeをコード／CLI／API側から使いたい個人開発〜小チームの初心者〜中級（執筆・Vault用途は別）"
-last_update: 2026-08-28
+last_update: 2026-08-29
 ---
 
 # Claude Code ガイド（開発者向け入口）
@@ -102,19 +102,20 @@ Code 手順本が揃うまでの当面は、次の公開済み Spoke を読ん�
 | 3 | 基本コマンドの全体像と日常操作を表で確認したい | [Claude Codeの基本コマンド一覧｜カテゴリ別表と使い方の例](/blog/claude-code-commands) |
 | 4 | 対話で branch 作成から commit・PR 作成まで回したい | [Claude CodeでGit操作｜branch作成からcommit・PR作成までの流れ](/blog/claude-code-git-workflow) |
 | 5 | Claude Desktop と Claude Code の MCP 設定入口を分けて進めたい | [ClaudeのMCP設定入門｜DesktopとCodeで設定ファイルはどこに書くか](/blog/claude-mcp-setup-basics) |
-| 6 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
-| 7 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
-| 8 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
-| 9 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
-| 10 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
+| 6 | 自分のコードから Claude API を呼び出したい | [Claude APIとは｜できること・向く人・最小の利用例まで解説](/blog/claude-api-basics) |
+| 7 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
+| 8 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
+| 9 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
+| 10 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
+| 11 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
 
-全部を一気に読む必要はありません。いまの迷いが「始め方」「インストール」「コマンド一覧」「Git操作」「MCP設定」「用途差」「料金判断」「分担運用」「モデル差」「プロンプト順」のどれに近いかで、1本選んで進めてください。
+全部を一気に読む必要はありません。いまの迷いが「始め方」「インストール」「コマンド一覧」「Git操作」「MCP設定」「API呼び出し」「用途差」「料金判断」「分担運用」「モデル差」「プロンプト順」のどれに近いかで、1本選んで進めてください。
 
 ## 今後の Spoke（準備中）と隣のクラスター — Code／MCP／Cursor Hub
 
 今後このクラスターで追加予定の Spoke（slug 未確定のため、偽リンクは置かず「準備中」のみ）:
 
-- API 側の入り方（必要になった読者向け）
+- （現時点で未確定の Spoke はなし）
 
 隣のクラスター（迷子防止用）:
 
@@ -140,4 +141,4 @@ Claude Code 周りで迷ったときは、「執筆か開発か」「エディ�
 
 ---
 
-本記事の整理は、2026-07-16執筆時点の情報と公開済み記事構成に基づきます（読む順表は2026-08-27更新）。Anthropic／Claude Code／プラン・モデル名・コマンド、および関連サービスの仕様・料金は変更される可能性があります。重要な判断の前には、各サービスの公式ドキュメントを確認してください。
+本記事の整理は、2026-07-16執筆時点の情報と公開済み記事構成に基づきます（読む順表は2026-08-29更新）。Anthropic／Claude Code／プラン・モデル名・コマンド、および関連サービスの仕様・料金は変更される可能性があります。重要な判断の前には、各サービスの公式ドキュメントを確認してください。
