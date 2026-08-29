@@ -175,6 +175,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "claude-code-commands", // W7 Claude #3 基本コマンド
       "claude-code-git-workflow", // W8 Claude #4 Git連携（branch〜commit〜PR）
       "claude-mcp-setup-basics", // W8 Claude #5 MCP設定 Desktop/Code
+      "claude-api-basics", // W8 Claude #6 API概要・最小利用例
       "chatgpt-claude-comparison",
       "claude-pro-free-comparison",
       "gpt-claude-two-stage-ai-workflow-tips",
