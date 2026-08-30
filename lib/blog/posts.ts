@@ -2130,6 +2130,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "claude-api-key-env-setup": {
+    contentId: "10-claude-developer",
+    markdownFile: "008-claude-api-key-env-setup.md",
+    imageBasePath: "/images/blog/claude-api-key-env-setup",
+    publishedAt: "2026-08-30",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
