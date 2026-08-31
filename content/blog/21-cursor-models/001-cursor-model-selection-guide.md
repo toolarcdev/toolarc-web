@@ -198,7 +198,7 @@ CursorとMCPを組み合わせた発展話題は、[MCP入門ガイド](/blog/mc
 
 **Q2. Claude Codeを使っていますが、Cursorに乗り換える意味はありますか？**
 
-エディタ一体のAgent運用や、モデル切替・設定の見える化を重視するなら検討余地があります。乗り換え比較の専用記事は現時点で「準備中」です。Claude Code側の基礎は[Claude Codeガイド](/blog/claude-code-guide)、用途比較は[CursorとClaudeの使い分け](/blog/cursor-claude-usecase-comparison)を参照してください。
+エディタ一体のAgent運用や、モデル切替・設定の見える化を重視するなら検討余地があります。製品同士の比較は[Claude Code vs Cursor比較｜どちらから始めるかの判断基準](/blog/claude-code-vs-cursor-comparison)を参照してください。Claude Code側の基礎は[Claude Codeガイド](/blog/claude-code-guide)、用途比較は[CursorとClaudeの使い分け](/blog/cursor-claude-usecase-comparison)もあわせてどうぞ。
 
 **Q3. 幻覚率が高いと報告されるモデル（Grok 4.5など）は使わない方がいいですか？**
 
@@ -238,7 +238,7 @@ CursorとMCPを組み合わせた発展話題は、[MCP入門ガイド](/blog/mc
 - [CursorとClaudeの使い分け](/blog/cursor-claude-usecase-comparison)（用途比較）
 - [MCP入門ガイド](/blog/mcp-guide)（発展編）
 - [Auto/手動切替後の品質対処](/blog/cursor-auto-manual-model-quality-tips)（切替後の切り分け）
-- Claude Code → Cursor 移行比較（準備中）
+- [Claude Code vs Cursor比較｜どちらから始めるかの判断基準](/blog/claude-code-vs-cursor-comparison)（製品同士の比較）
 
 ### 無料セミナーを検討する前に（向く人/向かない人）
 
