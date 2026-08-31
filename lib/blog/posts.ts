@@ -2138,6 +2138,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "claude-code-vs-cursor-comparison": {
+    contentId: "10-claude-developer",
+    markdownFile: "009-claude-code-vs-cursor-comparison.md",
+    imageBasePath: "/images/blog/claude-code-vs-cursor-comparison",
+    publishedAt: "2026-08-31",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
