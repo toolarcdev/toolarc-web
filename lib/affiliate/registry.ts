@@ -3,6 +3,7 @@ import { amazonPrimeVideoProgram } from "./programs/amazon-prime-video";
 import { audibleProgram } from "./programs/audible";
 import { doraverseProgram } from "./programs/doraverse";
 import { fjordBootCampProgram } from "./programs/fjord-boot-camp";
+import { internetAcademyProgram } from "./programs/internet-academy";
 import { kinokuniyaProgram } from "./programs/kinokuniya";
 import { programmingHacksProgram } from "./programs/programming-hacks";
 import { rakurinProgram } from "./programs/rakurin";
@@ -30,6 +31,7 @@ const programs: Record<AffiliateProgramId, AffiliateProgram> = {
   kinokuniya: kinokuniyaProgram,
   "amazon-prime-video": amazonPrimeVideoProgram,
   "yahoo-shopping": yahooShoppingProgram,
+  "internet-academy": internetAcademyProgram,
 };
 
 export function getProgram(programId: string): AffiliateProgram | undefined {

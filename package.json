@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:unit": "tsx --test lib/blog/**/*.test.ts",
+    "test:unit": "tsx --test lib/**/*.test.ts",
     "validate:affiliate": "npx tsx scripts/validate-affiliate.ts"
   },
   "dependencies": {
