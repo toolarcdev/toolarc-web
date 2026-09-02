@@ -90,6 +90,7 @@ GPT→source.md→Claudeという流れを一度試してみてください。�
 
 ## 次に読む
 
+- [Claude Code ガイド（開発者向け入口）](/blog/claude-code-guide)
 - [source.md運用が記事生成AIと相性が良い理由](/blog/source-md-tips)
 - [Claude記事生成は「source.md」で精度が変わった](/blog/source-md-ai-writing)
 - [ChatGPTとClaudeに同じ質問を投げる比較テンプレ](/blog/chatgpt-claude-same-prompt-comparison-template-tips)

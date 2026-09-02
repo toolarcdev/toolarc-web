@@ -76,6 +76,7 @@ Claude Proが必要かどうかは、「長文整理・初稿・レビュー」�
 
 他のAIツールとの使い分けを比較の視点でさらに整理したい方は、以下の記事も参考にしてください。
 
+- [Claude Code ガイド（開発者向け入口）](/blog/claude-code-guide)
 - AIツール比較シリーズ Hub: [/blog/ai-tools-comparison](/blog/ai-tools-comparison)
 - 前に読む: [ChatGPT Plusは必要か？無料版との違いと判断基準3つ](/blog/chatgpt-plus-free-comparison)
 - 次に読む: [Cursorでできること・苦手なこと｜導入前の判断基準](/blog/cursor-strengths-weaknesses)

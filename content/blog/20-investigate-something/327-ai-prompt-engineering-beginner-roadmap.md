@@ -114,6 +114,7 @@ ChatGPTとClaudeの違いを、専門用語を避けて箇条書き5項目で説
 
 ツール選びから見直したい方は、以下もあわせてご覧ください。
 
+- [Claude Code ガイド（開発者向け入口）](/blog/claude-code-guide)
 - [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison)
 - [ChatGPT・Claude・Cursorの違いと使い分けまとめ（Hub）](/blog/ai-tools-comparison)
 - [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips)

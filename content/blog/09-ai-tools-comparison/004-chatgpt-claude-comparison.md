@@ -12,7 +12,7 @@ tags:
   - ChatGPT Claude 違い
 site: toolarc.jp
 target: "ChatGPTとClaudeのどちらを使えばいいか迷っている初心者"
-last_update: 2026-07-24
+last_update: 2026-09-02
 ---
 
 # ChatGPTとClaudeの違いとは？初心者向けに用途で比較
@@ -50,6 +50,29 @@ ChatGPTとClaudeは、同じ「チャット型AI」という枠組みで語ら�
 | 苦手な用途 | 長い素材では入力の整理が必要な場合がある | 短い雑多な相談では過剰に感じる場合がある |
 
 表だけを見ると差が小さく感じるかもしれませんが、実際の作業では「相談の長さ」と「整理のまとまり方」で得意・不得意が出やすい傾向があります。次の章から、それぞれが向いている作業を具体的に見ていきます。
+
+## 開発で使うならどちらか — コード・CLI・APIの観点
+
+チャットで相談する用途とは別に、**コード生成・CLI／エージェント環境・API からの呼び出し**で使う場合の分け方もあります。執筆時点（2026-09-02）の整理です。
+
+| 観点 | ChatGPT | Claude |
+| --- | --- | --- |
+| コード生成の相談 | 短いエラー説明・学習の壁打ちに向きやすい | 設計相談・長めのコード説明・レビュー観点に向きやすい |
+| CLI・エージェント環境 | ChatGPT 側の選択肢は公式情報で要確認（執筆時点） | [Claude Code](/blog/claude-code-getting-started)（ターミナル寄り）／IDE 併用は [Claude Code vs Cursor比較](/blog/claude-code-vs-cursor-comparison) を参照 |
+| API から使う場合 | OpenAI API（公式ドキュメントで要確認） | [Claude API の概要](/blog/claude-api-basics) → [キー・環境変数の設定](/blog/claude-api-key-env-setup) の順が入口 |
+
+開発クラスター全体の読む順は [Claude Code ガイド](/blog/claude-code-guide) にまとめています。初心者向けの用途比較（上の表）と併せて読むと、チャット用途と開発用途の線引きがしやすくなります。
+
+向く人（開発寄り）:
+
+- ターミナルやリポジトリ単位で Claude Code を試したい人
+- 自分のスクリプトから Claude API を呼び出したい人
+- ChatGPT と Claude のチャット比較に加え、開発ツールの入口も知りたい人
+
+向かない人:
+
+- まだチャットの基本選びが決まっていない人（先に上の用途比較からで十分な場合がある）
+- IDE 内の Agent 運用だけを深く知りたい人（[Cursor 開発ガイド](/blog/cursor-free) 側が入口）
 
 ## ChatGPTが向いている作業：相談・学習・短い整理
 
@@ -130,8 +153,8 @@ ChatGPTとClaudeは、どちらが優れているかではなく、相談の長�
 
 Cursorも含めた3つのAIツール全体の位置づけを整理したい場合は、Hub記事の[ChatGPT・Claude・Cursorの違いと使い分けまとめ](/blog/ai-tools-comparison)も参考にしてください。
 
-次に読む：ChatGPTとClaudeの比較とあわせて基礎から学びたい方は、[AIの基礎を無料で学ぶ方法｜ChatGPT・Claudeを使う前のチェックリスト](/blog/ai-basics-before-chatgpt-claude-checklist)を確認してください。
+次に読む：ChatGPTとClaudeの比較とあわせて基礎から学びたい方は、[AIの基礎を無料で学ぶ方法｜ChatGPT・Claudeを使う前のチェックリスト](/blog/ai-basics-before-chatgpt-claude-checklist)を確認してください。開発用途の入口は [Claude Code ガイド](/blog/claude-code-guide) から辿れます。
 
 ---
 
-本記事は2026-07-24時点の傾向を前提にした比較メモです。料金、利用上限、モデル、添付機能、プロジェクト機能、紹介制度は変更される可能性があります。重要な判断は、各サービスの公式情報で確認してください。
+本記事は2026-09-02時点の傾向を前提にした比較メモです（初版 2026-06-28・開発向け節は 2026-09-02 追記）。料金、利用上限、モデル、添付機能、プロジェクト機能、紹介制度は変更される可能性があります。重要な判断は、各サービスの公式情報で確認してください。
