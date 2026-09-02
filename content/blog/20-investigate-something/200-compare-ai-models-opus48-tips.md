@@ -298,6 +298,7 @@ Opus 4.8は、特に以下で改善されています。大規模コードベー
 
 AIごとの向き不向きの詳細は、以下の記事もあわせてどうぞ。
 
+→ [Claude Code ガイド（開発者向け入口）](/blog/claude-code-guide)  
 → [Cursorで適用されるルール.mdの仕様](/blog/cursor-rules-file-tips)  
 → [AIチャットは新規会話でcontextがリセットされる](/blog/ai-chat-context-reset-tips)  
 → [Cursor Agentが一時停止した時の復旧手順](/blog/cursor-agent-pause-recovery-tips)
