@@ -8,7 +8,7 @@ import type { BlogSlug } from "@/lib/blog/posts";
  */
 export const POPULAR_ARTICLE_SLUGS = [
   "chatgpt-account-migration",
-  "chatgpt-device-change-handover-tips",
+  "cursor-model-selection-guide",
   "cursor-theme-color-change-tips",
 ] as const satisfies readonly BlogSlug[];
 

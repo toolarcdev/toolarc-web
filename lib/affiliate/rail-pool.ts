@@ -4,7 +4,7 @@ import type { AffiliateCreativeId, AffiliateProgramId } from "./types";
  * Site-wide affiliate pools (whitespace fill, not primary CTA).
  * Day-keyed rotation in Asia/Tokyo for GA4-friendly daily aggregation.
  *
- * - Rail (`lg+` TOC aside): square-ish creatives; may include Prime Video
+ * - Rail (`lg+` TOC aside): square-ish creatives; JST日替わり1件
  * - Narrow (`lg` 未満): landscape height≤100 only; no Prime / no text fallback
  * - Same day → rail and narrow pick **different** programIds (rail first)
  */
@@ -19,29 +19,29 @@ export type RailAffiliatePoolEntry = AffiliatePoolEntry;
 
 export const RAIL_AFFILIATE_POOL = [
   {
-    programId: "udemy",
-    creativeId: "banner-200x200",
-    linkText: "Udemyで学ぶ",
+    programId: "internet-academy",
+    creativeId: "banner-300x250-business-ai",
+    linkText: "インターネット・アカデミー",
   },
   {
-    programId: "audible",
-    creativeId: "banner-200x200",
-    linkText: "Audible",
+    programId: "internet-academy",
+    creativeId: "banner-300x250-business-ai-b",
+    linkText: "インターネット・アカデミー",
   },
   {
-    programId: "kinokuniya",
-    creativeId: "banner-234x60",
-    linkText: "紀伊國屋書店",
+    programId: "internet-academy",
+    creativeId: "banner-300x250-ai-20s",
+    linkText: "インターネット・アカデミー（20代向け）",
   },
   {
-    programId: "amazon-prime-video",
-    creativeId: "banner-200x200",
-    linkText: "Prime Video",
+    programId: "techgym",
+    creativeId: "banner-336x280",
+    linkText: "テックジム",
   },
   {
-    programId: "yahoo-shopping",
-    creativeId: "banner-200x200",
-    linkText: "Yahoo!ショッピング",
+    programId: "zerosuku",
+    creativeId: "banner-300x300",
+    linkText: "0円スクール",
   },
 ] as const satisfies readonly AffiliatePoolEntry[];
 
