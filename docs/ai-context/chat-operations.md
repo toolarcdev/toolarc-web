@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-08-25 11:24（create-source-md Skill ポインタ）
+最終更新: 2026-09-03 15:32（input-{slug}.md を当日フォルダ必須化）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
@@ -45,7 +45,10 @@ PoE2 用スロットは設けない。
 DailyNote / AI-log
   → ⑤ Claude（任意）: readerタイトル・inbox骨子 / 柱C表 → handoff（Vault `slot-handoff-template.md`）
   → ⑥ Cursor: handoff 反映・候補マスター・inbox・Dashboard（Commit）
-  → ④ Claude: source.md / SEO・GSCメモ → 本文初稿・既存記事リライト案
+  → **新規記事インプット**（必須6・人。当日フォルダ `input-{slug}.md`。スキーマ: Skill `create-source-md` / `references/article-input.md`。Q番号は品質インプット外）
+  → Cursor（上位モデル）: Skill `create-source-md` で同フォルダに `source-{slug}.md`（ペルソナ等は Agent 起案。**source 用プロンプトの中間生成はしない**）
+  → **source 人間ゲート**（充足・境界・根拠・CTA）
+  → ④ Claude.ai: source.md のみ添付 → 本文初稿・既存記事リライト案
   → （任意）ChatGPT: SEO・Output Contract レビュー
   → L1 Cursor: Skill `l1-review-article`（必須合否＋導入読み味の任意観察。④と①の間）
   → ① Cursor: content/blog + posts.ts + build + 公開日Get-Date確定
@@ -58,6 +61,18 @@ DailyNote / AI-log
 **Git 後段 Skill（個人）**: `git-commit-pr`（commit/PR・マージ禁止）→ 人間確認 → `git-merge-cleanup`（マージ＋整理＋当日 Vault 追記。DailyNote/AI-log 欠落時は追記スキップ＋通知のみ、マージは実行）。`publish-article` 本体は commit/PR/merge/Vault 追記をしないが、**①チャット内で後段 Skill を続けて呼んでよい**（別チャット必須ではない）。
 
 上図の新規経路は「DailyNote / AI-log に候補がある」ことを起点にする。その手前の**記事テーマの捕捉**は下記で行う（捕捉しないと⑥が拾えず、テーマ化が漏れる）。
+
+#### 新規記事の source 経路（要約）
+
+| 段階 | 誰 | 成果 |
+|------|-----|------|
+| 新規記事インプット | 人（Agent はチャット内容を当日フォルダへ md 化してよい） | `01_Daily/…/input-{slug}.md`（必須6） |
+| source.md | Cursor + `create-source-md`（上位） | 同フォルダ `source-{slug}.md`。ペルソナ・記事の仕事は Agent 起案 |
+| source 人間ゲート | 人 | 推測・境界漏れ・CTA違和感の阻止 |
+| 本文初稿 | Claude.ai（④） | source のみ添付 |
+| L1 → ① | Cursor | 合否・公開 |
+
+**やらない**: Auto 等で source 用プロンプトを生成してから Skill を走らせる二重 Produce。
 
 #### 水曜オペ（② / ⑤ / ⑥）の境界
 
@@ -554,7 +569,7 @@ writing-rules.md と source.md または SEO・GSCメモを添付し、④ 記�
 
 ```text
 通常は Claude ⑤ を使います。Cursor で Tips 素材を作るときだけ使用してください。
-source.md を Cursor で作る依頼のときは Skill create-source-md に従う（構成のみ。本文初稿は④）。
+source.md を Cursor で作る依頼のときは Skill create-source-md に従う（**新規記事インプット必須6** → 構成のみ。本文初稿は④。source 用プロンプトの中間生成はしない）。
 ```
 
 ### ⑥ KPI＋日次メンテ（Cursor）

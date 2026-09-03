@@ -2146,6 +2146,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "claude-api-pricing-limits": {
+    contentId: "10-claude-developer",
+    markdownFile: "010-claude-api-pricing-limits.md",
+    imageBasePath: "/images/blog/claude-api-pricing-limits",
+    publishedAt: "2026-09-03",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
