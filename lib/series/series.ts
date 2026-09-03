@@ -177,6 +177,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "claude-mcp-setup-basics", // W8 Claude #5 MCP設定 Desktop/Code
       "claude-api-basics", // W8 Claude #6 API概要・最小利用例
       "claude-api-key-env-setup", // W8 Claude #7 APIキー・環境変数
+      "claude-api-pricing-limits", // W9 Claude #8 料金・レート制限・429切り分け
       "claude-code-vs-cursor-comparison", // W8 Claude #22 Code vs Cursor 比較
       "chatgpt-claude-comparison",
       "claude-pro-free-comparison",

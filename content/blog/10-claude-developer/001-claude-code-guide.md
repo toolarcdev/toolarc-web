@@ -12,7 +12,7 @@ tags:
   - MCP
 site: toolarc.jp
 target: "Claudeをコード／CLI／API側から使いたい個人開発〜小チームの初心者〜中級（執筆・Vault用途は別）"
-last_update: 2026-08-30
+last_update: 2026-09-03
 ---
 
 # Claude Code ガイド（開発者向け入口）
@@ -104,12 +104,13 @@ Code 手順本が揃うまでの当面は、次の公開済み Spoke を読ん�
 | 5 | Claude Desktop と Claude Code の MCP 設定入口を分けて進めたい | [ClaudeのMCP設定入門｜DesktopとCodeで設定ファイルはどこに書くか](/blog/claude-mcp-setup-basics) |
 | 6 | 自分のコードから Claude API を呼び出したい | [Claude APIとは｜できること・向く人・最小の利用例まで解説](/blog/claude-api-basics) |
 | 7 | APIキーを発行し、環境変数で安全に管理したい | [Claude APIキーの発行と環境変数への設定手順｜漏えい時の対処も](/blog/claude-api-key-env-setup) |
-| 8 | Claude Code と Cursor、どちらから始めるか判断したい | [Claude Code vs Cursor比較｜どちらから始めるかの判断基準](/blog/claude-code-vs-cursor-comparison) |
-| 9 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
-| 10 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
-| 11 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
-| 12 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
-| 13 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
+| 8 | APIの料金概算と429（レート制限）の切り分けを知りたい | [Claude APIの料金とレート制限｜コスト概算と429エラーの切り分け](/blog/claude-api-pricing-limits) |
+| 9 | Claude Code と Cursor、どちらから始めるか判断したい | [Claude Code vs Cursor比較｜どちらから始めるかの判断基準](/blog/claude-code-vs-cursor-comparison) |
+| 10 | ChatGPT と Claude の用途差を先に押さえたい | [ChatGPTとClaudeの違いとは？初心者向けに用途で比較](/blog/chatgpt-claude-comparison) |
+| 11 | Pro 加入を判断したい | [Claude Proは必要か？無料版との違いと判断基準3つ](/blog/claude-pro-free-comparison) |
+| 12 | GPT整理→Claude記事化の2段階を知りたい | [GPTで情報整理→Claudeで記事化する2段階AI運用](/blog/gpt-claude-two-stage-ai-workflow-tips) |
+| 13 | モデル聞き比べ・役割分担の実測を見たい | [Claude Opus 4.8を4モデルで聞き比べたメモ](/blog/compare-ai-models-opus48-tips) |
+| 14 | プロンプトの学ぶ順番を知りたい | [プロンプトエンジニアリングを初心者が学ぶ順番](/blog/ai-prompt-engineering-beginner-roadmap) |
 
 全部を一気に読む必要はありません。いまの迷いが「始め方」「インストール」「コマンド一覧」「Git操作」「MCP設定」「API呼び出し」「APIキー管理」「CodeとCursorの比較」「用途差」「料金判断」「分担運用」「モデル差」「プロンプト順」のどれに近いかで、1本選んで進めてください。
 
@@ -143,4 +144,4 @@ Claude Code 周りで迷ったときは、「執筆か開発か」「エディ�
 
 ---
 
-本記事の整理は、2026-07-16執筆時点の情報と公開済み記事構成に基づきます（読む順表は2026-08-29更新）。Anthropic／Claude Code／プラン・モデル名・コマンド、および関連サービスの仕様・料金は変更される可能性があります。重要な判断の前には、各サービスの公式ドキュメントを確認してください。
+本記事の整理は、2026-07-16執筆時点の情報と公開済み記事構成に基づきます（読む順表は2026-09-03更新）。Anthropic／Claude Code／プラン・モデル名・コマンド、および関連サービスの仕様・料金は変更される可能性があります。重要な判断の前には、各サービスの公式ドキュメントを確認してください。

@@ -12,6 +12,7 @@ tags:
   - claude-developer-series
 site: toolarc.jp
 target: "Claude API のキーを発行した（またはこれから発行する）が、コードへの直書きを避けて環境変数で安全に管理する方法と、漏えい時の対処が分からない初心者〜中級の個人開発者"
+last_update: 2026-09-03
 ---
 
 # Claude APIキーの発行と環境変数への設定手順｜漏えい時の対処も
@@ -26,7 +27,7 @@ Claude API のキーは発行できた。最小のコードも動いた。それ
 > - 流れは「Claude Consoleで発行 → OSの環境変数に設定 → コードから読み込む」の3段階です。画面名・変数名は執筆時点の公式ドキュメントで確認した名称を使います
 > - 環境変数の設定はOSごとに書き方が異なります。Windows・macOS・Linuxを分けて示すので、自分のOSの箇所だけ読めば設定できます。`.env` ファイルを使う場合はGitに含めません
 > - キーが漏れた（疑いを含む）ときは、先に新しいキーを発行して差し替え、動作を確認してから古いキーを無効化・削除します。この順であれば作業を止めずに入れ替えられます
-> - APIでできることや最小のコード例は「[Claude APIの使い方](/blog/claude-api-basics)」を参照してください。料金やレート制限の詳細は別記事参照
+> - APIでできることや最小のコード例は「[Claude APIの使い方](/blog/claude-api-basics)」を参照してください。料金やレート制限の詳細は「[Claude APIの料金とレート制限](/blog/claude-api-pricing-limits)」を参照してください
 
 ## APIキーの発行手順（コードへの直書きから抜け出す）
 
@@ -123,7 +124,7 @@ client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 ## 次に読む
 
-APIでできることや最小のコード例、認証でつまずいたときの確認ポイントは「[Claude APIの使い方](/blog/claude-api-basics)」にまとめています。料金やレート制限、SDKの全体像は別記事で扱う予定です。
+APIでできることや最小のコード例、認証でつまずいたときの確認ポイントは「[Claude APIの使い方](/blog/claude-api-basics)」にまとめています。料金やレート制限の詳細は「[Claude APIの料金とレート制限](/blog/claude-api-pricing-limits)」を参照してください。
 
 Claude CodeやMCPを含めたシリーズ全体の読む順は、Hubの「[Claude Code入門ガイド](/blog/claude-code-guide)」で確認できます。
 

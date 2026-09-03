@@ -51,7 +51,7 @@
 | `project-context.md` | サイト概要・読者・技術スタック・リポ構成                              |
 | `chat-operations.md` | **6スロット固定チャット**の役割・初回プロンプト・日次メンテ手順      |
 | `docs/plan/phase-now.md` | **現行フェーズ**                                                  |
-| `source.md`          | **記事1本ごと**の設計メモ（テーマ・読者・**ペルソナ2〜3**・問題・改善・伝えたいこと。Output Contract準拠）   |
+| `source.md`          | **記事1本ごと**の設計メモ（テーマ・読者・**ペルソナ2〜3**・問題・改善・伝えたいこと。Output Contract準拠）。作成前に当日フォルダの **`input-{slug}.md`（新規記事インプット）** が必須 |
 | `captions.md`        | 画像の内容・感情・配置・役割（画像付き記事のみ）                      |
 
 **優先順位**: `source.md` の「伝えたいこと」 > **該当ドメイン正本**（記事なら `writing-rules.md`）> `AGENTS.md`（入口・ハード制約）> `project-context.md` > 会話内の新しい指示

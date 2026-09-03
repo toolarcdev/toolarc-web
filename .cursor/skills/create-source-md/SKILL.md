@@ -2,11 +2,12 @@
 name: create-source-md
 description: >-
   Creates ToolArc article source.md (design outline only) in the Obsidian Daily
+  folder after a required 新規記事インプット file input-{slug}.md in the same day
   folder: personas, Output Contract, new-article exception gate, cannibal
   boundaries, evidence bar, Claude.ai constraints, and handoff notes for ④/①.
   Use when the user asks for source.md作成, 構成正本, 記事のsource, slot ⑤ source,
-  or 新規公開の例外ゲート用source. Not for writing article body drafts, posts.ts,
-  publish, L1 review, or PR.
+  新規記事インプット, input-{slug}, or 新規公開の例外ゲート用source. Not for writing
+  article body drafts, posts.ts, publish, L1 review, or PR.
 ---
 
 # create-source-md（source.md 構成正本）
@@ -24,54 +25,102 @@ Skill = 手順。記事の文体・SEO・Output Contract の**基準本文は再
 | Vault 記法 | 個人 Skill `obsidian-markdown` | ウィキリンク・`Last Updated` |
 | 後段 | `l1-review-article` → `publish-article` | ④／①。本 Skill では呼ばない |
 
+## 推奨フロー（新規記事・ゲート通過分）
+
+```text
+新規記事インプット（必須6・人）
+  → 本 Skill（上位モデル1回・Fable 等）で source.md
+  → source 人間ゲート（削らない）
+  → Claude.ai 本文（source のみ添付）
+  → L1（l1-review-article）→ ① publish-article
+```
+
+- **やらない**: Auto 等で「source 用プロンプト」を別途生成してから本 Skill を走らせる二重 Produce
+- **モデル**: source はやり直しコスト大 → 上位 tier（`model-selection-quality-first`）。L1・人間ゲートは cost 削減対象外
+- フロー横断の説明: `docs/ai-context/chat-operations.md`「記事フロー」
+
 ## やること / やらないこと
 
-**やる**: Vault に `source-{slug}.md` を1本作成（構成・ゲート・契約のみ）。必須要素チェック。④と①への引き継ぎメモ  
-**やらない**: 本文初稿・全文執筆、`posts.ts` / `series.ts`、公開・build・commit/PR、L1合否、GSC調査、収益9段の本書き（収益型は `revenue-article-template` を別途参照し、source には導線方針だけ書く）
+**やる**: 当日フォルダの **`input-{slug}.md`（新規記事インプット）** を確認したうえで、同フォルダに `source-{slug}.md` を1本作成（構成・ゲート・契約のみ）。必須要素チェック。④と①への引き継ぎメモ  
+**やらない**: 本文初稿・全文執筆、`posts.ts` / `series.ts`、公開・build・commit/PR、L1合否、GSC調査、収益9段の本書き（収益型は `revenue-article-template` を別途参照し、source には導線方針だけ書く）、source 用プロンプトの中間生成、インプット未ファイル化のまま source 作成
 
 ## 配置
 
 ```text
-D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\source-{slug}.md
+D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\input-{slug}.md   ← 新規記事インプット（必須・先）
+D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\source-{slug}.md  ← source.md（本 Skill）
 ```
 
 - `{YYMMDD}` は作業日（当日フォルダが無ければ `prepare-daily-workfolder` を案内して止める）
-- ファイル名は `source-{slug}.md`（括弧付きレガシー名は新規で使わない）
-- slug が依頼・week-queue・inbox に明示されていれば**その値を正本**とし、別slugを提案・置換しない
+- インプットファイル名は `input-{slug}.md`、source は `source-{slug}.md`（括弧付きレガシー名は新規で使わない）
+- **チャット貼付のみのインプットは不可**。必ず当日フォルダに `input-{slug}.md` を置いてから source を作る
+- slug が依頼・week-queue・inbox・**`input-{slug}.md`** に明示されていれば**その値を正本**とし、別slugを提案・置換しない
+
+## 新規記事インプット（必須・欠けたら作成しない）
+
+正本スキーマ: [references/article-input.md](references/article-input.md)
+
+**ファイル**: `01_Daily/{YYMM}/{YYMMDD}/input-{slug}.md`（source と同フォルダ。必須）
+
+開始前に当該ファイルが存在し、次の**必須6**が埋まっていること。ファイル無し・必須欠け → 質問して**止める**（推測で埋めない）。ユーザーが口頭／チャットで渡した場合は、先に `input-{slug}.md` を当日フォルダへ書いてから本 Skill の source 作成に進む。
+
+| # | 必須項目 | 備考 |
+|---|----------|------|
+| 1 | slug | 固定・変更禁止 |
+| 2 | 検索意図の型 | How-to / 比較 / チェックリスト / Hub |
+| 3 | 所属 Hub／シリーズ（または SubHub） | 未定のまま作らない |
+| 4 | 隣記事境界（1〜3本） | slug → 委譲／触らない |
+| 5 | 根拠の種 | 公式URL／実測メモ／「実測なし・公式準拠」＋断定禁止 |
+| 6 | 収益導線方針 | しない／末尾1本／直アフィ案件名 等。空にしない |
+
+**新規記事インプットに含めない**
+
+- **Q番号** — week-queue 運用の目印。記事品質と無関係。例外ゲート④・frontmatter `queue` は作成時にキューから突合して書く（インプット必須ではない）
+
+**任意**（あると精度向上）: 読者の生の一言／結論の核（最大3）／内部リンク候補／深さの上限・戦略上のやらないこと
+
+### 人と Agent の分担
+
+| 担当 | 内容 |
+|------|------|
+| **人（インプット）** | 必須6＋任意。根拠・境界・導線・戦略制約は推測禁止 |
+| **Agent（本 Skill）** | ペルソナ2〜3、記事の仕事、Output Contract、H2、ゲート文案、Claude制約埋め込み |
+| **人（source ゲート）** | ペルソナ充足・CTA違和感・根拠が創作になっていないか・境界漏れ |
+
+人が先にペルソナ／記事の役割を書く必要はない（二重化・薄いペルソナ化を防ぐ）。
 
 ## 手順
 
 開始時: `Get-Date -Format "yyyy-MM-dd HH:mm"` → frontmatter `Last Updated` / 作成日時に使う（手入力・`user_info` 禁止）
 
-1. **入力を固定する**（欠けたら質問して止める）
-   - slug（固定）
-   - 検索意図の型（How-to / 比較 / チェックリスト / Hub）
-   - week-queue の Q番号（新規 `new` なら必須。未掲載なら掲載理由1行＋キュー追記が必要かをユーザーに確認）
-   - 所属シリーズ／Hub（または SubHub）。**所属未定のまま作らない**（評価ノートの Hub/SubHub 方針）
-2. **正本を開く**（基準を本 Skill にコピーしない）
+1. **`input-{slug}.md` を確認する**（無ければ作成を案内／チャット内容から書いて保存。必須6が欠ける → 質問して停止）
+2. **運用突合（品質外）**: week-queue に当該 slug があれば Q・status を例外ゲート④／`queue` に反映。未掲載の新規なら掲載理由1行＋キュー追記が必要かをユーザーに確認
+3. **正本を開く**（基準を本 Skill にコピーしない）
    - `writing-rules.md` の Output Contract・読者最優先・Frontmatter・仕様・免責
    - 必要時のみ例外ゲート節／隣接記事の既存本文（転記禁止の境界確認）
-3. **テンプレに沿って書く** — 骨格は [references/template.md](references/template.md)。見出し順はテンプレ準拠。空欄禁止（未確定は `note`／要確認）
-4. **必須要素チェック**（下表すべて ✅ になるまで完了にしない）
-5. **完了報告**: ファイルパス／slug／例外ゲート4点の可否／④へ渡す1行／①へ渡す1行
+   - **`input-{slug}.md` を正として**境界・根拠・導線を展開（チャット記憶だけで上書きしない）
+4. **テンプレに沿って書く** — 骨格は [references/template.md](references/template.md)。見出し順はテンプレ準拠。空欄禁止（未確定は `note`／要確認）。ペルソナ・記事の仕事は **Agent 起案**
+5. **必須要素チェック**（下表すべて ✅ になるまで完了にしない）
+6. **完了報告**: ファイルパス（input＋source）／slug／例外ゲート4点の可否／④へ渡す1行／①へ渡す1行／**source 人間ゲート待ち**である旨
 
 ## 必須要素チェック
 
 | # | 要素 | 合格条件 |
 |---|------|----------|
+| 0 | 新規記事インプット | 当日フォルダに `input-{slug}.md` があり必須6が埋まっている。チャットのみ・欠けたまま作成していない |
 | 1 | 用途・スコープ禁止 | 冒頭で「構成のみ。本文初稿・posts.ts・公開・PR 禁止」と明示 |
-| 2 | プロパティ | `slug` / `status` / `type` / `site` / `queue` / `Last Updated` / related（week-queue 等の `[[wikilink]]`） |
+| 2 | プロパティ | `slug` / `status` / `type` / `site` / `queue`（キュー突合値） / `Last Updated` / related（week-queue 等の `[[wikilink]]`） |
 | 3 | タイトル＋description案 | 公開時 title 案。description は **120〜160文字必須**（両端含む。①で Unicode 再実測）。`――` 禁止・区切りは `｜` または `：` |
-| 4 | 記事の仕事／やらないこと | **どのペルソナに対して、記事がどの役割か**を具体的に書く（入口／判断／手順等。曖昧な要約禁止）。＋本文に入れない箇条 |
+| 4 | 記事の仕事／やらないこと | **どのペルソナに対して、記事がどの役割か**を具体的に書く（入口／判断／手順等。曖昧な要約禁止）。＋本文に入れない箇条。インプットの隣記事境界・収益方針と矛盾しない |
 | 5 | 悩み／問題／原因／対策／伝えたいこと | 5項目すべて埋める |
-| 6 | ペルソナ 2〜3 | 各: **呼び名／知りたいメイン／着地の求め／この記事で充足する不足**。想定した全員のメインが構成・結論で賄えること。公開本文へ転載しない旨を書く |
-| 7 | Output Contract 8項目 | writing-rules どおり。**想定読者1行＝ペルソナの要約**（別軸の読者像を立てない）。構成案は H2 最大5前後 |
+| 6 | ペルソナ 2〜3 | 各: **呼び名／知りたいメイン／着地の求め／この記事で充足する不足**。想定した全員のメインが構成・結論で賄えること。公開本文へ転載しない旨を書く。**Agent 起案可** |
+| 7 | Output Contract 8項目 | writing-rules どおり。**想定読者1行＝ペルソナの要約**（別軸の読者像を立てない）。構成案は H2 最大5前後。収益導線はインプット方針と一致 |
 | 8 | 構成骨格の詳細 | H2ごとに「書くこと／書かないこと」。抽象ラベル単独見出し禁止 |
 | 9 | 例外ゲート① | 既存URLでは意図をカバーできない理由（統合・リライト・SubHub で不可） |
-| 10 | 例外ゲート② 根拠バー | 実測／一次ログ **または** 調査・公式Docs・二次分析・SERP/GSC を本文で辿れる形。薄味枠埋め禁止 |
-| 11 | 例外ゲート③ カニバル | 1段落＋**隣記事の役割境界・転記禁止表** |
-| 12 | 例外ゲート④ キュー | week-queue の Q・target・status を明記（未掲載ならユーザー確認） |
-| 13 | Hub／シリーズ所属 | contentFolder／series 候補を①メモに書く。所属未定で止めない |
+| 10 | 例外ゲート② 根拠バー | インプットの根拠の種を本文で辿れる形に展開。薄味枠埋め禁止 |
+| 11 | 例外ゲート③ カニバル | 1段落＋**隣記事の役割境界・転記禁止表**（インプットの境界を正とする） |
+| 12 | 例外ゲート④ キュー | week-queue の Q・target・status を明記（未掲載ならユーザー確認）。**Qは運用突合でありインプット必須ではない** |
+| 13 | Hub／シリーズ所属 | contentFolder／series 候補を①メモに書く。インプットの所属と一致 |
 | 14 | note／要確認 | 未確認の料金・コマンド名・制限・製品名変更を断定禁止。免責へ反映する指示 |
 | 15 | Claude.ai 制約 | リポジトリ非参照前提で、文体要点・空句要約・句読点・内部リンク形式・初稿 Frontmatter 雛形を埋め込む |
 | 16 | ④への依頼メモ | 構成どおり初稿／確認すべき公式Docs／分量目安／L1へ渡す旨 |
@@ -109,7 +158,7 @@ web版 Claude.ai はリポジトリを読めない。**本 source だけ添付�
 
 ## 収益記事のとき（追加）
 
-- Output Contract の収益導線案を具体化する（直アフィ可否・CTA本数）
+- Output Contract の収益導線案を、**新規記事インプットの収益導線方針**に合わせて具体化する（直アフィ可否・CTA本数）
 - 詳細9段は `revenue-article-template`。source に9段全文を書かない
 - **1記事1チャット**（chat-operations ⑤）
 
@@ -117,13 +166,16 @@ web版 Claude.ai はリポジトリを読めない。**本 source だけ添付�
 
 ```text
 source.md 作成完了（本文・公開はしない）。
-- path: <Vault path>
+- input: <Vault path to input-{slug}.md>
+- path: <Vault path to source-{slug}.md>
 - slug: <slug>
+- 新規記事インプット: 必須6 充足（ファイル済）
 - 新規公開の例外ゲート: 1既存URL / 2根拠 / 3カニバル / 4キュー = 通過 or 要確認
-- 次: Claude.ai に本ファイルのみ添付 → ④初稿 → l1-review-article → publish-article
+- 次: source 人間ゲート → Claude.ai に source のみ添付 → ④初稿 → l1-review-article → publish-article
 ```
 
 ## 参照
 
+- 新規記事インプット: [references/article-input.md](references/article-input.md)
 - 出力骨格: [references/template.md](references/template.md)
 - 実例（Vault）: `01_Daily/…/source-*.md`（最近の完成形を1本だけ開いてトーン合わせ可。丸コピー禁止）
