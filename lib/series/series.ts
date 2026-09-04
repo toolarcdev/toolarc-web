@@ -194,7 +194,7 @@ export const allSeries: readonly SeriesConfig[] = [
     description:
       "MCP（Model Context Protocol）の用語・接続の入口。Client別 How-to は Spoke で拡充する。",
     hubSlug: "mcp-guide",
-    spokeSlugOrder: [],
+    spokeSlugOrder: ["mcp-what-is-model-context-protocol"],
     publishedAt: "2026-07-16",
   },
   {

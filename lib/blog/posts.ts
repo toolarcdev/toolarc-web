@@ -2154,6 +2154,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "mcp-what-is-model-context-protocol": {
+    contentId: "11-mcp",
+    markdownFile: "002-mcp-what-is-model-context-protocol.md",
+    imageBasePath: "/images/blog/mcp-what-is-model-context-protocol",
+    publishedAt: "2026-09-04",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
