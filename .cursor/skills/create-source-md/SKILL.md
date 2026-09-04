@@ -96,9 +96,9 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\source-{slug}.md  ← source.md�
 1. **`input-{slug}.md` を確認する**（無ければ作成を案内／チャット内容から書いて保存。必須6が欠ける → 質問して停止）
 2. **運用突合（品質外）**: week-queue に当該 slug があれば Q・status を例外ゲート④／`queue` に反映。未掲載の新規なら掲載理由1行＋キュー追記が必要かをユーザーに確認
 3. **正本を開く**（基準を本 Skill にコピーしない）
-   - `writing-rules.md` の Output Contract・読者最優先・Frontmatter・仕様・免責
+   - `writing-rules.md` の Output Contract・読者最優先・Frontmatter・仕様・免責。**読者最優先の「考え方」を読んでから**、記事の仕事／充足／公開面文案（description・導入・結論・H2）を書く。充足を進み先提示にしない（詳細は正本。本 Skill に再掲しない）
    - 必要時のみ例外ゲート節／隣接記事の既存本文（転記禁止の境界確認）
-   - **`input-{slug}.md` を正として**境界・根拠・導線を展開（チャット記憶だけで上書きしない）
+   - **`input-{slug}.md` を正として**境界・根拠・導線を展開（チャット記憶だけで上書きしない）。インプットの末尾 Hub／読む順は運用方針であり、公開面の約束に写さない
 4. **テンプレに沿って書く** — 骨格は [references/template.md](references/template.md)。見出し順はテンプレ準拠。空欄禁止（未確定は `note`／要確認）。ペルソナ・記事の仕事は **Agent 起案**
 5. **必須要素チェック**（下表すべて ✅ になるまで完了にしない）
 6. **完了報告**: ファイルパス（input＋source）／slug／例外ゲート4点の可否／④へ渡す1行／①へ渡す1行／**source 人間ゲート待ち**である旨
