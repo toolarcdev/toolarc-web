@@ -11,7 +11,7 @@ tags:
   - 初心者
 site: toolarc.jp
 target: "Cursor／Claudeでツール連携を触り始め、MCPの用語と読む順番を整理したい開発者"
-last_update: 2026-07-16
+last_update: 2026-09-04
 ---
 
 # Model Context Protocol（MCP）ガイド
@@ -94,11 +94,11 @@ MCP自体は「接続の話」で、どのClientから入るかで画面と手�
 
 ## 読む順番（ロードマップ）
 
-公開済みのSpokeは、執筆時点ではありません。初週は次の表を「今後こう読む」地図として使ってください。**slugが確定するまでリンクは置きません（すべて準備中）**。
+読む順番の地図です。公開済みの Spoke は実リンク、未公開は準備中です。
 
-| 順 | テーマ（表示用タイトル案） | 状態 |
+| 順 | テーマ | 状態 |
 | ---: | --- | :---: |
-| #1 | Model Context Protocol（MCP）とは | 準備中 |
+| #1 | [MCP（Model Context Protocol）とは｜APIやプラグインとの違いを一言で](/blog/mcp-what-is-model-context-protocol) | 公開 |
 | #2 | MCPの仕組み・アーキテクチャ入門 | 準備中 |
 | #3 | MCP導入ガイド：初めてのセットアップ | 準備中 |
 | #4 | MCP設定ファイル（`mcp.json` 等）の書き方 | 準備中 |
