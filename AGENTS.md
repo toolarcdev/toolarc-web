@@ -33,7 +33,7 @@
 
 0. 現行フェーズを `docs/plan/phase-now.md` で確認する（評価フェーズ中の優先は week-queue・統合／リライト／Hub・導線計測・負債。新規は例外ゲート通過分のみ）
 1. **記事**（構成・本文・CTA・SEO・禁止・Output Contract）→ `docs/ai-context/writing-rules.md`（空句 → `llm-forbidden-phrases.md`）
-2. **source.md 作成** → Skill `create-source-md`（当日フォルダに **`input-{slug}.md`** 必須 → `source-{slug}.md`。ペルソナは Agent 起案。本文初稿・公開はしない）
+2. **source.md 作成** → Skill `create-source-md`（当日フォルダに **`input-{slug}.md`** 必須 → `source-{slug}.md`。インプットのペルソナは任意の案。確定は source.md 側の Agent。本文初稿・公開はしない）
 3. **収益記事の手順化** → Skill `revenue-article-template`（基準は writing-rules / `policy.ts`）
 4. **公開（①）** → Skill `publish-article` ＋ `.cursor/rules/article-publish.mdc`
 5. **L1（④）** → Skill `l1-review-article`（導入読み味の任意観察 → `prose-observation-cards`。深い推敲 → `toolarc-ja-prose`）

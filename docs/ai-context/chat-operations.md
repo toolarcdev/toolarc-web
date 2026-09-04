@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-09-03 15:32（input-{slug}.md を当日フォルダ必須化）
+最終更新: 2026-09-04 18:04（インプットのペルソナは任意の案。確定は source.md 側）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
@@ -46,7 +46,7 @@ DailyNote / AI-log
   → ⑤ Claude（任意）: readerタイトル・inbox骨子 / 柱C表 → handoff（Vault `slot-handoff-template.md`）
   → ⑥ Cursor: handoff 反映・候補マスター・inbox・Dashboard（Commit）
   → **新規記事インプット**（必須6・人。当日フォルダ `input-{slug}.md`。スキーマ: Skill `create-source-md` / `references/article-input.md`。Q番号は品質インプット外）
-  → Cursor（上位モデル）: Skill `create-source-md` で同フォルダに `source-{slug}.md`（ペルソナ等は Agent 起案。**source 用プロンプトの中間生成はしない**）
+  → Cursor（上位モデル）: Skill `create-source-md` で同フォルダに `source-{slug}.md`（ペルソナ・記事の仕事は source.md 側の Agent が確定。インプットにあれば案として材料。**source 用プロンプトの中間生成はしない**）
   → **source 人間ゲート**（充足・境界・根拠・CTA）
   → ④ Claude.ai: source.md のみ添付 → 本文初稿・既存記事リライト案
   → （任意）ChatGPT: SEO・Output Contract レビュー
@@ -66,8 +66,8 @@ DailyNote / AI-log
 
 | 段階 | 誰 | 成果 |
 |------|-----|------|
-| 新規記事インプット | 人（Agent はチャット内容を当日フォルダへ md 化してよい） | `01_Daily/…/input-{slug}.md`（必須6） |
-| source.md | Cursor + `create-source-md`（上位） | 同フォルダ `source-{slug}.md`。ペルソナ・記事の仕事は Agent 起案 |
+| 新規記事インプット | 人（Agent はチャット内容を当日フォルダへ md 化してよい） | `01_Daily/…/input-{slug}.md`（必須6。任意でペルソナ案を書いてよい） |
+| source.md | Cursor + `create-source-md`（上位） | 同フォルダ `source-{slug}.md`。ペルソナ・記事の仕事は source.md 側の Agent が確定 |
 | source 人間ゲート | 人 | 推測・境界漏れ・CTA違和感の阻止 |
 | 本文初稿 | Claude.ai（④） | source のみ添付 |
 | L1 → ① | Cursor | 合否・公開 |
