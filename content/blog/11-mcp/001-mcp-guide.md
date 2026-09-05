@@ -1,6 +1,6 @@
 ---
 title: "Model Context Protocol（MCP）ガイド"
-description: "MCPとは何か、Host／Client／Serverの位置づけとCursor・Claudeからの読む順番を整理したシリーズ入口です。公開初週はロードマップ中心で、Client別の設定手順は今後の記事で扱います（執筆時点の情報）。"
+description: "MCPとは何か、Host／Client／Serverの位置づけとCursor・Claudeからの読む順番を整理したシリーズ入口です。用語の地図と読む順番を先に固め、Client別の設定手順は今後のSpoke記事で扱います（執筆時点の情報）。"
 date: 2026-07-16
 tags:
   - MCP
@@ -11,7 +11,7 @@ tags:
   - 初心者
 site: toolarc.jp
 target: "Cursor／Claudeでツール連携を触り始め、MCPの用語と読む順番を整理したい開発者"
-last_update: 2026-09-04
+last_update: 2026-09-05
 ---
 
 # Model Context Protocol（MCP）ガイド
@@ -99,7 +99,7 @@ MCP自体は「接続の話」で、どのClientから入るかで画面と手�
 | 順 | テーマ | 状態 |
 | ---: | --- | :---: |
 | #1 | [MCP（Model Context Protocol）とは｜APIやプラグインとの違いを一言で](/blog/mcp-what-is-model-context-protocol) | 公開 |
-| #2 | MCPの仕組み・アーキテクチャ入門 | 準備中 |
+| #2 | [MCPの仕組み入門｜Host・Client・Serverの役割とメッセージの流れ](/blog/mcp-architecture-basics) | 公開 |
 | #3 | MCP導入ガイド：初めてのセットアップ | 準備中 |
 | #4 | MCP設定ファイル（`mcp.json` 等）の書き方 | 準備中 |
 | #6 | Cursor MCP設定（canonical。Cursor側記事と相互リンク予定） | 準備中 |
