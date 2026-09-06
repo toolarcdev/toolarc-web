@@ -1302,8 +1302,8 @@ export const blogPosts = {
     category: "tool",
   },
   "ai-prompt-engineering-beginner-roadmap": {
-    contentId: "20-investigate-something",
-    markdownFile: "327-ai-prompt-engineering-beginner-roadmap.md",
+    contentId: "10-claude-developer",
+    markdownFile: "011-ai-prompt-engineering-beginner-roadmap.md",
     imageBasePath: "/images/blog/20-investigate-something",
     publishedAt: "2026-07-07",
     ogImage: "og.png",
