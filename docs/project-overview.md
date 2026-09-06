@@ -1,5 +1,8 @@
 # ToolArc Project Overview
 
+**Scope**: UI / site implementation only.  
+**Not for article prose**: blog body, CTA, Output Contract, and writing style live in `docs/ai-context/writing-rules.md` (and `llm-forbidden-phrases.md`). Do not use this file to judge article tone or “cleverness.”
+
 ## Overview
 
 ToolArc is a beginner-friendly Japanese blog and tool platform focused on AI workflows, developer tools, and learning resources.
@@ -51,19 +54,9 @@ The site aims to help beginners learn modern development workflows using tools l
 
 ---
 
-## Content Writing Style
-
-- Use simple Japanese
-- Explain technical terms carefully
-- Focus on step-by-step instructions
-- Avoid overly advanced explanations
-- Prioritize clarity over cleverness
-
----
-
 ## AI Assistant Guidelines
 
-When modifying this project:
+When modifying this project (UI / layout / site code):
 
 - Follow docs/design-system.md
 - Prioritize readability
