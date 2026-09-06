@@ -1,6 +1,6 @@
 # project-context.md — ToolArc プロジェクト文脈
 
-最終更新: 2026-08-04 18:26  
+最終更新: 2026-09-06 15:44  
 サイト: https://toolarc.jp（本番。ローカル開発は別）
 
 ---
@@ -178,7 +178,7 @@
 - `AGENTS.md` — 入口・ハード制約・読み分け
 - `docs/ai-context/writing-rules.md` — **記事正本**（文体・CTA・Output Contract 等）
 - `docs/ai-context/` — `context.md`、`chat-operations.md`、`content-folders.md`、`debt-paydown-workflow.md`、`affiliate-registry.md`、本ファイル
-- `docs/project-overview.md` — 概要・読者・執筆スタイル
+- `docs/project-overview.md` — UI／サイト実装向け概要のみ（記事文体・CTAは `writing-rules.md`）
 - `docs/design-system.md` — 色・レイアウト
 - `docs/seo-goals.md` — 週次オペ／Outcome KPI（フェーズ連動）
 - `docs/plan/phase-now.md` — 現行フェーズ・Phase2-x・方針B
