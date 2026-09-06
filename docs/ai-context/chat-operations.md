@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-09-04 18:04（インプットのペルソナは任意の案。確定は source.md 側）
+最終更新: 2026-09-06 15:08（Claude 初稿は共通制約＋source。共通制約は外出し）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
@@ -48,7 +48,7 @@ DailyNote / AI-log
   → **新規記事インプット**（必須6・人。当日フォルダ `input-{slug}.md`。スキーマ: Skill `create-source-md` / `references/article-input.md`。Q番号は品質インプット外）
   → Cursor（上位モデル）: Skill `create-source-md` で同フォルダに `source-{slug}.md`（ペルソナ・記事の仕事は source.md 側の Agent が確定。インプットにあれば案として材料。**source 用プロンプトの中間生成はしない**）
   → **source 人間ゲート**（充足・境界・根拠・CTA）
-  → ④ Claude.ai: source.md のみ添付 → 本文初稿・既存記事リライト案
+  → ④ Claude.ai: 共通制約（`create-source-md/references/claude-ai-draft-constraints.md` を Project 知識）＋ source.md → 本文初稿・既存記事リライト案
   → （任意）ChatGPT: SEO・Output Contract レビュー
   → L1 Cursor: Skill `l1-review-article`（必須合否＋導入読み味の任意観察。④と①の間）
   → ① Cursor: content/blog + posts.ts + build + 公開日Get-Date確定
@@ -69,7 +69,7 @@ DailyNote / AI-log
 | 新規記事インプット | 人（Agent はチャット内容を当日フォルダへ md 化してよい） | `01_Daily/…/input-{slug}.md`（必須6。任意でペルソナ案を書いてよい） |
 | source.md | Cursor + `create-source-md`（上位） | 同フォルダ `source-{slug}.md`。ペルソナ・記事の仕事は source.md 側の Agent が確定 |
 | source 人間ゲート | 人 | 推測・境界漏れ・CTA違和感の阻止 |
-| 本文初稿 | Claude.ai（④） | source のみ添付 |
+| 本文初稿 | Claude.ai（④） | 共通制約（Project 知識）＋ source。共通は source に埋め込まない |
 | L1 → ① | Cursor | 合否・公開 |
 
 **やらない**: Auto 等で source 用プロンプトを生成してから Skill を走らせる二重 Produce。
