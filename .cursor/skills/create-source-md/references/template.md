@@ -3,7 +3,7 @@
 前提: 同フォルダの `input-{slug}.md`（[article-input.md](article-input.md)）で **新規記事インプット（必須6）** が揃っていること。  
 Agent は空欄を埋めて Vault に保存する。ペルソナ・記事の仕事は **source.md 側の Agent が確定**（インプットに案があれば材料。人が先書きしていなくてもよい。案の丸写し必須ではない）。基準の長文は `writing-rules.md` を開き、**ここに再掲しない**。共通 Claude 制約は [claude-ai-draft-constraints.md](claude-ai-draft-constraints.md)（source に埋め込まない）。
 
-**出力の薄さ**: 骨格は箇条。ゲート通過済は短文。共通文体・空句・句読点を source に再掲しない。目安 12〜16k。
+**出力の薄さ**: 骨格は箇条。ゲート通過済は短文。共通文体・空句・句読点を source に再掲しない。
 
 ```markdown
 ---

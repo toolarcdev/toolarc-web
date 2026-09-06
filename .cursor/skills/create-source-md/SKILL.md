@@ -39,7 +39,7 @@ Skill = 手順。記事の文体・SEO・Output Contract の**基準本文は再
 
 - **やらない**: Auto 等で「source 用プロンプト」を別途生成してから本 Skill を走らせる二重 Produce
 - **モデル**: source はやり直しコスト大 → 上位 tier（`model-selection-quality-first`）。L1・人間ゲートは cost 削減対象外
-- **出力の薄さ**: 共通 Claude 制約・writing-rules 全文要約を source に埋め込まない。ゲート通過済は短文化。骨格は箇条（初稿級に膨らませない）。目安 **12〜16k**（23k 級は例外）
+- **出力の薄さ**: 共通 Claude 制約・writing-rules 全文要約を source に埋め込まない。ゲート通過済は短文化。骨格は箇条（初稿級に膨らませない）。文字数の上限ノルマは設けない（施策は重複・定型の削減）
 - フロー横断の説明: `docs/ai-context/chat-operations.md`「記事フロー」
 
 ## やること / やらないこと
