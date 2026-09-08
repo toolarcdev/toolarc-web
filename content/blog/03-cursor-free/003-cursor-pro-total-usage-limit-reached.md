@@ -1,6 +1,6 @@
 ---
-title: "Cursor Proの「Total usage limit reached」対処法"
-description: "Cursor Proで「Total usage limit reached」が表示されたときの意味と対処法を、2026年6月の実測をもとに解説します。月次リセット待ち・Auto modeの低速モードのような挙動・Set new limit・プランアップグレードの選択肢を整理しました。"
+title: "Cursor Pro「Total usage limit reached」は故障？待つ／課金の判断"
+description: "Cursor Proの「Total usage limit reached」は故障ではありません。急ぎでなければ月次リセット待ち、続けたいときは小さめのSet new limitを。2026年6月の実測で、Auto modeが低速でも使える場合も整理しています。"
 date: 2026-06-23
 tags:
   - Cursor
@@ -11,14 +11,14 @@ tags:
   - AIコーディングツール
 site: toolarc.jp
 target: "Cursor Proを使っていて使用量上限の表示に困っている初心者"
-last_update: 2026-07-21
+last_update: 2026-09-08
 ---
 
-# Cursor Proの「Total usage limit reached」対処法
+# Cursor Pro「Total usage limit reached」は故障？待つ／課金の判断
 
-Cursor Proで作業をしていたら、急に「Total usage limit reached」という表示が出てきて手が止まった。そんな経験をした方もいるのではないでしょうか。故障なのか、それとも追加で課金を求められているのか分かりにくく、最初は不安になりますよね。
+Cursor Proで作業をしていたら、急に「Total usage limit reached」という表示が出てきて手が止まった。故障なのか、追加課金が必要なのか、分かりにくくて不安になることがあります。
 
-筆者も実際にこの表示を確認しましたが、結論としては故障ではありません。**今月分の使用量上限に達した**ことを知らせる、ごく普通の表示です。落ち着いて対処すれば問題ありません。
+筆者も実際にこの表示を確認しましたが、結論としては故障ではありません。**今月分の使用量上限に達した**ことを知らせる、ごく普通の表示です。まずは「待つ／課金する」の判断から整理します。
 
 > **今日の結論**
 > - `Total usage limit reached` は、Cursor Pro の今月分の使用量上限に達したという表示です

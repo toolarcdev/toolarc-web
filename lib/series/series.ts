@@ -197,6 +197,8 @@ export const allSeries: readonly SeriesConfig[] = [
     spokeSlugOrder: [
       "mcp-what-is-model-context-protocol",
       "mcp-architecture-basics",
+      "mcp-first-setup-guide",
+      "mcp-config-json-guide",
     ],
     publishedAt: "2026-07-16",
   },
