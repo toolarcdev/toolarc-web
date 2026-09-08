@@ -2170,6 +2170,22 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "mcp-first-setup-guide": {
+    contentId: "11-mcp",
+    markdownFile: "004-mcp-first-setup-guide.md",
+    imageBasePath: "/images/blog/mcp-first-setup-guide",
+    publishedAt: "2026-09-08",
+    ogImage: "h2-1.png",
+    category: "tool",
+  },
+  "mcp-config-json-guide": {
+    contentId: "11-mcp",
+    markdownFile: "005-mcp-config-json-guide.md",
+    imageBasePath: "/images/blog/mcp-config-json-guide",
+    publishedAt: "2026-09-08",
+    ogImage: "og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

@@ -11,7 +11,7 @@ tags:
   - 初心者
 site: toolarc.jp
 target: "Cursor／Claudeでツール連携を触り始め、MCPの用語と読む順番を整理したい開発者"
-last_update: 2026-09-05
+last_update: 2026-09-08
 ---
 
 # Model Context Protocol（MCP）ガイド
@@ -26,7 +26,7 @@ last_update: 2026-09-05
 
 「MCP」という言葉を見かけて、CursorやClaudeの設定画面に出てくる名前とどう対応するのか分からない。そんな段階向けの入口です。
 
-本記事は **Model Context Protocol（MCP）シリーズの Hub（入口）** です。設定ファイルの書き方やClient別の手順は、現時点ではロードマップ上の「準備中」として示し、用語と読む順番を先に固める構成にしています。
+本記事は **Model Context Protocol（MCP）シリーズの Hub（入口）** です。用語と読む順番を先に固めたうえで、導入手順や設定ファイルの書き方は公開済み Spoke、Client別の細部はロードマップ上の「準備中」分を順に足していく構成です。
 
 ## MCPを一言で・このシリーズの範囲（Host／Client／Server）
 
@@ -100,8 +100,8 @@ MCP自体は「接続の話」で、どのClientから入るかで画面と手�
 | ---: | --- | :---: |
 | #1 | [MCP（Model Context Protocol）とは｜APIやプラグインとの違いを一言で](/blog/mcp-what-is-model-context-protocol) | 公開 |
 | #2 | [MCPの仕組み入門｜Host・Client・Serverの役割とメッセージの流れ](/blog/mcp-architecture-basics) | 公開 |
-| #3 | MCP導入ガイド：初めてのセットアップ | 準備中 |
-| #4 | MCP設定ファイル（`mcp.json` 等）の書き方 | 準備中 |
+| #3 | [MCPの導入手順｜初回セットアップの準備から動作確認まで](/blog/mcp-first-setup-guide) | 公開 |
+| #4 | [MCP設定ファイルの書き方｜mcp.jsonの構造とエラー修正](/blog/mcp-config-json-guide) | 公開 |
 | #6 | Cursor MCP設定（canonical。Cursor側記事と相互リンク予定） | 準備中 |
 
 推奨の読み方は **#1 → #2 → #3 → #4 → #6** です。#1〜#2で言葉を揃え、#3〜#4で共通の導入感を掴み、#6でCursorから触る、という段階に分ける想定です。
