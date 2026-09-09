@@ -46,6 +46,8 @@
 | Reader ASP clicks (cumulative) | ASP admin | Phase2-0 exit = **reader-attributed ≥10** since self-click ban **2026-07-29**. Contaminated totals invalid |
 | Approved revenue (monthly) | ASP admin | Phase2-1+ gate; ¥0 OK while in 2-0 |
 
+**100表示+ページの集計定義（2026-09-09 確定）**: `page-daily` を28日合算。`page` URLの **フラグメント（`#`以降）とクエリ文字列を除去**し末尾 `/` を整えたうえで同一URLに合算し、表示≥100の件数を数える。`/`・`/blog`・series・tools は**除外しない**。`#見出し` を別ページ扱いしない。詳細: Vault `gsc-weekly-acquisition-checklist` / `gsc-weekly-log` 列メモ。
+
 手順（②オペレーション）: `D:\ObsidianVault\Vault\00-dashboard\gsc-weekly-acquisition-checklist.md`  
 背景（公開記事）: https://www.toolarc.jp/blog/gsc-index-weekly-check-tips
 
