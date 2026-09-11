@@ -6,17 +6,27 @@ type WorkflowStep = {
 };
 
 const STEPS: WorkflowStep[] = [
-  { id: "daily-notes", label: "Obsidian daily notes", sublabel: "思考ログ・時系列メモ" },
   {
     id: "source-md",
-    label: "source.md で構造整理",
-    sublabel: "記事テーマ・読者・問題・改善を整理",
+    label: "Step1 source.md",
+    sublabel: "読者・結論・構成を先に固める",
     isHighlighted: true,
   },
-  { id: "claude", label: "Claude で記事生成", sublabel: "構造化された素材を渡す" },
-  { id: "chatgpt", label: "ChatGPT でレビュー", sublabel: "客観的なチェック" },
-  { id: "cursor", label: "Cursor でサイト反映", sublabel: "実装・コンポーネント化" },
-  { id: "final", label: "自分で最終調整", sublabel: "トーン・細部の確認" },
+  {
+    id: "claude",
+    label: "Step2 Claude 初稿",
+    sublabel: "source.md を渡して初稿を依頼",
+  },
+  {
+    id: "review",
+    label: "Step3 人間レビュー",
+    sublabel: "事実・文体・導線・内部リンクを確認",
+  },
+  {
+    id: "cursor",
+    label: "Step4 Cursor 公開",
+    sublabel: "実装・posts.ts・ビルド確認",
+  },
 ];
 
 function Arrow() {
@@ -44,10 +54,10 @@ export function SourceWorkflowDiagram() {
   return (
     <div
       className="my-8 rounded-xl border border-[#dbeafe] bg-[#f8fbff] p-6 sm:p-8"
-      aria-label="記事制作ワークフロー図"
+      aria-label="source.mdから公開までの4段階ワークフロー図"
     >
       <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-slate-400">
-        Current Workflow
+        4-step workflow
       </p>
       <ol className="flex flex-col items-center gap-0" role="list">
         {STEPS.map((step, i) => (
