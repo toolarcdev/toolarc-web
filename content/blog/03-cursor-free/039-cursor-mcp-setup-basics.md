@@ -13,7 +13,7 @@ tags:
   - cursor-free-series
 site: toolarc.jp
 target: "CursorでMCPを一度も設定したことがなく、設定画面の場所とmcp.jsonの書き方を知りたい開発者"
-last_update: 2026-08-25
+last_update: 2026-09-12
 ---
 
 # CursorのMCP設定｜設定画面の場所とmcp.jsonの書き方
@@ -187,10 +187,11 @@ Agentは、依頼内容との関連性に応じてこれらのツールを自分
 
 ## まとめ・次に読む
 
-CursorのMCP設定でつまずく原因の多くは、機能の難しさではなく画面の場所です。`Cursor Settings` から `Tools & MCPs` を開き、実体である `.cursor/mcp.json` を自分で作り、ツール一覧に出たことを確認する。この3手が通れば、あとは接続先ごとの話になります。画面が記事と違って見えるときは、Customizeへの移行が進んだ後の版を触っている可能性を先に疑ってください。
+CursorのMCP設定でつまずく原因の多くは、機能の難しさではなく画面の場所です。`Cursor Settings` から `Tools & MCPs` を開き、実体である `.cursor/mcp.json` を自分で作り、ツール一覧に出たことを確認する。この3手が通れば、あとは接続先ごとの話になります。画面が記事と違って見えるときは、Customizeへの移行が進んだ後の版を触っている可能性を先に疑ってください。置き場所の優先や追加後の確認まで整理したいときは、[CursorのMCP設定｜mcp.jsonの置き場所と追加後の確認](/blog/mcp-cursor-setup)も参照してください。
 
 - Hub: [Cursor 開発ガイド｜初心者向けの始め方と読む順番](/blog/cursor-free)
-- MCPの用語と仕組み: [Model Context Protocol（MCP）ガイド](/blog/mcp-guide)（Cursor向けの詳細版は準備中）
+- MCPの用語と仕組み: [Model Context Protocol（MCP）ガイド](/blog/mcp-guide)
+- 置き場所と追加後の確認: [CursorのMCP設定｜mcp.jsonの置き場所と追加後の確認](/blog/mcp-cursor-setup)
 - ターミナル側の入口: [Cursor CLIのインストールと基本操作](/blog/cursor-cli-install-basics)
 - 任せる範囲の決め方: [Cursor Agentは記事一括公開と基盤横断変更に絞って使う](/blog/cursor-agent-scope-tips)
 

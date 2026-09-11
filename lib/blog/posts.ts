@@ -2194,6 +2194,14 @@ export const blogPosts = {
     ogImage: "h2-1.png",
     category: "tool",
   },
+  "mcp-cursor-setup": {
+    contentId: "11-mcp",
+    markdownFile: "007-mcp-cursor-setup.md",
+    imageBasePath: "/images/blog/mcp-cursor-setup",
+    publishedAt: "2026-09-12",
+    ogImage: "h2-1.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
