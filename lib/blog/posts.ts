@@ -2186,6 +2186,14 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "tool",
   },
+  "mcp-stdio-vs-sse-transport": {
+    contentId: "11-mcp",
+    markdownFile: "006-mcp-stdio-vs-sse-transport.md",
+    imageBasePath: "/images/blog/mcp-stdio-vs-sse-transport",
+    publishedAt: "2026-09-11",
+    ogImage: "h2-1.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

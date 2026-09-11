@@ -199,6 +199,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-architecture-basics",
       "mcp-first-setup-guide",
       "mcp-config-json-guide",
+      "mcp-stdio-vs-sse-transport",
     ],
     publishedAt: "2026-07-16",
   },
