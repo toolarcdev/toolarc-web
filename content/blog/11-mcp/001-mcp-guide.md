@@ -11,7 +11,7 @@ tags:
   - 初心者
 site: toolarc.jp
 target: "Cursor／Claudeでツール連携を触り始め、MCPの用語と読む順番を整理したい開発者"
-last_update: 2026-09-08
+last_update: 2026-09-11
 ---
 
 # Model Context Protocol（MCP）ガイド
@@ -102,11 +102,12 @@ MCP自体は「接続の話」で、どのClientから入るかで画面と手�
 | #2 | [MCPの仕組み入門｜Host・Client・Serverの役割とメッセージの流れ](/blog/mcp-architecture-basics) | 公開 |
 | #3 | [MCPの導入手順｜初回セットアップの準備から動作確認まで](/blog/mcp-first-setup-guide) | 公開 |
 | #4 | [MCP設定ファイルの書き方｜mcp.jsonの構造とエラー修正](/blog/mcp-config-json-guide) | 公開 |
+| #5 | [MCPのstdioとSSE｜トランスポートの違いと選び方](/blog/mcp-stdio-vs-sse-transport) | 公開 |
 | #6 | Cursor MCP設定（canonical。Cursor側記事と相互リンク予定） | 準備中 |
 
-推奨の読み方は **#1 → #2 → #3 → #4 → #6** です。#1〜#2で言葉を揃え、#3〜#4で共通の導入感を掴み、#6でCursorから触る、という段階に分ける想定です。
+推奨の読み方は **#1 → #2 → #3 → #4 → #5 → #6** です。#1〜#2で言葉を揃え、#3〜#4で共通の導入感を掴み、#5で接続方式（stdio／HTTP側）を見分け、#6でCursorから触る、という段階に分ける想定です。
 
-続編として、#5（stdio／SSEなど通信の話）、#7（Claude Desktop MCP）、#8（Claude Code MCP）なども「準備中」です。番号やタイトルは計画用のため、公開時に調整される可能性があります。
+続編として、#7（Claude Desktop MCP）、#8（Claude Code MCP）なども「準備中」です。番号やタイトルは計画用のため、公開時に調整される可能性があります。
 
 ## 隣のHubとセキュリティ注意
 
