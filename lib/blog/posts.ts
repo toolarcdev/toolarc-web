@@ -45,9 +45,9 @@ export const blogPosts = {
   "source-md-ai-writing": {
     contentId: "01-site-launch",
     markdownFile: "003-source-md-ai-writing-revised.md",
-    imageBasePath: "/images/blog/source-md-ai-writing",
+    imageBasePath: "/images/og",
     publishedAt: "2026-05-22",
-    ogImage: "og.png",
+    ogImage: "default-og.png",
     category: "ai-workflow",
     layout: "rich-toc",
   },

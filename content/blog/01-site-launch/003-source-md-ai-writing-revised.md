@@ -1,14 +1,16 @@
 ---
 title: Claude記事生成は「source.md」で精度が変わった
 slug: source-md-ai-writing
-status: draft
-last_update: 2026-07-20
+description: "AIにdaily notesをそのまま渡すと記事の流れが崩れる人向けに、先にsource.mdで読者・問題・改善を整理してからClaudeへ渡す方法を体験談ベースで解説します。プロンプトより入力素材の構造が出力を左右する理由まで分かります。"
+date: 2026-05-22
 tags:
   - claude
   - obsidian
   - ai-writing
   - markdown
   - workflow
+site: toolarc.jp
+last_update: 2026-09-11
 ---
 
 # Claude記事生成は「source.md」で精度が変わった
