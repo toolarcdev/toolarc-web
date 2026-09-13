@@ -132,7 +132,7 @@ Cursor側でMCPを設定したい場合や、Claudeとの違いが気になる�
 
 Claude Codeが初めての場合は、[Claude Codeの始め方](/blog/claude-code-getting-started)でインストールから最初の一歩までを確認できます。
 
-Claude DesktopのMCP設定をより丁寧に扱う記事は準備中です。公開までは、本記事と[MCPガイド](/blog/mcp-guide)の内容を参考にしてください。
+Claude DesktopのMCP設定を、Extensionsと設定JSONの選び方から反映・確認までまとめた記事は、[Claude DesktopのMCP設定｜Extensionsと設定JSONの選び方](/blog/mcp-claude-desktop-setup)です。Desktop／Codeの分岐と場所探しは本記事、Desktop固有の適用と確認はそちらに分かれます。
 
 Claude開発者シリーズ全体の読む順は、Hub記事の[Claude Code ガイド](/blog/claude-code-guide)にまとめてあります。
 

@@ -201,6 +201,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-config-json-guide",
       "mcp-stdio-vs-sse-transport",
       "mcp-cursor-setup",
+      "mcp-claude-desktop-setup",
     ],
     publishedAt: "2026-07-16",
   },
