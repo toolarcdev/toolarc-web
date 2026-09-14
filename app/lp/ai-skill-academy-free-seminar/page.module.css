@@ -613,7 +613,7 @@
 .page :global(h2), .page :global(h3) {
   font-weight: 700;
 }
-.page :global(a:not(.cta)) {
+.page :global(a:not(.cta):not(.brand)) {
   text-decoration-line: underline;
 }
 .page :global(.steps) {

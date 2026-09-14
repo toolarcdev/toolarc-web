@@ -27,7 +27,7 @@ export default function AiSkillAcademyFreeSeminarPage() {
   return <div className={styles.page} data-lp="ai-skill-academy-free-seminar">
     <a className="skip" href="#main">本文へ</a>
     <header className="masthead wrap">
-      <span className="brand">ToolArc</span>
+      <Link className="brand" href="https://www.toolarc.jp/">ToolArc</Link>
       <span className="ad">広告</span>
     </header>
     <main id="main">
@@ -195,7 +195,7 @@ export default function AiSkillAcademyFreeSeminarPage() {
       </section>
     </main>
     <footer className="wrap">
-      <span className="brand">ToolArc</span>
+      <Link className="brand" href="https://www.toolarc.jp/">ToolArc</Link>
       <Link href="/about">運営情報</Link>
       <Link href="/privacy">プライバシーポリシー</Link>
       <Link href="/affiliate-disclosure">広告・アフィリエイト表記</Link>
