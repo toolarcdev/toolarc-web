@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/layout/Header";
 import { SiteDisclosureBand } from "@/components/layout/SiteDisclosureBand";
 import { Footer } from "@/components/layout/Footer";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { GTMPageTracker } from "@/components/analytics/GTMPageTracker";
 import "./globals.css";
 
@@ -50,10 +51,9 @@ export default function RootLayout({
         <Suspense>
           <GTMPageTracker />
         </Suspense>
-        <Header />
-        <SiteDisclosureBand />
-        <div className="flex flex-1 flex-col">{children}</div>
-        <Footer />
+        <SiteChrome header={<><Header /><SiteDisclosureBand /></>} footer={<Footer />}>
+          {children}
+        </SiteChrome>
         <Analytics />
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
