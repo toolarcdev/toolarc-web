@@ -12,6 +12,7 @@ tags:
   - claude-developer-series
 site: toolarc.jp
 target: "Claude Desktop か Claude Code で MCP を使い始めたいが、どの設定ファイルをどこに書けばよいか分からない初心者〜中級の個人開発者"
+last_update: 2026-09-14
 ---
 
 # ClaudeのMCP設定入門｜DesktopとCodeで設定ファイルはどこに書くか
@@ -109,7 +110,7 @@ claude mcp list
 
 Claude DesktopとClaude Codeは**設定ファイルが別**であるため、どちらか一方で追加したサーバーがもう一方に現れることはありません。両方で同じサーバーを使いたい場合は、**それぞれで追加**してください。
 
-手順の全体は、[Anthropic公式ドキュメントの Connect to MCP servers](https://code.claude.com/docs/en/mcp-quickstart) にまとまっています。
+手順の全体は、[Anthropic公式ドキュメントの Connect to MCP servers](https://code.claude.com/docs/en/mcp-quickstart) にまとまっています。CLI追加・スコープ・確認の詳細手順は、MCPシリーズ側の[Claude CodeのMCP設定](/blog/mcp-claude-code-setup)でも扱っています。
 
 ## 反映されないときの見直し3点（パス・書式・再起動）
 
