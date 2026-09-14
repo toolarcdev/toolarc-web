@@ -14,7 +14,7 @@ tags:
   - ToolArc
 site: toolarc.jp
 target: "ChatGPT/Claudeの契約や有料プラン加入を検討しているが、AIの基礎が足りないと感じる初心者"
-last_update: 2026-07-24
+last_update: 2026-09-15
 ---
 
 # AIの基礎を無料で学ぶ方法｜ChatGPT・Claudeを使う前のチェックリスト
@@ -90,6 +90,8 @@ ChatGPTやClaudeを使ってみたいけれど、「有料プランに入って�
 独学には限界もあります。用語や操作の理解はできても、「自分の業務にどう当てはめるか」「どこまで有料プランが必要か」といった判断は、独学だけでは時間がかかりがちです。まずは無料の範囲で方向性を確認してから、独学を続けるか判断するのがおすすめです。
 
 セミナー予約の前に押さえたい確認ポイントは、[無料AIセミナー予約前に確認する3点](/blog/free-ai-seminar-checklist-before-booking-tips)で整理しています。チェックリストで足りない項目を把握してから検討すると、判断がぶれにくくなります。
+
+内容や参加方法を先に確認したい方は、[無料セミナーの内容・参加方法を見る](/lp/ai-skill-academy-free-seminar)。
 
 [無料セミナーで方向性を確認する](affiliate:ai-skill-academy:text-main)
 

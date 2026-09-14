@@ -29,6 +29,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/disclaimer`, lastModified: latestModified },
     { url: `${baseUrl}/affiliate-disclosure`, lastModified: latestModified },
     { url: `${baseUrl}/contact`, lastModified: latestModified },
+    // LP publish date (do not use new Date() — avoid churn on every rebuild)
+    {
+      url: `${baseUrl}/lp/ai-skill-academy-free-seminar`,
+      lastModified: new Date("2026-09-15"),
+    },
   ];
 
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({

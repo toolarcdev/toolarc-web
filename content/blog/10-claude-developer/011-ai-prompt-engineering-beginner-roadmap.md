@@ -11,7 +11,7 @@ tags:
   - 初心者向け
 site: toolarc.jp
 target: "ChatGPT・Claudeのプロンプトの型が分からず伸び悩んでいる初心者"
-last_update: 2026-09-06
+last_update: 2026-09-15
 ---
 
 # プロンプトエンジニアリングを初心者が学ぶ順番｜ChatGPT・Claude実践付き
@@ -120,6 +120,8 @@ ChatGPTとClaudeの違いを、専門用語を避けて箇条書き5項目で説
 そんなときは、無料の範囲で方向性だけ確認してみる、という選択肢もあります。
 
 セミナー予約の前に押さえたい確認ポイントは、[無料AIセミナー予約前に確認する3点](/blog/free-ai-seminar-checklist-before-booking-tips)で整理しています。今回の型4要素で足りないと感じた項目を把握してから検討すると、判断がぶれにくくなります。
+
+専門的な添削や技術習得を求める場ではありませんが、説明や実演でほかの使い方を見てみたい場合に限り、[無料セミナーの内容・参加方法を見る](/lp/ai-skill-academy-free-seminar)も参考になります。
 
 [無料セミナーで方向性を確認する](affiliate:ai-skill-academy:text-main)
 

@@ -23,6 +23,16 @@ type AnalyticsEventMap = {
   outbound_click: {
     url: string;
     link_text?: string;
+    lp_id?: string;
+    cta_id?: string;
+    program_id?: string;
+    creative_id?: string;
+  };
+  lp_cta_impression: {
+    lp_id: string;
+    cta_id: string;
+    program_id: string;
+    creative_id: string;
   };
   rail_affiliate_impression: {
     program_id: string;
