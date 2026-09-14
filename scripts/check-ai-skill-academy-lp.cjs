@@ -65,8 +65,14 @@ const ids = ['cta-1', 'cta-2', 'cta-3', 'sticky'];
       assert.equal(await page.locator('meta[property="og:image:height"]').getAttribute('content'), '1024');
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://www.toolarc.jp' + route);
       {
-        const robots = await page.locator('meta[name="robots"]').getAttribute('content');
-        assert.ok(robots == null || !/noindex/i.test(robots), `expected indexable robots, got ${robots}`);
+        // Absent robots meta is indexable; do not call getAttribute on a missing locator (Playwright waits/timeouts).
+        const robotsContents = await page.locator('meta[name="robots"]').evaluateAll((els) =>
+          els.map((el) => el.getAttribute('content')),
+        );
+        assert.ok(
+          robotsContents.every((content) => content == null || !/noindex/i.test(content)),
+          `expected indexable robots, got ${JSON.stringify(robotsContents)}`,
+        );
       }
       assert.doesNotMatch(await page.locator('meta[name="viewport"]').getAttribute('content'), /user-scalable=no|maximum-scale=1/);
       assert.equal(await page.title(), 'はじめてのAI、無料セミナーをのぞいてみませんか｜スマホから参加OK');
