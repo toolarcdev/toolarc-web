@@ -11,6 +11,7 @@ tags:
   - mcp-series
 site: toolarc.jp
 target: "Claude DesktopでMCPを設定するにあたり、Extensionsと設定JSONの選び方、追加後の確認範囲、使い分け記事との関係で迷っている人。"
+last_update: 2026-09-14
 ---
 
 # Claude DesktopのMCP設定｜Extensionsと設定JSONの選び方
@@ -100,7 +101,7 @@ Desktop／Codeの分岐と場所探しは[Claude DesktopとClaude Codeの使い�
 
 ログを見る場合、macOSは`~/Library/Logs/Claude`、Windowsは`%APPDATA%\Claude\logs`に出力されます。`mcp.log`が全体の接続状況、`mcp-server-サーバー名.log`が個別サーバーの出力です。Developer設定の画面からも、同じ接続状況を確認できます。
 
-Claude Codeでの接続が必要な場合は、手順を別記事にまとめる予定です。現時点は準備中のため、リンクは案内していません。
+Claude Codeでの接続が必要な場合は、[Claude CodeのMCP設定](/blog/mcp-claude-code-setup)を参照してください。本記事はDesktop向けのため、Code側のCLI手順は書きません。
 
 ## まとめ
 
