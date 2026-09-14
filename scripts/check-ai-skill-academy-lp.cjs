@@ -64,7 +64,10 @@ const ids = ['cta-1', 'cta-2', 'cta-3', 'sticky'];
       assert.equal(await page.locator('meta[property="og:image:width"]').getAttribute('content'), '1536');
       assert.equal(await page.locator('meta[property="og:image:height"]').getAttribute('content'), '1024');
       assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://www.toolarc.jp' + route);
-      assert.match(await page.locator('meta[name="robots"]').getAttribute('content'), /noindex/);
+      {
+        const robots = await page.locator('meta[name="robots"]').getAttribute('content');
+        assert.ok(robots == null || !/noindex/i.test(robots), `expected indexable robots, got ${robots}`);
+      }
       assert.doesNotMatch(await page.locator('meta[name="viewport"]').getAttribute('content'), /user-scalable=no|maximum-scale=1/);
       assert.equal(await page.title(), 'はじめてのAI、無料セミナーをのぞいてみませんか｜スマホから参加OK');
       assert(await page.locator('.sticky').isHidden());

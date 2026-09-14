@@ -9,9 +9,9 @@ import styles from "./page.module.css";
 const url = "https://www.toolarc.jp/lp/ai-skill-academy-free-seminar";
 const title = "はじめてのAI、無料セミナーをのぞいてみませんか｜スマホから参加OK";
 const description = "AIに興味はあるけれど、何ができるかはまだ分からない初心者の方へ。AIスキルアカデミーの無料オンラインセミナーで、説明や実演を通じて使い方を見てみませんか。参加無料・顔出し不要。使い道が決まっていなくても参加できます。無料で開催する理由や、開催時間・参加方法も紹介します。";
-// Keep the reviewed page out of search until the publication step.
 export const metadata: Metadata = {
-  title, description, alternates: { canonical: url }, robots: { index: false, follow: true },
+  title, description, alternates: { canonical: url },
+
   openGraph: {
     title, description, url, type: "website", locale: "ja_JP", siteName: "ToolArc",
     images: [{ url: "/images/lp/ai-skill-academy-free-seminar/IMG-02.png", width: 1536, height: 1024, alt: "文章の要約、画像生成、AIへの頼み方を描いた3つの活用例" }]
