@@ -7,8 +7,8 @@ import { LpCta, StickyCta } from "./LpActions";
 import styles from "./page.module.css";
 
 const url = "https://www.toolarc.jp/lp/ai-skill-academy-free-seminar";
-const title = "AIスキルアカデミー無料セミナー｜内容・日程・無料の理由";
-const description = "AIに興味はあるけれど、何ができるかはまだ分からない方へ。AIスキルアカデミーの無料セミナーで見られる活用例、無料で開催する理由、開催時間や参加方法を紹介します。参加無料・顔出し不要。使い道が決まっていなくても参加できます。";
+const title = "はじめてのAI、無料セミナーをのぞいてみませんか｜スマホから参加OK";
+const description = "AIに興味はあるけれど、何ができるかはまだ分からない初心者の方へ。AIスキルアカデミーの無料オンラインセミナーで、説明や実演を通じて使い方を見てみませんか。参加無料・顔出し不要。使い道が決まっていなくても参加できます。無料で開催する理由や、開催時間・参加方法も紹介します。";
 // Keep the reviewed page out of search until the publication step.
 export const metadata: Metadata = {
   title, description, alternates: { canonical: url }, robots: { index: false, follow: true },
