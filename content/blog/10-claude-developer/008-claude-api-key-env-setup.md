@@ -12,7 +12,7 @@ tags:
   - claude-developer-series
 site: toolarc.jp
 target: "Claude API のキーを発行した（またはこれから発行する）が、コードへの直書きを避けて環境変数で安全に管理する方法と、漏えい時の対処が分からない初心者〜中級の個人開発者"
-last_update: 2026-09-03
+last_update: 2026-09-16
 ---
 
 # Claude APIキーの発行と環境変数への設定手順｜漏えい時の対処も
@@ -121,6 +121,20 @@ client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 執筆時点の公式ドキュメントで確認した範囲では、Claude Consoleの操作には無効化（Disable）と削除（Delete）の2つがあります。無効化は取り消し可能で、あとから再び有効に戻せますが、削除は取り消せません。漏えいの疑いが強い場合は、削除まで進めておくと安心です。
 
 入れ替えが終わったら、コードに直書きへ戻っていないか、Gitの履歴に古いキーが残っていないかも合わせて見直してください。Git履歴からの削除は「[Claude CodeのGit連携](/blog/claude-code-git-workflow)」で扱っているので、ここでは説明しません。
+
+## よくある質問（FAQ）
+
+**Q1. キーをコードに直書きしてもよいですか？**
+
+いいえ。環境変数へ置き、リポジトリへコミットしないでください。
+
+**Q2. 漏えいが疑わしいときは？**
+
+新しいキーへ差し替えて動作確認したあと、古いキーを無効化／削除する順が安全です。
+
+**Q3. 料金や429の切り分けは？**
+
+[Claude APIの料金とレート制限](/blog/claude-api-pricing-limits)へ。
 
 ## 次に読む
 

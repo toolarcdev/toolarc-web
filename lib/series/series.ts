@@ -203,6 +203,9 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-cursor-setup",
       "mcp-claude-desktop-setup",
       "mcp-claude-code-setup",
+      "mcp-vscode-setup", // W11 MCP #9
+      "mcp-github-server-setup", // W11 MCP #10
+      "mcp-recommended-servers", // W11 MCP #11
     ],
     publishedAt: "2026-07-16",
   },

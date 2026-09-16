@@ -2218,6 +2218,30 @@ export const blogPosts = {
     ogImage: "h2-1.png",
     category: "tool",
   },
+  "mcp-vscode-setup": {
+    contentId: "11-mcp",
+    markdownFile: "010-mcp-vscode-setup.md",
+    imageBasePath: "/images/blog/mcp-vscode-setup",
+    publishedAt: "2026-09-16",
+    ogImage: "default-og.png",
+    category: "tool",
+  },
+  "mcp-github-server-setup": {
+    contentId: "11-mcp",
+    markdownFile: "011-mcp-github-server-setup.md",
+    imageBasePath: "/images/blog/mcp-github-server-setup",
+    publishedAt: "2026-09-16",
+    ogImage: "default-og.png",
+    category: "tool",
+  },
+  "mcp-recommended-servers": {
+    contentId: "11-mcp",
+    markdownFile: "012-mcp-recommended-servers.md",
+    imageBasePath: "/images/blog/mcp-recommended-servers",
+    publishedAt: "2026-09-16",
+    ogImage: "default-og.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
