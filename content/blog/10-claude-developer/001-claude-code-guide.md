@@ -12,7 +12,7 @@ tags:
   - MCP
 site: toolarc.jp
 target: "Claudeをコード／CLI／API側から使いたい個人開発〜小チームの初心者〜中級（執筆・Vault用途は別）"
-last_update: 2026-09-06
+last_update: 2026-09-16
 ---
 
 # Claude Code ガイド（開発者向け入口）
@@ -36,7 +36,7 @@ last_update: 2026-09-06
 | 扱うこと | いまの状態 |
 | --- | --- |
 | Claude をコード／CLI／API 側で使う入口の整理 | 本 Hub |
-| ChatGPT・Claude・モデル比較やプロンプトの読む順 | 公開済み Spoke 5本（下表） |
+| ChatGPT・Claude・モデル比較やプロンプトの読む順 | 公開済み Spoke 14本（下表） |
 | Claude Code 自体の始め方・手順 | [Claude Codeの始め方](/blog/claude-code-getting-started)／[インストール](/blog/claude-code-install)／[基本コマンド一覧](/blog/claude-code-commands)／[Git操作の流れ](/blog/claude-code-git-workflow)／[MCP設定（Desktop/Code）](/blog/claude-mcp-setup-basics) |
 
 一方で、次のテーマは**このシリーズの本筋ではありません**。
@@ -93,7 +93,7 @@ Claude Pro の加入判断は、本 Hub では断定しません。判断材料�
 
 ## 公開済み記事から読む順番 — Spoke 表
 
-Code 手順本が揃うまでの当面は、次の公開済み Spoke を読んでください。すべて既存記事への実リンクです。
+次の公開済み Spoke を読んでください。すべて既存記事への実リンクです。
 
 | 順 | こんなときに読む | 記事 |
 | --- | ---: | --- |
