@@ -13,6 +13,7 @@ tags:
   - claude-developer-series
 site: toolarc.jp
 target: "Claude Code はインストール済みだが、branch 作成から commit・PR 作成までの Git 作業を対話でどう進めるか分からない初心者〜中級の個人開発者"
+last_update: 2026-09-16
 ---
 
 # Claude CodeでGit操作｜branch作成からcommit・PR作成までの流れ
@@ -99,6 +100,20 @@ Git操作の途中で止まったときは、原因を大きく認証まわり�
 認証UIの画面名やエラーメッセージの文言は執筆時点で確認できた範囲に限られるため、上記は症状の系統名にとどめています。実際の表示や文言は、環境やバージョンによって変わる可能性があります。
 
 なお、ターミナルで動くCursor CLIとClaude Codeは別製品です。似た使用感でも、Git連携の設定や依頼の書き方はツールごとに異なります（詳細は[Cursor CLIのインストールと基本操作](/blog/cursor-cli-install-basics)）
+
+## よくある質問（FAQ）
+
+**Q1. commitやPRが拒否されます。**
+
+権限不足や保護branchが多いです。別branch経由のPRに切り替えるのが定石です。
+
+**Q2. GitHub認証エラーのときは？**
+
+Claude Code側とGitHub／`gh`側の認証を分けて確認してください。片方だけ直しても通らないことがあります。
+
+**Q3. コマンド一覧だけ先に見たい場合は？**
+
+[Claude Codeの基本コマンド一覧](/blog/claude-code-commands)へ。
 
 ## 次に読む（コマンドの意味は一覧へ、地図はHubへ）
 

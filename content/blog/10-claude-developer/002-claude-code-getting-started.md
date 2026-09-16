@@ -12,7 +12,7 @@ tags:
   - claude-developer-series
 site: toolarc.jp
 target: "Claude をコード／CLI 側で使い始めたいが、Cursor・Obsidian 記事と何が違うのか分からず最初の一歩で止まっている初心者〜中級の個人開発者"
-last_update: 2026-08-25
+last_update: 2026-09-16
 ---
 
 # Claude Codeの始め方｜向く人の見分けと最初の一歩
@@ -84,6 +84,20 @@ claude
 - **コマンドが見つからない**: インストール直後にコマンドが認識されない場合、PATHと呼ばれる設定にインストール先が追加されていないことが多いです。ターミナルを再起動しても直らなければ、インストール方法を変えて試す手もある。詳細な切り分けは[Claude Codeのインストール](/blog/claude-code-install)で扱います
 - **認証で止まる**: ブラウザでのログインがうまく進まない場合、ポップアップブロックや別ブラウザへの切り替えが原因になっていることがあります。会社のネットワーク配下では、社内プロキシの設定が影響することもあるので注意してください
 - **Cursor記事の手順と混ぜてしまう**: 検索結果には、Cursorの拡張機能やCursor CLIについて書かれた記事も混じっています。手順を進める前に、記事のタイトルにある製品名がClaude Codeかどうかを毎回確認しておくと、迷いを減らせます
+
+## よくある質問（FAQ）
+
+**Q1. Claude CodeとCursorはどちらから始めればよいですか？**
+
+ターミナル中心ならClaude Code、エディタ一体ならCursor、が分かりやすい入口です。詳しい判断は[Claude Code vs Cursor比較](/blog/claude-code-vs-cursor-comparison)へ。
+
+**Q2. APIキーは最初に必要ですか？**
+
+始め方の最短経路はログイン中心です。キーの扱いは後からでよく、必要になったら[APIキーと環境変数](/blog/claude-api-key-env-setup)へ進んでください。
+
+**Q3. インストールで止まったらどこを見ますか？**
+
+OS別の手順と切り分けは[Claude Codeのインストール](/blog/claude-code-install)にまとめています。
 
 ## 次に読む
 

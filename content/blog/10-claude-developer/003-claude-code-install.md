@@ -13,7 +13,7 @@ tags:
   - claude-developer-series
 site: toolarc.jp
 target: "Claude Code を自分の OS にインストールしたいが、手順の分岐・認証・初回のエラーで止まっている初心者〜中級の個人開発者"
-last_update: 2026-08-25
+last_update: 2026-09-16
 ---
 
 # Claude Codeのインストール｜OS別手順・認証・初回起動まで
@@ -136,6 +136,20 @@ WSL・SSH接続・コンテナ内で作業している場合、ブラウザで�
 シェルはPATHに登録されたフォルダの中しかコマンドを探せません。インストール先がPATHに含まれていないと、実行ファイル自体は存在していても「見つからない」というエラーになります。これがPATH系エラーの起きる仕組みです。
 
 上記で解決しない場合は、`claude doctor`の出力を確認するか、公式ドキュメントの「Troubleshoot installation and login」（https://code.claude.com/docs/en/troubleshoot-install）で症状を検索する方法もあります。
+
+## よくある質問（FAQ）
+
+**Q1. `claude`コマンドが見つかりません。**
+
+PATH未反映が多いです。ターミナル再起動のあと、公式のインストール案内と本記事の切り分け表を順に当たってください。
+
+**Q2. Windowsでは何が必須ですか？**
+
+公式の案内では、Git for Windows（bash）かPowerShell側の前提確認が必要になることがあります。エラー文面を優先してください。
+
+**Q3. インストール後の最初の一歩は？**
+
+[Claude Codeの始め方](/blog/claude-code-getting-started)の1セッション手順へ進むのが近道です。
 
 ## 次に読む（地図はHubへ・コマンド表は一覧記事へ）
 
