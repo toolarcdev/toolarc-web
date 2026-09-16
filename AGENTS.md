@@ -2,6 +2,7 @@
 
 @docs/ai-context/writing-rules.md
 @docs/ai-context/llm-forbidden-phrases.md
+@docs/ai-context/editorial-room-terms.md
 @docs/ai-context/project-context.md
 @docs/ai-context/context.md
 @docs/ai-context/chat-operations.md
@@ -17,6 +18,7 @@
 |------|------|------|
 | 記事（文体・構成・CTA・SEO・Output Contract・禁止） | `writing-rules.md` | 記事ドメインの唯一の詳細正本 |
 | LLM空句リスト | `llm-forbidden-phrases.md` | 語彙正本（方針は writing-rules） |
+| 編集室語（公開面禁止） | `editorial-room-terms.md` | 語彙正本（方針は writing-rules「読者最優先」。**「意味が分からない」系指摘は同セッションで追記**） |
 | 直アフィ可否（実装） | `lib/affiliate/policy.ts` | docs は説明のみ |
 | 画像振り分け | `.cursor/skills/blog-image-router/SKILL.md` | マップ: `image-intent-map.md` |
 | source.md 作成 | `.cursor/skills/create-source-md/SKILL.md` | **新規記事インプット**必須 → 構成・例外ゲート。Claude 共通制約は外出し（`references/claude-ai-draft-constraints.md`）。本文初稿はしない |
