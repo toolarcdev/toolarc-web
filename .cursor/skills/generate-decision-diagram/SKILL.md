@@ -5,20 +5,23 @@ description: >-
   with visible outcomes), including ASCII layout prompts, golden references,
   and required post-edit label slots. Use when the user explicitly asks to
   create a comparison, branch, or checklist-entry diagram. Prefer reuse first;
-  do not use for mood-only illustrations or fake UI screenshots.
+  do not use for mood-only illustrations, labeled infographics, or fake UI
+  screenshots.
 ---
 
 # generate-decision-diagram
 
 比較・分岐・チェック入口向けの **diagram-decision** 専用。  
-一般の eyecatch / mood は `generate-blog-image`。振り分けは `blog-image-router`。
+一般の eyecatch / mood / **ラベル入り概念図（`diagram-infographic`）** は `generate-blog-image`。振り分けは `blog-image-router`。
+
+**対象外（本 Skill に送らない）**: 単系列ステップ、入れ子構造、型の説明図 → `generate-blog-image` の `diagram-infographic`。
 
 参照: `docs/ai-context/image-intent-map.md` / `.cursor/rules/blog-image-tone.mdc`
 
 ## 起動条件（GenerateImage ゲート）
 
 1. ユーザー自身の直近発話に、図を作る／生成する意図の自由記述がある
-2. 対象 slug と「比較／分岐」であることを1文で確認する
+2. 対象 slug と「比較／分岐」であることを1文で確認する。単系列ステップ・入れ子・型の説明なら `generate-blog-image`（`diagram-infographic`）へ戻す
 3. 曖昧なら生成せず依頼文を求める
 
 ## 生成前ゲート
@@ -78,6 +81,7 @@ Outcome: 左=[結果A]、右=[結果B] が色分け可能なボックスで分�
 
 - 明示依頼なしの生成
 - mood だけの抽象で decision を代替すること
+- 単系列ステップ／入れ子構造／型の説明図を本 Skill で扱うこと（→ `diagram-infographic`）
 - 後編集なし公開
 - 実UIの偽スクショ生成
 - NG 画像の再参照

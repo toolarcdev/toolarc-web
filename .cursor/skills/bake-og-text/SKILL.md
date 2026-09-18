@@ -1,13 +1,15 @@
 ---
 name: bake-og-text
 description: >-
-  Bakes Japanese title bands onto ToolArc OG / Series cover PNGs using a
-  reproducible script and Vault staging. Use when the user asks to add Japanese
-  text to an OG image, Series OG bake, or *-ja.png output. Does not regenerate
-  composition with GenerateImage.
+  LEGACY. Call ONLY when the user explicitly names bake-og-text or 帯焼きこみ.
+  Do not invoke from blog-image-router, generate-blog-image, or because an OG
+  needs Japanese. Scheduled for removal. Bakes a title band onto an existing PNG.
 ---
 
 # bake-og-text
+
+**レガシー／削除予定。** 既定の画像工程には含めない。  
+**ユーザーが Skill 名 `bake-og-text` または「帯焼きこみ」を明示したときだけ**起動する。OG が要る・日本語が要る・Series カバー、だけでは呼ばない。他 Skill から自動委譲しない。
 
 OG／Series 向けの**日本語帯焼きこみ**。構図の再生成はしない。
 
@@ -34,8 +36,11 @@ python -c "import PIL; print(PIL.__version__)"   # 12.3.0 で確認
 
 ## 起動条件
 
-- 「OGに日本語」「Series OG焼きこみ」「-ja.png を作って」など明示依頼
-- 焼きこみ前 PNG が用意済み（**帯が無い状態**。図の中に日本語ラベルがあるのは可）
+次を**すべて**満たすときだけ進む。足りなければ起動しない（代替工程を提案しない。黙って他 Skill へも送らない）。
+
+1. ユーザー自身の直近発話に **`bake-og-text` または「帯焼きこみ」** がある（「OGに日本語」「Series OG」だけでは不足）
+2. 焼きこみ前 PNG が用意済み（**帯が無い状態**。図の中に日本語ラベルがあるのは可）
+3. 本文図のラベル修正ではない（階層・段階の日本語は `generate-blog-image` の `diagram-infographic`）
 
 ## 入力
 
@@ -109,8 +114,9 @@ python .cursor/skills/bake-og-text/scripts/bake_og_text.py `
 
 ## 禁止
 
+- 明示宣言なしの起動（他 Skill からの自動委譲を含む）
 - raw の上書き
-- GenerateImage で「文字入りOG」を一発生成して完成扱いすること
 - 採用前の WIP を `public/` に置くこと
 - フォントバイナリを Vault / リポにコミットすること
 - **本スクリプトの代替実装を書き起こすこと**（Python が動かないときは環境を直す。実装を増やすとレイアウトが分岐する）
+- 本文 infographic のラベルを本スクリプトで後載せ・修正すること

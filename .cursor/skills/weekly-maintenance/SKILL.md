@@ -106,11 +106,11 @@ intake・DailyNote・編集対象（dashboard / gsc-weekly-log / ctr-rewrite-que
 7. **week-queue 新規作成・確定**（§5.4.2〜5.4.8 — ⑥後半・旧「公開キュー3本／翌日フォーカス」は廃止）:
    - **入力**: Collector 週次／a-theme（migrationシェア）／[[ctr-rewrite-queue]]／[[active-tasks]]（当週 due・週枠親）／移行URL役割マップ・Hub-SubHub未完了／intake の例外新規**候補**（ゲート前）
    - **ファイル**: 作業フォルダ（水曜 `01_Daily/YYMM/YYMMDD/`）に `week-queue-YYYY-MM-DD.md`（日付＝**翌木曜**開始）。`status: active`。前週 active は `closed`
-   - **行**: 推奨構成 `integrate` 2〜4 / `rewrite` 2〜4 / `hub` 0〜2 / `monetize|measure` 1〜2 / `debt` 2単位 / `new` 0〜n（**§5.2 通過のみ**）。合計目安 8〜14行。空日を公開埋めで埋めない
-   - **繰越**: 前週 `planned`/`doing` を先頭へ
+   - **行**: 推奨構成 `integrate` 2〜4 / `rewrite` 2〜4（**`[Growth対応]` のみ**。Growth非関与は載せない） / `hub` 0〜2 / `monetize|measure` 1〜2 / `debt` 2単位 / `new` 0〜n（**§5.2 通過のみ**） / `growth` は Codex 実行可能日以降。合計目安 8〜14行。空日を公開埋めで埋めない
+   - **繰越**: 前週 `planned`/`doing` を **自動で先頭へ pending しない**。候補提示→ユーザーが繰越確定した行だけ載せる。やらない行は前週 `skipped`（対応しない）
    - **active-tasks**: 取込行の `source` に `active-tasks:<ID>`。週枠表に当週 `[[week-queue-…]]` 1行（中身の重複記載は week-queue のみ）
    - **Dashboard**: week-queue リンク更新（旧公開フォーカス3本欄は使わない）
-   - **確定チェック**: 全行 `done_def`／`new` は §5.2／柔軟1本空枠なし／週枠逆リンク
+   - **確定チェック**: 全行 `done_def`／`new` は §5.2／柔軟1本空枠なし／週枠逆リンク／rewrite は Growth関与のみ／Growth・Codex の `day` が実行可能日以降
 8. シリーズ化・inbox（週次範囲。**本数ノルマで埋めない**。柱C handoff は `new` 候補原料）
 9. 負債原則 **2単位**（**統合・301・SubHub** 可）→ ①依頼。可能なら week-queue に `debt` 行としても載せる
 9.5. **レーンB週枠・完了同期（保険）**: `active-tasks` 週枠のうち、手順が `closed`／引き継ぎ済みなのに Board に残っている行があれば運用設計 §6（削除＋`done-tasks-log`＋任意残切出し）。毎回の棚卸しはしない。正本: Vault `タスク管理_ActiveBoard/運用設計` §6.1（案D）

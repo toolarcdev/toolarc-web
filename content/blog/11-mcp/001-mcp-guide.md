@@ -11,7 +11,7 @@ tags:
   - 初心者
 site: toolarc.jp
 target: "Cursor／Claudeでツール連携を触り始め、MCPの用語と読む順番を整理したい開発者"
-last_update: 2026-09-16
+last_update: 2026-09-18
 ---
 
 # Model Context Protocol（MCP）ガイド
@@ -109,8 +109,10 @@ MCP自体は「接続の話」で、どのClientから入るかで画面と手�
 | #9 | [VS CodeのMCP設定｜mcp.jsonの置き場所と追加後の確認](/blog/mcp-vscode-setup) | 公開 |
 | #10 | [GitHub MCP Serverの設定｜公式接続の選び方と注意点](/blog/mcp-github-server-setup) | 公開 |
 | #11 | [おすすめMCP Server一覧｜開発者が最初に試す選定枠](/blog/mcp-recommended-servers) | 公開 |
+| #12 | [Filesystem MCPの使い方｜許可フォルダと読み取り確認](/blog/mcp-filesystem-setup) | 公開 |
+| #13 | [Brave Search MCPの設定｜APIキーと検索確認](/blog/mcp-brave-search-setup) | 公開 |
 
-推奨の読み方は **#1 → #2 → #3 → #4 → #5 → #6 → #7 → #8** を土台に、必要なら **#9（VS Code）／#10（GitHub Server）／#11（選定一覧）** へ分岐する想定です。#1〜#2で言葉を揃え、#3〜#4で共通の導入感を掴み、#5で接続方式を見分け、Client別（#6〜#9）と具体Server（#10）・選定（#11）へ進む、という段階に分けます。
+推奨の読み方は **#1 → #2 → #3 → #4 → #5 → #6 → #7 → #8** を土台に、必要なら **#9（VS Code）／#10（GitHub Server）／#11（選定一覧）／#12（Filesystem）／#13（Brave Search）** へ分岐する想定です。#1〜#2で言葉を揃え、#3〜#4で共通の導入感を掴み、#5で接続方式を見分け、Client別（#6〜#9）と具体Server（#10・#12・#13）・選定（#11）へ進む、という段階に分けます。
 
 ## 隣のHubとセキュリティ注意
 

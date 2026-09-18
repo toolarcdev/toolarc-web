@@ -2,11 +2,11 @@
 name: blog-image-router
 description: >-
   Routes ToolArc blog image work by intent and reuse gates, then delegates to
-  annotate-screenshot, generate-decision-diagram, generate-blog-image,
-  bake-og-text, or blog PNG lightening (optimize.md). Use when the user asks
-  how to handle article images, which image skill to use, image compression /
-  軽量化, or for image routing without generating yet. Does not call
-  GenerateImage itself.
+  annotate-screenshot, generate-decision-diagram, generate-blog-image, or blog
+  PNG lightening (optimize.md). Call bake-og-text ONLY if the user explicitly
+  names that skill. Use when the user asks how to handle article images, which
+  image skill to use, image compression / 軽量化, or for image routing without
+  generating yet. Does not call GenerateImage itself.
 ---
 
 # blog-image-router
@@ -34,21 +34,25 @@ description: >-
 | 条件 | 委譲先 | 備考 |
 |------|--------|------|
 | 実UI手順・設定画面・エラー画面 | `annotate-screenshot` | 撮影は人間。偽UI生成禁止 |
-| 比較・分岐・チェック入口の図 | `generate-decision-diagram` | 流用優先。後編集必須 |
-| eyecatch / og / mood / section | `generate-blog-image` | 明示の生成依頼が必要。配置前に軽量化（下記） |
+| 比較・分岐・チェック入口の図 | `generate-decision-diagram` | 流用優先。後編集必須。番号付きの単系列ステップはここへ送らない |
+| ラベルで読む概念図（階層・段階・型） | `generate-blog-image`（`diagram-infographic`） | 生成時に日本語を焼いてよい。本文図のラベル ≠ OG帯。入れ子構造 ≠ スクショ |
+| eyecatch / og / mood / section | `generate-blog-image` | 明示の生成依頼が必要。配置前に軽量化（下記）。OG は本 Skill で完結（本文図流用または生成時焼き込み） |
 | 既存 PNG の軽量化・圧縮（生成なし） | `generate-blog-image/references/optimize.md` ＋ `scripts/optimize-blog-png.cjs` | 目標 200〜400KB。目視必須。独立 Skill ではない |
-| OG／Series の日本語帯焼きこみ | `bake-og-text` | 構図再生成しない。staging 経由 |
+| ユーザーが `bake-og-text` または「帯焼きこみ」を**明示** | `bake-og-text` | **削除予定。** OG／日本語が要るだけでは送らない |
 | 数値表・ランキング表 | （生成しない） | 本文表 / Canvas / コード |
 | `posts.ts` / build / 公開日 | `publish-article` | 画像配線の最終登録 |
+
+番号付きステップ ≠ decision。入れ子の構造図 ≠ スクショ。本文図の日本語ラベル ≠ OG帯。OG が要っても `bake-og-text` へ自動委譲しない。
 
 ## 出力（ハブ完了時）
 
 - 判定した手段と委譲先 Skill 名（1行）
 - 流用候補の有無（パス or なし）
-- 次に人間が言うべき依頼文の例（例: 「annotate-screenshot で ss-02 に番号を付けて」／「optimize-blog-png.cjs でこのフォルダを軽量化して」）
+- 次に人間が言うべき依頼文の例（例: 「annotate-screenshot で ss-02 に番号を付けて」／「optimize-blog-png.cjs でこのフォルダを軽量化して」／「diagram-infographic で階層図を生成して」）
 
 ## 禁止
 
 - 本 Skill 内で `GenerateImage` を呼ぶこと
 - 流用ゲートを飛ばして専門へ丸投げすること
 - WIP を `public/` に直接置くこと（採用前は Vault `blog-image-staging`）
+- ユーザーが Skill 名を言っていないのに `bake-og-text` へ委譲すること
