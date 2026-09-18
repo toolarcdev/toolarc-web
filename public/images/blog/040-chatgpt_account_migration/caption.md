@@ -429,6 +429,15 @@ ChatGPTにはアカウント間の公式履歴移行機能はありません。�
 同じアカウントでの機種変更（パターン1）と、別アカウントへの移行（パターン2）で手順が分かれることを示した比較図
 ```
 
+# 軽量化（2026-09-18）
+
+Last Updated: 2026-09-18 23:36
+
+- `pattern-comparison-both.png`: sharp palette PNG q85。1312KB → 370KB（1536-palette85）。目視OK
+- `og-smartphone-migration-tips.png`: sharp palette PNG q85。1264KB → 378KB（1536-palette85）。目視OK
+- `pattern1-same-account-new-smartphone.png`: sharp palette PNG q85。1162KB → 348KB（1536-palette85）。目視OK
+- `pattern2-account-a-to-b-same-phone.png`: sharp palette PNG q85。1155KB → 301KB（1536-palette85）。目視OK
+
 ## 未対応（任意タスク）
 
 - Hub 固有の分岐図（A＝これから引き継ぐ／B＝履歴が見当たらない の2パネル）は**未作成**。作る場合は `generate-decision-diagram`

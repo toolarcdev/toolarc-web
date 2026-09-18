@@ -1,6 +1,6 @@
 # google-crawl-budget-2026 画像メモ
 
-Last Updated: 2026-07-31 18:26
+Last Updated: 2026-09-18 23:36
 
 ## seroundtable-crawl-budget-update.png
 
@@ -19,6 +19,7 @@ Last Updated: 2026-07-31 18:26
 - 種別: diagram（白背景／ブルー・グリーン・オレンジの3パネル）
 - 原図: `01_Daily/2607/260731/h2-2.png`（1672×941）
 - 後編集: なし（図内に日本語ラベルあり）
+- 軽量化: sharp palette PNG q80・長辺1600。1384KB → 371KB（1600-palette80）。目視OK
 - 備考: 直後の比較表と内容が重なるため、表の直前ではなく節の冒頭に置いている
 
 ## site-scale-flowchart.png
@@ -28,6 +29,7 @@ Last Updated: 2026-07-31 18:26
 - 種別: diagram-decision（2分岐＋共通アクション。結果ボックスが見える構成）
 - 原図: `01_Daily/2607/260731/h2-3.png`（1536×1024）
 - 後編集: なし（図内に日本語ラベルあり）
+- 軽量化: sharp palette PNG q75。1572KB → 375KB（1536-palette75）。目視OK
 
 ## og.png
 
@@ -36,6 +38,7 @@ Last Updated: 2026-07-31 18:26
 - 内容: `crawl-capacity-demand.png` の上下を crop して 1200×630 に配置し、帯を焼きこみ。main `Google公式 クロールバジェット更新`（63px・左）/ sub `2026年7月｜Capacity × Demand で決まる`（30px・右詰め）/ 字面の隙間 15px
 - 焼きこみ: Python が使えないため `.NET`（System.Drawing）版スクリプトで実施。詳細と恒久対応の判断は staging の `job.md`
 - 配線: `posts.ts` の `ogImage: "og.png"` は `publish-article`（①）側
+- 軽量化: sharp palette PNG q85。651KB → 171KB（1200-palette85）。目視OK
 
 ## caption
 

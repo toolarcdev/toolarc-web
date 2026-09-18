@@ -1,6 +1,6 @@
 # deepseek-cursor-setup 画像メモ
 
-Last Updated: 2026-07-30 11:31
+Last Updated: 2026-09-18 23:36
 
 ## deepseek-api-key-name.png
 
@@ -49,6 +49,7 @@ Last Updated: 2026-07-30 11:31
 - 種別: diagram（白背景／ブルー系）
 - 原図: `01_Daily/2607/260730/Cursor-DeepSeekV4.png`
 - 後編集: なし（図内に日本語ラベルあり）
+- 軽量化: sharp palette PNG q80。1460KB → 361KB（1536-palette80）。目視OK
 
 ## BaseURL-ngrokFree.app.png
 
@@ -57,6 +58,7 @@ Last Updated: 2026-07-30 11:31
 - 種別: diagram（白背景／ブルー系）
 - 原図: `01_Daily/2607/260730/BaseURL-ngrokFree.app.png`
 - 後編集: なし（図内に日本語ラベルあり）
+- 軽量化: sharp palette PNG q85。1443KB → 385KB（1536-palette85）。目視OK
 
 ## apiBaseUrl.png
 
