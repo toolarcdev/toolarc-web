@@ -2,6 +2,7 @@
 title: "PostgreSQL MCPの設定｜接続文字列と読み取り確認"
 description: "AIアプリからPostgreSQLをMCPで見たい人へ、維持されているPostgres MCPの接続文字列の置き方と読み取り確認までを整理します。開発用DBと最小権限、restrictedモードの読み方、登録・接続・スキーマ確認の分け方も分かります。更新が止まっている古いパッケージの手順は使いません。"
 date: 2026-09-18
+last_update: 2026-09-19
 tags:
   - MCP
   - PostgreSQL
@@ -132,6 +133,7 @@ JSONの型やカンマ、引用符の直し方はこの記事では扱いませ�
 | ローカル起動かURL接続か分からない              | [stdioとSSEの記事](/blog/mcp-stdio-vs-sse-transport)（この記事はstdioを主な経路として想定しており、SSEは切り替え先として短く触れるにとどめます）                                            |
 | GitHubのIssueやPRを扱いたい                    | [GitHub向けMCP Serverの記事](/blog/mcp-github-server-setup)                                                                                                                                 |
 | ほかにどのServerから試すか迷っている           | [おすすめMCP Serverの記事](/blog/mcp-recommended-servers)                                                                                                                                   |
+| 自分で最小のServerを書いてToolを1つ公開したい  | [MCP Serverの作り方入門](/blog/mcp-server-build-basics)                                                                                                                                     |
 | 接続URIや権限の一般的な考え方を知りたい        | PostgreSQL公式ドキュメント                                                                                                                                                                  |
 
 ## まとめ：接続先の限定と直書き回避を先に固める
