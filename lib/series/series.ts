@@ -206,6 +206,8 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-vscode-setup", // W11 MCP #9
       "mcp-github-server-setup", // W11 MCP #10
       "mcp-recommended-servers", // W11 MCP #11
+      "mcp-filesystem-setup", // W12 MCP #12
+      "mcp-brave-search-setup", // W12 MCP #13
     ],
     publishedAt: "2026-07-16",
   },

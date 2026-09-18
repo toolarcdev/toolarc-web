@@ -1,7 +1,7 @@
 # ブログ画像の軽量化（正本）
 
 最終更新: 2026-08-07  
-用途: `public/images/blog/<imageBasePath>/` に置く PNG のサイズ最適化。生成・注釈・OG焼き込みの**後工程**。  
+用途: `public/images/blog/<imageBasePath>/` に置く PNG のサイズ最適化。生成・注釈の**後工程**。  
 関連: `generate-blog-image` 手順9 / `blog-image-router`（既存画像の軽量化） / `.cursor/rules/blog-image-tone.mdc`
 
 ## いつ使うか

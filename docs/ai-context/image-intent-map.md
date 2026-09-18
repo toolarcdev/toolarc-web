@@ -13,8 +13,9 @@ Round1（C1）で rule/Skill 参照用に本ファイルを正とする。
 | How-to / エラー解決 | 注釈付きスクショ | 撮影＋注釈 | **否**（偽UI禁止） | `annotate-screenshot` |
 | 比較 / どっち | 2パネル＋結果 | 流用優先 → decision＋後編集 | 可 | `generate-decision-diagram` |
 | チェックリスト入口 | 分岐図 or 既存比較図 | **流用優先** | 流用不可時のみ可 | 流用ゲート → `generate-decision-diagram` |
-| 概念理解 | ステップ／アイコン物語 | mood / section | 可 | `generate-blog-image` |
-| アイキャッチ / OG / 共有面 | 数字・対比が読める構図 | eyecatch / og（日本語帯は後工程） | 可 | `generate-blog-image` → `bake-og-text` |
+| 概念理解（抽象・ムード） | ステップ／アイコン物語（文字なし可） | mood / section | 可 | `generate-blog-image` |
+| 概念理解（階層・手順の骨格） | ラベル入り図（入れ子／段階／型） | `diagram-infographic` | 可（生成時焼き込み。後編集必須にしない） | `generate-blog-image`（OG 流用可。`bake-og-text` へ送らない） |
+| アイキャッチ / OG / 共有面 | 数字・対比が読める構図 | eyecatch / og | 可 | `generate-blog-image` で完結。`bake-og-text` はユーザーが Skill 名を明示したときだけ |
 | 既存 PNG が巨大（軽量化のみ） | サイズ最適化 | 圧縮スクリプト | **否**（生成しない） | `generate-blog-image/references/optimize.md` |
 | 数値・比較データ表 | 表 / Canvas / コード | 生成しない | **否** | 本文表など |
 | ランキング／スクール系 | 写真・表・バナー | 素材／表 | 低 | ToolArc 主戦場外（参考のみ） |
@@ -25,7 +26,7 @@ Round1（C1）で rule/Skill 参照用に本ファイルを正とする。
 
 1. 記事の主検索意図を1つ決める（複数なら H2 ごとに振り分ける）
 2. 上表で **手段** を決める（流用 → 撮影 → 生成の順を崩さない）
-3. 生成する場合だけ種別（`eyecatch` / `og` / `diagram-mood` / `diagram-decision` / `section`）を確定する
+3. 生成する場合だけ種別（`eyecatch` / `og` / `diagram-mood` / `diagram-infographic` / `diagram-decision` / `section`）を確定する。番号付きステップや入れ子構造は decision にしない
 4. Claude 初稿の「画像提案」がある場合はジョブ票化し、本表の手段列に落とす（自動 GenerateImage はしない）
 
 ## 既定トーンについて

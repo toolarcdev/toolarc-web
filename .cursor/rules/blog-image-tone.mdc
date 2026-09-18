@@ -7,7 +7,8 @@ alwaysApply: false
 # ブログ画像の品質制約
 
 入口ハブ: `.cursor/skills/blog-image-router/SKILL.md`（GenerateImage は呼ばない）  
-専門: `generate-blog-image` / `generate-decision-diagram` / `annotate-screenshot` / `bake-og-text`  
+専門: `generate-blog-image` / `generate-decision-diagram` / `annotate-screenshot`  
+`bake-og-text` はレガシー（削除予定）。ユーザーが Skill 名を明示したときだけ。  
 意図マップ: `docs/ai-context/image-intent-map.md`  
 正サンプル索引: `docs/ai-context/image-sample-registry.md`
 
@@ -28,7 +29,10 @@ alwaysApply: false
 
 - 実画面の手順は生成せず、実測スクリーンショット＋注釈を使う
 - データ量の多い表は生成せず、表・Canvas・コード描画を使う
-- 生成画像へ日本語文字を焼き込まない。必要な文字は**後編集**する
+- 日本語の扱い（用途別。全面禁止ではない）:
+  - **焼いてよい**: ラベルが情報そのものの概念図（`diagram-infographic`。階層・段階・型）。生成プロンプトに焼く文言を固定する。崩れ・誤字は再生成（NG を参照に戻さない）。`caption.md` に「作成時焼き込み」と記録する。OG も本文図流用または生成時焼き込みで完結してよい
+  - **焼くな（後工程）**: decision のパネル見出し → 後編集。`bake-og-text` の帯は、ユーザーが Skill 名を明示したときだけ（既定工程ではない）
+  - **生成するな**: 実UI、数値表
 - **比較・分岐・チェック用の説明図（diagram-decision）は、後編集または既存高品質資産の流用なしに公開しない**
 - 新規生成の前に、同 `imageBasePath` / `caption.md` の流用候補を必ず確認する
 - 振り分けに迷ったら `docs/ai-context/image-intent-map.md` を読む
@@ -42,7 +46,7 @@ alwaysApply: false
 ## 検証ループ（生成後・必須）
 
 1. 生成した画像ファイルを **Read で目視**する
-2. NG（情報不足・洗い落ち・パネル崩れ・結果が見えない等）なら、プロンプトを修正して再生成する
+2. NG（情報不足・洗い落ち・パネル崩れ・結果が見えない・infographic の日本語欠け／誤字等）なら、プロンプトを修正して再生成する
 3. **NG だった画像を `reference_image_paths` に入れない**（壊れた出力を参照に戻さない）
 4. 人間ゲート（読者価値・トーン・誤情報）を通してから配置する
 
@@ -50,7 +54,7 @@ alwaysApply: false
 
 - 配置先は `public/images/blog/<imageBasePath>/`（採用決定後。WIP は Vault staging）
 - Markdown画像には、内容を説明する空でない alt を付ける。キーワード羅列・誇大表現は禁止
-- OGは16:9（1200×630優先）、本文図は4:3を基本とする
+- OGは16:9（1200×630優先）。本文図は4:3を基本とする。`diagram-infographic` は16:9可（正サンプルは約1672×941）
 - 誤情報、機密、利用条件不明の素材、巨大・未圧縮画像、**情報を潰す過圧縮**をコミットしない
 - 軽量化の手順・目標サイズ・スクリプト: `.cursor/skills/generate-blog-image/references/optimize.md`
-- 画像用途・caption・alt・参照元・後編集有無は同フォルダの `caption.md` に記録する
+- 画像用途・caption・alt・参照元・後編集有無・日本語の焼き込み有無は同フォルダの `caption.md` に記録する
