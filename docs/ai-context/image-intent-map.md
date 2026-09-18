@@ -27,7 +27,7 @@ Round1（C1）で rule/Skill 参照用に本ファイルを正とする。
 1. 記事の主検索意図を1つ決める（複数なら H2 ごとに振り分ける）
 2. 上表で **手段** を決める（流用 → 撮影 → 生成の順を崩さない）
 3. 生成する場合だけ種別（`eyecatch` / `og` / `diagram-mood` / `diagram-infographic` / `diagram-decision` / `section`）を確定する。番号付きステップや入れ子構造は decision にしない
-4. Claude 初稿の「画像提案」がある場合はジョブ票化し、本表の手段列に落とす（自動 GenerateImage はしない）
+4. Claude 初稿の「画像提案」がある場合はジョブ票化し、本表の手段列に落とす（自動 GenerateImage はしない）。記事 infographic の短い起動は `ジョブ化`（A）→ `生成して`（B）。採用（C）に固定語はない
 
 ## 既定トーンについて
 
@@ -35,5 +35,11 @@ Round1（C1）で rule/Skill 参照用に本ファイルを正とする。
 
 ## WIP 置き場
 
-採用前: Vault `06_toolarc-business/blog-image-staging/`  
+採用前:
+
+- 記事 `diagram-infographic` ジョブ: `output/imagegen/<slug>/`
+- その他（注釈・eyecatch 等）: Vault `06_toolarc-business/blog-image-staging/`
+
 採用後: `public/images/blog/<imageBasePath>/`
+
+人間の採用指示があるまで `public/` に置かない。C 用の短い Skill 起動語は設けない。

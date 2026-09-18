@@ -4,9 +4,13 @@ description: >-
   Prepares and generates ToolArc blog images (eyecatch, OG, diagram-mood,
   diagram-infographic, section) with reuse gates, reference images, alt text,
   and caption.md. Use when the user explicitly asks to create or generate a
-  ToolArc article image. Do not use for screenshots, data charts, or
-  comparison/branch diagrams (use generate-decision-diagram). Prefer reusing
-  assets in the same imageBasePath before generating.
+  ToolArc article image, including 生成して when an article infographic
+  image-job ticket exists. Uses Cursor GenerateImage only; do not delegate to
+  Codex image_gen. Do not use for screenshots, data charts, comparison/branch
+  diagrams (use generate-decision-diagram), LP, Hallmark, or Codex imagegen.
+  Prefer reusing assets in the same imageBasePath before generating. Job
+  tickets are required only for article diagram-infographic, not for
+  eyecatch/OG/mood/section.
 ---
 
 # generate-blog-image
@@ -22,12 +26,13 @@ Skill = 画像の作り方（eyecatch / og / mood / `diagram-infographic` / sect
 
 ## 起動条件（画像生成ツールのゲート対策）
 
-1. **ユーザー自身の直近発話に、画像を作る/生成する意図の自由記述がある**こと。選択式承認だけでは代替しない
+1. **ユーザー自身の直近発話に、画像を作る/生成する意図の自由記述がある**こと。選択式承認だけでは代替しない。記事 infographic の短い起動語は **生成して**
 2. 呼び出し直前に、対象 slug と種別を1文で確認する
 3. 明示依頼が無い／曖昧なら、生成せず依頼文を求める
 4. 拒否されたら下記 SVG フォールバックへ即移行
 5. 比較・分岐図の依頼なら本 Skill を使わず `generate-decision-diagram` へ委譲する
 6. 単系列ステップ・入れ子構造・型の説明図は `diagram-infographic`（decision に送らない）
+7. LP / Hallmark / Codex `imagegen` の依頼では本 Skill を起動しない。Codex `image_gen` には委譲しない
 
 ## 入力
 
@@ -35,21 +40,37 @@ Skill = 画像の作り方（eyecatch / og / mood / `diagram-infographic` / sect
 - `posts.ts` の `imageBasePath`（Series は Hub path または専用 path）
 - 種別: `eyecatch` / `og` / `diagram-mood` / `diagram-infographic` / `section`
 - 記事の要点（1文）— 物語・ステップが分かれば含める
-- `diagram-infographic` のとき: 焼く日本語（見出し・各ラベル・注記）を本文から抜いた一覧
+- `diagram-infographic` のとき: 焼く日本語（見出し・各ラベル・注記）を本文から抜いた一覧。**ジョブ票があるときは票の Labels / description を正本にする**
 
 ## 種別の判断
 
 - 実画面の手順・UI → **生成しない**（`annotate-screenshot`）
 - 数値・比較データ表 → **生成しない**（表／Canvas／コード）
-- ラベルで読む概念図（階層・段階・型） → `diagram-infographic`
-- アイキャッチ、OG素材、抽象挿絵 → `eyecatch` / `og` / `diagram-mood` / `section`
+- ラベルで読む概念図（階層・段階・型） → `diagram-infographic`（**ジョブ票必須**）
+- アイキャッチ、OG素材、抽象挿絵 → `eyecatch` / `og` / `diagram-mood` / `section`（ジョブ票不要）
 - **比較・分岐・チェック入口** → `generate-decision-diagram`（流用ゲートはその Skill 内）
 - 誤情報リスクが高い概念で、ラベル図にできないもの → Excalidraw / Figma / Mermaid または既存資産（階層・手順の骨格は infographic でよい）
 - 迷ったら `blog-image-router`
 
+## B. 記事 infographic（ジョブ票がある「生成して」）
+
+対象: `diagram-infographic` 本文挿絵。013/014 型。
+
+1. 当日フォルダの `image-job-{slug}.md` を正本にする（`Get-Date` で `01_Daily/YYMM/YYMMDD/`）
+2. **ジョブ票が無い** → GenerateImage しない。`blog-image-router` の **A（ジョブ化）** を実行して止まる。eyecatch／OG／mood／section にはこの分岐を使わない
+3. **source.md は開かない・書かない**
+4. `description` はジョブ票の「GenerateImage の description」をそのまま使う。`heading:` / `sub:` を足さない
+5. 比率 `16:9`。参照はジョブ票の正サンプルのみ。**NG 画像を `reference_image_paths` に戻さない**
+6. Cursor の `GenerateImage` のみ。Codex `image_gen` は使わない
+7. Read で目視。NG なら再生成（番号が見出しに付く、英語プレフィックス焼き込み、近い語への引き寄せは 013 実測の NG）
+8. WIP を `output/imagegen/<slug>/` へ置く。**`public/` に置かない。caption.md を書かない。本文に挿入しない**
+9. ジョブ票と当日 AI-log に合否・残件。`Last Updated` は `Get-Date`
+10. **人間ゲートで止まる。** C の起動語は無い。採用（`public/`・caption・本文挿入）は、人間が WIP を見た**その回の自由記述**があるまでやらない
+
 ## 生成前ゲート（必須・流用優先）
 
-`GenerateImage` を呼ぶ**前**に必ず行う。省略禁止。
+`GenerateImage` を呼ぶ**前**に必ず行う。省略禁止。  
+記事 infographic でジョブ票があるときは、票の流用欄を確認すれば本節の 1〜3 を省略しない（public 側も見る）。
 
 1. `public` + `imageBasePath` のファイル一覧を読む
 2. 同フォルダの `caption.md` を読み、同テーマ・同用途の推奨がないか確認する
@@ -59,7 +80,7 @@ Skill = 画像の作り方（eyecatch / og / mood / `diagram-infographic` / sect
 
 ## コンテキスト収集（必須）
 
-流用不可のあと、プロンプトを書く**前**に行う。
+流用不可のあと、プロンプトを書く**前**に行う。記事 infographic でジョブ票があるときは票を正本にし、本文から打ち直さない。
 
 1. 記事 Markdown（または要点ソース）を読み、次を書き出す:
    - **Subject**: 何の図か（対象・場面）
@@ -70,7 +91,7 @@ Skill = 画像の作り方（eyecatch / og / mood / `diagram-infographic` / sect
 
 ## 生成手順
 
-1. コンテキスト収集の項目を確定する
+1. コンテキスト収集の項目を確定する（infographic＋ジョブ票なら票の description）
 2. 種別ごとの構図を決める（下記）
 3. **参照画像**（必須）: 同 path／同シリーズの高評価を1〜2枚 `reference_image_paths` へ。無ければ近い正サンプル。`diagram-infographic` は `docs/ai-context/image-sample-registry.md` の infographic 正サンプルを優先。**外部サイト完成図のレイアウト参照は禁止**（tone C7）
 4. トーン: **現状の既定**は白＋`#60a5fa` フラット等（tone 参照）。人間が別トーンを明示したらそれに従う
@@ -89,11 +110,13 @@ Skill = 画像の作り方（eyecatch / og / mood / `diagram-infographic` / sect
    - [ ] 線画のみ／粘土・強いニューモ／洗い落ちでないか
    - [ ] 過圧縮で貧相でないか
    - [ ] `diagram-infographic`: ラベルが読める／誤字なし／本文と矛盾しない
-10. **軽量化して配置**（過圧縮しない）。手順・スクリプト正本: [`references/optimize.md`](references/optimize.md)。採用前 WIP は Vault `blog-image-staging`（または `output/imagegen/<slug>/`）
-11. OG は本 Skill で完結する（本文 infographic の流用、または生成時焼き込み）。**`bake-og-text` へ委譲しない**。ユーザーが `bake-og-text`／「帯焼きこみ」を明示したときだけ、その Skill の起動条件に従う
-12. alt 作成 → `caption.md` 追記（軽量化した場合は前後サイズも。infographic は「作成時焼き込み」）
-13. **配線境界**:
-    - **本 Skill の完了範囲**: 画像ファイル配置、`caption.md`、必要なら本文 Markdown の `![]()` 挿入、alt
+10. **記事 infographic（B）** はここで終わる（WIP のみ。下記 11〜14 は人間の C 指示があるまでやらない）
+11. **軽量化して配置**（eyecatch / og / mood / section。過圧縮しない）。手順・スクリプト正本: [`references/optimize.md`](references/optimize.md)。採用前 WIP は Vault `blog-image-staging`（記事 infographic は `output/imagegen/<slug>/`）
+12. OG は本 Skill で完結する（本文 infographic の流用、または生成時焼き込み）。**`bake-og-text` へ委譲しない**。ユーザーが `bake-og-text`／「帯焼きこみ」を明示したときだけ、その Skill の起動条件に従う
+13. alt 作成 → `caption.md` 追記（軽量化した場合は前後サイズも。infographic は「作成時焼き込み」）。**B 完了時は書かない**
+14. **配線境界**:
+    - **eyecatch / og / mood / section の完了範囲**: 画像ファイル配置、`caption.md`、必要なら本文 Markdown の `![]()` 挿入、alt
+    - **記事 infographic の B 完了範囲**: `output/imagegen/<slug>/` とジョブ票／AI-log の合否。`public/`・caption・本文挿入は人間のその回の指示
     - **本 Skill でやらない**: `posts.ts` の登録、Series `heroImage`、`npm run build`、公開日確定 → **`publish-article` へ引き継ぎ文を残す**
 
 ## 構図ルール
@@ -129,6 +152,8 @@ Outcome: [読者が画像だけで分かること／物語]
 
 ### diagram-infographic
 
+ジョブ票があるときは票の description 全文を使い、下の雛形で打ち直さない。
+
 ```text
 ToolArcブログ用の diagram-infographic。ラベルが情報そのものの概念図。
 Subject: [何の階層／何段階か]
@@ -148,12 +173,13 @@ Labels（この文言を正確に焼く。省略・言い換え禁止）:
 ## 出力
 
 - 生成画像（および後編集後の最終ファイル）
-- 配置先
+- 配置先（B は `output/imagegen/<slug>/`。`public/` ではない）
 - 流用検討の結果（1行）
 - 参照に使ったパス
 - コンテキスト収集の Subject / Composition / Outcome（各1行）。infographic は Labels も
-- alt / `caption.md` 追記（焼き込み有無）
+- alt / `caption.md` 追記（焼き込み有無）— **B では出さない**
 - publish-article への引き継ぎ有無（`bake-og-text` は明示時以外、引き継ぎに書かない）
+- 記事 infographic の B: 「人間ゲート待ち。`public/` 未配置」
 
 ## 禁止
 
@@ -170,3 +196,7 @@ Labels（この文言を正確に焼く。省略・言い換え禁止）:
 - NG 画像を `reference_image_paths` に戻すこと
 - 過圧縮で情報を潰すこと
 - 本 Skill 内で `posts.ts` 登録まで勝手に完了扱いにすること
+- 記事 infographic でジョブ票なしの GenerateImage（→ A ジョブ化）
+- 記事 infographic の B で `public/`・caption・本文挿入まで進むこと
+- C 用の短い起動語（`画像OK` 等）を本 Skill の `description` に足すこと
+- Codex `image_gen` への委譲

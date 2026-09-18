@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-09-06 15:08（Claude 初稿は共通制約＋source。共通制約は外出し）
+最終更新: 2026-09-18 19:32（Claude 初稿は共通制約＋source。共通制約は外出し。画像 A/B 起動語を索引）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
@@ -206,15 +206,19 @@ Vault 側の毎日コピペ用: `D:\ObsidianVault\Vault\00-dashboard\daily-maint
 | 依頼の例 | Skill |
 |----------|--------|
 | 画像どうする／どの手段 | `blog-image-router` |
+| **ジョブ化** / **画像準備**（記事 infographic のジョブ票。GenerateImage しない） | `blog-image-router`（A）。正本は Skill |
+| **生成して**（ジョブ票どおり生成。`public/` に置かない） | `generate-blog-image`（B）。記事 infographic のみジョブ票必須。eyecatch／OG／mood／section はジョブ票不要 |
 | eyecatch・OG素材・mood・section を生成 | `generate-blog-image`（明示の生成依頼が必要） |
 | 比較・分岐・チェック入口の図 | `generate-decision-diagram` |
 | 実機スクショに番号・矢印 | `annotate-screenshot`（偽UI生成禁止） |
-| OG／Series に日本語帯 | `bake-og-text`（Vault `blog-image-staging`） |
+| OG／Series に日本語帯 | `bake-og-text`（ユーザーが Skill 名を明示したときだけ。Vault `blog-image-staging`） |
 | posts.ts・build・公開日 | `publish-article`（①） |
 | commit / PR（マージしない） | `git-commit-pr`（個人 Skill A） |
 | PRマージ・branch整理・当日 DailyNote/AI-log | `git-merge-cleanup`（個人 Skill B） |
 
-Claude 初稿の「画像提案」はジョブ票化まで。**その場で GenerateImage しない**（方式1）。WIP は Vault staging、`public/` は採用後のみ。
+Claude 初稿の「画像提案」はジョブ票化まで。**その場で GenerateImage しない**（方式1）。  
+WIP: 記事 infographic は `output/imagegen/<slug>/`。その他は Vault staging。`public/` は採用後のみ。  
+**C（採用）に固定の起動語はない。** 人間が WIP を見てから、その回の指示で `public/`・caption・本文挿入する。`画像OK` 等を Skill に載せない。
 
 ### ① 記事公開依頼テンプレ（毎回の依頼文）
 
