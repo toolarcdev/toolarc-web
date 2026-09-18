@@ -142,6 +142,7 @@ JSON の型やカンマ、引用符の直し方はこの記事では扱いませ
 | はじめて MCP を1つ繋ぐ手順を知りたい     | [MCP初回セットアップの記事](/blog/mcp-first-setup-guide)                                                                                                                     |
 | ローカル起動か URL 接続かで迷っている    | [stdioとHTTPの違いの記事](/blog/mcp-stdio-vs-sse-transport)（Brave の既定は stdio、HTTP は切り替えという位置づけです）                                                       |
 | GitHub の Issue や PR を操作したい       | [GitHub公式Serverの設定記事](/blog/mcp-github-server-setup)                                                                                                                  |
+| PostgreSQL を MCP で見たい               | [PostgreSQL MCPの設定](/blog/mcp-postgres-setup)                                                                                                                             |
 | どの Server から試すか決めかねている     | [おすすめMCP Serverの記事](/blog/mcp-recommended-servers)                                                                                                                    |
 | 料金やプラン、キー発行画面で止まっている | [Brave Search API](https://brave.com/search/api/) や[開発者用ダッシュボード](https://api-dashboard.search.brave.com/app/keys)                                                |
 

@@ -50,6 +50,7 @@ MCPの用語は分かったが、どのServerから足せばよいか分から�
 | GitHub操作            | 公式 GitHub MCP Server          | [GitHub MCP Serverの設定](/blog/mcp-github-server-setup)                       |
 | ローカルファイル      | 公式 Filesystem MCP Server      | [Filesystem MCPの使い方](/blog/mcp-filesystem-setup)                           |
 | Web検索               | Brave 公式 Search MCP Server    | [Brave Search MCPの設定](/blog/mcp-brave-search-setup)                         |
+| PostgreSQL            | Postgres MCP Pro                | [PostgreSQL MCPの設定](/blog/mcp-postgres-setup)                               |
 | VS Code上での追加全般 | VS Codeのギャラリー／`mcp.json` | [VS CodeのMCP設定](/blog/mcp-vscode-setup)                                     |
 | Cursor上での追加全般  | Customize／`mcp.json`           | [CursorのMCP設定](/blog/mcp-cursor-setup)                                      |
 | Claude Desktop／Code  | Desktop JSON／`claude mcp add`  | [Desktop](/blog/mcp-claude-desktop-setup)／[Code](/blog/mcp-claude-code-setup) |
@@ -104,6 +105,7 @@ MCPの用語は分かったが、どのServerから足せばよいか分から�
 - GitHubを試す → [GitHub MCP Serverの設定](/blog/mcp-github-server-setup)
 - ローカルファイルを試す → [Filesystem MCPの使い方](/blog/mcp-filesystem-setup)
 - Web検索を足す → [Brave Search MCPの設定](/blog/mcp-brave-search-setup)
+- PostgreSQLを見る → [PostgreSQL MCPの設定](/blog/mcp-postgres-setup)
 - VS Codeの置き場所を固める → [VS CodeのMCP設定](/blog/mcp-vscode-setup)
 - シリーズ入口に戻る → [MCPガイド](/blog/mcp-guide)
 
