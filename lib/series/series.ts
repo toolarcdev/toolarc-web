@@ -208,6 +208,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-recommended-servers", // W11 MCP #11
       "mcp-filesystem-setup", // W12 MCP #12
       "mcp-brave-search-setup", // W12 MCP #13
+      "mcp-postgres-setup", // W12 MCP #14
     ],
     publishedAt: "2026-07-16",
   },

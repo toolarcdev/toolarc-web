@@ -145,6 +145,7 @@ Clientによって設定のキー名が変わる点も押さえておきまし�
 | ローカル起動なのかURL接続なのか分からない          | [stdioとSSEの違い](/blog/mcp-stdio-vs-sse-transport)（Filesystemの代表的な経路はローカルのstdioです）                                                                                       |
 | GitHubのIssueやPRを操作したい                      | [GitHub MCP Serverの使い方](/blog/mcp-github-server-setup)（この記事が扱うのはローカルファイルまでです）                                                                                    |
 | Web検索を足したい                                  | [Brave Search MCPの設定](/blog/mcp-brave-search-setup)                                                                                                                                      |
+| PostgreSQLをMCPで見たい                            | [PostgreSQL MCPの設定](/blog/mcp-postgres-setup)                                                                                                                                            |
 | どのServerから試すか迷っている                     | [おすすめのMCP Server一覧](/blog/mcp-recommended-servers)                                                                                                                                   |
 
 関連するServerやClientの手順をまとめて探したいときは、[MCP入門ガイド](/blog/mcp-guide)から他の記事もたどれます。
