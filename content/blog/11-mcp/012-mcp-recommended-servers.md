@@ -2,6 +2,7 @@
 title: "おすすめMCP Server一覧｜開発者が最初に試す選定枠"
 description: "開発向けMCP Serverを選ぶ人向けに、公式・定番候補の見方、最初の1本の決め方、権限とClient差分の注意点、GitHub／VS Code／Cursorへの分かれ道と、入れない方がよいサインまでを試す順番の選定枠として丁寧に整理します。"
 date: 2026-09-16
+last_update: 2026-09-19
 tags:
   - MCP
   - MCP Server
@@ -106,6 +107,7 @@ MCPの用語は分かったが、どのServerから足せばよいか分から�
 - ローカルファイルを試す → [Filesystem MCPの使い方](/blog/mcp-filesystem-setup)
 - Web検索を足す → [Brave Search MCPの設定](/blog/mcp-brave-search-setup)
 - PostgreSQLを見る → [PostgreSQL MCPの設定](/blog/mcp-postgres-setup)
+- 自分で最小のServerを書く → [MCP Serverの作り方入門](/blog/mcp-server-build-basics)
 - VS Codeの置き場所を固める → [VS CodeのMCP設定](/blog/mcp-vscode-setup)
 - シリーズ入口に戻る → [MCPガイド](/blog/mcp-guide)
 
