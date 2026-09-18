@@ -1,5 +1,7 @@
 # caption — 030-cursor-free
 
+Last Updated: 2026-09-18 23:36
+
 このフォルダの画像の用途・出典・後編集の記録。
 
 ## ss-05_mcp-settings-annotated.png
@@ -17,3 +19,8 @@
 ## ss-01〜ss-04（既存）
 
 本ファイル作成前から配置されていた画像。記録は各記事本文の alt を参照。
+
+## ss-01_plan-comparison.png
+
+- 用途: 本文挿絵（`/blog/cursor-free`）＋ OG 流用（cursor-free シリーズ5本）
+- 軽量化: sharp palette PNG q85。1215KB → 183KB（1536-palette85）。目視OK

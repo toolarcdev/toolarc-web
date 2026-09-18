@@ -1,6 +1,6 @@
 # git-stash-pop-tips 画像メモ
 
-Last Updated: 2026-07-22 02:53
+Last Updated: 2026-09-18 23:36
 
 ## og.png
 
@@ -9,6 +9,7 @@ Last Updated: 2026-07-22 02:53
 - 文言: main「git stash popで元に戻せる理由と使い方」／sub「消えたのではなく、一時的に退避されているだけ」
 - 参照: `cursor-windows-slow-check-tips/eyecatch.png`
 - staging: `blog-image-staging/jobs/2026-07-22__git-stash-pop-tips/`
+- 軽量化: sharp palette PNG q85。665KB → 148KB（1536-palette85）。目視OK
 
 ## mood-restore-flow.png
 
@@ -16,6 +17,7 @@ Last Updated: 2026-07-22 02:53
 - 挿入位置: 「突然ファイルが消えたように見えた瞬間」の後、「なぜ消えたように見えたのか——git stashの仕組み」の前
 - 生成: GenerateImage → 下部余白クロップ（1536×735）
 - 参照: 同上
+- 軽量化: sharp palette PNG q85。552KB → 111KB（1536-palette85）。目視OK
 
 ## caption
 

@@ -1,6 +1,6 @@
 # kimi-k3-cursor-guide 画像メモ
 
-Last Updated: 2026-08-04 15:27
+Last Updated: 2026-09-18 23:36
 
 ## cursor-models-kimi-k3-toggle.png
 
@@ -25,5 +25,6 @@ Last Updated: 2026-08-04 15:27
 - 種別: 生成OG（日本語タイトル・要点・Modelsトグルモック込み。bake-og-text不要）
 - 原図: `01_Daily/2608/260804/ChatGPT Image 2026年8月4日 15_25_37.png`
 - 後編集: なし（ユーザー作成の完成稿をそのまま採用）
+- 軽量化: sharp palette PNG q80。1439KB → 355KB（1536-palette80）。目視OK
 - `posts.ts`: `ogImage: "og.png"`（登録済）
 - 備考: 推奨16:9（1200×630）より縦長。同サイズ採用の先例あり（`cursor-vs-vscode-copilot-comparison`）。必要なら後で1200×630へリサイズ検討
