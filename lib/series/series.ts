@@ -211,6 +211,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-postgres-setup", // W12 MCP #14
       "mcp-server-build-basics", // W12 MCP #15
       "mcp-security-permissions", // W12 MCP #17
+      "mcp-vs-rest-api-comparison", // W12 MCP #27
     ],
     publishedAt: "2026-07-16",
   },
