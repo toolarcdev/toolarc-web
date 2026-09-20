@@ -2282,6 +2282,14 @@ export const blogPosts = {
     ogImage: "h2-1.png",
     category: "tool",
   },
+  "mcp-vs-rest-api-comparison": {
+    contentId: "11-mcp",
+    markdownFile: "018-mcp-vs-rest-api-comparison.md",
+    imageBasePath: "/images/blog/mcp-vs-rest-api-comparison",
+    publishedAt: "2026-09-20",
+    ogImage: "h2-1.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
