@@ -212,6 +212,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-server-build-basics", // W12 MCP #15
       "mcp-security-permissions", // W12 MCP #17
       "mcp-vs-rest-api-comparison", // W12 MCP #27
+      "cursor-mcp-vs-claude-mcp", // W12 MCP #28
     ],
     publishedAt: "2026-07-16",
   },
