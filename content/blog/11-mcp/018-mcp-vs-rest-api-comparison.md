@@ -87,6 +87,8 @@ REST直呼びとMCPは、どちらか一方を選んで終わりというもの�
 
 実際につなぐ操作に進みたいときは、[MCPの初回接続ガイド](/blog/mcp-first-setup-guide)や[設定ファイルの書き方](/blog/mcp-config-json-guide)から始められます。リモートMCPはHTTP上で動くこともあり、stdioとの違いで迷ったら[stdioとHTTP、運び方の比較](/blog/mcp-stdio-vs-sse-transport)を確認してください。自分でMCP Serverを作る手順は、[MCP Serverを最小構成で作る](/blog/mcp-server-build-basics)で扱っています。
 
+CursorとClaude Desktop／Claude Codeのどちらでつなぐかで迷う場合は[CursorとClaudeのMCP比較](/blog/cursor-mcp-vs-claude-mcp)を参照してください。
+
 MCP全体の位置づけや、関連記事の一覧は[MCP入門ガイド](/blog/mcp-guide)から確認できます。
 
 ---

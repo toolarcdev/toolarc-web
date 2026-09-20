@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-09-18 19:32（Claude 初稿は共通制約＋source。共通制約は外出し。画像 A/B 起動語を索引）
+最終更新: 2026-09-20 18:52（Claude 初稿は共通制約＋source。共通制約は外出し。画像 A/B 起動語を索引。インプットのペルソナ案は既読軸不可）
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
@@ -66,7 +66,7 @@ DailyNote / AI-log
 
 | 段階 | 誰 | 成果 |
 |------|-----|------|
-| 新規記事インプット | 人（Agent はチャット内容を当日フォルダへ md 化してよい） | `01_Daily/…/input-{slug}.md`（必須6。任意でペルソナ案を書いてよい） |
+| 新規記事インプット | 人（Agent はチャット内容を当日フォルダへ md 化してよい） | `01_Daily/…/input-{slug}.md`（必須6。任意でペルソナ案を書いてよい。**他記事／Hub既読を軸にしない**。正本: `article-input.md`） |
 | source.md | Cursor + `create-source-md`（上位） | 同フォルダ `source-{slug}.md`。ペルソナ・記事の仕事は source.md 側の Agent が確定 |
 | source 人間ゲート | 人 | 推測・境界漏れ・CTA違和感の阻止 |
 | 本文初稿 | Claude.ai（④） | 共通制約（Project 知識）＋ source。共通は source に埋め込まない |
