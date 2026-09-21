@@ -43,6 +43,11 @@ export const RAIL_AFFILIATE_POOL = [
     creativeId: "banner-300x300",
     linkText: "0円スクール",
   },
+  {
+    programId: "bytech",
+    creativeId: "banner-300x300",
+    linkText: "バイテック生成AI",
+  },
 ] as const satisfies readonly AffiliatePoolEntry[];
 
 /** Landscape banners for viewports below lg (height ≤ 100).
@@ -78,6 +83,11 @@ export const NARROW_AFFILIATE_POOL = [
     programId: "zerosuku",
     creativeId: "banner-728x90",
     linkText: "0円スクール",
+  },
+  {
+    programId: "bytech",
+    creativeId: "banner-728x90",
+    linkText: "バイテック生成AI",
   },
 ] as const satisfies readonly AffiliatePoolEntry[];
 
