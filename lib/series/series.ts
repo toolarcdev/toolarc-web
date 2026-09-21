@@ -210,7 +210,9 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-brave-search-setup", // W12 MCP #13
       "mcp-postgres-setup", // W12 MCP #14
       "mcp-server-build-basics", // W12 MCP #15
+      "mcp-client-sdk-overview", // W12 MCP #16
       "mcp-security-permissions", // W12 MCP #17
+      "mcp-local-vs-remote", // W12 MCP #18
       "mcp-vs-rest-api-comparison", // W12 MCP #27
       "cursor-mcp-vs-claude-mcp", // W12 MCP #28
     ],

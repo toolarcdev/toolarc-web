@@ -113,11 +113,13 @@ MCP自体は「接続の話」で、どのClientから入るかで画面と手�
 | #13 | [Brave Search MCPの設定｜APIキーと検索確認](/blog/mcp-brave-search-setup) | 公開 |
 | #14 | [PostgreSQL MCPの設定｜接続文字列と読み取り確認](/blog/mcp-postgres-setup) | 公開 |
 | #15 | [MCP Serverの作り方入門｜最小のTool公開と確認](/blog/mcp-server-build-basics) | 公開 |
+| #16 | [MCP Client SDK概要｜TypeScriptとPythonで始める](/blog/mcp-client-sdk-overview) | 公開 |
 | #17 | [MCPの権限管理｜渡す範囲の最小化と追加後の見直し](/blog/mcp-security-permissions) | 公開 |
+| #18 | [MCPのローカルとリモート運用｜どちらでつなぐかの判断](/blog/mcp-local-vs-remote) | 公開 |
 | #27 | [MCPとREST API連携の違い｜どちらでつなぐかの判断](/blog/mcp-vs-rest-api-comparison) | 公開 |
 | #28 | [CursorとClaudeのMCP比較｜設定の違いと進め方の判断](/blog/cursor-mcp-vs-claude-mcp) | 公開 |
 
-推奨の読み方は **#1 → #2 → #3 → #4 → #5 → #6 → #7 → #8** を土台に、必要なら **#9（VS Code）／#10（GitHub Server）／#11（選定一覧）／#12（Filesystem）／#13（Brave Search）／#14（PostgreSQL）／#15（自作Server）／#17（権限）／#27（REST連携の判断）／#28（CursorとClaudeの設定の違い）** へ分岐する想定です。#1〜#2で言葉を揃え、#3〜#4で共通の導入感を掴み、#5で接続方式を見分け、Client別（#6〜#9）と具体Server（#10・#12・#13・#14）・選定（#11）・自作（#15）・権限の渡し方（#17）・REST直呼びとの判断（#27）・CursorとClaude Desktop／Codeの設定の違い（#28）へ進む、という段階に分けます。
+推奨の読み方は **#1 → #2 → #3 → #4 → #5 → #6 → #7 → #8** を土台に、必要なら **#9（VS Code）／#10（GitHub Server）／#11（選定一覧）／#12（Filesystem）／#13（Brave Search）／#14（PostgreSQL）／#15（自作Server）／#16（Client SDK）／#17（権限）／#18（ローカルとリモート運用）／#27（REST連携の判断）／#28（CursorとClaudeの設定の違い）** へ分岐する想定です。#1〜#2で言葉を揃え、#3〜#4で共通の導入感を掴み、#5で接続方式を見分け、Client別（#6〜#9）と具体Server（#10・#12・#13・#14）・選定（#11）・自作（#15）・自前Client（#16）・権限の渡し方（#17）・手元起動とURLの運用（#18）・REST直呼びとの判断（#27）・CursorとClaude Desktop／Codeの設定の違い（#28）へ進む、という段階に分けます。
 
 ## 隣のHubとセキュリティ注意
 

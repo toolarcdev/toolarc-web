@@ -1,7 +1,7 @@
 ---
 title: "MCPのローカルとリモート運用｜どちらでつなぐかの判断"
 description: "MCP Serverを手元で起動するか、インターネット上のURLでつなぐかで迷う人向けです。起動場所、認証の要否、設定で見る項目、向きやすい場面を比較して整理します。stdioとHTTPの用語比較や製品画面の手順、本番デプロイの手順は扱いません。"
-date: 2026-09-21
+date: 2026-09-22
 tags:
   - MCP
   - 比較
@@ -76,6 +76,8 @@ Host／Client／Serverの役割そのものを一から確認したくなった�
 
 OAuthの実装手順や特定クラウド必須の断定はしません。認証の要否と確認項目までを押さえ、権限の監査チェックリストは[権限とセキュリティ](/blog/mcp-security-permissions)側です。GitHubなど特定サービスの接続形の具体例が欲しいときは、[GitHub Serverのつなぎ方](/blog/mcp-github-server-setup)を参照してください（本記事で手順は再掲しません）
 
+![MCPのローカル運用とリモート運用で確認する項目の違いを左右に並べた比較図](/images/blog/mcp-local-vs-remote/h2-1.png)
+
 ## 向きやすい場面を分ける
 
 どちらが常に正しい、という表は置きません。向きやすいことが多い場面の整理です。
@@ -99,6 +101,7 @@ OAuthの実装手順や特定クラウド必須の断定はしません。認証
 | 次に知りたいこと | 進む先 |
 |------------------|--------|
 | stdioとHTTP／SSEの用語と比較 | [stdioとHTTP/SSEの違い](/blog/mcp-stdio-vs-sse-transport) |
+| 自前アプリからServerを呼ぶ | [MCP Client SDK概要](/blog/mcp-client-sdk-overview) |
 | 使うClientの画面・置き場所 | [Cursor](/blog/mcp-cursor-setup)／[Claude Desktop](/blog/mcp-claude-desktop-setup)／[Claude Code](/blog/mcp-claude-code-setup)／[VS Code](/blog/mcp-vscode-setup) |
 | 権限・トークンの詰め | [権限とセキュリティ](/blog/mcp-security-permissions) |
 | 既存Serverの初回つなぎ | [既存Serverの初回接続](/blog/mcp-first-setup-guide) |
@@ -119,4 +122,4 @@ MCPのローカル運用とリモート運用は、**起動場所と見る項目
 
 ---
 
-本記事の内容は執筆時点（2026-09-21）の情報に基づきます。公式ドキュメントを参照しており、掲載手順の実機での動作は未検証です。接続の安定、認証の成否、運用の適否を保証するものではありません。ClientやServerによって画面・キー名・対応状況は異なります。重要な判断は公式ドキュメントで確認してください。
+本記事の内容は執筆時点（2026-09-22）の情報に基づきます。公式ドキュメントを参照しており、掲載手順の実機での動作は未検証です。接続の安定、認証の成否、運用の適否を保証するものではありません。ClientやServerによって画面・キー名・対応状況は異なります。重要な判断は公式ドキュメントで確認してください。

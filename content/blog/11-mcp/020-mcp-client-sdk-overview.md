@@ -1,7 +1,7 @@
 ---
 title: "MCP Client SDK概要｜TypeScriptとPythonで始める"
 description: "既存のMCP Serverをアプリから呼び出すClientを、公式SDKで作りたい人向けです。TypeScriptとPythonの概要、接続の流れ、一覧取得と1回の呼び出しまでを整理します。製品Clientの設定やServer自作の詳細手順は扱いません。"
-date: 2026-09-21
+date: 2026-09-22
 tags:
   - MCP
   - MCP Client
@@ -79,6 +79,8 @@ await client.connect(transport);
 
 この骨格は「つながったか」を確認するための最小例です。HTTP／SSEでの本番接続や、チャット画面の実装は扱いません。運び方の比較が必要になったら[stdioとHTTP/SSEの違い](/blog/mcp-stdio-vs-sse-transport)へ進んでください。
 
+![MCP Client SDKで接続し、Tool一覧を取り、1回呼び出す3段階の概念図](/images/blog/mcp-client-sdk-overview/h2-1.png)
+
 ## Tool一覧と1呼び出しまで確認する
 
 接続できたあとは、一覧取得と1回の呼び出しを分けて確認します。公式のTypeScript例では、接続直後に`listTools()`で名前を取り、必要になったときに`callTool()`で呼びます。
@@ -136,6 +138,7 @@ Pythonでも同じ確認（接続・一覧・1呼び出し）を公式が案内�
 | 既存の完成Serverを初めて繋ぐ手順を知りたい | [既存Serverの初回接続](/blog/mcp-first-setup-guide) |
 | stdioとHTTP／SSEのどちらを選ぶか迷う | [stdioとHTTP/SSEの違い](/blog/mcp-stdio-vs-sse-transport) |
 | 権限やトークンの扱いを整理したい | [権限とセキュリティ](/blog/mcp-security-permissions) |
+| 手元起動かURLかの運用で迷う | [ローカルとリモート運用](/blog/mcp-local-vs-remote) |
 | Pythonや公式チャットボット例まで進めたい | 公式の[Build an MCP client](https://modelcontextprotocol.io/docs/develop/build-client) |
 
 ## まとめ
@@ -146,4 +149,4 @@ Pythonでも同じ確認（接続・一覧・1呼び出し）を公式が案内�
 
 ---
 
-本記事の内容は執筆時点（2026-09-21）の情報に基づきます。公式ドキュメントを参照しており、掲載手順の実機での動作は未検証です。SDKのパッケージ名・API・起動コマンドは変更される可能性があります。ビルドの成功や本番利用の適否を保証するものではありません。重要な判断は公式ドキュメントで確認してください。
+本記事の内容は執筆時点（2026-09-22）の情報に基づきます。公式ドキュメントを参照しており、掲載手順の実機での動作は未検証です。SDKのパッケージ名・API・起動コマンドは変更される可能性があります。ビルドの成功や本番利用の適否を保証するものではありません。重要な判断は公式ドキュメントで確認してください。

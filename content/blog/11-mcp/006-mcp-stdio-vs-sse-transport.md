@@ -100,7 +100,7 @@ HTTP側の呼び方は、現行のMCP仕様ではStreamable HTTPで統一され�
 
 迷ったときの目安は、「案内が起動コマンドならstdio側、URLならHTTP側」です。未確認の製品にこの対応をそのまま当てはめて推測するのは避けてください。
 
-次の一手は記事によって分かれます。JSON設定の編集で迷ったら[MCP設定ファイルの書き方](/blog/mcp-config-json-guide)、初回の接続・動作確認は[MCPの導入手順](/blog/mcp-first-setup-guide)、役割の全体像を先に知りたい場合は[MCPの仕組み入門](/blog/mcp-architecture-basics)です。MCP関連の記事を一覧で探したいときは[MCPガイド](/blog/mcp-guide)から辿れます。
+次の一手は記事によって分かれます。JSON設定の編集で迷ったら[MCP設定ファイルの書き方](/blog/mcp-config-json-guide)、初回の接続・動作確認は[MCPの導入手順](/blog/mcp-first-setup-guide)、役割の全体像を先に知りたい場合は[MCPの仕組み入門](/blog/mcp-architecture-basics)です。手元起動かURLかの運用判断は[ローカルとリモート運用](/blog/mcp-local-vs-remote)です。MCP関連の記事を一覧で探したいときは[MCPガイド](/blog/mcp-guide)から辿れます。
 
 ---
 
