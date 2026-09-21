@@ -12,7 +12,7 @@ tags:
   - claude-developer-series
 site: toolarc.jp
 target: "Claude Code と Cursor の名前は知っているが、製品の違いと、どちらから始めるか（または併用するか）を判断できない初心者〜中級の個人開発者"
-last_update: 2026-08-31
+last_update: 2026-09-21
 ---
 
 # Claude Code vs Cursor比較｜どちらから始めるかの判断基準
@@ -94,6 +94,20 @@ last_update: 2026-08-31
 - 利用上限の数え方（回数・時間・トークン量など、何を基準にしているか）
 
 これらは執筆時点で公式サイトから確認できた項目名にもとづいています。数値そのものは変わりやすいため、契約直前に公式ページを見直してください。
+
+## よくある質問（FAQ）
+
+**Q1. 無料で試すならどちらからですか？**
+
+まず触るだけなら、普段の作業場所に合わせると迷いにくいです。エディタ中心なら Cursor、ターミナル中心なら Claude Code から試してください。シリーズ入口は [Cursor Hub](/blog/cursor-free) と [Claude Code ガイド](/blog/claude-code-guide) です。
+
+**Q2. 両方契約しないと併用できませんか？**
+
+いいえ。併用は「契約の組み合わせ」より、編集とターミナルで役割を分けるかどうかの話です。パターンは [CursorとClaude Codeの2ステップ併用術](/blog/claude-cursor-2step-workflow-tips) を参照してください。
+
+**Q3. Cursor CLI と Claude Code は同じものですか？**
+
+別物です。名前が似ていても、製品と設定場所が違います。CLI 側は [Cursor CLIのインストール手順](/blog/cursor-cli-install-basics) を確認してください。
 
 ## 次に読む｜選んだ側の始め方へ進む
 
