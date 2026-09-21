@@ -1,6 +1,7 @@
 import { aiSkillAcademyProgram } from "./programs/ai-skill-academy";
 import { amazonPrimeVideoProgram } from "./programs/amazon-prime-video";
 import { audibleProgram } from "./programs/audible";
+import { bytechProgram } from "./programs/bytech";
 import { doraverseProgram } from "./programs/doraverse";
 import { fjordBootCampProgram } from "./programs/fjord-boot-camp";
 import { internetAcademyProgram } from "./programs/internet-academy";
@@ -32,6 +33,7 @@ const programs: Record<AffiliateProgramId, AffiliateProgram> = {
   "amazon-prime-video": amazonPrimeVideoProgram,
   "yahoo-shopping": yahooShoppingProgram,
   "internet-academy": internetAcademyProgram,
+  bytech: bytechProgram,
 };
 
 export function getProgram(programId: string): AffiliateProgram | undefined {

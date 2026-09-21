@@ -10,7 +10,7 @@
  * ## 排他の前提
  *
  * rail と narrow は **programId 単位**で重複しない（creativeId は見ない）。
- * techgym / zerosuku は両プールに入るため、右レールが該当案件の日は狭い幅から除外される。
+ * techgym / zerosuku / bytech は両プールに入るため、右レールが該当案件の日は狭い幅から除外される。
  *
  * ```bash
  * npm run test:unit
@@ -72,6 +72,7 @@ describe("pickRailAffiliateForDate", () => {
 describe("pickNarrowAffiliateForDate — rail/narrow programId exclusion", () => {
   const techgymDate = findDateKeyForRailProgramId("techgym");
   const zerosukuDate = findDateKeyForRailProgramId("zerosuku");
+  const bytechDate = findDateKeyForRailProgramId("bytech");
   const internetAcademyDate = findDateKeyForRailProgramId("internet-academy");
 
   it("excludes techgym from narrow when rail is techgym", () => {
@@ -96,7 +97,18 @@ describe("pickNarrowAffiliateForDate — rail/narrow programId exclusion", () =>
     );
   });
 
-  it("allows techgym or zerosuku in narrow when rail is internet-academy", () => {
+  it("excludes bytech from narrow when rail is bytech", () => {
+    const rail = pickRailAffiliateForDate(bytechDate);
+    const narrow = pickNarrowAffiliateForDate(bytechDate);
+
+    assert.equal(rail.programId, "bytech");
+    assert.notEqual(narrow.programId, "bytech");
+    assert.ok(
+      NARROW_AFFILIATE_POOL.some((entry) => entry.programId === narrow.programId),
+    );
+  });
+
+  it("allows dual-pool programs in narrow when rail is internet-academy", () => {
     const rail = pickRailAffiliateForDate(internetAcademyDate);
     const narrow = pickNarrowAffiliateForDate(internetAcademyDate);
 
@@ -137,15 +149,17 @@ describe("pickNarrowAffiliateForDate — rail/narrow programId exclusion", () =>
 });
 
 describe("pool membership helpers", () => {
-  it("marks techgym and zerosuku as rail pool members", () => {
+  it("marks techgym, zerosuku, and bytech as rail pool members", () => {
     assert.equal(isRailPoolProgramId("techgym"), true);
     assert.equal(isRailPoolProgramId("zerosuku"), true);
+    assert.equal(isRailPoolProgramId("bytech"), true);
     assert.equal(isRailPoolProgramId("udemy"), false);
   });
 
-  it("marks techgym and zerosuku as narrow pool members", () => {
+  it("marks techgym, zerosuku, and bytech as narrow pool members", () => {
     assert.equal(isNarrowPoolProgramId("techgym"), true);
     assert.equal(isNarrowPoolProgramId("zerosuku"), true);
+    assert.equal(isNarrowPoolProgramId("bytech"), true);
     assert.equal(isNarrowPoolProgramId("amazon-prime-video"), false);
   });
 });
