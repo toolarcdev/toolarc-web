@@ -146,7 +146,7 @@ Pythonで公式の天気2ツール例まで進めたい場合は、TypeScript側
 
 MCP Serverを自分で書くときは、まずToolを1つ登録し、stdioで待ち受けます。ログは標準出力に出さず、InspectorやClientから実際に呼び出せるかを確認します。この3段を通せれば、次のToolを増やす作業も同じ形で進められます。
 
-2つ目以降のToolやResources、HTTPでの公開まで手を広げたくなったら、[MCPガイド](/blog/mcp-guide)から関連する手順を探してみてください。権限の渡し方と追加後の見直しは[MCPの権限管理](/blog/mcp-security-permissions)で扱っています。
+2つ目以降のToolやResources、HTTPでの公開まで手を広げたくなったら、[MCPガイド](/blog/mcp-guide)から関連する手順を探してみてください。権限の渡し方と追加後の見直しは[MCPの権限管理](/blog/mcp-security-permissions)で扱っています。自前アプリから既存Serverを呼ぶ側は[MCP Client SDK概要](/blog/mcp-client-sdk-overview)です。
 
 ---
 
