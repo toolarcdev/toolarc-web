@@ -1,6 +1,6 @@
 ---
 title: "MCP Client SDK概要｜TypeScriptとPythonで始める"
-description: "既存のMCP Serverをアプリから呼び出すClientを、公式SDKで作りたい人向けです。TypeScriptとPythonの概要、接続の流れ、一覧と1呼び出しまでの到達点を整理します。製品Clientの設定やServer自作の詳細手順は扱いません。"
+description: "既存のMCP Serverをアプリから呼び出すClientを、公式SDKで作りたい人向けです。TypeScriptとPythonの概要、接続の流れ、一覧取得と1回の呼び出しまでを整理します。製品Clientの設定やServer自作の詳細手順は扱いません。"
 date: 2026-09-21
 tags:
   - MCP
@@ -17,16 +17,16 @@ target: "既存の MCP Server を、Cursor 等の製品設定ではなく自前�
 
 既存のMCP Serverはある。CursorやClaude Desktopに足すのではなく、自分のアプリからToolを一覧し、1回呼び出したい。そのとき検索結果には、Serverの自作手順、製品アプリの設定画面、公式のチャットボット例が同じキーワードで並びやすく、「何を最初に実装し、どこまで見れば動いたか」が切れにくいです。
 
-本記事では、公式の[Build an MCP client](https://modelcontextprotocol.io/docs/develop/build-client)と[SDKs](https://modelcontextprotocol.io/docs/sdk)に沿い、**自前Client**（自分のアプリ側の接続プログラム）を公式SDKで書くときの到達点を整理します。手順の骨格はTypeScript中心です。Pythonは対応関係の短表と公式節への案内までにとどめます。
+本記事では、公式の[Build an MCP client](https://modelcontextprotocol.io/docs/develop/build-client)と[SDKs](https://modelcontextprotocol.io/docs/sdk)に沿い、**自前Client**（自分のアプリ側の接続プログラム）を公式SDKで書くときの手順を整理します。手順の骨格はTypeScript中心です。Pythonは対応関係の短表と公式節への案内までにとどめます。
 
 製品アプリの設定場所の探し方や、Server側の`registerTool`の実装手順は扱いません。
 
 > **今日の結論**
 > - 自前Clientは公式SDKの`Client`と接続の運び方（transport）が中心です。手順の骨格はTypeScript（`@modelcontextprotocol/client`＋`StdioClientTransport`）です。
-> - 初回の到達点は「Serverに接続できる」「Tool一覧が取れる」「1回呼べる」の3つ。LLMチャットボットの全文ループは必須にしません。
+> - 最初に揃えるのは「Serverに接続できる」「Tool一覧が取れる」「1回呼べる」の3つです。LLMチャットボットの全文ループは必須にしません。
 > - Cursor／Claudeなど既存アプリへの足し方は、製品ごとの設定記事側です。この記事の対象ではありません。
-> - Pythonは同じ到達点に対応するAPIがあり、詳細手順は公式のBuild-clientのPython節へ送ります。
-> - Server自作・運び方の比較・権限の監査は、必要になったときに隣の手順記事へ切り分けます。
+> - Pythonにも接続・一覧・1呼び出しに対応するAPIがあり、詳細手順は公式のBuild-clientのPython節へ送ります。
+> - Server自作・運び方の比較・権限の監査は、この記事では扱いません。必要になったときは各手順の記事や公式ドキュメントを参照してください。
 
 ## 自前Clientと製品Clientの違い、公式SDKの選び方
 
@@ -45,7 +45,7 @@ Host／Client／Serverの役割そのものを一から説明する必要が出�
 
 ## TypeScriptで接続する最小の流れ
 
-公式のTypeScript節では、執筆時点で確認した範囲ではNode.js 20以上とnpmを前提にしています。パッケージは`@modelcontextprotocol/client`です。インストール例は次のとおりです（チャットボット連携用のAnthropic SDKは、本記事の到達点には不要です）。
+公式のTypeScript節では、執筆時点で確認した内容ではNode.js 20以上とnpmを前提にしています。パッケージは`@modelcontextprotocol/client`です。インストール例は次のとおりです（チャットボット連携用のAnthropic SDKは、接続・一覧・1呼び出しの確認には不要です）
 
 ```bash
 npm init -y
@@ -106,11 +106,11 @@ await client.close();
 
 失敗したときに「全部壊れている」と一括りにせず、上のどこで止まったかを切り分けると戻りやすいです。権限やトークンの監査まで広げたくなったら[権限とセキュリティ](/blog/mcp-security-permissions)へ。Server側の公開手順そのものを直す必要があるなら[Serverの作り方入門](/blog/mcp-server-build-basics)へ進んでください。
 
-公式Build-clientのチャットボット例は、一覧と呼び出しのあとにAnthropic Messagesで会話ループを回します。LLM連携は公式例として存在しますが、自前Clientの最初の到達点には含めません。
+公式Build-clientのチャットボット例は、一覧と呼び出しのあとにAnthropic Messagesで会話ループを回します。LLM連携は公式例として存在しますが、自前Clientの最初の確認（接続・一覧・1呼び出し）には含めません。
 
-## Python経路の対応関係
+## Python側の対応関係
 
-Pythonでも同じ到達点（接続・一覧・1呼び出し）を公式が案内しています。パッケージはPyPIの`mcp`です。執筆時点で確認した公式例では、`Client`、`StdioServerParameters`、`stdio_client`、`list_tools`、`call_tool`が中心です。
+Pythonでも同じ確認（接続・一覧・1呼び出し）を公式が案内しています。パッケージはPyPIの`mcp`です。執筆時点で確認した公式例では、`Client`、`StdioServerParameters`、`stdio_client`、`list_tools`、`call_tool`が中心です。
 
 | 役割 | TypeScript | Python（公式例の対応） |
 |------|------------|------------------------|
@@ -123,7 +123,7 @@ Pythonでも同じ到達点（接続・一覧・1呼び出し）を公式が案�
 
 環境構築に`uv`を使う手順や、Anthropic APIキーを`.env`へ置く手順は、公式Build-clientのPython節にあります。操作画面のツアーはここでは書きません。Pythonで全文を追いたい場合は、TypeScript側で接続→一覧→1呼び出しの意味が分かったあとに読むと迷いにくいです。
 
-## 止まったら隣の手順へ切り分ける
+## 止まったときの確認先
 
 症状に近いものから確認すると早く進みます。原因を1つに決めつけず、当てはまる項目を見てください。
 
@@ -140,7 +140,7 @@ Pythonでも同じ到達点（接続・一覧・1呼び出し）を公式が案�
 
 ## まとめ
 
-自前アプリから既存のMCP Serverを呼ぶとき、最初に揃えるのは公式Client SDKの`Client`とtransportです。TypeScriptなら`@modelcontextprotocol/client`と`StdioClientTransport`でつなぎ、**一覧**と**1呼び出し**まで取れれば初回の到達点は十分です。
+自前アプリから既存のMCP Serverを呼ぶとき、最初に揃えるのは公式Client SDKの`Client`とtransportです。TypeScriptなら`@modelcontextprotocol/client`と`StdioClientTransport`でつなぎ、**一覧**と**1呼び出し**まで取れれば、最初の確認としては十分です。
 
 製品アプリへの設定、Serverの自作、運び方の比較、権限の設計まで手を広げたくなったら、[MCP Hub](/blog/mcp-guide)から関連する手順を探してみてください。
 

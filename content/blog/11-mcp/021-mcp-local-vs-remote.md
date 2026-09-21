@@ -1,6 +1,6 @@
 ---
 title: "MCPのローカルとリモート運用｜どちらでつなぐかの判断"
-description: "MCP Serverを手元で起動するか、インターネット上のURLでつなぐかで迷う人向けです。起動場所、認証の要否、設定で見る項目、向きやすい場面を比較して整理します。stdioとHTTPの用語比較や製品画面の手順、本番デプロイの本編は扱いません。"
+description: "MCP Serverを手元で起動するか、インターネット上のURLでつなぐかで迷う人向けです。起動場所、認証の要否、設定で見る項目、向きやすい場面を比較して整理します。stdioとHTTPの用語比較や製品画面の手順、本番デプロイの手順は扱いません。"
 date: 2026-09-21
 tags:
   - MCP
@@ -16,14 +16,14 @@ target: "MCP Server を手元で起動するか、インターネット上の UR
 
 MCP Serverをつなぐとき、「手元でプロセスを起動する」のか「インターネット上のURLへつなぐ」のかで迷いやすいです。同じ会話のなかにstdioやHTTPといった運び方の用語も並ぶと、**どこで動かすか**の話と**どうつなぐか**の話が混ざり、判断の軸が揃いにくくなります。
 
-本記事では、公式の[Connect to local MCP servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers)と[Connect to remote MCP Servers](https://modelcontextprotocol.io/docs/develop/connect-remote-servers)に沿い、**ローカル運用**と**リモート運用**の違いを、起動場所・認証・設定で見る項目・向きやすい場面で比較します。stdioとHTTPなどの用語比較や、製品画面のクリック手順、本番デプロイの本編は扱いません。
+本記事では、公式の[Connect to local MCP servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers)と[Connect to remote MCP Servers](https://modelcontextprotocol.io/docs/develop/connect-remote-servers)に沿い、**ローカル運用**と**リモート運用**の違いを、起動場所・認証・設定で見る項目・向きやすい場面で比較します。stdioとHTTPなどの用語比較や、製品画面のクリック手順、本番デプロイの手順は扱いません。
 
 > **今日の結論**
 > - ローカル運用は、手元でServerプロセスを起動してつなぐ形です。リモート運用は、ホストされたServerへURLでつなぐ形です。
 > - 見る項目が違います。ローカルは起動コマンド・許可するパスなど、リモートはURL・認証（OAuth等）・コネクタ権限などを確認します。
 > - 運び方の用語比較（stdio／HTTP等）は別記事です。運用判断と混同しないようにします。
-> - 手元リソースや試作はローカルが向きやすいことが多いです。共有や他端末・ブラウザ起点はリモートが向きやすいことが多いです（保証ではありません）。
-> - 製品画面・権限の詰め・本番デプロイは、必要になったときに隣の手順記事や公式へ進みます。
+> - 手元リソースや試作はローカルが向きやすいことが多いです。共有や他端末・ブラウザ起点はリモートが向きやすいことが多いです。向きは傾向であり、Serverの案内とClient対応が先です。
+> - 製品画面・権限の詰め・本番デプロイは、この記事では扱いません。必要になったときは各製品の設定記事や権限の記事、公式ドキュメントを参照してください。
 
 ## 運用比較と運び方比較は別の話
 
@@ -31,8 +31,8 @@ MCP Serverをつなぐとき、「手元でプロセスを起動する」のか�
 
 | 軸 | 問い | 本記事での扱い |
 |----|------|----------------|
-| 運用 | どこでServerを動かし、どう運用してつなぐか | 本編（場所・認証・設定・向き） |
-| 運び方 | stdio／HTTP／SSEなどでどうパケットを運ぶか | 隣記事へ。ここでは線引きのみ |
+| 運用 | どこでServerを動かし、どう運用してつなぐか | この記事で扱う（場所・認証・設定・向き） |
+| 運び方 | stdio／HTTP／SSEなどでどうパケットを運ぶか | 用語比較の記事で扱う。ここでは線引きのみ |
 
 ローカル運用は「手元で起動してつなぐ」、リモート運用は「インターネット上のServerへURLでつなぐ」と読み替えられます。運び方は、その接続の下で使う通信の層です。手元起動ではstdioが多い、URL接続ではHTTP系が多い、といった**傾向**はありますが、運用の選択と用語の選択は同じ答えではありません。
 
@@ -42,7 +42,7 @@ Host／Client／Serverの役割そのものを一から確認したくなった�
 
 ## ローカル運用：手元起動で見る項目
 
-ローカル運用では、Serverは**あなたのマシン上のプロセス**として動きます。公式のlocalガイドでは、Clientの設定に起動方法を書き、Client起動時にServerも立ち上がる、という骨格が示されています（例としてClaude DesktopとFilesystem Serverが使われています。UIや設定ファイル名はClientごとに異なります）。
+ローカル運用では、Serverは**あなたのマシン上のプロセス**として動きます。公式のlocalガイドでは、Clientの設定に起動方法を書き、Client起動時にServerも立ち上がる、という骨格が示されています（例としてClaude DesktopとFilesystem Serverが使われています。UIや設定ファイル名はClientごとに異なります）
 
 設定や運用で見る項目の例は次のとおりです。
 
@@ -54,7 +54,7 @@ Host／Client／Serverの役割そのものを一から確認したくなった�
 | 承認 | Tool実行前に承認を求められるClientでは、何を許可しているかを都度確認する |
 | 認証情報 | APIキー等が要るServerでは、設定や環境変数に置き、設定ファイルへ直書きしない |
 
-公式例では、許可したフォルダ内の読み書きなどをTool経由で行い、実行前に承認を求める流れが案内されています。製品のクリック手順や設定キーの置き場所は、使うClientの正本へ任せます。[Cursor](/blog/mcp-cursor-setup)／[Claude Desktop](/blog/mcp-claude-desktop-setup)／[Claude Code](/blog/mcp-claude-code-setup)／[VS Code](/blog/mcp-vscode-setup)を参照してください。
+公式例では、許可したフォルダ内の読み書きなどをTool経由で行い、実行前に承認を求める流れが案内されています。製品のクリック手順や設定キーの置き場所は、使うClientの公式の案内や設定記事へ任せます。[Cursor](/blog/mcp-cursor-setup)／[Claude Desktop](/blog/mcp-claude-desktop-setup)／[Claude Code](/blog/mcp-claude-code-setup)／[VS Code](/blog/mcp-vscode-setup)を参照してください。
 
 認証情報の扱いを権限設計まで広げたくなったら、[権限とセキュリティ](/blog/mcp-security-permissions)へ進みます。本記事では「直書きしない／渡す範囲は最小」までにとどめます。
 
@@ -72,9 +72,9 @@ Host／Client／Serverの役割そのものを一から確認したくなった�
 | 信頼できる配布か | 出所不明のServerへ認証情報を渡していないか |
 | 端末・回線 | インターネット到達が前提。オフラインや社内制限下では使えないことがある |
 
-リモートの利点として、「インストールを各端末に繰り返さなくてよい」「ブラウザ起点のClientからも使いやすい」ことが公式でも挙げられます。ただし「どの端末からでも必ず使える」ことを本記事は保証しません。Clientの対応状況、認証の成否、組織のネットワーク制限で変わります。
+リモートの利点として、「インストールを各端末に繰り返さなくてよい」「ブラウザ起点のClientからも使いやすい」ことが公式でも挙げられます。ただし「どの端末からでも必ず使える」わけではありません。Clientの対応状況、認証の成否、組織のネットワーク制限で変わります。
 
-OAuthの実装手順や特定クラウド必須の断定はしません。認証の要否と確認項目までを押さえ、権限の監査チェックリストは[権限とセキュリティ](/blog/mcp-security-permissions)側です。GitHubなど特定サービスの接続形の具体例が欲しいときは、[GitHub Serverのつなぎ方](/blog/mcp-github-server-setup)を参照してください（本記事で手順は再掲しません）。
+OAuthの実装手順や特定クラウド必須の断定はしません。認証の要否と確認項目までを押さえ、権限の監査チェックリストは[権限とセキュリティ](/blog/mcp-security-permissions)側です。GitHubなど特定サービスの接続形の具体例が欲しいときは、[GitHub Serverのつなぎ方](/blog/mcp-github-server-setup)を参照してください（本記事で手順は再掲しません）
 
 ## 向きやすい場面を分ける
 
@@ -107,13 +107,13 @@ OAuthの実装手順や特定クラウド必須の断定はしません。認証
 | 接続形の具体例（GitHub） | [GitHub Serverのつなぎ方](/blog/mcp-github-server-setup) |
 | 公式のlocal／remote手順そのもの | [local](https://modelcontextprotocol.io/docs/develop/connect-local-servers)／[remote](https://modelcontextprotocol.io/docs/develop/connect-remote-servers) |
 
-本番向けのホスティングやデプロイ手順は、本記事の範囲外です。Server提供者の案内と公式ドキュメントを優先してください。
+本番向けのホスティングやデプロイ手順は、この記事では扱いません。Server提供者の案内と公式ドキュメントを優先してください。
 
 ## まとめ
 
 MCPのローカル運用とリモート運用は、**起動場所と見る項目**が違います。手元プロセスかURLか、起動コマンドと許可範囲か、URLと認証か——この差分で選べば、運び方の用語比較と混線しにくくなります。
 
-試作や手元資源はローカルが向きやすいことが多く、共有や他端末からはリモートが向きやすいことが多いです。どちらも保証ではなく、Serverの案内とClient対応が先です。
+試作や手元資源はローカルが向きやすいことが多く、共有や他端末からはリモートが向きやすいことが多いです。向きは傾向であり、Serverの案内とClient対応が先です。
 
 関連する手順をまとめて追いたいときは、[MCP Hub](/blog/mcp-guide)から続けてください。
 
