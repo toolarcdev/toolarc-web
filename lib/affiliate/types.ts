@@ -11,7 +11,8 @@ export type AffiliateProgramId =
   | "kinokuniya"
   | "amazon-prime-video"
   | "yahoo-shopping"
-  | "internet-academy";
+  | "internet-academy"
+  | "bytech";
 
 export type AffiliateCreativeId = string;
 
