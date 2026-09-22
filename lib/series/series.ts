@@ -213,6 +213,8 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-client-sdk-overview", // W12 MCP #16
       "mcp-security-permissions", // W12 MCP #17
       "mcp-local-vs-remote", // W12 MCP #18
+      "mcp-troubleshooting-connection-errors", // W12 MCP #19
+      "mcp-debugging-logs", // W12 MCP #20
       "mcp-vs-rest-api-comparison", // W12 MCP #27
       "cursor-mcp-vs-claude-mcp", // W12 MCP #28
     ],
