@@ -12,7 +12,7 @@ tags:
   - MCP
 site: toolarc.jp
 target: "Claudeをコード／CLI／API側から使いたい個人開発〜小チームの初心者〜中級（執筆・Vault用途は別）"
-last_update: 2026-09-16
+last_update: 2026-09-23
 ---
 
 # Claude Code ガイド（開発者向け入口）
@@ -129,7 +129,7 @@ Claude Pro の加入判断は、本 Hub では断定しません。判断材料�
 | [AIツール比較 Hub](/blog/ai-tools-comparison) | ChatGPT／Claude／Cursor の横断比較 |
 | [Model Context Protocol（MCP）ガイド](/blog/mcp-guide) | ツール連携の地図 |
 
-MCP を先に知りたい場合も、まずは [MCP Hub](/blog/mcp-guide) へ進み、Client 別の細かい設定は各 Spoke に分けて読む想定です。
+MCP を先に知りたい場合も、まずは [MCPのガイド記事](/blog/mcp-guide) へ進み、各アプリの細かい設定はそれぞれの設定記事に分けて読む想定です。同じ MCP Server を Cursor 側にも足すときの順番は、[同じMCPをCursorとClaudeで使う](/blog/mcp-cursor-claude-workflow)で扱っています。
 
 ## まとめ
 

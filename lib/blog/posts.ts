@@ -2330,6 +2330,14 @@ export const blogPosts = {
     ogImage: "h2-1.png",
     category: "tool",
   },
+  "mcp-cursor-claude-workflow": {
+    contentId: "11-mcp",
+    markdownFile: "024-mcp-cursor-claude-workflow.md",
+    imageBasePath: "/images/blog/mcp-cursor-claude-workflow",
+    publishedAt: "2026-09-23",
+    ogImage: "h2-1.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */

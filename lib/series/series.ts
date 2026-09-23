@@ -215,6 +215,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-local-vs-remote", // W12 MCP #18
       "mcp-troubleshooting-connection-errors", // W12 MCP #19
       "mcp-debugging-logs", // W12 MCP #20
+      "mcp-cursor-claude-workflow", // W12 MCP #21
       "mcp-vs-rest-api-comparison", // W12 MCP #27
       "cursor-mcp-vs-claude-mcp", // W12 MCP #28
     ],
