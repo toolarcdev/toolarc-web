@@ -97,7 +97,7 @@ MCPの[公式セキュリティ文書](https://modelcontextprotocol.io/docs/tuto
 
 画面上での外し方や、外したあとの付け直し手順は、この記事では扱いません。実際の操作が必要になったときに、使っているアプリの記事を確認してください(Cursor: [Cursorでの接続](/blog/mcp-cursor-setup)、Claude Desktop: [Claude Desktopでの接続](/blog/mcp-claude-desktop-setup)、Claude Code: [Claude Codeでの接続](/blog/mcp-claude-code-setup)、VS Code: [VS Codeでの接続](/blog/mcp-vscode-setup))。
 
-接続先ごとの細かい許可設定(GitHubのスコープや、フォルダに対するツールの一覧など)が必要になったときは、それぞれの記事で確認してください。GitHub Actionsのジョブ側でSecretsと権限を最小にする順番は、[GitHub ActionsからMCPを使う](/blog/mcp-github-actions-setup)で扱っています。全体の読む順に戻りたいときは、[MCPガイドの入口](/blog/mcp-guide)から確認できます。
+接続先ごとの細かい許可設定(GitHubのスコープや、フォルダに対するツールの一覧など)が必要になったときは、それぞれの記事で確認してください。GitHub Actionsのジョブ側でSecretsと権限を最小にする順番は、[GitHub ActionsからMCPを使う](/blog/mcp-github-actions-setup)で扱っています。Slack公式MCPのAppとスコープを最小で渡す順番は、[Slack MCPをつなぐ](/blog/mcp-slack-setup)で扱っています。全体の読む順に戻りたいときは、[MCPガイドの入口](/blog/mcp-guide)から確認できます。
 
 ---
 

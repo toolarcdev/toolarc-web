@@ -2346,6 +2346,14 @@ export const blogPosts = {
     ogImage: "h2-1.png",
     category: "tool",
   },
+  "mcp-slack-setup": {
+    contentId: "11-mcp",
+    markdownFile: "026-mcp-slack-setup.md",
+    imageBasePath: "/images/blog/mcp-slack-setup",
+    publishedAt: "2026-09-24",
+    ogImage: "h2-1.png",
+    category: "tool",
+  },
 } as const satisfies Record<string, import("./types").BlogPostConfig>;
 
 /** 公開 URL の slug 型（blogPosts のキーから自動生成） */
