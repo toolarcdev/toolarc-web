@@ -1,6 +1,6 @@
 ---
 title: "Cursor×GitHub連携ガイド｜Agentでgh pr createする手順"
-description: "Cursor AgentでGitHubのPR作成まで進めたい人向けに、gh認証の前提から--fill付き依頼、権限・リモート・下書きPRのつまずきまでを1本の手順として整理しました。"
+description: "Cursor AgentでGitHubのPR作成まで進めたい人向けに、gh認証の前提から--fill付き依頼、権限・リモート・下書きPRのつまずきまでを1本の手順として整理します。対話プロンプトを出さない依頼の書き方と、止まったときの確認順も扱います。"
 date: 2026-06-11
 tags:
   - Cursor
@@ -107,6 +107,6 @@ Agent が途中で止まったときの再開は、[Cursor Agentが止まった�
 
 Cursor Agent に GitHub 操作を任せるときは、**対話が発生しないコマンド形式を依頼文に明示する**のが確実です。`--fill` を習慣にしておくと、PR 作成での詰まりがなくなります。
 
-シリーズ入口は [Cursor Free（無料枠）｜初心者が最初に確認する開発ガイド](/blog/cursor-free) です。Agent の使いどころは [Cursor Agentは記事一括公開と基盤横断変更に絞って使う](/blog/cursor-agent-scope-tips)、PR 後の確認は [Vercel Previewを本番前に確認する理由](/blog/nextjs-vercel-preview-check-tips) もあわせてどうぞ。
+シリーズ入口は [Cursor Free（無料枠）｜初心者が最初に確認する開発ガイド](/blog/cursor-free) です。Agent の使いどころは [Cursor Agentは記事一括公開と基盤横断変更に絞って使う](/blog/cursor-agent-scope-tips)、PR 後の確認は [Vercel Previewを本番前に確認する理由](/blog/nextjs-vercel-preview-check-tips) もあわせてどうぞ。Cursor の PR 作成とは別に、GitHub Actions のジョブから MCP を使う順番は [GitHub ActionsからMCPを使う](/blog/mcp-github-actions-setup) にまとめています。
 
 本記事の内容は執筆時点（2026-08-06）の情報に基づきます（初出 2026-06）。Cursor Agent および GitHub CLI（gh）の仕様は予告なく変更される場合があります。最新情報は[GitHub CLI 公式ドキュメント](https://cli.github.com/manual/gh_pr_create)をご確認ください。

@@ -123,6 +123,7 @@ GitHub MCP Serverは、公式の接続形を選び、トークンを直書きせ
 
 - VS Codeの置き場所を固める → [VS CodeのMCP設定](/blog/mcp-vscode-setup)
 - 候補Serverを比較する → [おすすめMCP Server一覧](/blog/mcp-recommended-servers)
+- ActionsのジョブからMCPを使う順番を見る → [GitHub ActionsからMCPを使う](/blog/mcp-github-actions-setup)
 - シリーズ入口に戻る → [MCPガイド](/blog/mcp-guide)
 
 ---

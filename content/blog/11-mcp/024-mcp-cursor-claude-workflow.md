@@ -79,7 +79,7 @@ Cursor と Claude をどちらも開発の入口として使っている場合�
 
 同じ MCP Server を複数のアプリで使うときの軸は、順番・確認・戻し方の3つです。設定は自動では共有されないという前提に立ち、1本目で確認してから2本目以降を書き直す、止まったら接続・設定・差分のどれに戻るかを切り分ける、という流れを覚えておけば、アプリが増えても迷いにくくなります。
 
-Claude 側の Desktop と Code の違いや、Cursor との設定差分の細部は、それぞれの記事にまとめてあります。まずは MCP 全体の読む順を[MCP のガイド記事](/blog/mcp-guide)で確認してから、必要な設定記事に進んでみてください。
+Claude 側の Desktop と Code の違いや、Cursor との設定差分の細部は、それぞれの記事にまとめてあります。GitHub Actions のジョブから MCP を使うときの順番と Secrets の渡し方は、[GitHub ActionsからMCPを使う](/blog/mcp-github-actions-setup)で扱っています。まずは MCP 全体の読む順を[MCP のガイド記事](/blog/mcp-guide)で確認してから、必要な設定記事に進んでみてください。
 
 ---
 
