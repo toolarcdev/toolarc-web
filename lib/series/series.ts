@@ -218,6 +218,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-cursor-claude-workflow", // W12 MCP #21
       "mcp-github-actions-setup", // W12 MCP #22
       "mcp-slack-setup", // W12 MCP #23
+      "mcp-playwright-setup", // W12 MCP #24
       "mcp-vs-rest-api-comparison", // W12 MCP #27
       "cursor-mcp-vs-claude-mcp", // W12 MCP #28
     ],
