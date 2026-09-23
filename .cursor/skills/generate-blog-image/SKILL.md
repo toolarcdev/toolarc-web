@@ -62,7 +62,7 @@ Skill = 画像の作り方（eyecatch / og / mood / `diagram-infographic` / sect
 4. `description` はジョブ票の「GenerateImage の description」をそのまま使う。`heading:` / `sub:` を足さない
 5. 比率 `16:9`。参照はジョブ票の正サンプルのみ。**NG 画像を `reference_image_paths` に戻さない**
 6. Cursor の `GenerateImage` のみ。Codex `image_gen` は使わない
-7. Read で目視。NG なら再生成（番号が見出しに付く、英語プレフィックス焼き込み、近い語への引き寄せは 013 実測の NG）
+7. Read で目視。合格条件は「字形」（tone の検証ループ）。NG なら再生成（番号が見出しに付く、英語プレフィックス焼き込み、近い語への引き寄せ、字形が日本語として読めない、は不合格。013 実測の NG を含む）
 8. WIP を `output/imagegen/<slug>/` へ置く。**`public/` に置かない。caption.md を書かない。本文に挿入しない**
 9. ジョブ票と当日 AI-log に合否・残件。`Last Updated` は `Get-Date`
 10. **人間ゲートで止まる。** C の起動語は無い。採用（`public/`・caption・本文挿入）は、人間が WIP を見た**その回の自由記述**があるまでやらない
@@ -97,10 +97,12 @@ Skill = 画像の作り方（eyecatch / og / mood / `diagram-infographic` / sect
 4. トーン: **現状の既定**は白＋`#60a5fa` フラット等（tone 参照）。人間が別トーンを明示したらそれに従う
 5. 日本語:
    - `diagram-infographic`: **生成時に焼く**。Labels をプロンプトへ固定。崩れ・誤字は再生成（Photoshop 後編集は必須にしない）
+   - **字形（合格条件）**: 焼いた字が、その日本語の文字として読めること。小さい行は拡大し、字ごとに判別できるかを見る。文字起こしが予定文と一致しただけでは合格にしない。読み取りは崩れた字を予定の文へ補正することがある。判別できない字は不合格
+   - **型とフォント**: 正サンプルのカード構成・文字の置き方を保つ。フォントや構図の型を変えるときは、ジョブ票に理由を1文書いてから変える。理由のない差し替えはしない
    - `og`: 本文 infographic の流用、または生成時焼き込みで完結（`bake-og-text` へ送らない）
    - `eyecatch` / `diagram-mood` / `section`: **焼かない**（ラベルが情報なら `diagram-infographic`）
 6. 比率: `og`/`eyecatch`＝16:9（OGは1200×630優先）。`diagram-infographic`＝16:9可（正サンプル約1672×941）。`diagram-mood`/`section`＝4:3基本
-7. 生成後は tone の**検証ループ**（Read → NG なら再生成。NG 画像を参照に戻さない）。infographic は日本語の欠け・誤字・本文との矛盾も NG
+7. 生成後は tone の**検証ループ**（Read → NG なら再生成。NG 画像を参照に戻さない）。日本語を焼く図の合格条件は次の「字形」。欠け・誤字・本文との矛盾も NG
 8. **拒否時**: 同構図の SVG→PNG（白・`#60a5fa`）。infographic 以外は文字/ロゴ/実UIなし。複雑説明図で生成が使えないときは手作業ツールへ案内
 9. **人間ゲート** — 1つでも NG なら配置しない:
    - [ ] トーン／明示トーンに沿う
@@ -109,7 +111,7 @@ Skill = 画像の作り方（eyecatch / og / mood / `diagram-infographic` / sect
    - [ ] 画像だけで意図（物語・主題）が分かるか
    - [ ] 線画のみ／粘土・強いニューモ／洗い落ちでないか
    - [ ] 過圧縮で貧相でないか
-   - [ ] `diagram-infographic`: ラベルが読める／誤字なし／本文と矛盾しない
+   - [ ] `diagram-infographic`: 字形が日本語として読める／誤字なし／本文と矛盾しない
 10. **記事 infographic（B）** はここで終わる（WIP のみ。下記 11〜14 は人間の C 指示があるまでやらない）
 11. **軽量化して配置**（eyecatch / og / mood / section。過圧縮しない）。手順・スクリプト正本: [`references/optimize.md`](references/optimize.md)。採用前 WIP は Vault `blog-image-staging`（記事 infographic は `output/imagegen/<slug>/`）
 12. OG は本 Skill で完結する（本文 infographic の流用、または生成時焼き込み）。**`bake-og-text` へ委譲しない**。ユーザーが `bake-og-text`／「帯焼きこみ」を明示したときだけ、その Skill の起動条件に従う
