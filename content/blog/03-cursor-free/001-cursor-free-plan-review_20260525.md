@@ -13,7 +13,7 @@ tags:
   - cursor-free-series
 site: toolarc.jp
 target: "CursorでAI開発を始めたいが、設定や機能をどの順番で学べばよいか迷っている初心者"
-last_update: 2026-08-24
+last_update: 2026-09-23
 ---
 
 # Cursor Free（無料枠）｜初心者が最初に確認する開発ガイド
@@ -60,7 +60,7 @@ Cursorだけですべてを学ぶ必要はありません。今いる作業場�
 
 CursorとClaude Codeは、どちらか一方だけを選ぶ関係ではありません。エディタ内の差分確認はCursor、ターミナル寄りの作業はClaude Codeというように、作業ごとに分ける方法もあります。
 
-MCPについては、本シリーズではCursor利用者向けの入口だけを扱います。設定画面の場所と `mcp.json` の書き方は [CursorのMCP設定](/blog/cursor-mcp-setup-basics) にまとめました。Host・Client・Serverなどの用語や接続全体の地図は、[MCPガイド](/blog/mcp-guide)を確認してください。
+MCPについては、本シリーズではCursor利用者向けの入口だけを扱います。設定画面の場所と `mcp.json` の書き方は [CursorのMCP設定](/blog/cursor-mcp-setup-basics) にまとめました。Host・Client・Serverなどの用語や接続全体の案内は、[MCPガイド](/blog/mcp-guide)を確認してください。同じ MCP Server を Claude 側にも足すときの順番は、[同じMCPをCursorとClaudeで使う](/blog/mcp-cursor-claude-workflow)で扱っています。
 
 ## 今日の結論と最初の一歩
 

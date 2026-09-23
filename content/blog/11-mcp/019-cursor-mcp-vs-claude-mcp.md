@@ -11,6 +11,7 @@ tags:
   - mcp-series
 site: toolarc.jp
 target: "CursorとClaude Desktop／Claude CodeでMCPをつなぐとき、設定は共有できるのか、どこが違い、どう進めばよいか迷っている開発者。どちらか一方だけ触った人や、Claude側のDesktop／Codeの分かれ方がまだ曖昧な人も対象。"
+last_update: 2026-09-23
 ---
 
 # CursorとClaudeのMCP比較｜設定の違いと進め方の判断
@@ -76,7 +77,7 @@ CursorとClaude（Desktop／Code）の間で、MCPの設定が自動で共有さ
 - 通信方式（stdioとSSE／Streamable HTTPの違いなど）で迷ったら[MCPのstdioとSSE／Streamable HTTPの違い](/blog/mcp-stdio-vs-sse-transport)へ。
 - そもそもMCPで良いのか、REST APIを直接呼ぶ方が合うのかで迷う場合は[MCPとREST APIの比較](/blog/mcp-vs-rest-api-comparison)を参照してください。
 
-MCP全体の位置づけや、関連記事の一覧は[MCP入門ガイド](/blog/mcp-guide)から確認できます。
+同じ Server を複数のアプリにまたがって足す順番と、止まったときの戻り先は、[同じMCPをCursorとClaudeで使う](/blog/mcp-cursor-claude-workflow)で扱っています。MCP全体の位置づけや、関連記事の一覧は[MCP入門ガイド](/blog/mcp-guide)から確認できます。
 
 ---
 
