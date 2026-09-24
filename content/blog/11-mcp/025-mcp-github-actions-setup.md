@@ -74,7 +74,7 @@ IDEにGitHub MCP Serverを追加する手順そのものは、この記事では
 
 権限の見直しがまだ残っている場合は、先ほどの[権限を整理した記事](/blog/mcp-security-permissions)を合わせて確認してください。CursorでPull Requestの作成・記入まで自動化したい場合は別の作業なので、[CursorのPR操作を扱った記事](/blog/cursor-agent-gh-pr-create-fill)を参照します。本記事のジョブ設計とは目的が異なる点だけ押さえておくと、迷いにくくなります。
 
-サーバーのデプロイまわりは別途整理する予定ですが、現時点では準備中です。
+サーバーをインターネットで公開するときのデプロイ先と確認は、[自作MCP Serverのデプロイ概要](/blog/mcp-server-deploy-basics)で扱っています。
 
 ## まとめ｜次に読む
 

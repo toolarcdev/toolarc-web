@@ -137,6 +137,7 @@ npx @modelcontextprotocol/inspector npx tsx src/index.ts
 | JSONの引用符やカンマ、キーの型で止まった                       | [MCPの設定JSONの書き方](/blog/mcp-config-json-guide)                                                                                                              |
 | 既存の完成済みServerを初めて繋ぐ手順を知りたい                 | [既存Serverの初回接続](/blog/mcp-first-setup-guide)                                                                                                               |
 | ローカル起動（stdio）とURL公開（HTTP）のどちらを選ぶか迷う     | [stdioとHTTP/SSEの違い](/blog/mcp-stdio-vs-sse-transport)                                                                                                         |
+| ローカルで動く自作Serverをインターネットで公開したい           | [自作MCP Serverのデプロイ概要](/blog/mcp-server-deploy-basics)                                                                                                    |
 | 自分では書かず、既存の完成Serverを使いたい                     | [おすすめのMCP Server](/blog/mcp-recommended-servers)／[PostgreSQL MCPの設定](/blog/mcp-postgres-setup) |
 | Pythonで書きたい、公式の天気2ツール例まで進めたい              | 公式の[Build an MCP server](https://modelcontextprotocol.io/docs/develop/build-server)                                                                            |
 

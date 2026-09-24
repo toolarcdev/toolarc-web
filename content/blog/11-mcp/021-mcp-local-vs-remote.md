@@ -110,7 +110,7 @@ OAuthの実装手順や特定クラウド必須の断定はしません。認証
 | 接続形の具体例（GitHub） | [GitHub Serverのつなぎ方](/blog/mcp-github-server-setup) |
 | 公式のlocal／remote手順そのもの | [local](https://modelcontextprotocol.io/docs/develop/connect-local-servers)／[remote](https://modelcontextprotocol.io/docs/develop/connect-remote-servers) |
 
-本番向けのホスティングやデプロイ手順は、この記事では扱いません。Server提供者の案内と公式ドキュメントを優先してください。
+本番向けのホスティングやデプロイ手順は、この記事では扱いません。公開URLの用意と確認は、[自作MCP Serverのデプロイ概要](/blog/mcp-server-deploy-basics)で扱っています。Server提供者の案内と公式ドキュメントも優先してください。
 
 ## まとめ
 
