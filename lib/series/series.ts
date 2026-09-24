@@ -220,8 +220,10 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-slack-setup", // W12 MCP #23
       "mcp-playwright-setup", // W12 MCP #24
       "mcp-server-deploy-basics", // W12 MCP #25
+      "mcp-official-updates-follow", // W12 MCP #26
       "mcp-vs-rest-api-comparison", // W12 MCP #27
       "cursor-mcp-vs-claude-mcp", // W12 MCP #28
+      "mcp-major-servers-comparison", // W12 MCP #29
     ],
     publishedAt: "2026-07-16",
   },

@@ -123,10 +123,12 @@ MCP自体は「接続の話」で、どのClientから入るかで画面と手�
 | #23 | [Slack MCPをつなぐ｜App・スコープ・確認](/blog/mcp-slack-setup) | 公開 |
 | #24 | [Playwright MCPをつなぐ｜追加・起動・確認](/blog/mcp-playwright-setup) | 公開 |
 | #25 | [自作MCP Serverのデプロイ概要｜デプロイ先と確認](/blog/mcp-server-deploy-basics) | 公開 |
+| #26 | [MCP公式動向・仕様更新の追い方｜確認先と順番](/blog/mcp-official-updates-follow) | 公開 |
 | #27 | [MCPとREST API連携の違い｜どちらでつなぐかの判断](/blog/mcp-vs-rest-api-comparison) | 公開 |
 | #28 | [CursorとClaudeのMCP比較｜設定の違いと進め方の判断](/blog/cursor-mcp-vs-claude-mcp) | 公開 |
+| #29 | [主要MCP Server比較｜Filesystem／GitHub／Searchの選び方](/blog/mcp-major-servers-comparison) | 公開 |
 
-推奨の読み方は **#1 → #2 → #3 → #4 → #5 → #6 → #7 → #8** を土台に、必要なら **#9（VS Code）／#10（GitHub Server）／#11（選定一覧）／#12（Filesystem）／#13（Brave Search）／#14（PostgreSQL）／#15（自作Server）／#16（Client SDK）／#17（権限）／#18（ローカルとリモート運用）／#19（接続エラー）／#20（デバッグとログ）／#21（同じMCPを複数アプリでつなぐ順番）／#22（Actionsジョブの進め方とSecrets）／#23（Slack MCPのAppとスコープ）／#24（Playwright MCPの追加と起動確認）／#25（自作Serverのデプロイ先と確認）／#27（REST連携の判断）／#28（CursorとClaudeの設定の違い）** へ分岐する想定です。#1〜#2で言葉を揃え、#3〜#4で共通の導入感を掴み、#5で接続方式を見分け、Client別（#6〜#9）と具体Server（#10・#12・#13・#14）・選定（#11）・自作（#15）・自前Client（#16）・権限の渡し方（#17）・手元起動とURLの運用（#18）・つながらないときの確認順（#19）・ログの見方（#20）・同じ Server を複数アプリでつなぐ順番（#21）・Actionsのジョブから使う順番（#22）・Slack公式MCPのつなぎ方（#23）・Playwright公式MCPのつなぎ方（#24）・自作Serverの公開URLの用意（#25）・REST直呼びとの判断（#27）・CursorとClaude Desktop／Codeの設定の違い（#28）へ進む、という段階に分けます。
+推奨の読み方は **#1 → #2 → #3 → #4 → #5 → #6 → #7 → #8** を土台に、必要なら **#9（VS Code）／#10（GitHub Server）／#11（選定一覧）／#12（Filesystem）／#13（Brave Search）／#14（PostgreSQL）／#15（自作Server）／#16（Client SDK）／#17（権限）／#18（ローカルとリモート運用）／#19（接続エラー）／#20（デバッグとログ）／#21（同じMCPを複数アプリでつなぐ順番）／#22（Actionsジョブの進め方とSecrets）／#23（Slack MCPのAppとスコープ）／#24（Playwright MCPの追加と起動確認）／#25（自作Serverのデプロイ先と確認）／#26（公式動向と仕様更新の追い方）／#27（REST連携の判断）／#28（CursorとClaudeの設定の違い）／#29（Filesystem／GitHub／Searchの用途の切り分け）** へ分岐する想定です。#1〜#2で言葉を揃え、#3〜#4で共通の導入感を掴み、#5で接続方式を見分け、Client別（#6〜#9）と具体Server（#10・#12・#13・#14）・選定（#11）・自作（#15）・自前Client（#16）・権限の渡し方（#17）・手元起動とURLの運用（#18）・つながらないときの確認順（#19）・ログの見方（#20）・同じ Server を複数アプリでつなぐ順番（#21）・Actionsのジョブから使う順番（#22）・Slack公式MCPのつなぎ方（#23）・Playwright公式MCPのつなぎ方（#24）・自作Serverの公開URLの用意（#25）・公式の確認先と見る順番（#26）・REST直呼びとの判断（#27）・CursorとClaude Desktop／Codeの設定の違い（#28）・Filesystem／GitHub／Searchの用途の切り分け（#29）へ進む、という段階に分けます。
 
 ## 隣のHubとセキュリティ注意
 
