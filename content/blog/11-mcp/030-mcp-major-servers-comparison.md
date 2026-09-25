@@ -82,7 +82,7 @@ MCPの初期設定や`mcp.json`の書き方に自信がない場合は、[MCPの
 
 候補をもっと広く比較したい場合は、[Server選定一覧の記事](/blog/mcp-recommended-servers)で他のServerも含めて見比べられます。接続そのものを進めたい場合は、[GitHub MCP Serverの手順記事](/blog/mcp-github-server-setup)、[Filesystemの手順記事](/blog/mcp-filesystem-setup)、[Brave Search MCPの手順記事](/blog/mcp-brave-search-setup)をそれぞれ確認してください。権限の設計をもう一段深く見直したい場合は、前の見出しの権限記事が担当します。
 
-MCPまわりを初めて触る場合は、[MCPガイド](/blog/mcp-guide)で用語や読む順を確認すると、この先の記事同士のつながりが見えやすくなります。仕様や公式案内の更新を追う順番が必要になったときは、[公式動向・仕様更新の追い方](/blog/mcp-official-updates-follow)を確認してください。この記事では「いまの作業にはどのServerを足すか」という分岐だけを扱います。3者の優劣は、この記事では扱いません。
+MCPまわりを初めて触る場合は、[MCPガイド](/blog/mcp-guide)で用語や読む順を確認すると、この先の記事同士のつながりが見えやすくなります。仕様や公式案内の更新を追う順番が必要になったときは、[公式動向・仕様更新の追い方](/blog/mcp-official-updates-follow)を確認してください。候補をどこで探すかが先に必要になったときは、[発見ツール比較](/blog/mcp-discovery-tools-comparison)を確認してください。この記事では「いまの作業にはどのServerを足すか」という分岐だけを扱います。3者の優劣は、この記事では扱いません。
 
 ---
 

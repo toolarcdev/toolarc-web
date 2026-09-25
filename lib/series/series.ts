@@ -224,6 +224,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "mcp-vs-rest-api-comparison", // W12 MCP #27
       "cursor-mcp-vs-claude-mcp", // W12 MCP #28
       "mcp-major-servers-comparison", // W12 MCP #29
+      "mcp-discovery-tools-comparison", // W12 MCP #30
     ],
     publishedAt: "2026-07-16",
   },
