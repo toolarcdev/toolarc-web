@@ -75,7 +75,7 @@ MCPを使う側か作る側かで、必要な深さが変わります。使う�
 
 公式の確認先はブログ・changelog・GitHubのリリース案内の3つで、役割が分かれます。まず更新の有無を知り、changelogで変更点を見て、自分の環境の配布元案内と突合する、という順番を押さえておけば、公式情報に振り回されにくくなります。止まったときは、公式の該当ページか、使っているアプリ・SDK・Serverの配布元案内のどこに戻るかを思い出してください。
 
-MCP全体の用語や読む順を整理し直したい場合は、[MCPガイド](/blog/mcp-guide)を確認してください。Filesystem／GitHub／Searchのどれを足すか迷ったときは、[主要MCP Server比較](/blog/mcp-major-servers-comparison)を確認してください。
+MCP全体の用語や読む順を整理し直したい場合は、[MCPガイド](/blog/mcp-guide)を確認してください。Filesystem／GitHub／Searchのどれを足すか迷ったときは、[主要MCP Server比較](/blog/mcp-major-servers-comparison)を確認してください。候補をどこで探すかが先に必要になったときは、[発見ツール比較](/blog/mcp-discovery-tools-comparison)を確認してください。
 
 ---
 
