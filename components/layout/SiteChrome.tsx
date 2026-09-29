@@ -10,6 +10,9 @@ export function SiteChrome({ children, header, footer }: {
   footer: ReactNode;
 }) {
   const pathname = usePathname();
-  if (pathname === "/lp/ai-skill-academy-free-seminar") return children;
+  if (
+    pathname === "/lp/ai-skill-academy-free-seminar" ||
+    pathname === "/lp/ai-skill-academy-paid-school"
+  ) return children;
   return <>{header}<div className="flex flex-1 flex-col">{children}</div>{footer}</>;
 }

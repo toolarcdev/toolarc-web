@@ -34,6 +34,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/lp/ai-skill-academy-free-seminar`,
       lastModified: new Date("2026-09-15"),
     },
+    // The paid-school LP's publication date is not set until deployment.
+    { url: `${baseUrl}/lp/ai-skill-academy-paid-school` },
   ];
 
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
