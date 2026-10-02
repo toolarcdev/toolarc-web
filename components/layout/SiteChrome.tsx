@@ -14,5 +14,12 @@ export function SiteChrome({ children, header, footer }: {
     pathname === "/lp/ai-skill-academy-free-seminar" ||
     pathname === "/lp/ai-skill-academy-paid-school"
   ) return children;
-  return <>{header}<div className="flex flex-1 flex-col">{children}</div>{footer}</>;
+  const isBytechLp = pathname === "/lp/bytech-generative-ai";
+  return (
+    <>
+      {isBytechLp ? null : header}
+      <div className="flex flex-1 flex-col">{children}</div>
+      {footer}
+    </>
+  );
 }

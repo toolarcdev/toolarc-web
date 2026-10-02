@@ -36,6 +36,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     // The paid-school LP's publication date is not set until deployment.
     { url: `${baseUrl}/lp/ai-skill-academy-paid-school` },
+    // The ByTech LP's publication date is not set until deployment.
+    { url: `${baseUrl}/lp/bytech-generative-ai` },
   ];
 
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
