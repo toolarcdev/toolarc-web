@@ -1,61 +1,51 @@
 # cursor-model-selection-guide 画像メモ
 
-Last Updated: 2026-08-13 09:04
+Last Updated: 2026-10-07 18:31
 
-## cursor-task-models-2026-08.png
+## 現行記事で使用
 
-- 用途: 本文挿絵（標準モデル一覧セクション）／OG
-- 挿入位置: 「2026年8月時点｜Cursor標準モデル一覧」内
-- 種別: 実画面スクリーンショット（Cursor Settings → Models / Task Models）
-- 確認日: 2026-08-13（Cursor Grok 4.6 追加。Explore Subagent は 4.6 High Fast。Grok 4.5 も一覧に残る）
-- 原図: `D:\ObsidianVault\assets\2026-08\cursor-task-models-2026-08.png`（確認日 2026-08-13。チャット添付を採用。30KBのため再圧縮なし）
+### model-selection-map.png
+
+- 用途: 本文の作業別モデル早見図
+- 配置: 「作業別に選ぶCursorモデル」H2内、特徴・注意点・利用枠の比較表の直前
+- 種別: 作業タイプからモデル候補を選ぶ図。コバルト／バイオレットの分岐と、無彩色で独立したプラン条件パネル
+- 原図: Vaultの2026-10-07作業フォルダで採用された画像
+- 最適化: sharp palette PNG、1448×1086、約1,635KB → 345KB（1448-palette70）
+- 代替テキスト: Cursorの作業別モデル選び。普段の実装・効率と複雑さ・長時間の作業から候補を選び、Free、有料プラン、Cursor Routerの条件は無彩色の独立パネルで示す図。
+- 記事内キャプション: なし。前後の本文で用途と読み方を説明し、同じ内容の繰り返しを避ける
+
+### og.svg
+
+- 用途: 記事のOG画像
+- 寸法: 1200×630
+- 種別: SVGで作成したタイトル・モデル候補の概要図
+- デザイン: 日常向けはコバルト、複雑・長時間向けはバイオレット。Free／有料プラン／Cursor Routerは無彩色の独立帯に分離
+- 代替テキスト: 記事タイトル「Cursorモデルの選び方｜用途別おすすめとAuto・Freeの違い」
+
+### models-enabled-example.png
+
+- 用途: Cursor SettingsのModels画面にあるモデル一覧とON／OFF状態の例
+- 配置: モデル比較表の後
+- 種別: 実画面スクリーンショット。Proアカウントの例であり、全プラン共通の一覧ではない
+- 原図: Vaultの本日作業フォルダに保存したユーザー提供スクリーンショット
 - 後編集: なし
-- 表示: 縦長のため `article-img--compact`（`COMPACT_IMAGE_FILES`）で幅を抑制
+- 記事内キャプション: なし。直前の本文で画面の役割とアカウント差を説明
 
-## cursor-task-models-2026-07.png
+### usage-pools-pro-example.png
 
-- 用途: 2026-07-28 確認の旧画面（本文・OGからは外した。ファイルは残置）
-- 挿入位置: なし（2026-08-13 以降）
-- 種別: 実画面スクリーンショット（Cursor Settings → Models / Task Models）
-- 原図: `D:\ObsidianVault\assets\2026-07\2026-07-29_05-22-57.png`（確認日 2026-07-28 設定画面）
-- 後編集: なし（クロップ済み原図を採用）
-- 表示: 縦長のため `article-img--compact`（`COMPACT_IMAGE_FILES`）で幅を抑制
-
-## settings-checklist-diagram.png
-
-- 用途: 本文挿絵（運用ルール・課金設定）
-- 挿入位置: 「失敗しないためのモデル設定・運用ルール」内
-- 種別: 実画面スクリーンショット（Plan & Usage / On-Demand Spending Disabled）
-- 原図: `D:\ObsidianVault\assets\2026-07\2026-07-29_05-28-31.png`
+- 用途: Plan & UsageのCursor Models／Other Models利用枠の例
+- 配置: 「利用枠と追加料金を確認する」H2内
+- 種別: 実画面スクリーンショット。表示された使用率はアカウント固有
+- 原図: Vaultの本日作業フォルダに保存したユーザー提供スクリーンショット
 - 後編集: なし
+- 記事内キャプション: なし。直前の本文で画面の役割と数値の範囲を説明
 
-## decision-criteria.svg
+## 現行記事では使用しない保管資産
 
-- 用途: 本文挿絵（5つの判断軸）
-- 挿入位置: 「Cursorのモデル選びで最初に見る5つの判断軸」内
-- 種別: diagram（SVG・白背景／本線 `#60a5fa`）
-- 原図: `01_Daily/2607/260729/decision-criteria.svg`
-- 後編集: なし（SVG内に日本語ラベルあり）
+以下はフォルダに保管するが、現行記事本文からは参照しない。
 
-## model-selection-map.svg
-
-- 用途: 本文挿絵（用途別使い分けマップ）
-- 挿入位置: 「用途別・おすすめモデルTOP5と使い分けマップ」内
-- 種別: diagram（SVG・白背景／本線 `#60a5fa`）
-- 原図: `01_Daily/2607/260729/model-selection-map.svg`
-- 後編集: なし（SVG内に日本語ラベルあり）
-
-## caption
-
-```md
-CursorのTask Models設定と、用途別のモデル使い分け判断軸を図と実画面で示します。
-```
-
-## alt text
-
-```md
-CursorのTask Models設定画面。Explore SubagentがCursor Grok 4.6 High Fast、標準一覧にGrok 4.6（2026年8月13日時点）
-Plan & Usage画面。On-Demand SpendingがDisabledになっている例（2026年7月時点）
-Cursorモデル選びの5つの判断軸（コーディング精度・コスト・速度・コンテキスト・エージェント適性）
-用途別のモデル使い分けマップ（日常実装・高難度・長時間自律・コスト優先）
-```
+- cursor-task-models-2026-08.png
+- cursor-task-models-2026-07.png
+- settings-checklist-diagram.png
+- decision-criteria.svg
+- model-selection-map.svg
