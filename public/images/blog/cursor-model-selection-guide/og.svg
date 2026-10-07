@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Cursorモデルの選び方</title>
+  <desc id="desc">作業別のモデル候補と、Free・有料プラン・Cursor Routerの利用条件。</desc>
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <text x="600" y="68" text-anchor="middle" fill="#10254f" font-family="Yu Gothic, Meiryo, sans-serif" font-size="48" font-weight="700">Cursorモデルの選び方</text>
+  <text x="600" y="108" text-anchor="middle" fill="#425575" font-family="Yu Gothic, Meiryo, sans-serif" font-size="23" font-weight="500">作業別のおすすめと、Free・Auto・Routerの条件</text>
+
+  <rect x="36" y="136" width="550" height="312" rx="22" fill="#f0f7ff" stroke="#0878f9" stroke-width="3"/>
+  <path d="M58 136h506a22 22 0 0 1 22 22v42H36v-42a22 22 0 0 1 22-22z" fill="#0878f9"/>
+  <text x="311" y="178" text-anchor="middle" fill="#ffffff" font-family="Yu Gothic, Meiryo, sans-serif" font-size="28" font-weight="700">普段の実装・効率</text>
+  <g font-family="Yu Gothic, Meiryo, sans-serif" font-size="23" font-weight="600" fill="#10254f">
+    <rect x="66" y="218" width="490" height="42" rx="12" fill="#ffffff"/>
+    <text x="311" y="247" text-anchor="middle">Composer 2.5</text>
+    <rect x="66" y="275" width="490" height="42" rx="12" fill="#ffffff"/>
+    <text x="311" y="304" text-anchor="middle">Claude Sonnet 5.5</text>
+    <rect x="66" y="332" width="490" height="42" rx="12" fill="#ffffff"/>
+    <text x="311" y="361" text-anchor="middle">Gemini 3.8 Flash</text>
+    <rect x="66" y="389" width="490" height="42" rx="12" fill="#ffffff"/>
+    <text x="311" y="418" text-anchor="middle">Muse Spark 1.3</text>
+  </g>
+
+  <rect x="614" y="136" width="550" height="312" rx="22" fill="#f5f0ff" stroke="#6f28eb" stroke-width="3"/>
+  <path d="M636 136h506a22 22 0 0 1 22 22v42H614v-42a22 22 0 0 1 22-22z" fill="#6f28eb"/>
+  <text x="889" y="178" text-anchor="middle" fill="#ffffff" font-family="Yu Gothic, Meiryo, sans-serif" font-size="28" font-weight="700">複雑さ・長時間</text>
+  <g font-family="Yu Gothic, Meiryo, sans-serif" font-size="23" font-weight="600" fill="#10254f">
+    <rect x="644" y="218" width="490" height="42" rx="12" fill="#ffffff"/>
+    <text x="889" y="247" text-anchor="middle">Grok 4.7</text>
+    <rect x="644" y="275" width="490" height="42" rx="12" fill="#ffffff"/>
+    <text x="889" y="304" text-anchor="middle">Claude Opus 5.5</text>
+    <rect x="644" y="332" width="490" height="42" rx="12" fill="#ffffff"/>
+    <text x="889" y="361" text-anchor="middle">GPT-5.6 Sol</text>
+    <rect x="644" y="389" width="490" height="42" rx="12" fill="#ffffff"/>
+    <text x="889" y="418" text-anchor="middle">Claude Fable 5.1</text>
+  </g>
+
+  <rect x="36" y="468" width="1128" height="142" rx="18" fill="#30343b"/>
+  <line x1="54" y1="514" x2="1146" y2="514" stroke="#8f969f" stroke-width="1"/>
+  <line x1="54" y1="557" x2="1146" y2="557" stroke="#8f969f" stroke-width="1"/>
+  <g font-family="Yu Gothic, Meiryo, sans-serif" fill="#ffffff">
+    <text x="82" y="501" font-size="20" font-weight="700">Free（APIキーなし）</text>
+    <text x="400" y="501" font-size="22" font-weight="600">Cursor Grok 4.6 Medium固定</text>
+    <text x="82" y="545" font-size="20" font-weight="700">有料プラン</text>
+    <text x="400" y="545" font-size="22" font-weight="600">Auto・個別モデルを選択</text>
+    <text x="82" y="588" font-size="20" font-weight="700">Cursor Router</text>
+    <text x="400" y="588" font-size="20" font-weight="600">Teamsは既定ON／Enterpriseは管理者が有効化</text>
+  </g>
+  <text x="600" y="626" text-anchor="middle" fill="#425575" font-family="Yu Gothic, Meiryo, sans-serif" font-size="14">モデル候補・利用枠はプランや設定で異なります</text>
+</svg>
