@@ -11,7 +11,7 @@ tags:
   - モデル選定
 site: toolarc.jp
 target: "Cursorのモデル選びに悩む初心者〜実務者、コストを抑えつつ高品質なAIモデルを試したい人"
-last_update: 2026-08-04
+last_update: 2026-10-07
 ---
 
 # CursorでKimi K3を使う方法｜超お手軽設定で使える！（2026年8月時点）
@@ -59,6 +59,8 @@ Kimi K3は、Cursorの標準モデルとしてすでに統合されています�
 3. 一覧の中から「Kimi K3」を探し、右側のトグルがオンになっていることを確認する（オフならタップしてオンにする）
 
 ![Cursor SettingsのModels一覧。①Kimi K3と②Kimi K2.7 Codeの行を青枠と番号で示し、トグルがオンになっている](cursor-models-kimi-k3-toggle-annotated.png)
+
+この画像はSettings → Modelsの操作例で、特定のプランでKimi K3が選べることを示すものではありません。Hobbyでは利用できるモデルが限られるため、実際に表示される選択肢を確認してください。
 
 筆者も2026年8月4日時点でCursorのSettings → Models画面を確認し、実際にトグルを操作しています。Cursor公式のモデル表ではKimi K3は「Hidden by default」（初期状態では一覧に出ない／オフ扱い）とされており、オンにする操作が前提になります。まずは自分の画面で今の状態を確認するところから始めてください。追加の設定は、ほぼなし。
 
@@ -138,11 +140,11 @@ Kimi K3と並んでCursorのModels一覧にある「Kimi K2.7 Code」は、Moons
 
 **Q4. Kimi K3は無料で使えますか？**
 
-Cursorのプラン内で利用できます。ただしCursor公式のモデル表（執筆時点）では、旧来のリクエスト課金プランではMax Modeが必要と注記されています。利用枠内での消費区分（通常消費か割増かなど）の細部はプランにより異なるため、契約中のプランの公式ページで確認することをおすすめします。
+CursorでKimi K3が提供されていても、すべてのプランで選べるとは限りません。Hobby（無料）は利用できるモデルが限定されるため、[利用可能なモデル](https://prod.cursor.com/help/models-and-usage/available-models)を確認し、Settings → ModelsにKimi K3が表示されるか、契約プランとチーム設定を確認してください。
 
 **Q5. Autoモードでも、自動的にKimi K3が選ばれることはありますか？**
 
-以前ご紹介した[Cursorモデル選び方ガイド](/blog/cursor-model-selection-guide)で解説したAuto機能（Cursor Router）は、タスクの内容に応じて最適なモデルを自動選択する仕組みです。Kimi K3が選択肢に含まれるかどうかは変更されうるため、確実に使いたい場合は本記事の手順で手動選択することをおすすめします。
+現行の[Cursor Routerの対象モデル一覧](https://prod.cursor.com/help/models-and-usage/available-models)にKimi K3は記載されていません。そのため、AutoがKimi K3を選ぶとは案内できません。Kimi K3を使う場合は、利用プランとチーム設定で選択可能なことを確認し、モデルピッカーから直接選んでください。
 
 **Q6. モデル名や提供状況はすぐ変わりますか？最新情報はどこで確認できますか？**
 
