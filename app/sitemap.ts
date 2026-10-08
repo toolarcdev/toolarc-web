@@ -38,6 +38,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/lp/ai-skill-academy-paid-school` },
     // The ByTech LP's publication date is not set until deployment.
     { url: `${baseUrl}/lp/bytech-generative-ai` },
+    {
+      url: `${baseUrl}/lp/internet-academy-generative-ai`,
+      lastModified: new Date("2026-10-08"),
+    },
   ];
 
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
