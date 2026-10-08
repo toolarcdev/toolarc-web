@@ -10,7 +10,8 @@ import styles from "./page.module.css";
 const pageTitle = "ProgrammingHacksは未経験からの開発学習に合う？教材・質問対応・料金・転職サポート";
 const pageDescription = "IT職への転向に関心があり、仕事を続けながら開発を学びたい人へ。ProgrammingHacksで学ぶ画面・処理・データの関係、動画の説明とLINE質問、学習時間、税込69,800円の提供内容を整理します。無料入門との違いと転職サポート付プランも区別して考えます。";
 const pageUrl = "https://www.toolarc.jp/lp/programming-hacks";
-// U01/U02 remain unresolved. Do not activate the registry URL or impression before static verification.
+// ASP review: the text creative targets legacy Skill Hacks, not the ProgrammingHacks product page.
+// Keep activation off until a permitted product-specific text creative and U02/U11 evidence are available.
 const CTA_DESTINATION_VERIFIED = false;
 
 export const metadata: Metadata = {
