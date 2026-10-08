@@ -42,6 +42,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/lp/internet-academy-generative-ai`,
       lastModified: new Date("2026-10-08"),
     },
+    // Publication date is recorded after deployment.
+    { url: `${baseUrl}/lp/programming-hacks` },
   ];
 
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({

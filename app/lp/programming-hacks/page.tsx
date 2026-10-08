@@ -1,4 +1,4 @@
-/* R4 review candidate. OG-PH-02 approved; publication and affiliate activation await verification. */
+/* OG-PH-02 approved. Publication authorized with U02/U11 remaining unconfirmed. */
 /* eslint-disable @next/next/no-img-element -- static editorial asset with explicit dimensions */
 import type { Metadata } from "next";
 import { buildAffiliateAnchorProps, isDirectAffiliateAllowed, resolveAffiliateLink } from "@/lib/affiliate";
@@ -12,13 +12,13 @@ const pageTitle = "ProgrammingHacksは未経験からの開発学習に合う？
 const pageDescription = "IT職への転向に関心があり、仕事を続けながら開発を学びたい人へ。ProgrammingHacksで学ぶ画面・処理・データの関係、動画の説明とLINE質問、学習時間、税込69,800円の提供内容を整理します。無料入門との違いと転職サポート付プランも区別して考えます。";
 const pageUrl = "https://www.toolarc.jp/lp/programming-hacks";
 // U01: use the registered product-specific creative, without rewriting its affiliate URL.
-// Keep activation off until U02 (course/measurement conditions) and U11 (current setup) are confirmed.
-const PUBLICATION_CHECKS_COMPLETE = false;
+// The user authorized publication with U02/U11 unconfirmed; this is not a verification status.
+const PUBLICATION_APPROVED = true;
 
 export const metadata: Metadata = {
  title: pageTitle, description: pageDescription,
  alternates: { canonical: pageUrl },
- robots: { index: false, follow: false },
+ robots: { index: true, follow: true },
  openGraph: {
   title: pageTitle, description: pageDescription, url: pageUrl,
   type: "article", locale: "ja_JP", siteName: "ToolArc",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 };
 
 export default function ProgrammingHacksPage() {
- const resolved = PUBLICATION_CHECKS_COMPLETE && isDirectAffiliateAllowed("programming-hacks", "programming-hacks")
+ const resolved = PUBLICATION_APPROVED && isDirectAffiliateAllowed("programming-hacks", "programming-hacks")
   ? resolveAffiliateLink("programming-hacks", PROGRAMMING_HACKS_CREATIVE) : null;
  const props = resolved ? buildAffiliateAnchorProps(resolved) : null;
  const affiliateLink = props?.href ? { href: props.href, target: props.target, rel: `${props.rel} sponsored`, referrerPolicy: props.referrerPolicy } : null;
@@ -114,7 +114,7 @@ export default function ProgrammingHacksPage() {
    </article></main>
    <footer data-ref="PH-FOOTER"><a href="https://www.toolarc.jp/" aria-label="ToolArc トップページ">ToolArc</a></footer>
    <LpDebugMode />
-   {process.env.NODE_ENV === "production" && PUBLICATION_CHECKS_COMPLETE && resolved?.impressionUrl ? <AffiliateImpression src={resolved.impressionUrl} /> : null}
+   {process.env.NODE_ENV === "production" && PUBLICATION_APPROVED && resolved?.impressionUrl ? <AffiliateImpression src={resolved.impressionUrl} /> : null}
   </div>
  );
 }
