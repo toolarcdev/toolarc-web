@@ -1,8 +1,8 @@
-# ProgrammingHacks LP（公開承認済み・人間レビュー待ち）
+# ProgrammingHacks LP（公開・本番確認済み）
 
-Last Updated: 2026-10-08 20:59
+Last Updated: 2026-10-08 21:08
 
-ルート: `/lp/programming-hacks`。R1・R2は承認済み。ユーザーはOG-PH-02の採用とcommit／PRまでの作業を承認。R3は追加画像を検討できる状態で継続。ユーザーがU02詳細・U11を未確定のまま公開する方針を承認。公開保留を解除し、人間レビュー用PRへ反映する。マージ・デプロイ・本番確認は別工程。
+ルート: `/lp/programming-hacks`。R1・R2は承認済み。ユーザーはOG-PH-02の採用とcommit／PRまでの作業を承認。R3は追加画像を検討できる状態で継続。ユーザーがU02詳細・U11を未確定のまま公開する方針を承認。公開保留を解除したPR #390を人間レビュー後にマージし、本番デプロイ成功とHTTP・画像・属性を確認済み。
 
 本文正本は案件資料の「ProgrammingHacksアフィリエイトLP_公開用本文_R2_v2」。制作状態は「ProgrammingHacksアフィリエイトLP制作記録」、確認結果は「ProgrammingHacksアフィリエイトLP_R4実装・ブラウザ記録」。実行時にVaultや制作補助スクリプトへ依存しない。
 
@@ -35,7 +35,7 @@ U02の一般的な成果承認条件は現行ASP画面で確認済み。コー�
 
 ユーザーの公開承認に基づき`PUBLICATION_APPROVED = true`へ変更。U02詳細・U11の確認完了を意味しない。productionでは3CTA・対応AffiliateImpression・既存の表示／クリックイベントを有効化する。開発プレビューでは外部移動と計測を停止する。
 
-`index, follow`へ変更し、サイトマップに専用LPを登録する。ブログ一覧・posts.ts・案件正本は変更しない。公開日は本番デプロイ後に記録する。PR反映を本番公開完了とは扱わない。記事に「問い合わせ中」等は追加せず、未確認の購入条件を確定事実へ置き換えない。
+`index, follow`へ変更し、サイトマップに専用LPを登録する。ブログ一覧・posts.ts・案件正本は変更しない。公開日：2026-10-08（本番デプロイ後に確認）。PR反映を本番公開完了とは扱わない。記事に「問い合わせ中」等は追加せず、未確認の購入条件を確定事実へ置き換えない。
 
 productionでは`programming-hacks:banner-300x250`からリンクを解決。既存pushEventの`lp_cta_impression`（50%以上の表示・CTAごと1回）と`outbound_click`、識別子はlp_id／program_id=`programming-hacks`、creative_id=`banner-300x250`、cta_id=CTA1・CTA4・CTA3。ASP URLの任意書換えなし。
 
@@ -55,6 +55,16 @@ descriptionはUnicode実測132字。ESLintと`validate:affiliate`成功。ロー
 
 ## 現在の公開判断
 
-U02詳細・U11は未確定のまま公開することをユーザーが承認。問い合わせ文面は保存のみ・未送信。記事本文は承認済みR2_v2のままで、問い合わせ状況の表記なし。CTA・検索登録を有効化したPRを人間レビュー後にマージする。R3追加画像検討は継続。
+U02詳細・U11は未確定のまま公開することをユーザーが承認。問い合わせ文面は保存のみ・未送信。記事本文は承認済みR2_v2のままで、問い合わせ状況の表記なし。CTA・検索登録を有効化したPR #390は人間レビュー後にマージ済み。R3追加画像検討は継続。
 
 公開承認反映後の検証：build（346ページ）、対象ESLint、validate:affiliate成功。生成済みproduction HTMLから3CTAの有効なanchor・登録31548のclickとimpression一致・nofollow/sponsored・index/follow・サイトマップ1件・28要素・デバッグ無効を確認。記事本文は直前commitと同一、問い合わせ状況文言なし、description132字。ASP通信を発生させないため、本番HTMLの静的読取で確認。レイアウトの変更なし。
+
+## 公開後の確認結果
+
+確認日時：2026-10-08 21:08。公開URL：https://www.toolarc.jp/lp/programming-hacks 。PR #390、merge commitは582e495f7a14fefa8aeeab4632fb47fac4d472f2。マージ前・マージ後ともVercel成功。本番HTTP 200を確認済み。
+
+本番HTMLと自サイト画像のHTTP読取で、本文がproductionビルドと同一、3CTAの素材31548と対応impression一致、nofollow／sponsored、index／follow、canonical、サイトマップ1件、28要素、ToolArcホームリンク2件を確認。lpDebug=1でもdata-debug=false・操作パネルなし。OG／Twitter画像URL一致。本文画像1536×1024・249,814bytes、OG1200×630・182,058bytesは採用ファイルとSHA256一致。
+
+広告クリックURL・ASP計測画像へアクセスしていない。成果発生や実着地のテスト、人間による本番目視はこのHTTP確認とは区別する。U02詳細・U11は未確認のまま公開する承認を維持。問い合わせは資料保存のみ・未送信。記事に問い合わせ状況の表記なし。R3の追加画像検討は継続。
+
+現在の公開結果の正本は案件資料の「ProgrammingHacksアフィリエイトLP_R7本番確認・公開記録」。上の「過去の検証」は公開保留時点の履歴で、無効CTA・noindexを現在の状態とは扱わない。
