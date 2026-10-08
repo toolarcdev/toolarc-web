@@ -1,0 +1,63 @@
+/* Hallmark · macrostructure: Long Document · genre: editorial · tone: soft learning notebook · anchor hue: sage
+ * theme: Garden-inspired notebook · motion-cut · nav: N9 adapted · footer: Ft2
+ * pre-emit critique: P4 H4 E3 S4 R4 V4 · R4 local implementation; R3 images provisional; production unverified */
+.page{
+ --color-paper:#f6f3eb;--color-surface:#ecefe6;--color-ink:#293b34;--color-muted:#526058;--color-rule:#c8cec2;--color-accent:#416250;--color-accent-ink:#f6f3eb;--color-focus:#755b32;
+ --font-display:"Yu Mincho","Hiragino Mincho ProN",Georgia,serif;--font-body:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+ --space-xs:8px;--space-sm:16px;--space-md:24px;--space-lg:32px;--space-xl:48px;--space-2xl:64px;
+}
+.page :global(*){box-sizing:border-box}:global(html:has([data-lp="programming-hacks"])),.page{overflow-x:clip}.page{margin:0;background:var(--color-paper);color:var(--color-ink);font:17px/1.95 var(--font-body)}
+.page :global(header),.page :global(main),.page :global(footer){max-width:52rem;margin-inline:auto;padding-inline:var(--space-md)}.page :global(header){display:flex;align-items:center;padding-block:var(--space-md);border-bottom:1px solid var(--color-rule)}.page :global(header a){font:700 24px/1 var(--font-display);text-decoration:none;color:var(--color-ink)}
+.page :global(main){padding-block:var(--space-xl)}.page :global(h1),.page :global(h2){font-family:var(--font-display);font-style:normal;overflow-wrap:anywhere;min-width:0;text-wrap:pretty}.page :global(h1){font-size:32px;line-height:1.65;margin:0 0 var(--space-md)}.page :global(h2){font-size:25px;line-height:1.7;margin:var(--space-2xl) 0 var(--space-md);padding-top:var(--space-md);border-top:1px solid var(--color-rule)}
+.page :global(p){margin:0 0 var(--space-md)}.page :global(a){color:var(--color-accent);text-decoration-thickness:1px;text-underline-offset:2px;overflow-wrap:anywhere}.page :global(a:hover){color:var(--color-ink)}.page :global(a:active){color:var(--color-focus)}.page :global(a[aria-disabled=true]){opacity:.55;cursor:not-allowed}.page :global(a:focus-visible),.page :global(summary:focus-visible),.page :global(button:focus-visible){outline:2px solid var(--color-focus);outline-offset:4px}
+.page :global(.ad){color:var(--color-muted);font-size:14px}.page :global(.art){margin:var(--space-lg) 0}.page :global(.art img){display:block;width:100%;height:auto;aspect-ratio:3/2}.page :global(.art figcaption){font-size:14px;color:var(--color-muted);margin-top:var(--space-xs)}
+.page :global(blockquote){margin:var(--space-lg) 0;padding:var(--space-md);background:var(--color-surface);border-block:1px solid var(--color-rule)}.page :global(blockquote p){margin-bottom:var(--space-xs)}.page :global(ul){padding-left:var(--space-md);margin-block:var(--space-md)}.page :global(li){margin-bottom:var(--space-sm)}.page :global(li:last-child){margin-bottom:0}
+
+
+.page :global(table){width:100%;border-collapse:collapse;margin-block:var(--space-md);font-size:16px;table-layout:fixed}.page :global(th),.page :global(td){padding:var(--space-sm);border-bottom:1px solid var(--color-rule);text-align:left;vertical-align:top;overflow-wrap:anywhere}.page :global(th){background:var(--color-surface)}
+.page :global(details){border-block:1px solid var(--color-rule);padding-block:var(--space-sm);margin-block:var(--space-md)}.page :global(summary){cursor:pointer;font-weight:700;padding-block:var(--space-xs)}.page :global(summary:hover){color:var(--color-accent)}.page :global(summary:active){color:var(--color-focus)}.page :global(summary[aria-disabled=true]){opacity:.55;cursor:not-allowed}.page :global(details[open] summary){margin-bottom:var(--space-sm)}.page :global(details p){font-size:16px}
+.page :global(hr){border:0;border-top:1px solid var(--color-rule);margin-block:var(--space-xl)}.page :global(.sources){font-size:14px;color:var(--color-muted)}.page :global(footer){border-top:1px solid var(--color-rule);padding-block:var(--space-md);color:var(--color-muted);font-size:14px}
+@media(max-width:600px){.page :global(header),.page :global(main),.page :global(footer){padding-inline:var(--space-sm)}.page :global(main){padding-top:var(--space-lg)}.page :global(h1){font-size:25px}.page :global(h2){font-size:22px;margin-top:var(--space-xl)}.page{font-size:16px}.page :global(thead){display:none}.page :global(table),.page :global(tbody),.page :global(tr),.page :global(td){display:block}.page :global(tr){padding-block:var(--space-sm);border-bottom:1px solid var(--color-rule)}.page :global(td){border:0;padding:var(--space-xs) 0}.page :global(td:first-child){font-weight:700}.page :global(td:not(:first-child)::before){content:attr(data-label);display:block;font-size:13px;color:var(--color-muted)}}
+@media(prefers-reduced-motion:reduce){.page :global(*){scroll-behavior:auto}}
+
+
+:global(body:has([data-lp="programming-hacks"])) { overflow-x: clip; background: var(--background); }
+.page { flex: 1; }
+.page :global(h1), .page :global(h2) { font-weight: 700; }
+.page :global(ul) { list-style: disc; }
+.page :global(a) { text-decoration-line: underline; }
+.page :global(header a) { text-decoration: none; }
+.page :global(.skip-link) { position: fixed; top: -80px; left: var(--space-sm); background: var(--color-paper); color: var(--color-ink); padding: var(--space-sm); z-index: 40; }
+.page :global(.skip-link:focus) { top: var(--space-sm); }
+.page :global([data-ref]) { scroll-margin-top: var(--space-md); }
+.page[data-debug="true"] :global([data-ref])::before { content: attr(data-ref); display: block; width: fit-content; color: var(--color-focus); background: var(--color-surface); border: 1px solid var(--color-rule); padding: 4px var(--space-xs); margin-bottom: var(--space-xs); font: 700 13px/1.5 var(--font-body); }
+.page[data-debug="true"][data-detail="false"] :global([data-ref*="-E"])::before { display: none; }
+.page :global(.preview-tools) { position: fixed; right: var(--space-sm); bottom: var(--space-sm); z-index: 30; width: min(280px, calc(100vw - 32px)); color: var(--color-ink); background: var(--color-paper); border: 1px solid var(--color-rule); padding-inline: var(--space-sm); font: 14px/1.7 var(--font-body); }
+.page :global(.preview-tools details) { border: 0; margin: 0; }
+.page :global(.preview-controls) { display: grid; gap: var(--space-xs); }
+.page :global(.preview-controls label) { display: flex; align-items: center; gap: var(--space-xs); }
+.page :global(.preview-controls select), .page :global(.preview-controls button) { min-height: 44px; border: 1px solid var(--color-rule); background: var(--color-surface); color: var(--color-ink); padding: var(--space-xs); }
+.page :global(.preview-controls select:hover), .page :global(.preview-controls button:hover) { border-color: var(--color-accent); }
+.page :global(.preview-controls button:active) { background: var(--color-paper); }
+.page :global(.preview-controls input:disabled) { opacity: .55; cursor: not-allowed; }
+.page :global(.preview-controls input), .page :global(.preview-controls select) { accent-color: var(--color-accent); }
+.page :global(.preview-controls :focus-visible) { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+/* CTA1 / CTA3: two clear actions within the soft notebook palette. */
+.page :global(.cta) {
+ display: flex; justify-content: center; align-items: center;
+ gap: 12px; width: min(100%, 520px); min-height: 64px;
+ margin: var(--space-lg) 0; padding: var(--space-sm) var(--space-md);
+ border: 1px solid var(--color-accent); border-radius: 8px;
+ background: var(--color-accent); color: var(--color-accent-ink);
+ font: 700 16px/1.6 var(--font-body); text-align: center; text-decoration: none; cursor: pointer;
+}
+.page :global(.cta-label) { flex: 0 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.page :global(.cta-arrow) { flex: 0 0 20px; width: 20px; height: 20px; }
+.page :global(.cta:hover) { background: var(--color-ink); border-color: var(--color-ink); }
+.page :global(.cta:active) { background: var(--color-accent); border-color: var(--color-accent); }
+.page :global(.cta:focus-visible) { outline: 3px solid var(--color-focus); outline-offset: 4px; }
+.page :global(.cta:disabled) { cursor: not-allowed; border-style: dashed; }
+.page :global(.cta-preview-note) { color: var(--color-muted); font-size: 14px; }
+@media (max-width:600px) {
+ .page :global(.cta) { font-size: 15px; padding-inline: var(--space-sm); }
+}
