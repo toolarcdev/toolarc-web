@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState, type AnchorHTMLAttributes } from "react";
 import { pushEvent } from "@/lib/analytics/gtm";
+import { PROGRAMMING_HACKS_CREATIVE } from "./config";
 
 type LpLink = ({ href: string } & Pick<AnchorHTMLAttributes<HTMLAnchorElement>, "target" | "rel" | "referrerPolicy">) | null;
 type CtaId = "CTA1" | "CTA3" | "CTA4";
-const context = { lp_id: "programming-hacks", program_id: "programming-hacks", creative_id: "text" };
+const context = { lp_id: "programming-hacks", program_id: "programming-hacks", creative_id: PROGRAMMING_HACKS_CREATIVE };
 const label = "ProgrammingHacksの学習内容とプランを見る";
 const preview = process.env.NODE_ENV !== "production";
 
@@ -36,6 +37,6 @@ export function LpCta({ id, link }: { id: CtaId; link: LpLink }) {
     {notice ? <p className="cta-preview-note" role="status" id={id + "-notice"}>プレビューのため、リンク先への移動は停止しています。</p> : null}
   </>;
   if (!link) return <button className="cta" type="button" disabled data-cta-id={id}>{content}</button>;
-  return <a {...link} ref={ref} className="cta" data-cta-id={id} data-affiliate-key="programming-hacks:text"
+  return <a {...link} ref={ref} className="cta" data-cta-id={id} data-affiliate-key={`programming-hacks:${PROGRAMMING_HACKS_CREATIVE}`}
     onClick={() => pushEvent("outbound_click", { ...context, cta_id: id, url: link.href, link_text: label })}>{content}</a>;
 }

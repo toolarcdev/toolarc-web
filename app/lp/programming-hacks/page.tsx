@@ -6,13 +6,14 @@ import { AffiliateImpression } from "@/components/affiliate/AffiliateImpression"
 import { LpCta } from "./LpActions";
 import { LpDebugMode } from "./LpDebugMode";
 import styles from "./page.module.css";
+import { PROGRAMMING_HACKS_CREATIVE } from "./config";
 
 const pageTitle = "ProgrammingHacksは未経験からの開発学習に合う？教材・質問対応・料金・転職サポート";
 const pageDescription = "IT職への転向に関心があり、仕事を続けながら開発を学びたい人へ。ProgrammingHacksで学ぶ画面・処理・データの関係、動画の説明とLINE質問、学習時間、税込69,800円の提供内容を整理します。無料入門との違いと転職サポート付プランも区別して考えます。";
 const pageUrl = "https://www.toolarc.jp/lp/programming-hacks";
-// ASP review: the text creative targets legacy Skill Hacks, not the ProgrammingHacks product page.
-// Keep activation off until a permitted product-specific text creative and U02/U11 evidence are available.
-const CTA_DESTINATION_VERIFIED = false;
+// U01: use the registered product-specific creative, without rewriting its affiliate URL.
+// Keep activation off until U02 (course/measurement conditions) and U11 (current setup) are confirmed.
+const PUBLICATION_CHECKS_COMPLETE = false;
 
 export const metadata: Metadata = {
  title: pageTitle, description: pageDescription,
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
 };
 
 export default function ProgrammingHacksPage() {
- const resolved = CTA_DESTINATION_VERIFIED && isDirectAffiliateAllowed("programming-hacks", "programming-hacks")
-  ? resolveAffiliateLink("programming-hacks", "text") : null;
+ const resolved = PUBLICATION_CHECKS_COMPLETE && isDirectAffiliateAllowed("programming-hacks", "programming-hacks")
+  ? resolveAffiliateLink("programming-hacks", PROGRAMMING_HACKS_CREATIVE) : null;
  const props = resolved ? buildAffiliateAnchorProps(resolved) : null;
  const affiliateLink = props?.href ? { href: props.href, target: props.target, rel: `${props.rel} sponsored`, referrerPolicy: props.referrerPolicy } : null;
  return (
@@ -113,7 +114,7 @@ export default function ProgrammingHacksPage() {
    </article></main>
    <footer data-ref="PH-FOOTER"><a href="https://www.toolarc.jp/" aria-label="ToolArc トップページ">ToolArc</a></footer>
    <LpDebugMode />
-   {process.env.NODE_ENV === "production" && CTA_DESTINATION_VERIFIED && resolved?.impressionUrl ? <AffiliateImpression src={resolved.impressionUrl} /> : null}
+   {process.env.NODE_ENV === "production" && PUBLICATION_CHECKS_COMPLETE && resolved?.impressionUrl ? <AffiliateImpression src={resolved.impressionUrl} /> : null}
   </div>
  );
 }

@@ -1,6 +1,6 @@
 # ProgrammingHacks LP（公開保留・PRレビュー用）
 
-Last Updated: 2026-10-08 20:40
+Last Updated: 2026-10-08 20:51
 
 ルート: `/lp/programming-hacks`。R1・R2は承認済み。ユーザーはOG-PH-02の採用とcommit／PRまでの作業を承認。R3は追加画像を検討できる状態で継続。公開前の確認事項が残るため、公開保留のDraft PRとして提出する。マージ・デプロイ・本番確認は別工程。
 
@@ -10,6 +10,7 @@ Last Updated: 2026-10-08 20:40
 
 - `page.tsx`: 承認済み本文、メタデータ、安定した構成・要素番号。
 - `page.module.css`: やわらかい学習ノート型。紙に近い背景・深緑のCTA・局所CSS。
+- `config.ts`: サーバーのリンク解決とクライアントの計測で使う素材名を一つに統一。
 - `LpActions.tsx`: 既存のリンク解決とイベント基盤を利用。文言は「ProgrammingHacksの学習内容とプランを見る」。文言とLucide ChevronRightを一つの中央揃えのグループにし、左右余白を均等化。
 - `LpDebugMode.tsx`: developmentかつ`lpDebug=1`のときだけ確認パネルと番号。productionではクエリ指定があっても無効。
 - `components/layout/SiteChrome.tsx`: 専用LPの判定を1件追加。共通ヘッダー・広告帯・フッターの二重表示を避ける。
@@ -28,15 +29,15 @@ Last Updated: 2026-10-08 20:40
 
 ## 公開前の確認事項
 
-現行ASP管理画面で提携中を確認済み。U01は、主CTA候補の自由テキスト素材が旧Skill Hacksを指し、ProgrammingHacks単品への直接誘導と一致しないことを確認した。単品を指すバナー素材はあるが、バナーのリンクだけをテキストCTAへ転用しない。正式な単品用テキスト素材または許可された作成方法を確認する。
+U01は現行ASP管理画面で提携中と素材別設定先を確認済み。自由テキスト31555は旧Skill Hacksを指すため採用しない。単品を指す登録済みbanner-300x250（31548）を選択する。ログイン後FAQの「取得したアフィリエイトタグを書き換えても違反にはなりませんか。」（faq953）でURL単独利用が違反ではないことを確認した。クリックURLを変更せず、同じ31548のimpressionを維持する。広告画像は加工しない。非アフィリエイトの旧単品URLを直接開き、旧ドメインのままProgrammingHacks単品ページが表示されることも確認済み。広告クリック・成果発生テストは行わない。
 
-U02の一般的な成果承認条件は現行ASP画面で確認済み。コース別の成果対象とドメイン移行・総合経由の計測条件は未確認。U11の現行代替環境・PC要件・追加費用・環境構築支援も、運営の公開資料では確定できなかった。問い合わせ文面を案件資料の「ProgrammingHacks_公開前確認_U01-U02-U11_現行照合と問い合わせ」に用意した（未送信）。自己クリックで補完しない。
+U02の一般的な成果承認条件は現行ASP画面で確認済み。コース別の成果対象とドメイン移行・総合経由の計測条件は未確認。U11の現行代替環境・PC要件・追加費用・環境構築支援も、運営の公開資料では確定できなかった。問い合わせ文面を案件資料の「ProgrammingHacks_公開前確認_U01-U02-U11_現行照合と問い合わせ」に保存した（ユーザー指示により送信しない）。自己クリックで補完しない。
 
-このため`CTA_DESTINATION_VERIFIED = false`を維持。productionのCTAは無効、広告リンクとAffiliateImpressionは出力しない。開発時のCTAはローカル案内のみ。LPのクリック／表示イベントも停止する。未確認リンクを公開ボタンとして有効化しない。
+このため`PUBLICATION_CHECKS_COMPLETE = false`を維持。productionのCTAは無効、広告リンクとAffiliateImpressionは出力しない。開発時のCTAはローカル案内のみ。LPのクリック／表示イベントも停止する。未確認リンクを公開ボタンとして有効化しない。
 
 `noindex, nofollow`とサイトマップ未登録を維持。ブログ一覧・posts.ts・案件正本は変更しない。公開条件を確認した後、根拠を記録し、CTA接続・検索登録を変更して再検証する。Draft PRの作成を公開完了とは扱わない。
 
-有効化後は`programming-hacks:text`からリンクを解決。既存pushEventの`lp_cta_impression`（50%以上の表示・CTAごと1回）と`outbound_click`、識別子はlp_id／program_id=`programming-hacks`、creative_id=`text`、cta_id=CTA1・CTA4・CTA3。ASP URLの任意書換えなし。
+有効化後は`programming-hacks:banner-300x250`からリンクを解決。既存pushEventの`lp_cta_impression`（50%以上の表示・CTAごと1回）と`outbound_click`、識別子はlp_id／program_id=`programming-hacks`、creative_id=`banner-300x250`、cta_id=CTA1・CTA4・CTA3。ASP URLの任意書換えなし。
 
 ## 検証
 
@@ -46,4 +47,8 @@ descriptionはUnicode実測132字。ESLintと`validate:affiliate`成功。ロー
 
 本番相当localhost:4182で上記7幅の表示、28要素・CTA1／CTA4／CTA3の順、用語説明のキーボード開閉、OG画像HTTP 200・1200×630、canonicalを確認。`lpDebug=1`でも番号・操作パネルは無効。3CTAは無効ボタン、ASPリンク・ASP通信・LPイベントなし。ページエラー0。noindex／nofollowとサイトマップ未登録も確認済み。
 
-人間レビュー、公開前確認の解消、マージ、本番の画面・画像・属性確認が残る。制作記録の「現在」を更新し、R5 Draft PRへ進む。R3は継続中。
+人間レビュー、公開前確認の解消、マージ、本番の画面・画像・属性確認が残る。R5の既存Draft PR #390へ確認結果を反映済み。R3は継続中。
+
+追加検証：選択素材のclickとimpressionの登録識別子一致（pl_id=31548）をネットワーク通信なしで確認。素材変更後の本番用ビルド成功。
+
+素材変更後のlocalhost:4183をアプリ内ブラウザで再確認：28要素、3CTA無効、ASPリンク0・ASP画像0、開発デバッグ無効、canonical・noindex／nofollow維持。
