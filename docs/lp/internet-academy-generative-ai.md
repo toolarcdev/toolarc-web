@@ -1,6 +1,6 @@
 # インターネット・アカデミー 生成AI活用実践講座 LP
 
-Last Updated: 2026-10-08 12:26
+Last Updated: 2026-10-08 12:34
 
 公開予定URL: https://www.toolarc.jp/lp/internet-academy-generative-ai
 
@@ -22,6 +22,7 @@ Last Updated: 2026-10-08 12:26
 
 承認後に確定した修正:
 
+- B00・B08のToolArcロゴは、既存のBytech LPと同じ`https://www.toolarc.jp/`へ同じタブで遷移。B08の「ページの先頭へ」はページ内リンクを維持。
 - B02-01を全幅で削除し、番号は欠番として保持。
 - IMG01は1064px以上、IMG02〜04は1063px以下に表示。画像内の注記と各スマホ画像直下の中央寄せキャプションを維持。
 - 透明な代替SVGのURLをエンコードし、srcsetの未変換空白による解析警告を解消。

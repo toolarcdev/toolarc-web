@@ -141,7 +141,7 @@
 .page :global(.article-footer) { padding-top: var(--space-3xl); }
 .page :global(.article-footer .prose) { padding-top: var(--space-lg); border-top: 1px solid var(--color-rule); font-size: var(--text-small); line-height: 1.8; color: var(--color-muted); }
 .page :global(.footer-credit) { display: flex; justify-content: space-between; align-items: center; gap: var(--space-md); margin-top: var(--space-xl); }
-.page :global(.footer-credit span) { font-size: 18px; font-weight: 700; color: var(--color-ink); }
+.page :global(.footer-credit .footer-wordmark) { font-size: 18px; font-weight: 700; color: var(--color-ink); text-decoration: none; }
 .page :global(.preview-tools) { position: fixed; z-index: 20; bottom: max(12px, env(safe-area-inset-bottom)); right: 12px; max-width: calc(100% - 24px); color: var(--color-ink); font-size: 14px; line-height: 1.6; }
 .page :global(.preview-tools > details) { background: var(--color-paper); border: 1px solid var(--color-rule); border-radius: var(--radius-surface); }
 .page :global(.preview-tools > details > summary) { padding: 10px 14px; min-height: 44px; }
