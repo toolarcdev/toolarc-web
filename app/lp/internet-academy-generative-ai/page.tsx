@@ -9,13 +9,13 @@ import styles from "./page.module.css";
 const pageTitle = "インターネット・アカデミー生成AI活用実践講座｜料金と向く人";
 const pageDescription = "毎回の指示調整や社内資料の扱いに迷う社会人へ。インターネット・アカデミー生成AI活用実践講座で学ぶ内容を、商談メモ・社内文書・メールに活かすイメージで紹介。税込60,984円の受講料、独学や別講座との違い、受講前のQ&Aを整理し、自分に合う講座を無料相談で選ぶ準備ができます。";
 const pageUrl = "https://www.toolarc.jp/lp/internet-academy-generative-ai";
-const ogImage = "/images/lp/internet-academy-generative-ai/work-scenes-pc.png";
+const ogImage = "/images/lp/internet-academy-generative-ai/og-work-ai.jpg";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: pageUrl },
-  openGraph: { title: pageTitle, description: pageDescription, url: pageUrl, type: "article", locale: "ja_JP", siteName: "ToolArc", publishedTime: "2026-10-08T00:00:00+09:00", images: [{ url: ogImage, width: 1620, height: 971, alt: "生成AIを商談メモ・社内文書・メールに活かす3場面" }] },
+  openGraph: { title: pageTitle, description: pageDescription, url: pageUrl, type: "article", locale: "ja_JP", siteName: "ToolArc", publishedTime: "2026-10-08T00:00:00+09:00", images: [{ url: ogImage, width: 1200, height: 630, alt: "生成AIを、仕事で使う｜インターネット・アカデミー生成AI活用実践講座の料金と向く人" }] },
   twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [ogImage] },
 };
 

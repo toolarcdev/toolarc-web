@@ -1,6 +1,6 @@
 # インターネット・アカデミー 生成AI活用実践講座 LP
 
-Last Updated: 2026-10-08 12:05
+Last Updated: 2026-10-08 12:26
 
 公開予定URL: https://www.toolarc.jp/lp/internet-academy-generative-ai
 
@@ -17,7 +17,7 @@ Last Updated: 2026-10-08 12:05
 - タイトル: インターネット・アカデミー生成AI活用実践講座｜料金と向く人
 - description: 承認済み記事冒頭のdescriptionを採用。Unicodeで138字。
 - canonical: 公開予定URLと同一。
-- OG・Twitter画像: 採用したPC用IA-01。
+- OG・Twitter画像: 承認済みOG-01「生成AIを仕事で使う」を採用。`og-work-ai.jpg`（1200×630px、JPEG、128,423bytes）。原寸PNGはVaultの案件フォルダ内`OG画像_生成AI活用実践講座_v01/OG-01_生成AIを仕事で使う.png`に保持。切り抜かず白背景で縦横比を合わせて縮小し、配信用に圧縮。本文画像IMG01〜04は従来どおり。
 - プレビュー用のタイトル末尾・noindex・操作パネルは公開ページに出しません。
 
 承認後に確定した修正:
@@ -50,6 +50,7 @@ Last Updated: 2026-10-08 12:05
 
 ## 確認内容
 
+- OG-01設定後に再ビルド・対象ページのESLintを実施。OG／Twitterの画像URL、OGの寸法1200×630、画像のHTTP 200・JPEG形式・実寸が一致することを確認。配信用画像を目視し、文字・人物に欠けなし。
 - `npm run build`: 新しいLPの静的生成を含めて成功。
 - 対象ページ・SiteChrome・sitemapのESLint: エラー・警告なし。
 - `npm run validate:affiliate`: 成功。
