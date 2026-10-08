@@ -29,7 +29,7 @@ export default function InternetAcademyGenerativeAiPage() {
 <a className="skip-link" href="#main">本文へ移動</a>
 <header className="site-header container" data-ref="B00" data-label="媒体ヘッダー">
 <span className="ref-label" aria-hidden="true">B00 · 媒体ヘッダー</span>
-<a className="wordmark" href="#intro" aria-label="ToolArc このページの先頭">ToolArc<span className="wordmark-dot" aria-hidden="true">
+<a className="wordmark" href="https://www.toolarc.jp/" aria-label="ToolArc トップページ">ToolArc<span className="wordmark-dot" aria-hidden="true">
 </span>
 </a>
 <span className="header-description">生成AI講座の比較・受講案内</span>
@@ -420,7 +420,7 @@ export default function InternetAcademyGenerativeAiPage() {
 <div className="prose">
 <p>本記事は2026年10月8日に確認した公式講座ページ、受講スタイル案内、FAQ、予約フォーム等をもとに整理しています。実受講やカウンセリング参加による評価ではありません。受講料、講座内容、予約枠、受講条件は変更される場合があります。契約前には最新の見積もりと契約書面をご確認ください。</p>
 <div className="footer-credit">
-<span>ToolArc</span>
+<a className="footer-wordmark" href="https://www.toolarc.jp/" aria-label="ToolArc トップページ">ToolArc</a>
 <a href="#intro">ページの先頭へ ↑</a>
 </div>
 </div>
