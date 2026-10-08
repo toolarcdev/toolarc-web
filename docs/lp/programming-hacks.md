@@ -1,8 +1,8 @@
 # ProgrammingHacks LP（公開・本番確認済み）
 
-Last Updated: 2026-10-08 21:08
+Last Updated: 2026-10-08 21:24
 
-ルート: `/lp/programming-hacks`。R1・R2は承認済み。ユーザーはOG-PH-02の採用とcommit／PRまでの作業を承認。R3は追加画像を検討できる状態で継続。ユーザーがU02詳細・U11を未確定のまま公開する方針を承認。公開保留を解除したPR #390を人間レビュー後にマージし、本番デプロイ成功とHTTP・画像・属性を確認済み。
+ルート: `/lp/programming-hacks`。R1・R2は承認済み。ユーザーはOG-PH-02の採用とcommit／PRまでの作業を承認。R3は公開済みの本文画像・OG・デザインでユーザー承認により完了。ユーザーがU02詳細・U11を未確定のまま公開する方針を承認。公開保留を解除したPR #390を人間レビュー後にマージし、本番デプロイ成功とHTTP・画像・属性を確認済み。
 
 本文正本は案件資料の「ProgrammingHacksアフィリエイトLP_公開用本文_R2_v2」。制作状態は「ProgrammingHacksアフィリエイトLP制作記録」、確認結果は「ProgrammingHacksアフィリエイトLP_R4実装・ブラウザ記録」。実行時にVaultや制作補助スクリプトへ依存しない。
 
@@ -21,7 +21,7 @@ Last Updated: 2026-10-08 21:08
 
 ## 画像
 
-- 本文: `public/images/lp/programming-hacks/home-learning-v1.webp`、1536×1024、249,814bytes。S01-E05の画像と対応注記は同じfigure。切替なし。R3の追加画像検討は継続。
+- 本文: `public/images/lp/programming-hacks/home-learning-v1.webp`、1536×1024、249,814bytes。S01-E05の画像と対応注記は同じfigure。切替なし。R3はユーザー承認により完了。
 - OG: `public/images/lp/programming-hacks/og-home-learning.jpg`、1200×630、182,058bytes。ユーザー承認済みOG-PH-02。Open GraphとTwitterのsummary_large_imageへ設定済み。
 - `lucide-LICENSE.txt`: CTAのSVGアイコンの上流ライセンス。
 
@@ -55,7 +55,7 @@ descriptionはUnicode実測132字。ESLintと`validate:affiliate`成功。ロー
 
 ## 現在の公開判断
 
-U02詳細・U11は未確定のまま公開することをユーザーが承認。問い合わせ文面は保存のみ・未送信。記事本文は承認済みR2_v2のままで、問い合わせ状況の表記なし。CTA・検索登録を有効化したPR #390は人間レビュー後にマージ済み。R3追加画像検討は継続。
+U02詳細・U11は未確定のまま公開することをユーザーが承認。問い合わせ文面は保存のみ・未送信。記事本文は承認済みR2_v2のままで、問い合わせ状況の表記なし。CTA・検索登録を有効化したPR #390は人間レビュー後にマージ済み。R3はユーザー承認により完了。
 
 公開承認反映後の検証：build（346ページ）、対象ESLint、validate:affiliate成功。生成済みproduction HTMLから3CTAの有効なanchor・登録31548のclickとimpression一致・nofollow/sponsored・index/follow・サイトマップ1件・28要素・デバッグ無効を確認。記事本文は直前commitと同一、問い合わせ状況文言なし、description132字。ASP通信を発生させないため、本番HTMLの静的読取で確認。レイアウトの変更なし。
 
@@ -65,6 +65,11 @@ U02詳細・U11は未確定のまま公開することをユーザーが承認�
 
 本番HTMLと自サイト画像のHTTP読取で、本文がproductionビルドと同一、3CTAの素材31548と対応impression一致、nofollow／sponsored、index／follow、canonical、サイトマップ1件、28要素、ToolArcホームリンク2件を確認。lpDebug=1でもdata-debug=false・操作パネルなし。OG／Twitter画像URL一致。本文画像1536×1024・249,814bytes、OG1200×630・182,058bytesは採用ファイルとSHA256一致。
 
-広告クリックURL・ASP計測画像へアクセスしていない。成果発生や実着地のテスト、人間による本番目視はこのHTTP確認とは区別する。U02詳細・U11は未確認のまま公開する承認を維持。問い合わせは資料保存のみ・未送信。記事に問い合わせ状況の表記なし。R3の追加画像検討は継続。
+広告クリックURL・ASP計測画像へアクセスしていない。成果発生や実着地のテスト、人間による本番目視はこのHTTP確認とは区別する。U02詳細・U11は未確認のまま公開する承認を維持。問い合わせは資料保存のみ・未送信。記事に問い合わせ状況の表記なし。R3はユーザー承認により完了。
 
 現在の公開結果の正本は案件資料の「ProgrammingHacksアフィリエイトLP_R7本番確認・公開記録」。上の「過去の検証」は公開保留時点の履歴で、無効CTA・noindexを現在の状態とは扱わない。
+## CTAのホバー文字色修正
+
+通常リンクのa:hoverで文字色が濃いインク色になり、CTA:hoverの背景と同色になっていた。CTA:hover／active／focus-visibleには明るい文字色を明示し、ラベルとcurrentColorで描画する矢印の視認性を維持する。対象はCTA1（S01-E04）・CTA4（S03-E04）・CTA3（S05-E05）。本文・配置・遷移先・計測の変更なし。
+
+R3はユーザーの明示承認により完了。追加画像は残作業ではない。修正は人間レビュー後にマージする。

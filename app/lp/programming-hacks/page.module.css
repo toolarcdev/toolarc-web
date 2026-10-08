@@ -1,6 +1,6 @@
 /* Hallmark · macrostructure: Long Document · genre: editorial · tone: soft learning notebook · anchor hue: sage
  * theme: Garden-inspired notebook · motion-cut · nav: N9 adapted · footer: Ft2
- * pre-emit critique: P4 H4 E3 S4 R4 V4 · R4 local implementation; R3 images provisional; production unverified */
+ * pre-emit critique: P4 H4 E3 S4 R4 V4 · published; R3 approved complete */
 .page{
  --color-paper:#f6f3eb;--color-surface:#ecefe6;--color-ink:#293b34;--color-muted:#526058;--color-rule:#c8cec2;--color-accent:#416250;--color-accent-ink:#f6f3eb;--color-focus:#755b32;
  --font-display:"Yu Mincho","Hiragino Mincho ProN",Georgia,serif;--font-body:"Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
@@ -42,7 +42,7 @@
 .page :global(.preview-controls input:disabled) { opacity: .55; cursor: not-allowed; }
 .page :global(.preview-controls input), .page :global(.preview-controls select) { accent-color: var(--color-accent); }
 .page :global(.preview-controls :focus-visible) { outline: 2px solid var(--color-focus); outline-offset: 4px; }
-/* CTA1 / CTA3: two clear actions within the soft notebook palette. */
+/* CTA1 / CTA4 / CTA3: clear actions within the soft notebook palette. */
 .page :global(.cta) {
  display: flex; justify-content: center; align-items: center;
  gap: 12px; width: min(100%, 520px); min-height: 64px;
@@ -53,6 +53,8 @@
 }
 .page :global(.cta-label) { flex: 0 1 auto; min-width: 0; overflow-wrap: anywhere; }
 .page :global(.cta-arrow) { flex: 0 0 20px; width: 20px; height: 20px; }
+/* Override the ordinary link state colors for both the label and currentColor icon. */
+.page :global(.cta:hover), .page :global(.cta:active), .page :global(.cta:focus-visible) { color: var(--color-accent-ink); }
 .page :global(.cta:hover) { background: var(--color-ink); border-color: var(--color-ink); }
 .page :global(.cta:active) { background: var(--color-accent); border-color: var(--color-accent); }
 .page :global(.cta:focus-visible) { outline: 3px solid var(--color-focus); outline-offset: 4px; }
