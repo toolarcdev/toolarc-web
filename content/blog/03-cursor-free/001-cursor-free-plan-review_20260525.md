@@ -1,6 +1,6 @@
 ---
 title: "Cursor Free（無料枠）｜初心者が最初に確認する開発ガイド"
-description: "Cursorの無料枠（Free）から始める初心者向け開発ガイド。Settings・Rules・Agentの読む順番と、Claude Code／MCPへの分岐を整理。無料枠を使い切った実測の入口も案内します。"
+description: Cursorの無料枠からAI開発を始めたい初心者向けに、Settings・Rules・Agentの確認順と、目的別に読む記事を案内します。モデル選びや利用枠、Claude Code・MCPとの違いを知りたいときの参照先も整理。最初の設定から、作業中に困ったときの調べ方まで確認できます。
 date: 2026-05-25
 tags:
   - Cursor
@@ -178,7 +178,7 @@ Cursor開発で最初に必要なのは、すべての機能を覚えること�
 
 - [Proの「Total usage limit reached」対処法](/blog/cursor-pro-total-usage-limit-reached)｜上限に到達した有料ユーザー向け
 - [total usage limit reachedの対処3ステップ](/blog/cursor-usage-limit-reached-3-steps)｜上限表示を早く解消したい人向け
-- [Cursorモデル選び方ガイド｜APIキー・OpenRouterの注意](/blog/cursor-model-selection-guide)｜モデル固定・BYOKを検討する人向け
+- [Cursorモデルの選び方｜用途別のモデル選びとFree/有料の違い](/blog/cursor-model-selection-guide)｜用途に合う候補と、自分のプランで使える範囲を確認したい人向け
 - [Auto/手動モデル切替で品質が落ちたときの対処](/blog/cursor-auto-manual-model-quality-tips)｜出力品質が不安定な人向け
 
 ### Git・環境・その他
