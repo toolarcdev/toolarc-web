@@ -78,7 +78,7 @@ AIは人間より文脈の手がかりを多く与えられたほうが、原因
 - Cursorでエラーが出た直後の確認順は、関連記事「[Cursor開発でエラーが出た時の切り分け順](/blog/cursor-error-triage-checklist)」も参考になります
 - 前に読む: [長文AI出力をスクロールコンテナで読みやすくする方法](/blog/ai-output-scroll-container)
 - 次に読む: [AIへの依頼文に「初心者向けに説明して」を足すと精度が上がる](/blog/ai-prompt-beginner-friendly)
-- 関連: [pushの前にnpm run buildを実行する理由](/blog/push-before-npm-run-build)
+- 関連: [pushの前にnpm run buildを実行する理由](/blog/npm-run-build-reason)
 
 ---
 

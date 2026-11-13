@@ -59,7 +59,7 @@ npm run build
 
 ローカルでビルドが通らない状態で push しても、Vercel のデプロイが失敗します。**build 成功を確認してから push する**のが基本の順序です。
 
-`npm run build` の詳しい手順や意義は「[push前にnpm run buildを実行すべき理由](/blog/push-before-npm-run-build)」で解説しています。
+`npm run build` の詳しい手順や意義は「[push前にnpm run buildを実行すべき理由](/blog/npm-run-build-reason)」で解説しています。
 
 ### 3. コミットメッセージを見直す
 

@@ -188,7 +188,7 @@ ToolArcでの目安は、source.md作成が15〜30分、Claude初稿が数分で
 - [AIツールの使い分けを比較したい方](/blog/ai-tools-comparison)
 - [実装・公開をCursorで進めたい方](/blog/cursor-free)
 - 同日公開：[npm run buildを毎回実行する理由｜本番ビルド落ちを防ぐ](/blog/npm-run-build-reason)
-- 同日公開：[Obsidianで✅を入力する方法｜絵文字パネルで簡単入力](/blog/obsidian-checkmark-input)
+- 関連：[Obsidianで✅を入力する方法｜絵文字パネルで簡単入力](/blog/windows-emoji-panel-shortcut)
 - 同日公開：[create-next-appを現在フォルダへ直接作成する方法](/blog/create-next-app-current-folder)
 
 ### 無料セミナーを検討する前に（向く人/向かない人）
