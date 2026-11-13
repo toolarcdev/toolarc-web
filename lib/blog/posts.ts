@@ -748,14 +748,6 @@ export const blogPosts = {
     ogImage: "og.png",
     category: "devops",
   },
-  "push-before-npm-run-build": {
-    contentId: "20-investigate-something",
-    markdownFile: "262-push-before-npm-run-build.md",
-    imageBasePath: "/images/blog/20-investigate-something",
-    publishedAt: "2026-06-17",
-    ogImage: "og.png",
-    category: "devops",
-  },
   "github-push-checklist": {
     contentId: "20-investigate-something",
     markdownFile: "263-github-push-checklist.md",
@@ -1131,14 +1123,6 @@ export const blogPosts = {
     publishedAt: "2026-07-01",
     ogImage: "og.png",
     category: "devops",
-  },
-  "obsidian-checkmark-input": {
-    contentId: "20-investigate-something",
-    markdownFile: "306-obsidian-checkmark-input.md",
-    imageBasePath: "/images/blog/20-investigate-something",
-    publishedAt: "2026-07-01",
-    ogImage: "og.png",
-    category: "ai-workflow",
   },
   "create-next-app-current-folder": {
     contentId: "01-site-launch",

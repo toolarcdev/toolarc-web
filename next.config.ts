@@ -4,6 +4,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/blog/obsidian-checkmark-input",
+        destination: "/blog/windows-emoji-panel-shortcut",
+        permanent: true,
+      },
+      {
+        source: "/blog/push-before-npm-run-build",
+        destination: "/blog/npm-run-build-reason",
+        permanent: true,
+      },
+      {
         source: "/blog/chatgpt-device-change-wrong-login-history-empty",
         destination: "/blog/chatgpt-history-missing-device-change",
         permanent: true,
