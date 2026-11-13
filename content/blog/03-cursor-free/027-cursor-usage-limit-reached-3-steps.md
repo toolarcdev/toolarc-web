@@ -1,7 +1,7 @@
 ---
 title: "Cursor total usage limit reachedの対処3ステップ"
 slug: cursor-usage-limit-reached-3-steps
-description: "Cursorで「total usage limit reached」が出たときに焦らないための3ステップを整理しました。制限表示の記録、設定・接続状態の切り分け、待機中にできる非消費タスクへの切り替え方を初心者向けに解説します。"
+description: Cursorで「total usage limit reached」が出た直後の対処を3ステップで整理。制限表示と直前の作業を記録し、現行Freeと旧契約の違い、モデル設定、接続状態を順に確認します。リセット時刻を推測で決めず、待機中に進める非消費タスクへ切り替える方法も解説します。
 date: 2026-07-09
 tags:
   - Cursor
@@ -12,7 +12,7 @@ tags:
   - AI運用
 site: toolarc.jp
 target: "Cursorで「total usage limit reached」に遭遇し、どう動けばよいか知りたい初心者"
-last_update: 2026-10-07
+last_update: 2026-11-13
 ---
 
 # Cursor total usage limit reachedの対処3ステップ
@@ -37,7 +37,7 @@ Cursorで作業中に「total usage limit reached」と表示されると、「�
 - 制限がいつ解除されるのか分からず、時間の使い方に迷っている人
 - 無料版・Proプランを問わず、制限表示のたびに作業が止まってしまう人
 
-Cursor無料版の制限そのものの実測データ（どのくらいの作業で上限に達するか）を知りたい場合は、[Cursor無料版はどこまで使える？実際に上限到達まで使った記録と制限](/blog/cursor-free)を参照してください。本記事は無料版・Proを問わず「表示が出た直後の初動3ステップ」に絞っています。Pro特有の選択肢（`Set new limit` やプランアップグレードなど）は、[Cursor Proの「Total usage limit reached」対処法](/blog/cursor-pro-total-usage-limit-reached)で解説しています。
+Cursor依頼の種類ごとの消費傾向と過去の実測は、[Cursorで消費が激しい作業一覧](/blog/cursor-token-heavy-tasks)で確認できます。現在の契約上限を保証するデータではありません。本記事は無料版・Proを問わず「表示が出た直後の初動3ステップ」に絞っています。Pro特有の選択肢（`Set new limit` やプランアップグレードなど）は、[Cursor Proの「Total usage limit reached」対処法](/blog/cursor-pro-total-usage-limit-reached)で解説しています。
 
 ---
 
@@ -53,7 +53,7 @@ Cursor無料版の制限そのものの実測データ（どのくらいの作�
 2. 直前にどんな依頼をしていたか（軽い修正か、複数ファイルを横断する依頼かなど）を記録する
 3. 次にいつ再確認するか、再試行の間隔をあらかじめ決めておく
 
-筆者が無料版を実測した際は、制限到達から21時間経過してもリセットが確認できなかった記録があります（詳細は[Cursor無料版はどこまで使える？](/blog/cursor-free)を参照）。時間の感覚だけに頼らず、記録を残しながら判断することが大切です。
+筆者が無料版を実測した際は、制限到達から21時間経過してもリセットが確認できなかった記録があります（当時の要点は[Cursor開発ガイドの実測記録](/blog/cursor-free)を参照）。時間の感覚だけに頼らず、記録を残しながら判断することが大切です。
 
 ---
 
@@ -61,11 +61,11 @@ Cursor無料版の制限そのものの実測データ（どのくらいの作�
 
 **状況**：制限表示が本当に利用量によるものなのか、それとも別の原因（設定や接続の問題）が重なっているのか判断がつかない。
 
-**原因**：プランやチーム設定によってモデル選択肢は異なります。Cursorサポートの[案内](https://forum.cursor.com/t/free-after-pro-model-picker-locked-to-grok-4-6-medium-cannot-select-auto/171805)では、Hobby（無料・自分のAPIキーなし）はCursor Grok 4.6 Medium固定です。Autoがモデルピッカーに表示されるプランでは選択状態を確認し、ネットワーク状態も別に切り分けます。
+**原因**：プランやチーム設定によってモデルの選択肢は異なります。[公式のモデル案内](https://cursor.com/help/models-and-usage/available-models)では現行FreeはCursorの自社モデルが対象です。[旧Hobbyなどの旧契約](https://cursor.com/docs/account/pricing/legacy-cursor-plans)と分け、手元のモデルピッカーを確認してください。Autoが表示される場合は選択状態を記録し、ネットワーク状態も別に切り分けます。
 
 **対策**：
 
-1. モデルピッカーに表示されているモデル名を記録する。Hobby（無料プラン）では固定モデルを確認し、Autoが選択肢に表示される場合だけAutoの選択状態も記録する
+1. モデルピッカーに表示されているモデル名を記録する。契約プランと利用できるモデルを確認し、Autoが選択肢に表示される場合だけAutoの選択状態も記録する
 2. ネットワーク接続を再確認し、通信起因の表示でないかを切り分ける
 3. 同じ条件（同じ依頼内容・同じ設定）で再発するかどうかをメモしておく
 
@@ -99,8 +99,10 @@ Cursor無料版の制限そのものの実測データ（どのくらいの作�
 - □ 通信環境が原因でないかを切り分けた
 - □ 待機中に進める非消費タスクをリストアップした
 
-Cursor Proでの制限表示の詳しい背景（Set new limitやプランアップグレードの選択肢など）は、[Cursor Proの「Total usage limit reached」対処法](/blog/cursor-pro-total-usage-limit-reached)で解説しています。無料版そのものの制限傾向を知りたい場合は、[Cursor無料版はどこまで使える？実際に上限到達まで使った記録と制限](/blog/cursor-free)を参照してください。関連Tips: [CursorのAuto/手動モデル切替で出力品質が落ちたときの対処法](/blog/cursor-auto-manual-model-quality-tips)
+Cursor Proでの制限表示の詳しい背景（Set new limitやプランアップグレードの選択肢など）は、[Cursor Proの「Total usage limit reached」対処法](/blog/cursor-pro-total-usage-limit-reached)で解説しています。過去の消費傾向を知りたい場合は、[Cursorで消費が激しい作業一覧](/blog/cursor-token-heavy-tasks)を参照してください。関連Tips: [CursorのAuto/手動モデル切替で出力品質が落ちたときの対処法](/blog/cursor-auto-manual-model-quality-tips)
 
 ---
 
 ※ 本記事の内容は2026年10月7日時点の整理です。Cursorの利用制限・リセット条件に関する仕様は変更される場合があるため、最新情報は公式ドキュメントもあわせてご確認ください。
+
+無料プラン・モデル・利用枠の説明は2026-11-13に[公式モデル案内](https://cursor.com/help/models-and-usage/available-models)と[料金・利用枠](https://cursor.com/docs/models-and-pricing)を確認して訂正しました。過去の操作日・実測日はそのまま記載しています。実アカウントでの再検証は行っていません。
