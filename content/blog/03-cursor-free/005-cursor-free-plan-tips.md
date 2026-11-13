@@ -2,7 +2,7 @@
 title: "Cursor無料版を長持ちさせるコツ｜実測で効いた5つの習慣"
 description: "Cursor無料版で枠がすぐ減る、Proにするか迷う、上限表示の意味が分からない人向けです。Free／Pro／上限の見分けと、依頼を小さくして枠を長持ちさせる5つの習慣、表示直後に進む次の記事までを実測ベースで1本に整理し、いま読むべき入口を示します。"
 date: 2026-05-26
-last_update: 2026-10-07
+last_update: 2026-11-13
 tags:
   - 無料版
   - 初心者向け
@@ -105,9 +105,9 @@ Agentモード（複数ファイルを自動で触るモード）は強力です
 
 ---
 
-## コツ5｜Hobby（無料プラン）は依頼範囲を絞る
+## コツ5｜モデルを選べない場合は依頼範囲を絞る
 
-Cursorサポートの[案内](https://forum.cursor.com/t/free-after-pro-model-picker-locked-to-grok-4-6-medium-cannot-select-auto/171805)では、Cursor IDEのHobby（自分のAPIキーなし）はCursor Grok 4.6 Mediumに固定され、Autoや他モデルを選べません。モデルを切り替えられない環境では、依頼を1ファイル・1目的に絞り、必要な範囲だけを読ませると処理量を抑えやすくなります。
+現在のFreeと旧Hobbyは別の契約です。[公式のモデル案内](https://cursor.com/help/models-and-usage/available-models)では、現行Freeで利用できるのはCursorの自社モデルです。旧Hobbyを含む契約条件は[旧プランの説明](https://cursor.com/docs/account/pricing/legacy-cursor-plans)で確認し、実際に選べるモデルは手元のモデルピッカーで確かめてください。 モデルを切り替えられない環境では、依頼を1ファイル・1目的に絞り、必要な範囲だけを読ませます。
 
 **□ チェック：依頼対象のファイルと変更箇所を先に絞ったか？**
 
@@ -178,3 +178,5 @@ Cursorサポートの[案内](https://forum.cursor.com/t/free-after-pro-model-pi
 - [Cursorで開発前に見る3つの画面](/blog/cursor-pre-dev-checklist)
 - [.cursor/rules の書き方と token 節約](/blog/cursor-rules-file-tips)
 - [Agentが止まったときの復旧手順（3ステップ）](/blog/cursor-agent-pause-recovery-tips)
+
+無料プラン・モデル・利用枠の説明は2026-11-13に[公式モデル案内](https://cursor.com/help/models-and-usage/available-models)と[料金・利用枠](https://cursor.com/docs/models-and-pricing)を確認して訂正しました。過去の操作日・実測日はそのまま記載しています。実アカウントでの再検証は行っていません。
