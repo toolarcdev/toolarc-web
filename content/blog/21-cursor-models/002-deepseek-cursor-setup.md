@@ -1,6 +1,6 @@
 ---
-title: "DeepSeek×Cursor連携ガイド｜V4をプロキシで使う設定"
-description: "Cursor ProでDeepSeek V4を使おうとしてモデル名エラーに詰まった人向けに、APIキー取得からngrok・プロキシ経由のBase URL設定、よくあるエラーの切り分け、コストを抑えるモデルの選び方までを実測ベースでまとめました(2026年7月時点)。"
+title: "DeepSeek×Cursor連携ガイド｜モデル名とプロキシ設定の確認点"
+description: CursorにDeepSeekを設定してモデル名や接続エラーで止まった人へ、現行のAPIモデル名deepseek-flashと旧名の違い、Base URLの確認方法を整理。Windowsでのプロキシ・ngrok導入実測を残し、reasoning_contentエラーの条件や現在は未検証の接続範囲も説明します。
 date: 2026-07-30
 tags:
   - cursor
@@ -12,21 +12,21 @@ tags:
   - api連携
 site: toolarc.jp
 target: "CursorでDeepSeek V4を使いたいWindows開発者、コストを抑えたい人"
-last_update: 2026-07-30
+last_update: 2026-11-14
 ---
 
-# DeepSeek×Cursor連携ガイド｜V4をプロキシで使う設定
+# DeepSeek×Cursor連携ガイド｜モデル名とプロキシ設定の確認点
 
-CursorにDeepSeekのAPIキーを入れたのに「Model name is not valid」と出る、あるいはV4だけ動かない。この2つで止まっている方は多いはずです。
+CursorにDeepSeekのAPIキーを入れたのに「Model name is not valid」と出る。接続できても、次のやり取りでreasoning_contentのエラーになる。どこを直せばよいか迷ったら、モデル名とエラー内容を分けて確認してください。
 
-原因はモデル名の誤字とは限りません。実は、DeepSeek V4は仕組み上の理由でCursorに直接つなぐと落ちやすく、間に一つ仕掛けが必要になります。この記事では、その仕掛けを含めた設定手順と、つまずきやすいポイントの切り分け方を整理します。
+現在のFlash向けAPI名は`deepseek-flash`です。一方、以下のプロキシ導入手順と画面は7月のWindows 11・Cursor Proで確認したものです。現行モデル名の確認結果と当時の接続実測を分け、今の環境で試すときの注意点を説明します。
 
 > **今日の結論**
-> - V4（thinkingモデル）はCursor直結だと、思考過程のデータが欠落してエラーになりやすい。**プロキシ＋公開HTTPS（ngrok）**を挟む必要がある
-> - Base URLは事前に決め打ちできない。プロキシを起動したときにngrokが発行するURLを、そのつどCursorへ反映する
-> - 「Model name is not valid」の犯人はモデル名だけではない。**APIキーのトグルがOFF**のままでも同じ表示になる
-> - コストを抑えたいなら、Cursor標準枠とV4＋プロキシ運用を使い分けるのが現実的
-> - 残高不足の合図はHTTP 402。原因の切り分けさえできれば、対処は難しくない
+> - Flashの新規設定は`deepseek-flash`を使います。旧名`deepseek-v4-flash`もAPIでは受理されますが、当時と同じモデルが動くわけではありません
+> - thinkingモードで`tools`を送る場合、後続のリクエストにも`reasoning_content`が必要です。これを欠く400エラーには履歴を補うプロキシが対策の候補になります
+> - 7月の実測ではプロキシ＋ngrokを使いました。現在のCursorでの直結可否と新モデルの実応答は再検証していません
+> - このプロキシ構成では、起動ログの`api_base_url`をCursorへ反映します。APIキーのトグルと残高も確認してください
+> - Cursorの契約とDeepSeek APIの課金は分けて確認します。最新料金はDeepSeekの公式表を参照してください
 
 ---
 
@@ -51,7 +51,7 @@ CursorにDeepSeekのAPIキーを入れたのに「Model name is not valid」と�
 
 ---
 
-## Cursor側の基本設定｜直結型とV4＋プロキシ型の違い
+## Cursor側の基本設定｜現行モデル名と7月の接続設定
 
 次はCursor側です。設定画面は次の手順で開きます。
 
@@ -59,15 +59,17 @@ CursorにDeepSeekのAPIキーを入れたのに「Model name is not valid」と�
 2. 左メニューの**Models**を選ぶ
 3. 次の3項目を設定する
 
-DeepSeekの使い方には、モデル名によって2つのパターンがあります。旧モデルや`deepseek-v3.1`をそのまま使う「直結型」と、V4を使うために後述のプロキシを挟む「V4＋プロキシ型」です。
+DeepSeek APIの公式送信先は`https://api.deepseek.com`です。OpenAI互換APIの提供は、Cursorからの直結成功まで保証するものではありません。以下は、現在のAPI指定と7月に動作を確認したプロキシ構成の違いです。
 
-| 項目 | 直結型（旧・検証用） | V4＋プロキシ型（本命） |
+| 項目 | DeepSeek公式APIの指定 | 7月に確認したプロキシ構成 |
 | :--- | :--- | :--- |
-| OpenAI API Key | DeepSeekの`sk-` | 同じ値（**トグルをON**にする） |
-| Override OpenAI Base URL | `https://api.deepseek.com/v1` | プロキシ起動後にログの`api_base_url`を貼る |
-| Add Custom Model | 利用モデル名 | `deepseek-v4-flash`または`deepseek-v4-pro` |
+| APIキー | DeepSeek側で発行したキー | 同じキーをCursorに設定し、トグルをON |
+| Base URL | `https://api.deepseek.com`（`/v1`付きも利用可） | 起動ログの`api_base_url` |
+| モデル名 | Flashは`deepseek-flash`、Proは`deepseek-v4-pro` | 当時は`deepseek-v4-flash`または`deepseek-v4-pro` |
 
-**Base URL（Override OpenAI Base URL）**（APIの送信先を指定する設定項目。既定ではOpenAI向けのURLが入っているが、ここを書き換えることで別サービス宛にリクエストを送れるようになる）は、V4＋プロキシ型の場合はまだ空、あるいは仮の値のままで構いません。実際の値は、この後のプロキシ起動後に決まります。
+新しくFlashを指定する場合は`deepseek-flash`を使ってください。ただし、この名前を現在のCursorと第三者プロキシで使った実応答は未検証です。後述の画像やログにある旧名は、当時の記録として残しています。
+
+**Base URL**はAPIの送信先です。このプロキシを使う構成では、プロキシ起動後に表示されるURLをCursorの **Override OpenAI Base URL** に設定します。
 
 注意したいのは**トグル**（設定のON/OFFを切り替えるスイッチ状のUI部品）です。キー欄に値が入っていても、トグルがOFFのままだと送信されません。「Secret saved」という表示が出ても、それだけでは有効になっていない場合があります。
 
@@ -77,32 +79,31 @@ DeepSeekの使い方には、モデル名によって2つのパターンがあ�
 
 カスタムAPIの一時切り替えは、Windowsなら`Ctrl + Shift + 0`、macOSなら`Cmd + Shift + 0`。
 
-### モデル名の変遷
+### 現行名と旧名の違い
 
-DeepSeek側のモデル名は何度か変わっているため、古い情報のまま設定すると通らないことがあります。
+[DeepSeekのモデル・料金表](https://api-docs.deepseek.com/quick_start/pricing/)では、次のように案内されています。
 
-| モデル名 | 位置づけ |
+| APIに指定する名前 | 現在の扱い |
 | :--- | :--- |
-| `deepseek-chat` / `deepseek-reasoner` | 旧名。廃止扱いで、Cursorでは通りにくくなっている |
-| `deepseek-v3.1` | Cursor Pro側で使える従来枠。Chat寄りの位置づけ |
-| `deepseek-v4-flash` | 高速タイプ。thinking系のため後述のプロキシが必要 |
-| `deepseek-v4-pro` | 高推論タイプ。同じくプロキシが必要 |
+| `deepseek-flash` | Flashの推奨名。実体はDeepSeek-V4.1-Flash-1017 |
+| `deepseek-v4-flash` / `deepseek-v4-flash-vision-exp` | 受理される旧名。旧モデル自体は退役し、上と同じ現行Flashで処理・課金 |
+| `deepseek-v4-pro` | Proの指定名。実体はDeepSeek-V4-Pro-0813 |
+
+`deepseek-chat`や`deepseek-reasoner`、`deepseek-v3.1`は、今回の現行設定例には使いません。古い名称を見かけても、それだけで現在の対応状況やCursor標準枠の提供を判断しないでください。
 
 ---
 
-## なぜV4だけ動かないのか｜プロキシが必要な理由
+## reasoning_contentエラーが出る条件とプロキシの役割
 
-ここが、この記事でいちばん誤解されやすい部分です。
+thinkingモードは、回答を出す前に推論を行う動作です。DeepSeekの[thinkingモードの仕様](https://api-docs.deepseek.com/guides/thinking_mode/)では、`tools`を含むリクエストには過去ターンの`reasoning_content`も戻す必要があり、不足すると400エラーになります。`tools`を送らない会話では、このデータの返却は不要です。
 
-DeepSeek V4の**thinkingモデル**（回答を出す前に、内部で思考過程を組み立ててから答えるタイプのモデル）は、応答に**reasoning_content**（その思考過程のデータ本体）を含みます。次のやり取りでは、このデータの返却が前提。
-
-Cursorはこの履歴をOpenAI互換の形で組み立てるため、reasoning_contentを落としてしまうことがあります。結果として、DeepSeek側が**HTTPステータスコード**（サーバとクライアントの通信結果を表す3桁の数字）**400**（reasoning_content必須というエラー）を返す、という流れです。原因はCursor側の不具合というより、両者のデータ形式の食い違いに近いと考えられます。
+したがって、すべての会話でプロキシが必須とは言えません。[第三者プロキシのREADME](https://github.com/yxlao/deepseek-cursor-proxy)はCursorがこの履歴を省く問題への対策を説明していますが、現在のCursorの全バージョンで同じ問題が起きるかは再現確認していません。
 
 **プロキシ**（クライアントとサーバの間に立ち、やり取りを中継・加工する仕組み）の役目は、次の3つです。
 
 - 上流の応答から`reasoning_content`をローカルに保持する
 - Cursorから来た履歴に、不足分を再注入する
-- 必要に応じてngrokで公開HTTPSを用意し、Cursorが`localhost`を拒否する制約を避ける
+- この構成ではngrokで公開HTTPSを用意する。第三者READMEはCursorが非公開API URLを受け付けないと説明していますが、現在の実機での再確認はしていません
 
 経路を図にすると、次のようになります。
 
@@ -114,7 +115,7 @@ Cursorはこの履歴をOpenAI互換の形で組み立てるため、reasoning_c
 
 ## Windowsで導入する5ステップ｜ngrok→プロキシ起動→Base URL反映
 
-ここからは実際の導入手順です。筆者が実装時に確認した範囲では、2026年7月27日時点でWindows 11・Cursor Pro・uv 0.11.15・ngrok 3.39.10の組み合わせで動作しました。バージョンが変わると挙動が変わる可能性はあります。
+以下は7月に動作を確認した構成の導入手順です。現在のCursor UI、Flashモデル、第三者パッケージを組み合わせた再接続テストは行っていません。筆者が実装時に確認した範囲では、2026年7月27日時点でWindows 11・Cursor Pro・uv 0.11.15・ngrok 3.39.10の組み合わせで動作しました。バージョンが変わると挙動が変わる可能性はあります。
 
 前提として、次のものを用意してください。
 
@@ -213,7 +214,7 @@ uv run deepseek-cursor-proxy
 4. ログの`api_base_url`をコピーする
 5. Cursorの Override OpenAI Base URL に貼り、トグルをONにして送信テストする
 
-起動直後のターミナルには、次のような3行が表示されます。
+7月の起動ログ例は次の3行です。既定モデルや表示形式はバージョンによって変わり得るため、実際のログを確認してください。
 
 ```text
 default_model: deepseek-v4-pro (thinking, max)
@@ -223,13 +224,13 @@ api_base_url: https://xxxx.ngrok-free.dev/v1
 
 ![プロキシ起動直後のターミナルでapi_base_urlが表示されている画面](apiBaseUrl.png)
 
-Cursorに使うのは`api_base_url`だけです。`local_base_url`はこのPC内だけの入口のため、Cursorからは届きません。
+この公開HTTPS経由の構成では、Cursorに使うのは`api_base_url`です。`local_base_url`はPC内のプロキシ入口で、当時の実測ではCursorの送信先に使っていません。
 
 | 項目 | Cursorに使うか |
 | :--- | :--- |
 | OpenAI API Key | DeepSeekの`sk-`（トグルON） |
 | Override OpenAI Base URL | 起動ログの`api_base_url` |
-| Model | `deepseek-v4-flash`または`deepseek-v4-pro` |
+| Model | 現行APIでは`deepseek-flash`または`deepseek-v4-pro`（現在のCursor経由の実応答は未検証） |
 
 手動で`ngrok http 9000`を先に叩いてURLを取っておく必要はありません。既定のプロキシ起動が、ngrokの立ち上げまで含んでいます。
 
@@ -292,7 +293,7 @@ ngrok_url: https://abcd-1234.ngrok-free.app
 | よくある原因 | 確認方法 |
 | :--- | :--- |
 | APIキーのトグルがOFF | Modelsの画面でOpenAI API Keyが緑色のONになっているか |
-| 旧モデル名のまま | `deepseek-chat`などを削除し、V4系の名前に変える |
+| 指定名と提供状況が合っていない | Flashは現行の`deepseek-flash`を確認。`deepseek-v4-flash`はAPIで受理される旧名のため、旧名だけを原因と断定しない |
 | キーが未入力に戻っている | アップデート後にキーが消えていることがある |
 
 キーが有効になっていないと、カスタムモデル名自体がサーバ側で弾かれ、モデル名のエラーと同じ文言が出ます。モデル名だけを疑うと遠回りになりやすい点です。
@@ -322,16 +323,11 @@ WARNING request failed upstream_status=402 stream=True
 
 ![Provider ErrorのInsufficient Balance表示](cursor-provider-error-insufficient-balance.png)
 
-料金は変動するため、次の数字はあくまで執筆時点の目安として見てください。**公開前に最新の料金を再確認する必要があります。**
-
-| モデル | 入力（100万トークンあたりの目安） | 出力（100万トークンあたりの目安） |
-| :--- | :--- | :--- |
-| deepseek-v4-flash | 約$0.15 | 約$0.30 |
-| deepseek-v4-pro | 約$0.87 | 約$2.18 |
+7月の料金目安は現在の見積もりには使えません。Flashには入力キャッシュ、出力、時間帯による単価差があります。最新の単価と課金条件は[DeepSeek公式料金表](https://api-docs.deepseek.com/quick_start/pricing/)で確認してください。
 
 ### Provider Error（reasoning_content／HTTP 400）
 
-プロキシを経由していない、あるいはプロキシが停止した状態でV4を叩いている可能性が高い状況です。Base URLがngrokの`/v1`になっているか、プロキシのプロセスが生きているかを確認してください。
+まずエラー本文に`reasoning_content`の不足があるか確認します。thinkingモードで`tools`を送る際の履歴不足なら、プロキシによる補完が対策の候補です。この構成を使っている場合は、Base URLが起動ログの`api_base_url`と一致し、プロキシが動いているかを確認してください。400という番号だけで原因を決めないでください。
 
 ### 接続できない／古いBase URLのまま
 
@@ -352,10 +348,10 @@ WARNING request failed upstream_status=402 stream=True
 
 | モデル | 利用条件 | メモ |
 | :--- | :--- | :--- |
-| deepseek-v4-flash／pro | 自己負担のAPIキー＋プロキシ | この記事の本命構成 |
-| deepseek-v3.1などCursor標準枠 | Cursor Pro契約側 | 追加のAPI料金なしの整理。Chat寄りで、Agentには制約がありうる |
+| DeepSeekのカスタムAPI | DeepSeek側のAPI契約・残高 | Cursor経由での対応状況も確認。7月はプロキシ経由で実測 |
+| Cursor標準モデル | 現在のCursor契約・利用枠 | モデル一覧と利用枠を確認。旧`deepseek-v3.1`が現在も選べるとは限らない |
 
-Cursor Proは「カスタムAPIを使える権利」に近く、DeepSeekの従量課金はそれとは別会計になります。**トークン**（AIが文章を処理する際の最小単位。API料金はこのトークン数に応じて課金される）の使用量が多いほど、V4＋プロキシ運用のコストは増えていきます。
+[CursorのAPIキー案内](https://cursor.com/help/models-and-usage/api-keys)では、個人プランの持込キーによるモデル料金はプロバイダーから請求されると説明されています。チーム向けの料金条件は別です。Cursor Proを単に「カスタムAPIを使える権利」と捉えず、Cursor側の契約内容とDeepSeek API料金をそれぞれ確認してください。
 
 選び方は、次の2つに集約されます。
 
@@ -375,7 +371,7 @@ Cursorの無料枠だけでどこまで進められるかは別のテーマに�
 - [ ] 先に`deepseek-cursor-proxy`を起動し、ターミナルを開いたままにした
 - [ ] 起動ログの`api_base_url`を控え、Cursorの Override に貼った（`local_base_url`ではない）
 - [ ] 再起動後もターミナルの`api_base_url`とCursorのOverrideが一致している（または固定運用にしている）
-- [ ] APIキーのトグルがONで、モデルが`deepseek-v4-flash`または`deepseek-v4-pro`になっている
+- [ ] APIキーのトグルがONで、APIモデル名を現行資料と照合した（Flashは`deepseek-flash`。現在のCursor経由の実応答は別途確認）
 - [ ] プロキシログにrequestが届いている
 - [ ] 402が出た場合は、Platformでチャージしてから再確認した
 
@@ -385,7 +381,8 @@ Cursorの無料枠だけでどこまで進められるかは別のテーマに�
 
 DeepSeek V4をCursorで使う際に押さえておきたいのは、次の3点です。
 
-- V4はプロキシなしでは落ちやすい。原因はreasoning_contentの欠落
+- 現行FlashのAPI名は`deepseek-flash`。旧名で動いても当時と同じモデルとは限りません
+- thinking＋toolsの履歴不足にはプロキシが対策の候補ですが、現在のCursorでの直結可否は未検証です
 - Cursorに貼るBase URLは、プロキシ起動後の`api_base_url`
 - 「Model name is not valid」はモデル名だけでなく、トグルOFFでも起きる
 
@@ -393,4 +390,4 @@ DeepSeek V4をCursorで使う際に押さえておきたいのは、次の3点�
 
 ---
 
-本記事の内容は執筆時点（2026-07-30）の情報に基づきます。モデル名・料金・Cursor のUI・ngrok の最低バージョン要件は変更される可能性があります。重要な判断は公式ドキュメントとダッシュボードで再確認してください。手順はWindows 11環境での実測（2026-07-27時点）を元にしています。また、本文中のプロキシ（`deepseek-cursor-proxy`）は第三者リポジトリに依存しています。
+モデル名とAPI仕様は2026-11-14に公式資料を照合しました。現在のCursorでの直結・プロキシ経由の実応答は再検証していません。モデル名・料金・Cursor のUI・ngrok の最低バージョン要件は変更される可能性があります。重要な判断は公式ドキュメントとダッシュボードで再確認してください。手順はWindows 11環境での実測（2026-07-27時点）を元にしています。また、本文中のプロキシ（`deepseek-cursor-proxy`）は第三者リポジトリに依存しています。
