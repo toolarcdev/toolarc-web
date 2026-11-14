@@ -17,6 +17,14 @@ import type { BlogPostMeta } from "./types";
  * 3. 下記に1件追加
  */
 export const blogPosts = {
+  "notta-free-plan-limits": {
+    contentId: "23-ai-transcription",
+    markdownFile: "001-notta-free-plan-limits.md",
+    imageBasePath: "/images/blog/notta-free-plan-limits",
+    publishedAt: "2026-11-14",
+    ogImage: "notta-free-limits.png",
+    category: "ai-workflow",
+  },
   "site-launch": {
     contentId: "01-site-launch",
     markdownFile: "001-site-launch-draft-v3.md",
