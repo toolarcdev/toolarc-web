@@ -44,6 +44,74 @@ body {
   margin-top: 0;
 }
 
+/* Only sections explicitly marked article-disclosure use this presentation. */
+.article-disclosure {
+  margin: 2.5rem 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.article-disclosure-summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
+
+.article-disclosure-summary::-webkit-details-marker {
+  display: none;
+}
+
+.article-disclosure-summary:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.article-disclosure-summary > h2 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.article-disclosure-summary > h2::after {
+  content: "開く ＋";
+  flex-shrink: 0;
+  margin-left: auto;
+  color: #185a99;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.article-disclosure[open] > .article-disclosure-summary > h2::after {
+  content: "閉じる −";
+}
+
+.article-disclosure-body {
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid #cbd5e1;
+  background: #ffffff;
+}
+
+.article-disclosure thead,
+.article-disclosure th {
+  background: #ffffff;
+}
+
+.article-disclosure thead {
+  border-bottom: 2px solid #64748b;
+}
+
+.article-disclosure th {
+  font-weight: 700;
+}
+
 .article-h3 {
   margin-top: 2.25rem;
   margin-bottom: 0.75rem;
@@ -86,6 +154,27 @@ body {
   background: #f8fbff;
   color: #64748b;
   border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.article-blockquote.article-savings {
+  padding: 0.75rem 1.25rem;
+  border-left-color: #167449;
+  background: #effaf3;
+  color: #17324d;
+}
+
+.article-savings > p:first-child {
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.article-savings > p:first-child strong {
+  color: #12613d;
+  font-weight: 800;
+}
+
+.article-disclosure table:has(th:nth-child(2)):not(:has(th:nth-child(3))) {
+  min-width: 0;
 }
 
 .article-hr {

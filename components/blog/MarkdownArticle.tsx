@@ -6,7 +6,9 @@ import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
 import type { Element } from "hast";
-import { createContext, useContext, type ReactNode } from "react";
+import { createContext, Fragment, useContext, type ReactNode } from "react";
+import { ArticleDisclosure } from "@/components/blog/ArticleDisclosure";
+import { splitArticleDisclosures } from "@/lib/blog/article-disclosures";
 import { CodeBlock } from "@/components/blog/CodeBlock";
 import { CtaButton } from "@/components/affiliate/CtaButton";
 import { pushEvent } from "@/lib/analytics/gtm";
@@ -393,6 +395,7 @@ export function MarkdownArticle({
   variant = "default",
 }: MarkdownArticleProps) {
   const isHandsOn = variant === "hands-on";
+  const hasSavingsCallouts = content.includes("<!-- article-savings -->");
   const priorityImageSrc = getFirstH2SectionImageSrc(content);
   const components: Components = {
     h2: ({ children }) => {
@@ -437,6 +440,10 @@ export function MarkdownArticle({
     ol: ({ children }) => <ol className="article-ol">{children}</ol>,
     li: ({ children }) => <li className="article-li">{children}</li>,
     blockquote: ({ children }) => {
+      // Explicitly opted-in articles can highlight a price-saving conclusion.
+      if (hasSavingsCallouts && /^\s*\d+か月[^\n]*[\d,]+円お得/.test(flattenText(children))) {
+        return <blockquote className="article-blockquote article-savings">{children}</blockquote>;
+      }
       if (isHandsOn) {
         const text = flattenText(children);
         if (/期待する表示|画面に表示される|成功条件|できたか/.test(text)) {
@@ -591,7 +598,7 @@ export function MarkdownArticle({
       urlTransform={urlTransform}
       components={components}
     >
-      {fixEmphasisFlanking(body)}
+      {fixEmphasisFlanking(body.replace(/^<!-- article-savings -->\s*$/gm, ""))}
     </ReactMarkdown>
   );
 
@@ -652,5 +659,17 @@ export function MarkdownArticle({
     );
   }
 
-  return renderMarkdown(content);
+  const chunks = splitArticleDisclosures(content);
+  if (chunks.length === 1 && chunks[0].kind === "markdown") {
+    return renderMarkdown(content);
+  }
+  return chunks.map((chunk, index) =>
+    chunk.kind === "disclosure" ? (
+      <ArticleDisclosure key={index} heading={renderMarkdown(chunk.heading)}>
+        {renderMarkdown(chunk.body)}
+      </ArticleDisclosure>
+    ) : (
+      <Fragment key={index}>{renderMarkdown(chunk.body)}</Fragment>
+    ),
+  );
 }
