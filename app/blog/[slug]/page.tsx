@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleHeader } from "@/components/blog/ArticleHeader";
+import styles from "@/components/blog/ArticlePage.module.css";
 import { ArticleBody } from "@/components/blog/ArticleBody";
 import { ArticleEndNav } from "@/components/blog/ArticleEndNav";
 import { AuthorBox } from "@/components/blog/AuthorBox";
@@ -141,31 +142,28 @@ export default async function BlogPostPage({ params }: PageProps) {
   };
 
   const article = (
-    <article
-      className="mt-3"
-      itemScope
-      itemType="https://schema.org/BlogPosting"
-    >
-      <ArticleHeader
-        title={post.title}
-        description={post.description}
-        publishedAt={post.publishedAt}
-        updatedAt={post.updatedAt}
-        tags={post.tags}
+    <div className={`article${isHandsOn ? " article--hands-on" : ""}`}>
+      <ArticleBody
+        content={articleContent}
+        imageBasePath={post.imageBasePath}
+        slug={slug}
+        variant={isHandsOn ? "hands-on" : "default"}
       />
-      <div className={`article mt-4${isHandsOn ? " article--hands-on" : ""}`}>
-        <ArticleBody
-          content={articleContent}
-          imageBasePath={post.imageBasePath}
-          slug={slug}
-          variant={isHandsOn ? "hands-on" : "default"}
-        />
-      </div>
-    </article>
+    </div>
   );
 
   const afterArticle = (
     <>
+      {post.tags.length > 0 && (
+        <ul className={styles.tags} aria-label="記事タグ">
+          {post.tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+      )}
+      <p className={styles.disclosure}>
+        ※記事により広告・アフィリエイトリンクを含む場合があります。
+      </p>
       <NarrowAffiliateSlot />
       <ArticleEndNav data={endNav} />
       <AuthorBox />
@@ -239,43 +237,51 @@ export default async function BlogPostPage({ params }: PageProps) {
         readingTime={readingTime}
         category={post.category}
       />
-      <main className="px-4 pb-10 pt-5 sm:px-6 sm:pb-14 sm:pt-6">
-        <div className={showToc ? "mx-auto max-w-5xl" : "mx-auto max-w-3xl"}>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-            <Breadcrumbs items={breadcrumbItems} />
-            {/* Series badge: パンくずと同列に寄せる（D） */}
-            {series && isSpoke && (
-              <SeriesArticleLink
-                href={`/series/${series.slug}`}
-                seriesSlug={series.slug}
-                targetSlug={series.hubSlug}
-                linkType="badge"
-                className="inline-flex items-center gap-1.5 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-medium text-[#2563eb] hover:border-[#93c5fd]"
-              >
-                <span>Series:</span>
-                <span>{series.title}</span>
-              </SeriesArticleLink>
-            )}
-            {series && !isSpoke && (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-3 py-1 text-xs font-medium text-[#2563eb]">
-                Series Hub
-              </span>
+      <main className={styles.page}>
+        <article itemScope itemType="https://schema.org/BlogPosting">
+          <ArticleHeader
+            title={post.title}
+            publishedAt={post.publishedAt}
+            updatedAt={post.updatedAt}
+            showToc={showToc}
+          />
+          <div className={`${styles.container} ${styles.content}${showToc ? "" : ` ${styles.narrow}`}`}>
+            <div className={styles.breadcrumbs}>
+              <Breadcrumbs items={breadcrumbItems} />
+              {/* Series badge: パンくずと同列に寄せる（D） */}
+              {series && isSpoke && (
+                <SeriesArticleLink
+                  href={`/series/${series.slug}`}
+                  seriesSlug={series.slug}
+                  targetSlug={series.hubSlug}
+                  linkType="badge"
+                  className={styles.seriesBadge}
+                >
+                  <span>Series:</span>
+                  <span>{series.title}</span>
+                </SeriesArticleLink>
+              )}
+              {series && !isSpoke && (
+                <span className={styles.seriesBadge}>
+                  Series Hub
+                </span>
+              )}
+            </div>
+
+            {showToc ? (
+              <RichArticleLayout tocItems={tocItems}>
+                {article}
+                {/* 左カラム内: sticky 右レールが末尾ブロックと重ならないようにする */}
+                {afterArticle}
+              </RichArticleLayout>
+            ) : (
+              <>
+                {article}
+                {afterArticle}
+              </>
             )}
           </div>
-
-          {showToc ? (
-            <RichArticleLayout tocItems={tocItems}>
-              {article}
-              {/* 左カラム内: sticky 右レールが末尾ブロックと重ならないようにする */}
-              {afterArticle}
-            </RichArticleLayout>
-          ) : (
-            <>
-              {article}
-              {afterArticle}
-            </>
-          )}
-        </div>
+        </article>
       </main>
     </BlogShell>
   );

@@ -1,0 +1,238 @@
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V3
+ * Article-only editorial layout; shared rules, never title-specific sizing.
+ */
+.page {
+  --article-paper: #fafbf9;
+  --article-ink: #252e2d;
+  --article-accent: #17665d;
+  --article-line: #d7e0dc;
+  --article-muted: #59645f;
+  --article-hero: #183b37;
+  --article-inverse: #f5f6f2;
+  --article-white: #fff;
+  --article-body-width: 768px;
+  --article-layout-width: 1024px;
+  --article-rail-width: 220px;
+  --article-gap: 48px;
+  background: var(--article-paper);
+  color: var(--article-ink);
+  overflow-x: clip;
+  padding-bottom: 40px;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--article-layout-width) + 48px);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+.narrow {
+  max-width: calc(var(--article-body-width) + 48px);
+}
+
+.hero {
+  background: var(--article-hero);
+  color: var(--article-inverse);
+}
+
+.hero > .container {
+  padding-block: 26px 24px;
+}
+
+.titleCopy {
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 20px;
+  color: var(--article-inverse);
+  font-size: 27px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+.dates {
+  margin: 22px 0 0;
+  color: var(--article-inverse);
+  font-size: 12px;
+  line-height: 1.95;
+}
+
+.content {
+  padding-top: 24px;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.seriesBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  border-bottom: 1px solid var(--article-line);
+  color: var(--article-accent);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 32px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--article-line);
+  list-style: none;
+  color: var(--article-muted);
+  font-size: 12px;
+}
+
+.disclosure {
+  margin-top: 20px;
+  color: var(--article-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.page :global(.article),
+.page :global(.article--hands-on .article-p) {
+  color: var(--article-ink);
+}
+
+.page :global(.article-h2) {
+  border-bottom: 1px solid var(--article-line);
+  color: var(--article-ink);
+}
+
+.page :global(.article-h3) {
+  color: var(--article-ink);
+}
+
+.page :global(.article-link) {
+  color: var(--article-accent);
+}
+
+.page :global(.article-link:hover) {
+  color: var(--article-hero);
+}
+
+.page :global(.article-blockquote:not(.article-savings)) {
+  border-block: 1px solid var(--article-line);
+  border-inline: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 16px 0;
+  color: var(--article-ink);
+}
+
+.page :global(.article-table-wrap) {
+  border-color: var(--article-line);
+  border-radius: 0;
+}
+
+.page :global(.article-thead) {
+  border-color: var(--article-line);
+  background: var(--article-paper);
+}
+
+.page :global(.article-tr),
+.page :global(.article-hr),
+.page :global(.article-img) {
+  border-color: var(--article-line);
+}
+
+.page :global(.article-disclosure-summary:focus-visible),
+.page a:focus-visible {
+  outline: 3px solid var(--article-accent);
+  outline-offset: 3px;
+}
+
+.page :global(.article-disclosure-summary > h2::after) {
+  color: var(--article-accent);
+}
+
+/* Keep the article's explicitly approved white disclosure and savings styling. */
+.page :global(.article-disclosure thead),
+.page :global(.article-disclosure th) {
+  background: var(--article-white);
+}
+
+.page :global(nav[aria-label="記事の目次"] a) {
+  color: var(--article-muted);
+}
+
+.page :global(nav[aria-label="記事の目次"] a.font-medium) {
+  color: var(--article-accent);
+  border-color: var(--article-accent);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-inline: 24px;
+  }
+
+  .hero > .container {
+    padding-block: 20px;
+  }
+
+  .title {
+    margin: 0;
+    font-size: clamp(2.25rem, 3vw, 2.5rem);
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+
+  .dates {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .content {
+    padding-top: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .titleGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--article-rail-width);
+    column-gap: var(--article-gap);
+  }
+}
+
+/* Only explicitly marked supplementary material uses the smaller reading level. */
+.notes {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--article-line);
+}
+
+.page .notes :global(.article),
+.page .notes :global(.article-p) {
+  color: var(--article-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.page .notes :global(.article-p) {
+  margin-block: 0 12px;
+}
+
+.page .notes :global(.article-p:last-child) {
+  margin-bottom: 0;
+}
