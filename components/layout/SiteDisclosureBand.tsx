@@ -8,7 +8,11 @@ import { usePathname } from "next/navigation";
  */
 export function SiteDisclosureBand() {
   const pathname = usePathname();
-  const isBlogArticle = /^\/blog\/[^/]+/.test(pathname);
+  const isBlogArticle = /^\/blog\/[^/]+\/?$/.test(pathname);
+
+  // Article pages own their title band and retain the disclosure below the body.
+  // Keep the existing band on the index, paginated index and other site pages.
+  if (isBlogArticle) return null;
 
   return (
     <div className="border-b border-[#1d4ed8] bg-[#2563eb]">

@@ -11,6 +11,8 @@ import { splitAffiliateSections } from "@/lib/affiliate/split-affiliate-sections
 import { splitEmbedSections } from "@/lib/blog/split-embed-sections";
 import { splitInternalCardSections } from "@/lib/blog/split-internal-card-sections";
 import { splitScrollSections } from "@/lib/blog/split-scroll-sections";
+import { splitArticleNotes } from "@/lib/blog/article-notes";
+import styles from "./ArticlePage.module.css";
 import type { BlogSlug } from "@/lib/blog/posts";
 
 type ArticleBodyProps = {
@@ -173,13 +175,14 @@ export function ArticleBody({
 
   return (
     <>
-      {renderScrollAwareContent(
-        content,
-        imageBasePath,
-        "root",
-        slug,
-        variant,
-      )}
+      {splitArticleNotes(content).map((chunk, index) => {
+        const rendered = renderScrollAwareContent(chunk.body, imageBasePath, `root-${index}`, slug, variant);
+        return chunk.kind === "notes" ? (
+          <aside key={index} className={styles.notes} aria-label="免責・出典">
+            {rendered}
+          </aside>
+        ) : <div key={index}>{rendered}</div>;
+      })}
       {textImpressions.map((ref) => (
         <AffiliateImpression
           key={`${ref.programId}:${ref.creativeId}`}

@@ -249,10 +249,12 @@ App StoreやGoogle Play経由ではWeb版と価格が異なる場合がありま
 
 文字起こしや要約を、議事録・報告書へ整えたい場合は、[ChatGPTとClaudeのビジネス文書作成の比較](/blog/chatgpt-claude-business-writing-comparison)で、文章をまとめる用途の違いも確認できます。
 
----
+<!-- article-notes:start -->
 
 本記事は執筆時点（2026-11-15）の内容です。料金・仕様は2026-11-14に確認した公式情報を参照しています。料金・仕様・画面構成は変更される可能性があります。音声認識精度、実アカウントの操作、個別端末での動作は実測していません。会議例と支払額は、記載した利用条件・料金が続き、月払いは記載期間分だけ支払う場合の計算例です。途中解約時の返金額は含みません。
 
 画像クレジット：文字起こし結果の画面は[Notta メディアキット](https://www.notta.ai/media-kit/)より提供。© Notta。公式配布画像を加工せず掲載しており、無料版を試した画面ではありません。時間制限の図解は、公式の利用条件に基づきToolArcが作成しました。
 
 参照資料：[Notta Web版の公式案内](https://www.notta.ai/web)、[録音手順](https://support.notta.ai/hc/ja/articles/10817259262491-録音-リアルタイム文字起こし)、[オフライン時の案内](https://support.notta.ai/hc/ja/articles/37293292309275-オフライン時にNottaモバイルアプリで録音-文字起こしはできますか)、[取り込み手順](https://support.notta.ai/hc/ja/articles/10818399847067-ローカルファイルのインポート)、[Botなし録音手順](https://support.notta.ai/hc/ja/articles/48346134781339-BotなしでWeb会議を録音する方法)、[画面収録ガイド](https://support.notta.ai/hc/ja/articles/12026525175195-パソコンで画面収録を行う方法)、[Nottaプラン選択ヘルプ](https://support.notta.ai/hc/ja/articles/55447618158491-Notta料金プランの選び方)、[消費ルール](https://support.notta.ai/hc/ja/articles/37212501377691-文字起こし時間と利用回数の計算方法)、[公式ヘルプ](https://support.notta.ai/hc/ja/articles/4402669717147-文字起こし時間不足の場合-さらに時間を購入できますか)、[Notta料金プラン案内](https://support.notta.ai/hc/ja/articles/55337007259035-Nottaの料金プランについて)。
+
+<!-- article-notes:end -->

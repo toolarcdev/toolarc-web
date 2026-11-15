@@ -1,11 +1,10 @@
-import { ArticleIntro } from "@/components/blog/ArticleIntro";
+import styles from "@/components/blog/ArticlePage.module.css";
 
 type ArticleHeaderProps = {
   title: string;
-  description: string;
   publishedAt: string;
   updatedAt?: string;
-  tags?: string[];
+  showToc: boolean;
 };
 
 function formatDate(iso: string): string {
@@ -19,26 +18,28 @@ function formatDate(iso: string): string {
 
 export function ArticleHeader({
   title,
-  description,
   publishedAt,
   updatedAt,
-  tags = [],
+  showToc,
 }: ArticleHeaderProps) {
   return (
-    <header className="pb-0">
-      <h1 className="text-2xl font-bold leading-tight tracking-tight text-slate-900 sm:text-3xl sm:leading-snug">
-        {title}
-      </h1>
-      <p className="mt-3 text-sm text-slate-500">
-        <time dateTime={publishedAt}>公開 {formatDate(publishedAt)}</time>
-        {updatedAt && (
-          <>
-            <span aria-hidden="true"> ／ </span>
-            <time dateTime={updatedAt}>更新 {formatDate(updatedAt)}</time>
-          </>
-        )}
-      </p>
-      <ArticleIntro description={description} tags={tags} />
+    <header className={styles.hero}>
+      <div
+        className={`${styles.container} ${showToc ? styles.titleGrid : styles.narrow}`}
+      >
+        <div className={styles.titleCopy}>
+          <h1 className={styles.title}>{title}</h1>
+          <p className={styles.dates}>
+            <time dateTime={publishedAt}>公開 {formatDate(publishedAt)}</time>
+            {updatedAt && (
+              <>
+                <span aria-hidden="true"> ／ </span>
+                <time dateTime={updatedAt}>更新 {formatDate(updatedAt)}</time>
+              </>
+            )}
+          </p>
+        </div>
+      </div>
     </header>
   );
 }
