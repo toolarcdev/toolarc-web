@@ -236,3 +236,90 @@
 .page .notes :global(.article-p:last-child) {
   margin-bottom: 0;
 }
+
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V4 */
+/* Opt-in recommendation rows: concise use case, answer, then supporting limits. */
+.page .recommendations :global(.article-table-wrap) {
+  margin-block: 24px;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.page .recommendations :global(.article-table) {
+  width: 100%;
+  table-layout: fixed;
+  min-width: 0;
+  background: transparent;
+  font-size: 14px;
+}
+
+/* Keep column headings available to screen readers, without a separate header row. */
+.page .recommendations :global(.article-thead) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.page .recommendations :global(.article-tr) {
+  border-top: 1px solid var(--article-line);
+  border-bottom: 1px solid var(--article-line);
+}
+
+.page .recommendations :global(.article-td) {
+  padding: 19px 0;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.page .recommendations :global(.article-td:first-child) {
+  width: 39%;
+  padding-right: 20px;
+}
+
+.page .recommendations :global(.article-td:last-child) {
+  color: var(--article-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.page .recommendations :global(.article-td strong) {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--article-accent);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .page .recommendations :global(.article-table),
+  .page .recommendations :global(tbody),
+  .page .recommendations :global(.article-tr),
+  .page .recommendations :global(.article-td) {
+    display: block;
+    width: 100%;
+  }
+
+  .page .recommendations :global(.article-tr) {
+    padding-block: 17px;
+    border-bottom: 0;
+  }
+
+  .page .recommendations :global(.article-tr:last-child) {
+    border-bottom: 1px solid var(--article-line);
+  }
+
+  .page .recommendations :global(.article-td) {
+    padding: 0;
+  }
+
+  .page .recommendations :global(.article-td:first-child) {
+    width: 100%;
+    padding: 0 0 3px;
+  }
+}
