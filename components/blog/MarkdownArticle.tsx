@@ -80,6 +80,14 @@ const COMPACT_IMAGE_FILES = new Set([
 
 /** 画像ごとの alt / キャプション（読者向けの説明） */
 const IMAGE_META: Record<string, { alt: string; caption: string }> = {
+  "notta-free-limits.png": {
+    alt: "60分の会議を月1回使う場合、月120分以内でも1回3分の上限を超え、無料版では全文を確認できないことを示す図",
+    caption: "月の合計が120分以内でも、60分の会議は無料版で全文を確認できません。",
+  },
+  "notta-official-transcription.png": {
+    alt: "Notta Web版の文字起こし結果画面",
+    caption: "Notta Web版の文字起こし画面。左にAI要約、右に発言ごとのテキストを表示。",
+  },
   "08-cursor-create-webpage.png": {
     alt: "Cursorで実装したブログ記事ページのスクリーンショット",
     caption:

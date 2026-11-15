@@ -11,6 +11,7 @@ import { splitAffiliateSections } from "@/lib/affiliate/split-affiliate-sections
 import { splitEmbedSections } from "@/lib/blog/split-embed-sections";
 import { splitInternalCardSections } from "@/lib/blog/split-internal-card-sections";
 import { splitScrollSections } from "@/lib/blog/split-scroll-sections";
+import { splitMarkedMarkdown } from "@/lib/blog/split-marked-markdown";
 import { splitArticleNotes } from "@/lib/blog/article-notes";
 import styles from "./ArticlePage.module.css";
 import type { BlogSlug } from "@/lib/blog/posts";
@@ -176,7 +177,11 @@ export function ArticleBody({
   return (
     <>
       {splitArticleNotes(content).map((chunk, index) => {
-        const rendered = renderScrollAwareContent(chunk.body, imageBasePath, `root-${index}`, slug, variant);
+        const rendered = splitMarkedMarkdown(chunk.body, "article-recommendations").map((part, partIndex) => (
+          <div key={partIndex} className={part.kind === "marked" ? styles.recommendations : undefined}>
+            {renderScrollAwareContent(part.body, imageBasePath, `root-${index}-${partIndex}`, slug, variant)}
+          </div>
+        ));
         return chunk.kind === "notes" ? (
           <aside key={index} className={styles.notes} aria-label="免責・出典">
             {rendered}
