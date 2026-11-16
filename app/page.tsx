@@ -21,7 +21,7 @@ type FeaturedArticle = {
 };
 
 // Homepage selections only; article bodies and affiliate registries stay intact.
-// Home images are pre-sized WebP thumbnails of the existing LP artwork.
+// Home images are pre-sized WebP thumbnails selected for each article's readers.
 const featuredGroups: {
   id: string;
   title: string;
@@ -36,8 +36,8 @@ const featuredGroups: {
       {
         id: "seminar",
         title: "AIスキルアカデミー",
-        label: "無料セミナー",
-        description: "無料オンラインセミナーの内容と参加前の確認事項。",
+        label: "無料オンラインセミナー",
+        description: "内容や参加方法、有料講座の案内も確認してから参加を決められます。",
         href: "/lp/ai-skill-academy-free-seminar",
         image: "/images/home/seminar.webp",
       },
@@ -45,23 +45,23 @@ const featuredGroups: {
         id: "school",
         title: "AIスキルアカデミー",
         label: "有料講座",
-        description: "有料講座の内容・料金・教材とサポートを紹介。",
+        description: "学べるAIと活用例を見て、教材・支援・費用が自分に合うか検討できます。",
         href: "/lp/ai-skill-academy-paid-school",
         image: "/images/home/school.webp",
       },
       {
         id: "bytech",
         title: "バイテック生成AI",
-        label: "スクールガイド",
-        description: "料金・教材・受講事例から学び方を検討する。",
+        label: "課題・メンター相談",
+        description: "教材・実践課題と、プランごとの相談方法・支援期間を比較できます。",
         href: "/lp/bytech-generative-ai",
         image: "/images/home/bytech.webp",
       },
       {
         id: "academy",
         title: "インターネット・アカデミー",
-        label: "講座ガイド",
-        description: "生成AI活用実践講座の料金と向いている人。",
+        label: "仕事でのAI活用",
+        description: "商談メモ・社内文書・メールの活用例から、独学との違いを検討できます。",
         href: "/lp/internet-academy-generative-ai",
         image: "/images/home/academy.webp",
       },
@@ -76,7 +76,7 @@ const featuredGroups: {
         id: "programming",
         title: "ProgrammingHacks",
         label: "プログラミング講座",
-        description: "教材・質問対応・料金・転職サポートを確認。",
+        description: "学ぶ順番とLINE質問の範囲を知り、無料教材との違いを比べられます。",
         href: "/lp/programming-hacks",
         image: "/images/home/programming.webp",
       },
@@ -179,6 +179,7 @@ export default async function Home() {
         <Link className={styles.brand} href="/" aria-label="ToolArc ホーム">ToolArc<span>.</span></Link>
         <nav aria-label="メインナビゲーション">
           <Link href="/blog">記事一覧</Link>
+          <Link href="/search">検索</Link>
           <Link href="/series">シリーズ</Link>
           <Link href="/about">ToolArcについて</Link>
         </nav>
