@@ -1,3 +1,5 @@
+import { nottaProgram } from "./programs/notta";
+import { nottaMemoProgram } from "./programs/notta-memo";
 import { aiSkillAcademyProgram } from "./programs/ai-skill-academy";
 import { amazonPrimeVideoProgram } from "./programs/amazon-prime-video";
 import { audibleProgram } from "./programs/audible";
@@ -20,6 +22,8 @@ import type {
 } from "./types";
 
 const programs: Record<AffiliateProgramId, AffiliateProgram> = {
+  notta: nottaProgram,
+  "notta-memo": nottaMemoProgram,
   rakurin: rakurinProgram,
   doraverse: doraverseProgram,
   "ai-skill-academy": aiSkillAcademyProgram,

@@ -1,4 +1,6 @@
 export type AffiliateProgramId =
+  | "notta"
+  | "notta-memo"
   | "rakurin"
   | "doraverse"
   | "ai-skill-academy"

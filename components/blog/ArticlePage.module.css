@@ -78,6 +78,50 @@
   font-size: 13px;
 }
 
+/* Opt-in ad disclosure shares the breadcrumb row; the title yields first. */
+.breadcrumbsWithAd {
+  flex-wrap: nowrap;
+  min-width: 0;
+  gap: 16px;
+}
+
+.breadcrumbsWithAd > nav {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.breadcrumbsWithAd > nav > ol {
+  flex-wrap: nowrap;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.breadcrumbsWithAd > nav > ol > li {
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.breadcrumbsWithAd > nav > ol > li:last-child {
+  flex: 1 1 auto;
+}
+
+.breadcrumbsWithAd :global([aria-current="page"]) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.articleAdLabel {
+  flex: 0 0 auto;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .breadcrumbsWithAdAndRail {
+    width: calc(100% - var(--article-rail-width) - var(--article-gap));
+  }
+}
+
 .seriesBadge {
   display: inline-flex;
   align-items: center;
@@ -223,7 +267,8 @@
 }
 
 .page .notes :global(.article),
-.page .notes :global(.article-p) {
+.page .notes :global(.article-p),
+.page .articleAdLabel {
   color: var(--article-muted);
   font-size: 13px;
   line-height: 1.7;
