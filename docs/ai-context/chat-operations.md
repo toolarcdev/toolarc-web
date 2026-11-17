@@ -1,6 +1,6 @@
 # chat-operations.md — ToolArc 6スロット + ⑦個人R&D
 
-最終更新: 2026-09-20 18:52（Claude 初稿は共通制約＋source。共通制約は外出し。画像 A/B 起動語を索引。インプットのペルソナ案は既読軸不可）
+最終更新: 2026-11-17 20:43
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
@@ -59,6 +59,16 @@ DailyNote / AI-log
 ```
 
 **Git 後段 Skill（個人）**: `git-commit-pr`（commit/PR・マージ禁止）→ 人間確認 → `git-merge-cleanup`（マージ＋整理＋当日 Vault 追記。DailyNote/AI-log 欠落時は追記スキップ＋通知のみ、マージは実行）。`publish-article` 本体は commit/PR/merge/Vault 追記をしないが、**①チャット内で後段 Skill を続けて呼んでよい**（別チャット必須ではない）。
+
+### 実装仕様と反映記録の分担
+
+2026-11-17のユーザー合意。docs/design-system.md等の実装仕様書は、同じブランチ・PRのコードに対応する仕様/適用条件/確認基準を記載し、コードの変更と同じPRで更新する。
+
+- PR番号、承認元、マージ日時、デプロイ状態、本番確認結果、作業の未完/完了はVaultの実行ログ・week-queue・確認資料へ記録する。実装仕様書に一時的な公開状態を重ねて持たせない。
+- マージ/本番確認の後はVaultの記録を更新する。「未反映から反映済みへ」等の状態表記だけを直す追加PRを通常の後段工程にしない。
+- 仕様の誤りや実装差分が見つかった場合は、必要な修正として通常のPRで対応する。運用簡略化を理由に仕様とコードの不整合を放置しない。
+- 仕様書の整理で既存のPR/検証履歴を失わないよう、Vaultの既存記録へ接続するか全文を保存してから移管する。移管後は状態管理の重複を再導入しない。
+- この分担は、対象PRへの人間のマージ承認・本番確認・必要な掲載URL提出を省略する許可ではない。
 
 上図の新規経路は「DailyNote / AI-log に候補がある」ことを起点にする。その手前の**記事テーマの捕捉**は下記で行う（捕捉しないと⑥が拾えず、テーマ化が漏れる）。
 

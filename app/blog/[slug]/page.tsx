@@ -77,9 +77,12 @@ export default async function BlogPostPage({ params }: PageProps) {
   const url = blogPostUrl(slug);
   const ogImageUrl = `${SITE_URL}${post.ogImageBasePath}/${post.ogImage}`;
   const nextReadSplit = splitNextReadSection(post.content);
-  const articleContent = nextReadSplit
+  const rawArticleContent = nextReadSplit
     ? `${nextReadSplit.before}\n\n${nextReadSplit.after}`.trim()
     : post.content;
+  const adLabelPattern = /(?:^|\r?\n)<!-- article-ad-label -->\r?\n広告(?:\r?\n|$)/;
+  const hasAdLabel = adLabelPattern.test(rawArticleContent);
+  const articleContent = rawArticleContent.replace(adLabelPattern, "\n");
   const showToc = shouldShowStickyToc(slug, articleContent);
   const articleLayout = getArticleLayout(slug);
   const isHandsOn = articleLayout === "hands-on";
@@ -246,7 +249,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             showToc={showToc}
           />
           <div className={`${styles.container} ${styles.content}${showToc ? "" : ` ${styles.narrow}`}`}>
-            <div className={styles.breadcrumbs}>
+            <div className={`${styles.breadcrumbs}${hasAdLabel ? ` ${styles.breadcrumbsWithAd}${showToc ? ` ${styles.breadcrumbsWithAdAndRail}` : ""}` : ""}`}>
               <Breadcrumbs items={breadcrumbItems} />
               {/* Series badge: パンくずと同列に寄せる（D） */}
               {series && isSpoke && (
@@ -266,6 +269,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   Series Hub
                 </span>
               )}
+              {hasAdLabel && <span className={styles.articleAdLabel}>広告</span>}
             </div>
 
             {showToc ? (
