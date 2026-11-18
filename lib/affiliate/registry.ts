@@ -4,7 +4,6 @@ import { aiSkillAcademyProgram } from "./programs/ai-skill-academy";
 import { amazonPrimeVideoProgram } from "./programs/amazon-prime-video";
 import { audibleProgram } from "./programs/audible";
 import { bytechProgram } from "./programs/bytech";
-import { doraverseProgram } from "./programs/doraverse";
 import { fjordBootCampProgram } from "./programs/fjord-boot-camp";
 import { internetAcademyProgram } from "./programs/internet-academy";
 import { kinokuniyaProgram } from "./programs/kinokuniya";
@@ -25,7 +24,6 @@ const programs: Record<AffiliateProgramId, AffiliateProgram> = {
   notta: nottaProgram,
   "notta-memo": nottaMemoProgram,
   rakurin: rakurinProgram,
-  doraverse: doraverseProgram,
   "ai-skill-academy": aiSkillAcademyProgram,
   "programming-hacks": programmingHacksProgram,
   techgym: techgymProgram,
