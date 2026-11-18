@@ -12,10 +12,28 @@ export function extractTocHeadings(
   markdown: string,
 ): { id: string; label: string }[] {
   const items: { id: string; label: string }[] = [];
-  const re = /^## (.+)$/gm;
-  let match: RegExpExecArray | null;
-  while ((match = re.exec(markdown)) !== null) {
-    const label = match[1].trim();
+  let openFence: string | undefined;
+
+  for (const line of markdown.split(/\r\n|[\r\n]/)) {
+    const fence = /^ {0,3}(`{3,}|~{3,})(.*)$/.exec(line);
+    if (openFence) {
+      if (
+        fence &&
+        fence[1].startsWith(openFence) &&
+        /^[ \t]*$/.test(fence[2])
+      ) {
+        openFence = undefined;
+      }
+      continue;
+    }
+    if (fence && (fence[1][0] === "~" || !fence[2].includes("`"))) {
+      openFence = fence[1];
+      continue;
+    }
+
+    const heading = /^## (.+)$/.exec(line);
+    if (!heading) continue;
+    const label = heading[1].trim();
     items.push({ id: headingToId(label), label });
   }
   return items;
