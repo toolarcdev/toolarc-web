@@ -61,6 +61,7 @@ ChatGPTの「移行」は、置かれている状況によって読むべき記�
 | 新端末でもGoogleで同じアカウントに入りたい | [Googleログインの確認3手順](/blog/chatgpt-device-change-google-login-tips) |
 | Plusが無料プランの表示になっている | [Plus引き継ぎで確認する3点](/blog/chatgpt-migration-plus-check) |
 | Memoryが引き継がれるか確認したい | [アカウントとMemory設定の確認](/blog/chatgpt-migration-memory-check) |
+| 機種変更後にProjectsが見つからない | [ChatGPTのProjectsが表示されないときの確認手順](/blog/chatgpt-projects-device-change-restore-tips) |
 | 機種変更前に2段階認証を確認したい | [2段階認証の事前確認手順](/blog/chatgpt-migration-2fa-check) |
 
 「アカウント移行」には大きく2つのパターンがあります。**同じアカウントでの機種変更**なら、新しい端末でログインし直せば会話履歴は基本的にそのまま確認できます。これは移行というより、ログイン先の切り替えです。一方、**別アカウントへの移行**は、新しいメールアドレスで作ったアカウントに履歴やMemoryを引き継ぎたいケース。こちらは2026年7月時点で公式に提供されていません。
