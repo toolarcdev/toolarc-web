@@ -2074,6 +2074,14 @@ export const blogPosts = {
     ogImage: "h2-1.png",
     category: "tool",
   },
+  "bytech-geek-claude-code-course": {
+    contentId: "10-claude-developer",
+    markdownFile: "012-bytech-geek-claude-code-course.md",
+    imageBasePath: "/images/blog/bytech-geek-claude-code-course",
+    publishedAt: "2026-11-19",
+    ogImage: "default-og.png",
+    category: "tool",
+  },
   "claude-code-getting-started": {
     contentId: "10-claude-developer",
     markdownFile: "002-claude-code-getting-started.md",

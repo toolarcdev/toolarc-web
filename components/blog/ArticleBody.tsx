@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { AiOutputScroll } from "@/components/blog/AiOutputScroll";
 import { EmbedRenderer } from "@/components/blog/EmbedRenderer";
 import { InternalLinkCard } from "@/components/blog/InternalLinkCard";
@@ -179,7 +180,20 @@ export function ArticleBody({
       {splitArticleNotes(content).map((chunk, index) => {
         const rendered = splitMarkedMarkdown(chunk.body, "article-recommendations").map((part, partIndex) => (
           <div key={partIndex} className={part.kind === "marked" ? styles.recommendations : undefined}>
-            {renderScrollAwareContent(part.body, imageBasePath, `root-${index}-${partIndex}`, slug, variant)}
+            {splitMarkedMarkdown(part.body, "article-summary-table").map((section, sectionIndex) => {
+              const sectionContent = renderScrollAwareContent(
+                section.body,
+                imageBasePath,
+                `root-${index}-${partIndex}-${sectionIndex}`,
+                slug,
+                variant,
+              );
+              return section.kind === "marked" ? (
+                <div key={sectionIndex} className={styles.summaryTable}>{sectionContent}</div>
+              ) : (
+                <Fragment key={sectionIndex}>{sectionContent}</Fragment>
+              );
+            })}
           </div>
         ));
         return chunk.kind === "notes" ? (
