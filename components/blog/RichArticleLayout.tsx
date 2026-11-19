@@ -18,7 +18,7 @@ export function RichArticleLayout({
 }: RichArticleLayoutProps) {
   return (
     // items-start だと aside が TOC 高さに縮み sticky が効かない → 既定の stretch を使う
-    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-12">
+    <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_var(--article-rail-width)] lg:gap-[var(--article-gap)]">
       <div className="min-w-0">{children}</div>
       <aside className="relative hidden lg:block" aria-label="目次サイドバー">
         {/* TOC を優先（flex-1）。レールは shrink-0 で TOC を潰さない */}
