@@ -88,6 +88,10 @@ const IMAGE_META: Record<string, { alt: string; caption: string }> = {
     alt: "Notta Web版の文字起こし結果画面",
     caption: "Notta Web版の文字起こし画面。左にAI要約、右に発言ごとのテキストを表示。",
   },
+  "geek-order-email-automation.webp": {
+    alt: "パソコンのそばで、受注情報を表に移す手順をノートに整理する人",
+    caption: "受注メールから注文情報を表に移す作業を自動化するために、手順を整理する場面。",
+  },
   "08-cursor-create-webpage.png": {
     alt: "Cursorで実装したブログ記事ページのスクリーンショット",
     caption:
@@ -467,7 +471,7 @@ export function MarkdownArticle({
       );
     },
     hr: () => <hr className="article-hr" />,
-    a: ({ href, children }) => {
+    a: ({ href, title, children }) => {
       const affiliateRef = parseAffiliateHref(href);
       if (affiliateRef) {
         const resolved = resolveAffiliateLink(
@@ -513,15 +517,29 @@ export function MarkdownArticle({
       if (isExternal) {
         const linkText =
           typeof children === "string" ? children : undefined;
+        const onClick = () =>
+          pushEvent("outbound_click", { url: href ?? "", link_text: linkText });
+
+        if (title === "cta" && href?.startsWith("https://")) {
+          return (
+            <CtaButton
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClick}
+            >
+              {children}
+            </CtaButton>
+          );
+        }
+
         return (
           <a
             href={href}
             className="article-link"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() =>
-              pushEvent("outbound_click", { url: href ?? "", link_text: linkText })
-            }
+            onClick={onClick}
           >
             {children}
           </a>

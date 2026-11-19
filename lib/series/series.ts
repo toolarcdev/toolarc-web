@@ -179,6 +179,7 @@ export const allSeries: readonly SeriesConfig[] = [
       "claude-api-key-env-setup", // W8 Claude #7 APIキー・環境変数
       "claude-api-pricing-limits", // W9 Claude #8 料金・レート制限・429切り分け
       "claude-code-vs-cursor-comparison", // W8 Claude #22 Code vs Cursor 比較
+      "bytech-geek-claude-code-course",
       "chatgpt-claude-comparison",
       "claude-pro-free-comparison",
       "gpt-claude-two-stage-ai-workflow-tips",

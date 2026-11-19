@@ -188,6 +188,11 @@
   border-radius: 0;
 }
 
+.summaryTable :global(.article-th:first-child),
+.summaryTable :global(.article-td:first-child) {
+  white-space: nowrap;
+}
+
 .page :global(.article-thead) {
   border-color: var(--article-line);
   background: var(--article-paper);
