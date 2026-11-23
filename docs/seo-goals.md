@@ -5,7 +5,7 @@
 - Create practical tutorials
 - Align weekly ops with current phase: [`docs/plan/phase-now.md`](plan/phase-now.md)
 
-**Current phase (2026-07-31)**: Calendar **Phase1** + parallel **Phase2-0** (revenue signal). **Evaluation-phase ops**: no publish quota (no floor/cap); prioritize integrate / rewrite / Hub–SubHub; digest `week-queue`. Policy detail: Vault `評価フェーズ移行検討/toolarc.jp_評価フェーズ移行_現状と方針検討_2026-07-31.md` §5.1.
+**Current phase (2026-07-31)**: Calendar **Phase1** + parallel **Phase2-0** (revenue signal). **Evaluation-phase ops**: no publish quota (no floor/cap); prioritize integrate / rewrite / Hub–SubHub; review due and overdue tasks in the calendar. Policy detail: Vault `評価フェーズ移行検討/toolarc.jp_評価フェーズ移行_現状と方針検討_2026-07-31.md` §5.1.
 
 ## Operational KPIs (weekly)
 
@@ -17,8 +17,8 @@
 |--------|--------|
 | Inbox additions (`reader`) | Quality over quota. Prefer integrate/rewrite candidates; thin “fill the slot” inbox is forbidden (§5.2 evidence bar) |
 | Inbox additions (`operator`) | 5 or fewer per week |
-| Published articles (`reader` / `operator`) | **No weekly floor or cap**. Record volume only. Publish only when `week-queue` has gated `new` / update rows |
-| Week queue | Created Wed slot ⑥ / Skill B. Daily digests that day’s rows (integrate → hub → rewrite → monetize → new) |
+| Published articles (`reader` / `operator`) | **No weekly floor or cap**. Record volume only. Publish only for gated tasks in the fixed task ledger |
+| Task ledger | Check due and overdue tasks in the calendar. Wednesday maintenance reviews aggregate results and priorities |
 | Reader runway (inbox reader A+B ÷ 2.5) | **Reference only** (not a primary success KPI). Prefer integrate/rewrite backlog health |
 | Series debt `#6` (Wed) | **2 units** (P0 Hub / P1 promote / integrate·301·SubHub OK). See `debt-paydown-workflow.md` |
 | `20` backlog / promote queue | Track yellow/red; on dual red, next business day may add one cleanup ① slot (do **not** fill with thin publishes) |
@@ -42,7 +42,7 @@
 | Queries with ≥100 impressions (28d) | Collector query-daily | **3** → ≥**5** → ≥**7** |
 | Mid-term impressions (monthly) | Collector monthly | Plan anchor **≥150,000 by 2027-07** |
 | Indexed page count | GSC「インデックス作成」 | 4 categories + 404 (ops health) |
-| CTR fix URLs (declared) | GSC + PR | meta **2–3 URLs/week**; body/Hub/CTA **2–3 URLs/month**. Feed `week-queue` `rewrite`. Detail: Vault `ctr-rewrite-queue.md` |
+| CTR fix URLs (declared) | GSC + PR | meta **2–3 URLs/week**; body/Hub/CTA **2–3 URLs/month**. Register approved rewrite work in the fixed task ledger. Detail: Vault `ctr-rewrite-queue.md` |
 | Reader ASP clicks (cumulative) | ASP admin | Phase2-0 exit = **reader-attributed ≥10** since self-click ban **2026-07-29**. Contaminated totals invalid |
 | Approved revenue (monthly) | ASP admin | Phase2-1+ gate; ¥0 OK while in 2-0 |
 
