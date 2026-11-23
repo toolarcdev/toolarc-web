@@ -92,7 +92,7 @@ const featuredGroups: {
   {
     id: "work",
     title: "AIを仕事・記事制作に使う",
-    description: "記事を書く。チームで使う。具体的な場面から考える。",
+    description: "記事を書く。会議を文字に残す。具体的な場面から考える。",
     articles: [
       {
         id: "writing",
@@ -103,10 +103,10 @@ const featuredGroups: {
       },
       {
         id: "doraverse",
-        title: "Doraverseの導入前チェック",
-        label: "チームでのAI活用",
-        description: "試用前に、利用人数・目的・既存契約を確認。",
-        href: "/blog/doraverse-trial-btob-checklist-tips",
+        title: "Notta無料版はどこまで使える？",
+        label: "会議・議事録",
+        description: "無料版の制限と、有料プランが必要になる使い方を確認できます。",
+        href: "/blog/notta-free-plan-limits",
       },
     ],
   },
