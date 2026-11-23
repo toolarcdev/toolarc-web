@@ -3,6 +3,11 @@
 最終更新: 2026-11-17 20:43
 用途: Cursor / Claude の固定チャット運用。新規チャット作成時・毎日の日次メンテ時に参照する。①〜⑥は ToolArc 業務、⑦は個人の思考実験（ToolArc 外）。
 
+## 日次ワークフローのタスク管理
+
+Vault の daily-workflow.md を参照する。予定・進捗は固定台帳とカレンダーで確認し、タスク追加・進捗・完了はカレンダーCLIで随時更新する。要確認リストの人間承認を保持し、回答反映・PR作成・マージ・本番確認の後にも残件を確認する。
+
+
 関連: [`context.md`](context.md)、[`project-context.md`](project-context.md)、[`content-folders.md`](content-folders.md)、[`debt-paydown-workflow.md`](debt-paydown-workflow.md)、[`AGENTS.md`](../../AGENTS.md)、[`phase-now.md`](../plan/phase-now.md)、[`seo-goals.md`](../seo-goals.md)、[`writing-rules.md`](writing-rules.md)、[`llm-forbidden-phrases.md`](llm-forbidden-phrases.md)、[`image-intent-map.md`](image-intent-map.md)、Vault 評価フェーズ移行ノート
 
 ---
@@ -32,13 +37,13 @@ PoE2 用スロットは設けない。
 
 ### 記事フロー（ツール横断）
 
-**評価フェーズの前提**: 日々の主線は **week-queue 消化**（統合・リライト・Hub/SubHub・CTR）。新規公開は例外ゲート通過分のみ（`phase-now.md`）。下図の「新規パイプライン」はゲート通過時の経路であり、毎日の必須量産フローではない。
+**評価フェーズの前提**: 日々の主線は **固定台帳の当日・期限超過と実行条件の確認**（統合・リライト・Hub/SubHub・CTR）。新規公開は例外ゲート通過分のみ（`phase-now.md`）。下図の「新規パイプライン」はゲート通過時の経路であり、毎日の必須量産フローではない。
 
 ```
 【評価フェーズの主線】
   ⑥水曜: weekly-intake（② Skill A）→ ⑤柱C → weekly-maintenance（⑥ Skill B）
-       week-queue 作成 + #5 シリーズ化スキャン + #6 重負債原則2単位
-  → 日次⑥: week-queue 当日行を消化（公開ゼロの日も可）
+       固定台帳の優先順位点検 + #5 シリーズ化スキャン + #6 重負債原則2単位
+  → 日次⑥: 固定台帳の当日・期限超過と実行条件を確認（公開ゼロの日も可）
   → 必要なら ④→L1→①（リライト／統合／Hub／ゲート通過の新規）
 
 【新規・リライトが走るとき】
@@ -64,7 +69,7 @@ DailyNote / AI-log
 
 2026-11-17のユーザー合意。docs/design-system.md等の実装仕様書は、同じブランチ・PRのコードに対応する仕様/適用条件/確認基準を記載し、コードの変更と同じPRで更新する。
 
-- PR番号、承認元、マージ日時、デプロイ状態、本番確認結果、作業の未完/完了はVaultの実行ログ・week-queue・確認資料へ記録する。実装仕様書に一時的な公開状態を重ねて持たせない。
+- PR番号、承認元、マージ日時、デプロイ状態、本番確認結果、作業の未完/完了はVaultの実行ログ・固定台帳・確認資料へ記録する。実装仕様書に一時的な公開状態を重ねて持たせない。
 - マージ/本番確認の後はVaultの記録を更新する。「未反映から反映済みへ」等の状態表記だけを直す追加PRを通常の後段工程にしない。
 - 仕様の誤りや実装差分が見つかった場合は、必要な修正として通常のPRで対応する。運用簡略化を理由に仕様とコードの不整合を放置しない。
 - 仕様書の整理で既存のPR/検証履歴を失わないよう、Vaultの既存記録へ接続するか全文を保存してから移管する。移管後は状態管理の重複を再導入しない。
@@ -90,7 +95,7 @@ DailyNote / AI-log
 |------|-----|--------------|------|
 | A | ② Cursor | `weekly-intake`（短プロンプト「週次メンテナンス実行」） | intake（Collector＋Coverage/ASP） |
 | 柱C | ⑤ Claude | `reader-theme-batch-prompt` → handoff | タイトル表・候補 |
-| B | ⑥ Cursor | `weekly-maintenance`（「週次メンテナンス続き」）＋ Vault `weekly-maintenance-prompt.md` | Dashboard / week-queue / #5/#6 / debt |
+| B | ⑥ Cursor | `weekly-maintenance`（「週次メンテナンス続き」）＋ Vault `weekly-maintenance-prompt.md` | Dashboard / 優先順位点検 / #5/#6 / debt |
 
 日次⑥の起動は Vault `daily-maintenance-prompt.md` のコピペ、または Cursor Skill **`daily-maintenance-lite`**（どちらでも可。手順の正本は Vault）。
 
@@ -382,7 +387,7 @@ path 指定は不要（B は Get-Date で当日ファイルを解決。欠落時
 - 記事本文ドラフト・既存記事リライト案（④）
 - posts.ts への新規記事登録（①）
 - 一覧ページ送りなど基盤機能の実装（③）
-- ⑥の Dashboard / week-queue 本書き（intake 作成後は ⑤柱C → ⑥ Skill B へ渡す）
+- ⑥の Dashboard / 固定台帳 本書き（intake 作成後は ⑤柱C → ⑥ Skill B へ渡す）
 
 【出力】
 - 問題 → 原因 → 対策 → 確認手順
@@ -640,19 +645,19 @@ source.md を Cursor で作る依頼のときは Skill create-source-md に従�
 - `slot-handoff-template.md` 形式を inbox + 候補マスターに反映
 - `_classify_title.mjs` で audience_axis 確定
 
-【日次 — week-queue 当日消化（E）】
-- DailyNote「今日やること」は **week-queue の当日 `day` 行**を正とする（公開フォーカス3本選定は廃止）
+【日次 — 固定台帳 当日消化（E）】
+- DailyNote「今日やること」は **固定台帳の当日・期限超過を確認した結果**を記録する（公開フォーカス3本選定は廃止）
 - `type=new` がある日だけ該当 inbox の `publish_date` をその日に設定
 - 公開ノルマなし。当日行が無ければ公開ゼロでよい。薄味埋め禁止
 - 正本: maintenance_1min-Tips 必須タスク E／評価フェーズ移行ノート §5.4
 
 【日次 — CTRリライト転記（F）】
 - [[ctr-rewrite-queue]] の「表示用」を dashboard「CTRリライト候補」に転記（3〜5件。GSC再取得しない）
-- week-queue の `rewrite` 行と連動させる
+- 固定台帳 の `rewrite` 行と連動させる
 - 正本: maintenance_1min-Tips 必須タスク F
 
 【日次 — inbox必須処理】
-- `04-Tips/inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboard・week-queue に載るものは必ず確認する
+- `04-Tips/inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboard・固定台帳 に載るものは必ず確認する
 - 公開済み inbox は frontmatter の status / published_at / slug / promotion_status を必要に応じて更新し、`D:\ObsidianVault\Vault\04-Tips\published` へ移動する
 - 移動した場合は、候補マスター・Dashboard・DailyNote の参照やログへ反映する
 - 対象外の inbox 全体は読まない
@@ -668,7 +673,7 @@ source.md を Cursor で作る依頼のときは Skill create-source-md に従�
 - 本線: ② `weekly-intake` → ⑤柱C → ⑥ `weekly-maintenance`（本ファイル「水曜オペ」表）
 - 水曜は daily-maintenance-prompt の代わりに `weekly-maintenance-prompt.md` を⑥に貼る（または Skill B）
 - 柱C: ⑤ Claude で batch-prompt 実行 → handoff を⑥が backlog/inbox 登録（**同一水曜ブロック内**）
-- matrix再生成 + reader健全性 + KPIメモ + **人気スロット** + **#5 シリーズ化スキャン** + **#6 負債払い原則2単位** + **week-queue 新規作成**
+- matrix再生成 + reader健全性 + KPIメモ + **人気スロット** + **#5 シリーズ化スキャン** + **#6 負債払い原則2単位** + **固定台帳の優先順位点検**
 - **#5**: 対象は B 層 / `21-…` / `22-…` / レガシー `20`。GSC・相互リンクの塊で「新Hub / 既存統合 / standalone継続」。詳細は debt-paydown
 - **#6**: Hub stale 保険 / レガシー20昇格 / **series化（Hub+移動同一①）** / 統合・301 / 逆リンク
 - 完了時: dashboard.md の「Last weekly ⑥」・**検索パフォーマンス（Collector正）**・**週次公開（記録のみ）**を更新
@@ -700,7 +705,7 @@ source.md を Cursor で作る依頼のときは Skill create-source-md に従�
 【判断基準】
 - 3年以内に月収100万円を目指す前提で考える
 - 現行はカレンダー Phase1 ＋ Phase2-0 先行＋**評価フェーズ移行**。2-0卒業＝**読者由来** ASPクリック累計≥10（自己クリック禁止 2026-07-29〜）→ カレンダー Phase2
-- 公開ノルマなし。水曜負債原則2単位（統合・301・SubHub可）。日次は week-queue 消化
+- 公開ノルマなし。水曜負債原則2単位（統合・301・SubHub可）。日次は 固定台帳の当日・期限超過と実行条件の確認
 - 短期は売上より ASP クリック信号・勝ちカテゴリ・導線・表示分散を重視する
 - 実行可能性が低い計画は現実的な粒度へ分解する
 - 事業判断は感覚ではなく、Collector / GSC / GA4 / 読者ASPクリック / 承認収益 / Index などの数値に接続する
@@ -989,7 +994,7 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
 2. DailyNote、候補マスター、Dashboard、必要なinbox最大20件だけ確認
 3. DailyNote / AI-log / ⑤handoff から新規候補を最大10件まで追加
 4. inbox必須処理を実行する（publish_date/status確認、公開済みファイルの published への移動）
-5. week-queue の当日行を消化し、DailyNote・Dashboard を同期（E）。`new` がある日だけ inbox publish_date を設定。公開フォーカス3本選定はしない
+5. 固定台帳の当日・期限超過と実行条件を確認し、DailyNote・Dashboard を同期（E）。`new` がある日だけ inbox publish_date を設定。公開フォーカス3本選定はしない
 6. [[ctr-rewrite-queue]]「表示用」を dashboard CTRリライト候補に転記（F）
 7. debt/HUB広範囲判定は水曜週次に寄せ、当日公開分の補完だけ行う
 8. 実施サマリ、変更ファイル、主要変更点、実行後チェック、明日の推奨アクションを短く報告
@@ -997,11 +1002,11 @@ D:\ObsidianVault\Vault\01_Daily\{YYMM}\{YYMMDD}\AI-log-{YYYY-MM-DD}.md
 【固定パス】
 - 候補マスター: d:\ObsidianVault\Vault\00-dashboard\toolarc_1min_tips_article_candidates.md
 - Dashboard: d:\ObsidianVault\Vault\00-dashboard\dashboard.md
-- week-queue: 当週の `01_Daily/.../week-queue-YYYY-MM-DD.md`（実行正本）
-- Inbox: d:\ObsidianVault\Vault\04-Tips\inbox（全体読み込みは禁止。候補マスター・Dashboard・DailyNote・week-queueで必要になったファイルだけ）
+- 固定台帳: Vault task-ledger.md、完了は done-tasks-log.md。更新はカレンダーCLI。
+- Inbox: d:\ObsidianVault\Vault\04-Tips\inbox（全体読み込みは禁止。候補マスター・Dashboard・DailyNote・固定台帳で必要になったファイルだけ）
 
 【inbox必須処理】
-- `D:\ObsidianVault\Vault\04-Tips\inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboard・week-queue に載るものは必ず確認する
+- `D:\ObsidianVault\Vault\04-Tips\inbox` のうち、publish_date が今日以前 / status が inbox・draft・published / DailyNote・候補マスター・Dashboard・固定台帳 に載るものは必ず確認する
 - 公開済み inbox は frontmatter の status / published_at / slug / promotion_status を必要に応じて更新し、`D:\ObsidianVault\Vault\04-Tips\published` へ移動する
 - 移動した場合は、候補マスター・Dashboard・DailyNote の参照やログへ反映する
 - 対象外の inbox 全体は読まない

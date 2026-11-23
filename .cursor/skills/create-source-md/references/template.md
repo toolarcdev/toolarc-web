@@ -12,17 +12,17 @@ slug: {slug}
 status: outline
 type: article-source
 site: toolarc.jp
-queue: Q{n}
+queue: T{連番}
 Last Updated: {yyyy-MM-dd HH:mm}
 related:
-  - "[[week-queue-YYYY-MM-DD]]"
+  - "[[task-ledger#T{連番}]]"
 ---
 
 # 構成案｜{公開時タイトル案の短縮}
 
 本ファイルは **構成・ゲート・契約** のみ。本文初稿・`posts.ts`・公開・PR は対象外。
 slug 固定: `{slug}`（公開 URL は `/blog/{slug}`）
-新規記事インプット: `input-{slug}.md` 必須6 充足（Q番号はインプット外・本 `queue` は運用突合）
+新規記事インプット: `input-{slug}.md` 必須6 充足（恒久タスクIDはインプット外・本 `queue` は運用突合）
 Claude.ai: 共通制約は `claude-ai-draft-constraints.md`（Project 知識）。本 source は記事差分のみ。
 
 公開時 title 案: `{32文字前後・検索意図が分かる。――禁止。区切りは｜または：}`
@@ -103,7 +103,7 @@ Claude.ai: 共通制約は `claude-ai-draft-constraints.md`（Project 知識）�
 
 ---
 
-## 新規公開の例外ゲート（既存URLでは足りないか・根拠・カニバル・週次キュー）
+## 新規公開の例外ゲート（既存URLでは足りないか・根拠・カニバル・固定台帳）
 
 評価フェーズで新規記事を出すときの4条件。
 
@@ -111,7 +111,7 @@ Claude.ai: 共通制約は `claude-ai-draft-constraints.md`（Project 知識）�
 
 {統合・リライト・SubHub では不可の理由}
 
-**week-queue で §5.2 通過済のとき**: `[[week-queue-…]]` の通過日・Q を1行引用し、不足がある点だけ **2〜4文**。長段落の再証明は禁止。
+**固定台帳 で §5.2 通過済のとき**: `[[task-ledger#T{連番}]]` の通過日・恒久ID を1行引用し、不足がある点だけ **2〜4文**。長段落の再証明は禁止。
 
 ### 2. 根拠バー（本文で辿れる実測／公式／調査）
 
@@ -131,9 +131,9 @@ Claude.ai: 共通制約は `claude-ai-draft-constraints.md`（Project 知識）�
 |------|------------------|----------------------------------|
 | | | |
 
-### 4. 週次キューへの掲載
+### 4. 固定台帳への掲載
 
-[[week-queue-…]] の **Q{n}**。target=`{slug}`。status=…。done_def=例外ゲート通過後に公開。
+[[task-ledger#T{連番}]] の **T{連番}**。target=`{slug}`。status=…。done_def=例外ゲート通過後に公開。
 
 ---
 

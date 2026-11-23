@@ -1,6 +1,6 @@
 # 新規記事インプット（スキーマ正本）
 
-`create-source-md` 開始前に人が揃える固定情報。**記事品質の床**。Q番号はここに含めない（week-queue 運用目印）。
+`create-source-md` 開始前に人が揃える固定情報。**記事品質の床**。恒久タスクIDの突合はsource工程で行う。
 
 ## 配置（必須・source.md と同フォルダ）
 
@@ -28,7 +28,7 @@ type: article-input
 site: toolarc.jp
 Last Updated: {yyyy-MM-dd HH:mm}
 related:
-  - "[[week-queue-YYYY-MM-DD]]"
+  - "[[task-ledger]]"
 ---
 
 # 新規記事インプット｜{slug}
@@ -86,7 +86,7 @@ related:
 
 ## 含めないもの
 
-- week-queue の **Q番号**（運用突合は Skill 側でキューから行う）
+- 固定台帳の **恒久タスクID**（運用突合は Skill 側でキューから行う）
 - ペルソナ表・記事の仕事の**完成形**（インプットにあっても案。確定は `source-{slug}.md` 側の Agent → 人間ゲート）
 - source 用の長文プロンプト（Skill が手順正本）
 - **他記事／Hub既読を軸にしたペルソナ案**（上「任意の扱い」。案であっても書かない）

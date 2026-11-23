@@ -194,7 +194,7 @@ last_update: YYYY-MM-DD
 
 - `title` と本文先頭の `#` 見出しは**意味を揃える**（完全一致でなくてよいが、検索意図は一致させる）
 - `description` は **120〜160文字（Unicode・両端含む）**。正本レンジ。完了前に必ず実測する（「だいたい」不可）
-  - **120未満 / 160超は未完了**（コミット・PR・week-queue `done` にしない）
+  - **120未満 / 160超は未完了**（コミット・PR・固定台帳の完了記録 にしない）
   - 計測例（PowerShell）: `(Get-Content … -Raw | Select-String -Pattern 'description:\s*"(.*?)"' -AllMatches).Matches.Groups[1].Value.Length`  
     または Node: `node -e "const t=require('fs').readFileSync('PATH','utf8'); const m=t.match(/^description:\\s*\\\"([^\\\"]+)\\\"/m); console.log([...m[1]].length)"`
   - CTR meta（`rewrite_type=meta`）は title/H1/description が成果物本体。短い description はリライト不成立とみなす（手順: Vault `ctr-rewrite-queue`「meta 完了ゲート」）

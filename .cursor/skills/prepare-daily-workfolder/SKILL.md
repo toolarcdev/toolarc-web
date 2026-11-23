@@ -88,9 +88,9 @@ obsidian create path="01_Daily/{YYMM}/{YYMMDD}/AI-log-{YYYY-MM-DD}.md" content="
 
 4. **obsidian-markdown** に従い、Vault 内リンクは `[[wikilink]]`、埋め込みは `![[...]]`、callout 可
 5. 完了前: 対象日フォルダに `* 1.md`（衝突別名）が無いことを確認。あれば削除して報告
-6. 完了報告: TargetDate / 作成パス2つ / week-queue 当日行の引き継ぎ有無 / 作成経路（A または B）
+6. 完了報告: TargetDate / 作成パス2つ / 固定台帳への案内 / 作成経路（A または B）
 
-**フェーズ参照**: `docs/plan/phase-now.md`／評価フェーズ移行ノート §5.4（DailyNote「今日やること」＝ week-queue 当日行。公開フォーカス3本は廃止）
+**フェーズ参照**: docs/plan/phase-now.md。予定と進捗はカレンダーで確認し、DailyNoteには当日の要点と恒久IDを記録する。
 
 ## DailyNote テンプレ（必須構造）
 
@@ -105,18 +105,7 @@ obsidian create path="01_Daily/{YYMM}/{YYMMDD}/AI-log-{YYYY-MM-DD}.md" content="
 
 ## 今日やること
 
-### week-queue（当日 `day` 行・正本はキューファイル）
-
-（active な `week-queue-*.md` から TargetDate の行を列挙。無ければ空＋「水曜⑥／Skill B でキュー未作成または週外」の注記。**公開3本選定・前日からの3本引き継ぎはしない**）
-
-### その他（キュー外・`publish_date` 対象外）
-
-> [!info] レーンB
-> 未完了の正本は [[active-tasks]]。DailyNote は投影のみ。
-
-![[active-tasks#投影用チェックリスト（単発）]]
-
-![[active-tasks#投影用チェックリスト（週枠）]]
+予定・進捗は[タスク管理カレンダー](http://127.0.0.1:4174/)と[[task-ledger]]。確認した当日・期限超過の恒久IDと実行条件を必要に応じて記録。
 
 ## 今日の成果物
 
@@ -130,27 +119,10 @@ obsidian create path="01_Daily/{YYMM}/{YYMMDD}/AI-log-{YYYY-MM-DD}.md" content="
 
 ## 明日やること
 
-### week-queue（翌日 `day` 行）
-
->（⑥で active week-queue の翌日 `day` 行を投影。inbox からの3本選定はしない）
-
-### その他（キュー外）
-
-![[active-tasks#投影用チェックリスト（単発）]]
-
-![[active-tasks#投影用チェックリスト（週枠）]]
-
----
+次回は[タスク管理カレンダー](http://127.0.0.1:4174/)で予定を確認。必要な申し送りのみ恒久IDと共に記録。
 
 ## 作業ログ
 ```
-
-### week-queue 投影ルール
-
-- **引き継ぐのは week-queue の当日（およびテンプレ上は翌日）`day` 行のみ**（レーンAの実行明細）
-- W3 / Review-2 等の一般タスクは DailyNote にコピーしない（正本 [[active-tasks]]）
-- 前日ノートが無い／キュー節が空 → 空欄のまま（推測で inbox を埋めない）
-- 週次キュー作成は**水曜 Skill B のみ**（Skill A／日次⑥では新規 `week-queue` を作らない）
 
 ## AI-log テンプレ
 
@@ -168,4 +140,4 @@ Last Updated: {Get-Date の yyyy-MM-dd HH:mm}
 - TargetDate
 - 作成した2パス（または停止理由: 既存あり / 日付確認待ち）
 - 作成経路: A（`obsidian create`）または B（Vault 直書き）
-- week-queue 当日行投影: あり（件数）/ なし（キュー未参照）
+- 固定台帳とカレンダーへの案内を記載

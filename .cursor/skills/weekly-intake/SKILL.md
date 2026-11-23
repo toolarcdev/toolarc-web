@@ -91,11 +91,11 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 |----|------|
 | **テンプレ** | Vault `00-dashboard/weekly-intake-template.md` |
 | **設計・付録** | Vault `06_toolarc-business/202607/週次メンテSKILL化/週次メンテSKILL化_段階計画.md`（付録A/B） |
-| **後段** | `.cursor/skills/weekly-maintenance/`（Skill B — **week-queue 作成は B のみ**） |
+| **後段** | `.cursor/skills/weekly-maintenance/`（Skill B — 集計・分析と優先順位点検） |
 | 方針 | Vault `06_toolarc-business/評価フェーズ移行検討/toolarc.jp_評価フェーズ移行_現状と方針検討_2026-07-31.md` §5.2・§5.4 |
 | フェーズ | `docs/plan/phase-now.md` / `docs/seo-goals.md` |
 
-**やらないこと**: dashboard 転記（B）、⑤ batch、§5.1 執筆、日次メンテ、**`week-queue-*.md` の新規作成・確定**（§5.4.2 — Skill A は原料まで。キューは水曜⑥ Skill B）。
+**やらないこと**: dashboard 転記（B）、⑤ batch、§5.1 執筆、日次メンテ、未承認候補の台帳登録。
 
 ## 手順
 
@@ -111,7 +111,7 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 10. 判断1行・先週比（dashboard 前週列）。§5.1 は触らない
 11. §0 `②受領完了`。変更計画 → 承認後編集（運用どおり）
 
-**Skill A の役割境界**: intake §5 柱C handoff は **`new` 候補の原料**。例外ゲート（§5.2）判定と week-queue への載せは **Skill B**。薄味inbox・枠埋め目的の柱Cは禁止。
+**Skill A の役割境界**: intake §5 柱C handoff は **`new` 候補の原料**。Skill B で例外ゲート（§5.2）と既存タスクを確認し、採用済みの作業は固定台帳へ随時登録。薄味inbox・枠埋め目的の柱Cは禁止。
 
 ## 完了報告（短く）
 
@@ -121,5 +121,7 @@ Collector 既定: `D:\ObsidianVault\Vault\03-gsc-collector`
 - §1 要約 / Coverage 更新なし有無 / **読者ASP N/10**（2026-07-29〜）
 - §1.6 人気スロット候補 slug（あれば）
 - §2 件数 + primary_query 付与有無
-- §5 柱C handoff 件数（**week-queue は作らない**）
-- 次: ⑤（§5 のみ）→ 新規チャットで `週次メンテナンス続き`（＋同じフォルダパス）→ Skill B で week-queue 作成
+- §5 柱C handoff 件数
+- 次: ⑤（§5 のみ）→ 新規チャットで `週次メンテナンス続き`（＋同じフォルダパス）→ Skill B で優先順位を点検
+
+Last Updated: 2026-11-13 13:08
