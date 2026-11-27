@@ -1,5 +1,9 @@
 # ToolArc AGENTS Rules
 
+Last Updated: 2026-11-27 14:08
+
+**最優先は、読者が知りたいことを理解し、判断できるようにすること。その積み重ねでToolArcのアクセスと収益を伸ばすこと。** 作業や手順は、この目的への貢献と必要な工数を見て選ぶ。
+
 @docs/ai-context/writing-rules.md
 @docs/ai-context/llm-forbidden-phrases.md
 @docs/ai-context/editorial-room-terms.md
@@ -21,15 +25,30 @@
 | 編集室語（公開面禁止） | `editorial-room-terms.md` | 語彙正本（方針は writing-rules「読者最優先」。**「意味が分からない」系指摘は同セッションで追記**） |
 | 直アフィ可否（実装） | `lib/affiliate/policy.ts` | docs は説明のみ |
 | 画像振り分け | `.cursor/skills/blog-image-router/SKILL.md` | マップ: `image-intent-map.md` |
-| source.md 作成 | `.cursor/skills/create-source-md/SKILL.md` | **新規記事インプット**必須 → 構成・例外ゲート。Claude 共通制約は外出し（`references/claude-ai-draft-constraints.md`）。本文初稿はしない |
+| source.md 作成 | `.cursor/skills/create-source-md/SKILL.md` | **新規記事インプット**必須 → 構成・例外ゲート。Claude 共通制約は任意利用時だけ参照（`references/claude-ai-draft-constraints.md`）。本文初稿は次工程 |
 | L1任意観察（読み味カード） | `.cursor/skills/prose-observation-cards/SKILL.md` | 合否外。現役最大3。手順は `l1-review-article` が呼ぶ |
 | Obsidian／Vault 操作・編集 | 個人 Skill `obsidian-markdown` / `obsidian-cli` | ウィキリンク等の ToolArc制約の正本は `obsidian-markdown` |
 
 **North Star（最短）**: 3年以内に月収100万円。主戦略はオーガニック（SEO）。収益導線を壊さず伸ばす。フェーズ詳細は `docs/plan/phase-now.md`。
 
+## Codexの記事制作入口
+
+制作手順の正本は既存の `.cursor/skills/` に置き、Codexも明示パスで読む。同内容を `.agents/skills` や個人Skillへ複製しない。`create-source-md` → `toolarc-ja-prose` → `l1-review-article` → `publish-article` の各 `SKILL.md` を工程ごとに参照する。具体的な受渡しと任意のClaude経路は `docs/ai-context/chat-operations.md`。Codexでの読込は本入口と実在ファイルで検証し、Skill一覧への自動表示は保証しない。
+
+新規記事のinputは `article_input_planner` に、sourceは `article_source_designer` に、承認済みsourceからの本文初稿・全文編集は `article_body_writer` に委任する。採用済みの既存記事の本文改稿も `article_body_writer` が担当する。担当・受け渡し・L1との分担は `docs/ai-context/chat-operations.md` の記事フローと④を参照する。
+
 ## Repo boundaries（触るな）
 
 - 公開repo（本リポ）へ PoE2 / ゲーム JSON をコピー・生成・commit しない。正本は `toolarc-data`、API 用コピーは `toolarc-api`
+
+## ローカルのタスク管理カレンダー
+
+「カレンダー開いて」「カレンダー起動して」は、ToolArcのVaultタスク管理カレンダーを開く依頼として扱う。**カレンダーの起動・確認・表示にComputer Use（`cua_repl`）は使わない。** この依頼だけの場合は、以下の手順から始める。
+
+1. PowerShellで `http://127.0.0.1:4174/api/tasks` に短いタイムアウトでアクセスする。タスク一覧が返れば、起動済みのサーバーをそのまま使う。
+2. 接続できない場合は、`C:\projects\toolarc-task-calendar` を作業ディレクトリとし、`TASK_CALENDAR_VAULT=D:\ObsidianVault\Vault` と `TASK_CALENDAR_PORT=4174` を設定して `node server.mjs` を継続稼働するプロセスで起動する。起動後は同じAPIでタスク一覧を確認する。エラー時だけ `README.md` と起動出力を確認する。ポートの競合や台帳の起動ロックがあれば、既存プロセスとURLを確認し、強制停止やロック削除は行わない。
+3. 成功したら、PowerShellの `Start-Process 'http://127.0.0.1:4174/'` で既定ブラウザーに開き、URLと結果を伝える。タブの探索や画面の再確認は省く。
+4. 起動確認では `toolarc-web` のコード・設定やVaultのタスクデータを編集しない。予定日の変更依頼がある場合は、カレンダー画面または `calendar-cli.mjs` から同じサーバーを使う。
 
 ## ToolArcのタスク管理
 
@@ -39,7 +58,7 @@
 
 0. 現行フェーズを `docs/plan/phase-now.md` で確認する（評価フェーズ中の優先は固定台帳・統合／リライト／Hub・導線計測・負債。新規は例外ゲート通過分のみ）
 1. **記事**（構成・本文・CTA・SEO・禁止・Output Contract）→ `docs/ai-context/writing-rules.md`（空句 → `llm-forbidden-phrases.md`）
-2. **source.md 作成** → Skill `create-source-md`（当日フォルダに **`input-{slug}.md`** 必須 → `source-{slug}.md`。インプットのペルソナは任意の案。確定は source.md 側の Agent。Claude 共通制約は外出し。本文初稿・公開はしない）
+2. **source.md 作成** → Skill `create-source-md`（当日フォルダに **`input-{slug}.md`** 必須 → `source-{slug}.md`。インプットのペルソナは任意の案。確定は source.md 側の Agent。Claude 共通制約は任意利用時だけ参照。本文初稿・公開はしない）
 3. **収益記事の手順化** → Skill `revenue-article-template`（基準は writing-rules / `policy.ts`）
 4. **公開（①）** → Skill `publish-article` ＋ `.cursor/rules/article-publish.mdc`
 5. **L1（④）** → Skill `l1-review-article`（導入読み味の任意観察 → `prose-observation-cards`。深い推敲 → `toolarc-ja-prose`）
