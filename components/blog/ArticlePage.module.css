@@ -7,6 +7,7 @@
   --article-accent: #17665d;
   --article-line: #d7e0dc;
   --article-muted: #59645f;
+  --article-note-font-size: 13px;
   --article-hero: #183b37;
   --article-inverse: #f5f6f2;
   --article-white: #fff;
@@ -275,7 +276,16 @@
 .page .notes :global(.article-p),
 .page .articleAdLabel {
   color: var(--article-muted);
-  font-size: 13px;
+  font-size: var(--article-note-font-size);
+  line-height: 1.7;
+}
+
+.page :global(.article-figcaption) {
+  font-size: var(--article-note-font-size);
+}
+
+.page .smallPrint :global(.article-p) {
+  font-size: var(--article-note-font-size);
   line-height: 1.7;
 }
 

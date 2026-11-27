@@ -181,13 +181,20 @@ export function ArticleBody({
         const rendered = splitMarkedMarkdown(chunk.body, "article-recommendations").map((part, partIndex) => (
           <div key={partIndex} className={part.kind === "marked" ? styles.recommendations : undefined}>
             {splitMarkedMarkdown(part.body, "article-summary-table").map((section, sectionIndex) => {
-              const sectionContent = renderScrollAwareContent(
-                section.body,
-                imageBasePath,
-                `root-${index}-${partIndex}-${sectionIndex}`,
-                slug,
-                variant,
-              );
+              const sectionContent = splitMarkedMarkdown(section.body, "article-small-print").map((block, blockIndex) => {
+                const blockContent = renderScrollAwareContent(
+                  block.body,
+                  imageBasePath,
+                  `root-${index}-${partIndex}-${sectionIndex}-${blockIndex}`,
+                  slug,
+                  variant,
+                );
+                return block.kind === "marked" ? (
+                  <div key={blockIndex} className={styles.smallPrint}>{blockContent}</div>
+                ) : (
+                  <Fragment key={blockIndex}>{blockContent}</Fragment>
+                );
+              });
               return section.kind === "marked" ? (
                 <div key={sectionIndex} className={styles.summaryTable}>{sectionContent}</div>
               ) : (

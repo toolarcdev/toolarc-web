@@ -80,6 +80,10 @@ const COMPACT_IMAGE_FILES = new Set([
 
 /** 画像ごとの alt / キャプション（読者向けの説明） */
 const IMAGE_META: Record<string, { alt: string; caption: string }> = {
+  "meeting-record-to-report.png": {
+    alt: "複数の議事録から決定事項と保留事項を整理し、元の記録で根拠を確かめて報告文やスライドを作る流れ",
+    caption: "Notta Brainで決定事項と残課題を整理し、担当者が元の議事録で根拠を確かめてから報告資料にまとめます。",
+  },
   "notta-free-limits.png": {
     alt: "60分の会議を月1回使う場合、月120分以内でも1回3分の上限を超え、無料版では全文を確認できないことを示す図",
     caption: "月の合計が120分以内でも、60分の会議は無料版で全文を確認できません。",
