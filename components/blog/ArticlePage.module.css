@@ -272,6 +272,7 @@
   border-top: 1px solid var(--article-line);
 }
 
+.page .notes,
 .page .notes :global(.article),
 .page .notes :global(.article-p),
 .page .articleAdLabel {
