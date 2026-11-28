@@ -17,6 +17,14 @@ import type { BlogPostMeta } from "./types";
  * 3. 下記に1件追加
  */
 export const blogPosts = {
+  "notta-memo-plan-guide": {
+    contentId: "23-ai-transcription",
+    markdownFile: "003-notta-memo-plan-guide.md",
+    imageBasePath: "/images/blog/notta-memo-plan-guide",
+    publishedAt: "2026-11-28",
+    ogImage: "default-og.png",
+    category: "ai-workflow",
+  },
   "notta-brain-guide": {
     contentId: "23-ai-transcription",
     markdownFile: "002-notta-brain-guide.md",
